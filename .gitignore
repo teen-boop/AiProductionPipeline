@@ -1,0 +1,28 @@
+# OS / editor
+.DS_Store
+._*
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Secrets and local state — never commit
+.env
+.env.*
+*.key
+*.pem
+secrets*
+**/state.json
+pipeline.config.local.json
+
+# Generated media from trying the pipeline locally
+/MANUAL_GEN/
+/generated/
+/references/
+*.mp4
+*.mov

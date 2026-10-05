@@ -1,0 +1,25 @@
+{
+  "project": "My Film",
+  "aspect_ratio": "16:9",
+  "image_backend": {
+    "type": "cli | api | mcp | manual",
+    "name": "vendor or tool name",
+    "command": "path or command for a CLI (omit for api/mcp/manual)",
+    "endpoint": "base URL for an API (omit otherwise)",
+    "models": ["preferred model id"],
+    "auth_env": ["NAMES_OF_ENV_VARS_ONLY", "NEVER_THE_VALUES"],
+    "max_parallel": 2,
+    "cost": "free | subscription | paid credits",
+    "notes": "known limits: concurrency, rate limit, typical latency, cancel behaviour"
+  },
+  "video_backend": {
+    "type": "manual",
+    "name": "pasted by hand into the video tool",
+    "max_parallel": 1
+  },
+  "paths": {
+    "references": "references/",
+    "generated": "generated/",
+    "manual_pack": "MANUAL_GEN/"
+  }
+}

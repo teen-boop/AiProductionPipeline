@@ -1,0 +1,9 @@
+[
+ {"id": "s01_dock_wide", "base": "S01_dock_wide_", "folder": "generated/scene01",
+  "prompt": "Generate exactly 2 variations, each ONE single photograph — not a grid, not a collage. The attached image is the locked look of the ship.\nA harbour at dawn, 1912: a great four-funnelled liner at the quay, porters and passengers in the mist. Wide from across the dock at water level, a mooring rope soft in the near foreground.\nLOOK: a still frame from a high-end 35mm period feature film ...\nOPTICS: vintage anamorphic cinema lenses, shallow depth of field ...",
+  "refs": ["references/Props/liner/01_side_view.png"], "after": [], "status": "pending"},
+ {"id": "s01_hero_closeup", "base": "S01_hero_cu_", "folder": "generated/scene01",
+  "prompt": "Generate exactly ONE single photograph. The FIRST attached image is the START frame — change to a close-up of the SAME moment ... The other attached images are the hero's identity references.\n...",
+  "refs": ["@s01_dock_wide#1", "references/Characters/hero/01_bust.png", "references/Characters/hero/02_turnaround.png"],
+  "after": ["s01_dock_wide"], "status": "pending"}
+]
