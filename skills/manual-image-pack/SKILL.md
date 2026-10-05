@@ -65,6 +65,11 @@ Prompt structure and blocks: `references/prompt-blocks.md`.
      grade reference.
    - Ask for 2 variations or 2 different shots per job, never 4+. The user is
      clicking by hand.
+   - **One image per prompt.** A model used by hand draws "Image 1 / Image 2"
+     requests as ONE split-screen picture. `build_pack.py` therefore splits
+     every multi-shot job into PROMPT_1.txt, PROMPT_2.txt … (one standalone
+     single-image prompt each, same references → RESULT_1.png, RESULT_2.png …)
+     and every prompt forbids split screens, diptychs and side-by-side panels.
    - Keep historical and continuity rules inside the prompt text itself (the
      user will not remember them).
 3. **Sections** = the priority order the user should work in. The user's

@@ -2,7 +2,8 @@
 """Build a MANUAL GENERATION PACK: one folder per frame the user will generate by hand.
 
 Each frame folder gets:
-  PROMPT.txt      the full prompt — copy-paste as is
+  PROMPT.txt      the full prompt — copy-paste as is (PROMPT_1.txt, PROMPT_2.txt … when a job asks for several shots:
+                  one single-image prompt per shot, because hand-used models merge them into a split screen)
   ref_1_*.png …   reference images, numbered in the order to attach them
   ref_N_*.txt     a placeholder when the reference is a frame that is not generated yet
                   (contains a machine-readable line  WAITING_FOR: <job_id>#<n>)
@@ -33,21 +34,55 @@ T = {
  "en": dict(frame="FRAME", what="WHAT", count="IMAGES", diff=" (different shots — Image 1, Image 2 …)", var=" variations of one scene",
             refs="REFERENCES — attach in this order:", norefs="REFERENCES: none (prompt only).",
             how="HOW: 1) copy the whole PROMPT.txt  2) attach ref_1, ref_2 … in order  3) generate",
+            multi="HOW: this folder has {n} SEPARATE prompts — PROMPT_1.txt → save as RESULT_1.png, PROMPT_2.txt → RESULT_2.png … One generation per prompt, same references (ref_1, ref_2 … in order). Never put two shots in one image.",
             save="4) save the finished image(s) INTO THIS SAME FOLDER as RESULT_1.png{more} (best one = RESULT_1).",
             later="   Failed ones need not be saved. Intake will move RESULT files into the project.",
             dest="Goes into the project as", ready="ready start frame", wait="RESULT_{n}.png from folder {f} (generate that one first)",
             missing="NOT FOUND", ph="First generate the frame in folder {f}. Then attach its RESULT_{n}.png (or the best variant) as reference #{i}.",
             readme_title="# Manual generation pack", readme_body=[
              "Folders are in priority order. In every folder:",
-             "- **PROMPT.txt** — copy it whole;",
+             "- **PROMPT.txt** — copy it whole (if there are PROMPT_1.txt, PROMPT_2.txt … — each is a separate generation → RESULT_1.png, RESULT_2.png …);",
              "- **ref_1…, ref_2…** — attach in this order (a `.txt` instead of an image = a frame from another folder; do that folder first);",
              "- **INFO.txt** — what the frame is and how many images;",
              "- save the result **into the same folder** as `RESULT_1.png`, `RESULT_2.png` (best = RESULT_1).",
              "", "When results pile up, run intake (or ask Claude to \"collect the frames\")."],
             cols="| # | folder | images | refs | waits for | what |")
 }
-DEFAULT_HEAD = ("Generate the image(s) immediately — do not search the web, do not research, do not ask questions, do not write a plan. "
-                "Every image is a full-bleed 16:9 photograph filling the entire frame edge to edge — no black bars, no letterbox, no borders, no vignette, no captions, no watermark.")
+DEFAULT_HEAD = ("Generate the image immediately — do not search the web, do not research, do not ask questions, do not write a plan. "
+                "ONE single full-frame 16:9 photograph filling the entire frame edge to edge — NOT a split screen, NOT a diptych, NOT side-by-side panels, NOT a grid or collage; "
+                "no black bars, no letterbox, no borders, no vignette, no captions, no watermark.")
+
+
+ONE = ("Generate exactly ONE single photograph — one full frame, NOT a split screen, NOT a diptych, NOT side-by-side panels, not a grid, not a collage.")
+
+
+def split_prompt(prompt):
+    """Hand-used image models draw "Image 1 / Image 2" requests as ONE split-screen picture.
+    Return one standalone single-image prompt per "Image N —" line (or the whole prompt, made single-image)."""
+    lines = prompt.strip().split("\n")
+    shots = [(i, m.group(1)) for i, l in enumerate(lines) for m in [re.match(r"\s*Image (\d+)\s*[—–-]\s*", l)] if m]
+    def single(text):
+        text = re.sub(r"Generate exactly (\d+|two|three) (separate images|variations)[^.]*?(—[^.]*?)?\.", ONE, text)
+        text = re.sub(r"Generate exactly ONE single photograph(?! — one full frame)[^.]*?\.", ONE, text)
+        for a, b in [("Both images belong to the SAME scene, same light and colour grade.", "This photograph is one shot of a scene — keep its light and colour grade."),
+                     ("both images are closer shots of the SAME moment", "this image is a closer shot of the SAME moment"),
+                     ("Both images are closer shots of the SAME moment", "This image is a closer shot of the SAME moment"),
+                     ("all three images continue the SAME scene", "this image continues the SAME scene"),
+                     ("Both images", "This image"), ("both images", "this image")]:
+            text = text.replace(a, b)
+        return re.sub(r"\s+for Image \d+", "", text)
+    if not shots:
+        return [single(prompt.strip())]
+    out = []
+    for _, k in shots:
+        keep = []
+        for i, l in enumerate(lines):
+            m = re.match(r"\s*Image (\d+)\s*[—–-]\s*(.*)", l)
+            if m and m.group(1) != k:
+                continue
+            keep.append(f"THIS SHOT — {m.group(2)}" if m else l)
+        out.append(single("\n".join(keep)))
+    return out
 
 
 def n_images(prompt):
@@ -118,11 +153,16 @@ def main():
             else:
                 refs.append(f"ref_{i} — {L['missing']}: {ref}")
         n = j.get("n") or n_images(j["prompt"])
-        open(f"{d}/PROMPT.txt", "w", encoding="utf-8").write(f"{a.head}\n\n{j['prompt'].strip()}\n")
+        parts = split_prompt(j["prompt"])
+        if len(parts) == 1:
+            open(f"{d}/PROMPT.txt", "w", encoding="utf-8").write(f"{a.head}\n\n{parts[0]}\n")
+        else:
+            for pi, pt in enumerate(parts, 1):
+                open(f"{d}/PROMPT_{pi}.txt", "w", encoding="utf-8").write(f"{a.head}\n\n{pt}\n")
         info = [f"{L['frame']}: {j['base'].rstrip('_')}  ({j['id']})", "", f"{L['what']}: {scene_line(j['prompt'])}", "",
                 f"{L['count']}: {n}" + (L["diff"] if "Image 1" in j["prompt"] else (L["var"] if n > 1 else "")), "",
                 *( [L["refs"], *[f"  {x}" for x in refs]] if refs else [L["norefs"]] ), "",
-                L["how"], L["save"].format(more=", RESULT_2.png" if n > 1 else ""), L["later"], "",
+                *( [L["multi"].format(n=len(parts))] if len(parts) > 1 else [L["how"], L["save"].format(more=", RESULT_2.png" if n > 1 else "")] ), L["later"], "",
                 f"{L['dest']}: {os.path.relpath(j['folder'], root)}/{j['base']}N.png"]
         open(f"{d}/INFO.txt", "w", encoding="utf-8").write("\n".join(info) + "\n")
         json.dump({"id": j["id"], "folder": j["folder"], "base": j["base"], "n": n}, open(f"{d}/job.json", "w"), ensure_ascii=False, indent=1)

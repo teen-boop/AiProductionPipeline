@@ -67,5 +67,6 @@ Full-bleed 16:9, no black bars, no vignette, no rounded corners, no borders, no 
 - Bokeh discs in daylight → "bokeh ONLY from real visible light sources".
 - Duplicate hero object (e.g. two identical ships) when the character stands on it → "only ONE <object> in frame" + put the camera on it.
 - Black bars, rounded corners → FORMAT (intake.py also crops thin bars).
+- Two shots merged into one split-screen image → one shot per prompt (the pack splits "Image 1 / Image 2" jobs into PROMPT_1.txt, PROMPT_2.txt) and "ONE single full frame — NOT a split screen, NOT a diptych" in FORMAT.
 - Face drift → attach the identity refs and repeat the age in the text.
 - Wrong colours, clean digital look, no grain, everything in focus (typical when a different app or model is used by hand) → GRADE LOCK + FILM STOCK block with a grade reference frame attached last.
