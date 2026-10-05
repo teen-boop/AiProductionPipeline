@@ -37,6 +37,15 @@ OPTICS: vintage anamorphic cinema lenses, shallow depth of field — subject sha
 ```
 Never write "deep focus". It flattens the image into the miniature look.
 
+## 5b. GRADE LOCK + FILM STOCK (always — this is what keeps hand-made frames in the series' colours)
+Attach ONE approved frame of the same scene (or of the same mood: night exterior, lamp-lit interior, overcast exterior, sunset…) as the LAST reference, and say what it is for:
+```
+COLOUR GRADE REFERENCE: the LAST attached image is a frame from this same film — use it ONLY for the look: match exactly its colour palette, white balance, contrast and black level, its film grain, halation and shallow depth of field. Do NOT copy its content, people or composition. Target grade: <describe it: key (low/mid/high), contrast, light temperature, saturation; shadows / midtones / highlights / accent colours>.
+FILM STOCK & LENS: photographed on 35mm Kodak Vision3 500T motion-picture film — clearly visible organic film grain in the shadows and midtones, soft halation around every highlight, slightly lifted blacks, gentle highlight roll-off; NOT a clean digital image, NOT an HDR render. Anamorphic lens wide open (T2): a thin plane of focus on the subject, the background melting into soft vertical-oval bokeh, the foreground element blurred, slight softness and barrel distortion toward the frame edges.
+```
+For a change-to frame, the start frame already carries the grade — write instead: `COLOUR GRADE: keep exactly the colour palette, white balance, contrast, black level, film grain and depth of field of the START frame (the first attached image) — the new image must cut seamlessly with it.`
+Never pick a frame that is itself being redone as the grade reference.
+
 ## 6. FORMAT (last)
 ```
 Full-bleed 16:9, no black bars, no vignette, no rounded corners, no borders, no captions, no text, no watermark. No visible film camera, crew or modern equipment. Generate exactly <ONE single photograph | 2 variations, each ONE single photograph — not a grid, not a collage>.
@@ -50,6 +59,7 @@ Full-bleed 16:9, no black bars, no vignette, no rounded corners, no borders, no 
 | Hero object / vehicle | object lock frame | identity refs if a character is present |
 | Close-up / next moment (change-to) | the start frame | identity refs |
 | Recreate a reference picture | that picture | identity refs / object lock |
+| **Every non-change-to frame** | … | **+ one approved frame of the same scene/mood LAST, as the grade reference** |
 
 ## Common failures and the block that fixes them
 - Glossy AI poster, posing people → LOOK.
@@ -58,3 +68,4 @@ Full-bleed 16:9, no black bars, no vignette, no rounded corners, no borders, no 
 - Duplicate hero object (e.g. two identical ships) when the character stands on it → "only ONE <object> in frame" + put the camera on it.
 - Black bars, rounded corners → FORMAT (intake.py also crops thin bars).
 - Face drift → attach the identity refs and repeat the age in the text.
+- Wrong colours, clean digital look, no grain, everything in focus (typical when a different app or model is used by hand) → GRADE LOCK + FILM STOCK block with a grade reference frame attached last.

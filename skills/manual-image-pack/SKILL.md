@@ -56,6 +56,13 @@ Prompt structure and blocks: `references/prompt-blocks.md`.
    - **Change-to frames** (close-up, a few seconds later, end frame of a
      first/last pair): the first ref is `@<parent job id>#<n>`. The pack shows
      it as a placeholder until the parent frame exists.
+   - **Grade lock (mandatory):** a hand-used app or model will not know the
+     series' colours, grain or depth of field. Attach one approved frame of
+     the same scene (or same mood) as the LAST ref and add the GRADE LOCK +
+     FILM STOCK block (`references/prompt-blocks.md` §5b), with the grade
+     described in words, derived from that frame. Change-to frames match
+     their start frame instead. Never use a frame that is being redone as the
+     grade reference.
    - Ask for 2 variations or 2 different shots per job, never 4+. The user is
      clicking by hand.
    - Keep historical and continuity rules inside the prompt text itself (the
