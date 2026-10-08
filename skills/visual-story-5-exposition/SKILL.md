@@ -11,6 +11,12 @@ viewer. This is the shot that opens a scene and "exposes" the world. It's a dist
 between the reference bible and scene production: the reference sheets define what a location IS; the
 establishing shot is the first real in-story frame of it, and it becomes that scene's **master**.
 
+## Before you start: the room map
+For every interior, run `location-room-map` first. One photo shows one wall; the establishing shot
+and all later reverse shots need the whole room (4 walls, a door, windows on ≤2 adjacent walls, one
+of each object). Generate the missing walls as references and use the right wall per camera
+direction.
+
 ## What to produce
 
 For each location the script visits, one (or a few) **wide establishing shot(s)**:

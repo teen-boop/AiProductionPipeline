@@ -18,6 +18,12 @@ mode, light, depth of field, atmosphere, palette, film/technical, aspect ratio) 
 **verbatim** into every production prompt. Never re-derive the look from memory per-prompt — that's
 how drift creeps in over a long shot list. Template in `references/prompt-engineering.md`.
 
+## Scene continuity lock (run before writing the scene's prompts)
+Run `scene-continuity-lock` for every multi-shot scene: build the scene state sheet (who sits where on
+which furniture, props and their states, light, camera axis and mirroring for reverse shots), check each
+prompt against the previous and the next one, paste the CONTINUITY block verbatim into every prompt,
+and QC each generated frame against it. Background wall per shot comes from `location-room-map`.
+
 ## Master shot + continuity per scene
 
 - The first approved wide/establishing shot of a location is that scene's **master** — attach it

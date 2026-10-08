@@ -66,7 +66,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **31 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **33 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 ---
 
@@ -113,6 +113,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `storyboard-narrative-breakdown` — turns "camera does X, then Y" prose into a numbered shot list.
 - `storyboard-shot-selection` — justifies each shot size by the narrative job it does.
 - `storyboard-camera-continuity-ledger`, `storyboard-continuity-tracker` — camera, cut and state continuity between shots.
+- `location-room-map` — turns one location photo into a full room: floor plan, all four walls (windows on at most two adjacent walls, at least one door, one of each object, same decor density as the source), each wall generated as its own reference so reverse shots show the right wall.
+- `scene-continuity-lock` — per-scene state sheet (who sits where, prop states, light, camera axis, mirrored order on reverse shots); every storyboard panel and final-frame prompt is checked against the previous and next one, gets a CONTINUITY block, and is QC'd against the sheet.
 
 **Still images**
 - `cinematic-prompt-writer` — wide, medium and close-up prompts in one locked cinematic style.

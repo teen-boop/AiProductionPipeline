@@ -55,3 +55,5 @@ If a row shows a state with no shot explaining how it got there, that is the bug
 ## Relationship to other rules
 
 This is a text-level planning check and does not replace the image-generation-time rules in `loveart-video-animation` (master-shot chaining, conditional pose continuity, "recurring subjects follow the script not the master image"). Those rules keep a single generated image accurate to its own shot description; this skill keeps the sequence of shot descriptions accurate to each other before any image exists.
+
+After this text-level ledger is clean, run `scene-continuity-lock`: it turns the ledger into a CONTINUITY block inside every storyboard-panel prompt AND every final-frame prompt and QCs each generated panel/frame against it (seats, floor vs furniture, prop states, mirrored order on reverse shots, correct background wall from `location-room-map`).

@@ -11,6 +11,19 @@ This project accumulates skills as distinct, narrow tools (one per concern: shot
 
 ## The skill roster, by phase
 
+**Phase 0 — Script/Story Parsing** (only if the approved script/story from
+Phase 1 is an actual screenplay or narrative text with scenes and
+characters, not already a shot list)
+- `script-extractor` — breaks the material down scene by scene into
+  location (INT/EXT, day/night), characters present, props, actions, and
+  wardrobe, each tied to its scene, plus a cross-reference index for
+  anything recurring. Its output is binding for Phase 2 (which characters/
+  wardrobe need locking) and for every later prompt: once a breakdown
+  exists, a shot's day/night, wardrobe, and location facts get pulled from
+  its scene entry, never re-guessed from a one-line shot description —
+  that's the mechanism that stops night/day mixups and wardrobe drift
+  across shots of the same scene.
+
 **Phase 1 — Project Setup** (`loveart-video-animation` Stage 1)
 - Confirm new-project status and output folder (per the standing project-folder rule: originals stay untouched, outputs go to a dedicated project folder).
 - Get the script approved, in text, before any visual work starts.
@@ -22,6 +35,7 @@ This project accumulates skills as distinct, narrow tools (one per concern: shot
 **Phase 3 — Storyboarding** (three companion skills, run in this fixed order, on the text shot list, before any image exists)
 1. `storyboard-shot-selection` — for every beat, determine which shot size's defined narrative job (orientation / gesture / action / emotion / object contact / detail accent / dialogue / relationship) it actually needs, and write the reason inline. Flags/fixes adjacent shots that would share the same job without justification.
 2. `storyboard-continuity-tracker` — build the state ledger for the character and every recurring subject/object/handled prop across the now-sized shot list, and verify each shot's starting state is either identical carryover or an explicit shown consequence of the previous shot's ending state. Fixes or flags state-teleportation.
+   - then `scene-continuity-lock` — carry that ledger into the actual prompts: seat map, prop states, mirrored order on reverse shots, CONTINUITY block in every prompt, check vs previous AND next prompt, QC each frame. Interiors need `location-room-map` first (full room, correct wall behind each camera direction).
 3. `storyboard-reference-assembly` — per panel, read the locked-reference index in full, resolve every noun in the shot (including the full canonical environment of its location, not just what the one-line description names) to its exact locked asset, and produce the attachment manifest for generation.
 
 **Phase 4 — Generation** (`loveart-video-animation` Stage 4)
