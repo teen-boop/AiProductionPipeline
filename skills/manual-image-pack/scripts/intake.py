@@ -19,14 +19,19 @@ from PIL import Image
 EXT = (".png", ".jpg", ".jpeg", ".webp")
 
 
-def bars(im, thr=12):
+def bars(im, thr=6, flat=3):
+    """Edge rows/columns count as a bar only if they are BOTH near-black AND uniform —
+    dark film content (shadows, night) has texture and is never cropped."""
     g = im.convert("L"); w, h = g.size
-    col = lambda x: sum(g.getpixel((x, y)) for y in range(0, h, 4)) / len(range(0, h, 4))
-    row = lambda y: sum(g.getpixel((x, y)) for x in range(0, w, 4)) / len(range(0, w, 4))
-    l = next((x for x in range(w // 4) if col(x) > thr), 0)
-    r = next((x for x in range(w - 1, w * 3 // 4, -1) if col(x) > thr), w - 1)
-    t = next((y for y in range(h // 4) if row(y) > thr), 0)
-    b = next((y for y in range(h - 1, h * 3 // 4, -1) if row(y) > thr), h - 1)
+    def is_bar(vals):
+        m = sum(vals) / len(vals); sd = (sum((v - m) ** 2 for v in vals) / len(vals)) ** 0.5
+        return m <= thr and sd <= flat
+    col = lambda x: is_bar([g.getpixel((x, y)) for y in range(0, h, 4)])
+    row = lambda y: is_bar([g.getpixel((x, y)) for x in range(0, w, 4)])
+    l = next((x for x in range(w // 4) if not col(x)), 0)
+    r = next((x for x in range(w - 1, w * 3 // 4, -1) if not col(x)), w - 1)
+    t = next((y for y in range(h // 4) if not row(y)), 0)
+    b = next((y for y in range(h - 1, h * 3 // 4, -1) if not row(y)), h - 1)
     return l, t, r + 1, b + 1
 
 
