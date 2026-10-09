@@ -8,7 +8,7 @@
 | 3. Shot list | Prose → numbered shots, shot sizes justified, camera and state continuity tracked | `storyboard-narrative-breakdown`, `storyboard-shot-selection`, `storyboard-camera-continuity-ledger`, `storyboard-continuity-tracker`, `scene-continuity-lock` | shot list + ledgers + scene state sheet (`continuity/<scene>.md`) |
 | 4. Frames | Per shot: resolve references, write the still prompt, generate (backend) or pack it (manual) | `storyboard-reference-assembly`, `cinematic-prompt-writer`, `manual-image-pack` | frames in `generated/…`, or `MANUAL_GEN/` |
 | 5. QC | Format, identity, period, optics, story beat; reject with a reason and a prompt fix | `visual-story-7-platform-qc`, `manual-image-pack` intake | `_rejected/` with reasons |
-| 6. Video | One frame = one clip; small motivated camera moves; colour lock; first+last pairs only from change-to frames | `cinema-director-v3`, `seedance-prompt-writer`, `video-clip-continuity-chain` | per-frame video prompts |
+| 6. Video | One frame = one clip; small motivated camera moves; colour lock; first+last pairs only from change-to frames | `cinema-director-v3`, `animation-effects-catalog`, `seedance-prompt-writer`, `video-clip-continuity-chain` | per-frame video prompts |
 | 7. Storyboard | Frames in script order with labels; a checklist of clips | `visual-story-8-storyboard`, `seedance-shotlist-tracker` | storyboard sheet + tracker |
 
 ## Two working modes

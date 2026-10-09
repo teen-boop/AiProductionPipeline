@@ -1,6 +1,6 @@
 ---
 name: cinema-director-v3
-description: "Cinema director v3 for Seedance 2.0/2.5 and Higgsfield video prompts. Supersedes earlier cinema-director versions — prefer this one. Establishes the target Seedance version first, since 2.0 caps at 9 image references and 15 seconds while 2.5 allows 50 and 30. Writes production-grade multi-shot prompts on a locked 16-slot spine: shot header, Style Prefix, NO ON-SCREEN TEXT, CRITICAL blocks, Assets, Geometry Map, First Frame, lens locks in FOV degrees, Camera, Light and Colour, Atmosphere, timecoded Action Timing, Physics, Acting, Audio, and a Locks chain. Covers 8K photoreal capture, true-gravity physics, source-bound atmosphere, a dialogue protocol that stops the model inventing its own lines, microphone-proximity audio, hardened music suppression, and the lipsync protocol for attached tracks. Use whenever the user wants a Seedance or Higgsfield video prompt, a music video shot, a dialogue or performance scene, a lipsync sequence, an action sequence, or asks to break a scene into shots for video generation."
+description: "Cinema director v3 for Seedance 2.0/2.5 and Higgsfield video prompts. Supersedes earlier cinema-director versions — prefer this one. Establishes the target Seedance version first, since 2.0 caps at 9 image references and 15 seconds while 2.5 allows 50 and 30. Writes production-grade multi-shot prompts on a locked 16-slot spine: shot header, Style Prefix, NO ON-SCREEN TEXT, CRITICAL blocks, Assets, Geometry Map, First Frame, lens locks in FOV degrees, Camera, Light and Colour, Atmosphere, timecoded Action Timing, Physics, Acting, Audio, and a Locks chain. Covers 8K photoreal capture, true-gravity physics, source-bound atmosphere, a dialogue protocol that stops the model inventing its own lines, microphone-proximity audio, hardened music suppression, and the lipsync protocol for attached tracks. Includes an IMPRESSIVE MOTION layer: camera ownership and a camera arc, contrast and escalation with one peak stillness, measured near-misses, body spec + per-movement pose dictionary + anti-ragdoll, contact reactions, face-visibility plan, task-trigger-reaction behaviour, wardrobe state changes, a specific living world, time-pinned light, an ordered SFX score with silence, and a closing recap line. Also covers edited sequences of one-take scenes (absolute cut list, global reference numbering, one sheet per look), ACTING TASK blocks (want, stakes, obstacle, attention — play the action, not the emotion), already-in-progress openings, assigned hands and real mechanics, and making the impossible an ordinary measured fact (deadpan, fully formed in frame one, proven by shadows, end state locked). Use whenever the user wants a Seedance or Higgsfield video prompt, a music video shot, a dialogue or performance scene, a lipsync sequence, an action sequence, or asks to break a scene into shots for video generation."
 ---
 
 # Cinema Director v3 — Seedance 2.5 / Higgsfield Prompt Grammar
@@ -676,6 +676,142 @@ THE STROBE IS THE DEFINING FEATURE — CRITICAL: the space is lit by hard white 
 Always pair with: a **secondary light** holding a dim constant glow between hits so forms stay readable in the black · the **cadence quarantine** in Style Prefix · a **continuous-motion clause**: `nothing is ever frozen, held or static between flashes — every body is in continuous motion at all times, it is only the light that stops them`.
 
 **Per-beat light pulsing causes perceived choppiness.** On a report of choppy output, soften the pulse to a slow continuous swell first; if it persists, kill the pulse and go constant.
+
+---
+
+## IMPRESSIVE MOTION — WHAT MAKES A SHOT HIT
+
+> Companion: `animation-effects-catalog` — a growing library of concrete tricks by hero type (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, material/puppet characters, levitation, falls, face recast) and by effect. Pick 3–6 entries per shot from it; this section is the summary.
+
+A correct prompt renders a scene. An impressive one renders an *experience*: the viewer feels weight, speed, risk and release. Run every action or showpiece prompt through these levers before delivery. They sit inside the spine — mostly in CRITICAL BLOCKS, ASSETS, CAMERA, ACTION TIMING, PHYSICS, ACTING and AUDIO — they never add new slots.
+
+### 1. Camera ownership and a camera arc
+- **Name who/what is shooting and from where** — dolly at seat height, operator lying on the floor, drone following from behind, camera fixed outside a window. Every angle must be reachable by that rig; a change of rig is a cut, said out loud.
+- **Give the camera its own three-act arc**, not one move: *static hold → trigger → violent transition → sustained travel → stillness*. Example: locked exterior frame on a window → the subject drops out → the camera **holds on the empty frame for half a beat** → dives after her → banks and rolls through the action → drifts to a calm final frame.
+- **Every camera move answers an event**: event → camera response → recovery. A whip pan answers a head turn and *settles*; the camera flinches when something heavy lands and then holds; exposure jumps once with a flash and returns. Unmotivated motion reads as AI.
+- **Canted horizon as a measured range tied to the action** (`horizon cants 40–70° through the swings, levels at the peak`), never a constant tilt.
+- **Wide enough to show the body AND the world** during action — speed only reads against an environment.
+
+### 2. Rhythm and contrast
+- **Alternate opposites**: still ↔ violent, low ↔ high, close ↔ vast, loud ↔ silent. A shot that is fast all the time feels slow.
+- **Escalate, then release**: calm opening → first commitment → near-misses close to the ground → the biggest move → **one breathless moment of stillness at the peak** → a small figure against a big world at the end.
+- **Put numbers on risk**: `3 m above the street`, `2 m off the ground between taxis`, `4–5 quick steps along the wall`, `drops 30 cm short of the floor`. Measured proximity is what makes a near-miss feel real.
+- **One insert detail mid-action** — a close on the gloved hand, the paw on the button, the button depressing — then pull straight back to the wide. It gives the eye a beat of comprehension inside chaos.
+
+### 3. The body is the performance
+- **Body spec in the Asset**: height, mass, build, and how they move (`165 cm, 47 kg, moves like a trained gymnast — core always engaged`). For animals: real size, real weight, real gait.
+- **A per-movement pose dictionary** whenever a body does several kinds of action: `fall — calm, arms slightly out, eyes closed, clothes floating up · swing — arms forward gripping, legs together trailing, core tight · wall push-off — both feet plant flat, knees bend deep, legs explode to full extension, arms punch forward`. The model holds poses it was handed by name.
+- **Anti-ragdoll lock**: `joints bend naturally, spine curves correctly, never ragdoll, never limp, no floating limbs, proportions identical every frame`.
+- **Contact with the environment at every opportunity** — feet push off walls, a body grazes a railing, paws slip on the rug, boots skim a car roof — and **every contact has a reaction**: knees absorb, muscles engage, the surface gives, dust lifts.
+- **Emotion through the body when the face isn't visible**: map each beat to a body state and a sound — `the fall: surrender · first swing: tense focus, grip tight · near-miss: body jolts, a short laugh · peak: chest opens, arms spread, head back`.
+
+### 4. Face-visibility plan
+Decide **when the face is seen and when it is not** and lock it in a CRITICAL block: e.g. full face only in the opening moment and the one line; after that, back, silhouette and accidental profiles only. Hiding the face during action protects identity (no drifting face at speed) and makes the reveal moments count.
+
+### 5. Behaviour: task → trigger → reaction → continuation
+Every character starts busy with an ordinary task (eating popcorn, scrolling, fingering a silent chord). A specific trigger arrives; the reaction is small and caused (a glance, a released shoulder, a held breath); then they return to the task or act on it. Background figures get **independent, unsynchronised** tasks and never react as one. Never loop generic acting (smile-blink-tilt).
+
+### 6. Wardrobe and prop *states* over time
+List state changes on the timeline: `headphones start on the shoulders, pulled ON the ears before the fall, stay on for the rest of the shot`; `wet from 15s on`; `TV flat on its back from shot 7`. A change that is written becomes a beat; an unwritten one becomes a continuity error.
+
+### 7. A world that is alive and specific
+Name the *kind* of place and what it is not (`residential brownstones, bodegas, a delivery guy, someone walking a dog — NOT tourist Manhattan, NOT empty streets`), the lived-in clutter of interiors, and two or three background lives. Specific beats generic every time.
+
+### 8. Light as a time, not a mood
+Pin a real time and weather and **name what it is not**: `regular Tuesday 6 pm, overcast-leaning, soft warm light on facades, grey-blue sky with a little pink at the horizon — NOT golden hour`. Add one physical light event (reflections in the glass, headlights crossing, a portal flash) and how exposure answers it.
+
+### 9. Sound design as a score
+- **SFX only, ordered like a score**: ambience → small foley (creak, fabric, headphones) → the line → wind → snap → impacts → a laugh → a shout echoing between buildings → **silence at the peak**. The silence is part of the score.
+- **Microphone perspective**: room mic vs close mic; a distant TV sounds small and boxy; a voice far away sounds roomy.
+- Human non-verbal sounds (laugh, gasp, held breath, "WOOHOO!") are emotion; write them on the timeline.
+
+### 10. Texture scaled to framing, and honest realism words
+Pores, flyaways, catchlights shaped like the real sources — only in close-ups; natural faces in wides. Name the real capture (camera body, lens family, stock) once. Avoid adjective stacks (`8K masterpiece ultra-detailed`) as a substitute for direction — they do not define camera ownership, contact, acting or continuity.
+
+### 11. The recap line
+End long showpiece prompts with **one dense recap sentence** inside Locks that compresses the whole shot into a chain: `static window frame → back-first relaxed fall → camera dive → continuous follow from behind, face only in the window moment, physical contact everywhere, no ragdoll, SFX only, real pedestrians below, cant 40–70° in swings, zero cuts`. It re-weights the critical decisions at the end of the prompt, where the model reads last.
+
+### Impressive-motion check (add to the pre-delivery pass)
+- [ ] Camera rig named; the camera has an arc with a held still beat and a motivated big move
+- [ ] Contrast present: still/fast, low/high, close/vast, loud/silent; one peak stillness
+- [ ] Risk and proximity measured in metres/steps/degrees
+- [ ] Body spec + pose dictionary + anti-ragdoll lock for every moving body; every contact has a reaction
+- [ ] Face-visibility plan stated for action shots
+- [ ] Each character: task → trigger → reaction → continuation; background unsynchronised
+- [ ] Wardrobe/prop state changes on the timeline
+- [ ] Specific, alive world with what it is NOT
+- [ ] Light pinned to a time with one light event and the exposure response
+- [ ] Sound written as an ordered SFX score with a silence; mic perspective stated
+- [ ] Recap line closes Locks on long showpiece prompts
+
+## SEQUENCES, PERFORMANCE DEPTH AND THE IMPOSSIBLE MADE ORDINARY
+
+Lessons from long-form multi-scene showcase prompts (one 30-second film built from several one-take scenes). Use them whenever a prompt holds more than one scene, a character must *act* rather than pose, or the scene contains something impossible.
+
+### 1. Edited sequence of one-take scenes
+- **FORMAT states the edit**: `seven scenes, each ONE continuous take, hard cuts only at 8.0, 13.0, 17.5 … ending at exactly 30.0s; all timestamps absolute within the whole video`. One-take-per-scene keeps space continuous inside each scene while the cut list controls rhythm.
+- **Each scene opens with its own header**: shot type + `ONE CONTINUOUS TAKE` + its absolute time range.
+- **Each scene gets its own CAMERA line that also says what the camera does NOT do** (`no zoom, pan or tilt`; `locked-off, no shake or reframing`). Naming the forbidden moves is as important as naming the move.
+- **Per-scene STYLE line** may borrow a cinematographer's spirit when it truly fits (`natural-light intimate wide angle in the spirit of Lubezki and Malick`; `observational documentary`; `distant passer-by long lens`). One per scene, never stacked.
+- **Sound changes naturally at every picture cut**; music exists only as live in-scene sound in its own scene (`the cello is live sound only in its own scene`).
+
+### 2. Reference management at scale
+- **One global numbering for all images that never restarts between scenes**, listed once at the top with a one-line role for each; then each scene repeats only the subset it uses.
+- **A character with several looks gets one sheet per look** (`sheet1 = uniform look, sheet2 = red smock look …`), and each scene names which sheet applies.
+- **Sheet scope**: `the sheet controls identity, face, hair, clothing and proportions ONLY — replace the sheet's standing pose completely with the pose described below`. And always: `begin directly inside the scene; never show a reference sheet or studio background`.
+- **Guard against substitution**: `do not substitute either member of the couple for the lead`.
+
+### 3. ACTING TASK — direct intention, not emotion
+For every character who matters, write an **ACTING TASK** block in this order:
+1. **The situation from their side** (`one routine call in a long shift`; `his name goes on the document`).
+2. **What they want right now and why** — the stakes (`wants one honest answer because his silence feels like abandonment`).
+3. **The obstacle** (`the small text and his distant hands make it difficult`).
+4. **How their attention behaves** — where the eyes go, what interrupts them, what they check (`her eyes search his face after each question; the tissue interrupts that search`).
+5. **What they play and what they do NOT play**: play the action, not the feeling (`she plays the cheerful call, not the crying` — the tears are already there).
+Then the visible small arc: assess → act → check result → tiny reward (`her first smile comes only when the procedure has worked`). Never ask the face to "be sad"; give it a task and a stake.
+
+### 4. The impossible as an ordinary fact
+- **Deadpan lock**: `extraordinary details are ordinary facts of this world; no character acknowledges them` (`no awareness that his anatomy is unusual`; `neither acknowledges that the therapist is a cat`; `floating is her ordinary resting state`).
+- **Establish the impossible in the FIRST FRAME, fully formed**: `the neck is already this length and shape in the first frame`; `she is ALREADY levitating at the cut`. Never let the model "grow into" it.
+- **Measure it**: `the neck extends horizontally ~6 m`; `the lowest shoe hangs ~1.2 m above the rug`; `she occupies about one-third of the frame height`.
+- **Prove it with physics around it**: a separate soft shadow far below the floating body with the floor pattern visible between; hair and fabric hanging naturally from the suspended body; `only she levitates`; `no chair, stool, rope or support`.
+- **Lock the end state**: `the final frame still shows her entire body floating; she never stands, lands or straightens`.
+
+### 5. Already in progress
+Start every scene mid-life: `tears already on her cheeks`, `already delivering the end of a story`, `already playing a slow phrase`, `already riding briskly`. Combined with the First Frame slot this kills the warm-up seconds the model otherwise invents.
+
+### 6. Hands, props and mechanics
+- **Assign hands**: `the spray bottle stays in her right hand; her left hand performs every exchange`; `the vacuum stays at her hip, unused`. Each hand-off is a timed beat: give → take → place.
+- **Describe real mechanics of instruments and machines**: `bow hair stays on the strings between fingerboard and bridge; left fingers press and rock`; `tires stay grounded, pedal strokes drive the wheels, the skirt stays clear of chain and spokes`.
+- **Keep important exchanges visible** — `keep the hand exchanges in frame`; `background movement never hides the important exchanges`.
+
+### 7. Camera that carries emotion, and lens-specific depth
+- **The camera's own state can mirror the scene**: `the hand tremor is nervous at the start, settles when she steps between them, ends almost still with only breathing drift`.
+- **Tracking shots**: `the subject stays in the same place and scale in frame; near balusters pass fast, distant buildings slower with natural parallax`.
+- **Long-lens observation**: list the depth planes (`blurred grass in the foreground; both characters and the table sharp in the middle; pond and pedestrians soft behind`) and the long-lens behaviour (`compressed perspective, slight long-lens shake`).
+- **Dolly-out reveal** described as `walk backward a few steps to reveal …` with the final framing named.
+
+### 8. Light consistency details
+- `All three cast shadows in the same direction.`
+- Mixed sources tied to faces: `cool skylight on her face, a warm shop-window glow on one cheek, warm headlights in depth`.
+- Moving light: `passing lamps cast moving warm pools over her`; `dappled sunlight moves across the musician`.
+
+### 9. Wind and background as a list of specific movers
+`Wind moves curls, jackets, apron, rose petals and the spray`; `gulls cross at different distances, a train moves on the bridge, a ferry wake spreads, distant pedestrians keep walking`. Animals as an audience get **one specific behaviour each** (`the dog follows the bow arm and tilts its head once; the cat narrows its eyes, one ear turned to the cello; the robin makes one tiny hop`) and `stillness never becomes a frozen image`.
+
+### 10. Global closing block
+End multi-scene prompts with a short **GLOBAL** paragraph: shared natural attention, blinking and breathing; no frozen stares or synchronised reactions; identities, costume continuity and real textures preserved; sound changes with each cut; physical in-world lettering preserved.
+
+### Sequence & performance check (add to the pre-delivery pass)
+- [ ] FORMAT lists absolute cut times; every scene says ONE CONTINUOUS TAKE and its range
+- [ ] Global reference numbering + per-scene subsets; one sheet per look; sheet controls identity only; never show the sheet
+- [ ] Each scene's CAMERA states the move AND the forbidden moves
+- [ ] ACTING TASK per key character: situation, want + why, obstacle, attention, play the action not the emotion
+- [ ] Every scene starts already in progress
+- [ ] Impossible elements: deadpan, fully formed in frame one, measured, proven by shadow/hang/support, end state locked
+- [ ] Hands assigned; real mechanics of instruments/vehicles; key exchanges kept visible
+- [ ] Shadows in one direction; mixed sources tied to faces; wind and background as named movers
+- [ ] GLOBAL closing block on multi-scene prompts
 
 ---
 
