@@ -683,6 +683,8 @@ Always pair with: a **secondary light** holding a dim constant glow between hits
 
 > Companion: `animation-effects-catalog` — a growing library of concrete tricks by hero type (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, material/puppet characters, levitation, falls, face recast) and by effect. Pick 3–6 entries per shot from it; this section is the summary.
 
+> Companion: `seedance-edit-prompting` — when the task is an EDIT of existing footage (Seedance 2.5 Edit, Higgsfield video-to-video, Genjutsu, Ad Multiplier: recast a character, swap wardrobe or background, keep the source motion and cuts), use that skill's asset-mapping formula instead of the 16-slot spine, and verify the result numerically.
+
 A correct prompt renders a scene. An impressive one renders an *experience*: the viewer feels weight, speed, risk and release. Run every action or showpiece prompt through these levers before delivery. They sit inside the spine — mostly in CRITICAL BLOCKS, ASSETS, CAMERA, ACTION TIMING, PHYSICS, ACTING and AUDIO — they never add new slots.
 
 ### 1. Camera ownership and a camera arc

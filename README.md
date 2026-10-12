@@ -30,7 +30,7 @@ shot list   ── storyboard-narrative-breakdown · storyboard-shot-selection �
    ▼
 still frames ── cinematic-prompt-writer · storyboard-reference-assembly · manual-image-pack
    ▼
-video clips ── cinema-director-v3 · seedance-prompt-writer · video-clip-continuity-chain
+video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting · video-clip-continuity-chain
    ▼
 storyboard + shot-list tracker
 ```
@@ -125,6 +125,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 **Video**
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
 - `seedance-prompt-writer` — Seedance-format prompts that follow a project's own mandatory rules.
+- `seedance-edit-prompting` — Seedance 2.5 Edit / Higgsfield video-to-video: recast characters, wardrobe or backgrounds in existing footage while keeping motion, cuts and timing (asset mapping, identity link, shot order, no effects in recast), plus numeric motion-match verification with ffmpeg.
 - `video-clip-continuity-chain` — clips played back to back stay consistent.
 - `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
 
