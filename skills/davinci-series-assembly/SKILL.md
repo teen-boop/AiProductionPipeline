@@ -51,6 +51,15 @@ Use the DaVinci Resolve MCP tools.
      unasked.
 2. Add markers: `timeline_markers add {frame: record_start_frame, name: "<title>", color: "Blue", note: "<file>"}`, one per part.
 
+Marker colors Resolve accepts: Blue, Cyan, Green, Yellow, Red, Pink, Purple, Fuchsia, Rose, Lavender, Sky, Mint, Lemon, Sand, Cocoa,
+Cream. There is no "Orange". For a bilingual or multi-series reel, give each series and language its own colour (e.g. RU pipeline Blue,
+RU presentations Purple, EN pipeline Green, EN presentations Cyan), and prefix every marker name with the language: "RU · …", "EN · …".
+
+When the user asks to redo an existing assembly on a NAMED timeline:
+1. Remove only the old items and markers that this skill placed there; the MCP archives a version first.
+2. Append the new series.
+Never touch anything else on that timeline.
+
 ## 4. Verify (never report "done" without this)
 
 - `timeline probe_timeline_structure` must show:
