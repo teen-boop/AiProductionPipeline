@@ -143,6 +143,16 @@ Length: a teaser or announcement is 15–30 s. An explainer or "fireworks" piece
   - assumptions;
   - anything not fixed.
 
+## Series of parts
+
+When one clip cannot tell everything, split the presentation into a SERIES of equal-length parts (e.g. 28 s each). Each part has:
+- an opening card «Part N/M · topic»;
+- the same end card.
+
+Cover every step and rule of the subject across the parts, with real visuals in every beat, never text slides. Audio: the music score
+only. Use SFX only if the user asks for them, because random clicks and whooshes read as noise. Then assemble the parts on a DaVinci
+timeline with `davinci-series-assembly`.
+
 ## Rules
 
 - **Context before design.** No storyboard until the manifest exists and you have looked at its sheets.
