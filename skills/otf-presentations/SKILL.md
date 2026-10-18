@@ -186,6 +186,13 @@ timeline with `davinci-series-assembly`.
 
 ## Rules
 
+- **Source files are read-only.** Never run ffmpeg (or any tool) with `-y` while a project path can end up in the argument list:
+  - Write output only to a scratch or presentation folder.
+  - Pass inputs as a quoted array (`-i "$f"` per file). An unquoted list splits differently in zsh and bash, and ffmpeg then treats
+    the leftover paths as OUTPUT files and overwrites them.
+  - Prefer the bundled Pillow scripts for contact sheets.
+  - If duplicate checksums suddenly appear among source frames, stop and report. It is damage, not a pre-existing duplicate.
+
 - **Context before design.** No storyboard until the manifest exists and you have looked at its sheets.
 - **Real material only.** The payoff shows the project's real frames, chosen by the look, plus any frames the user named.
 - **Fonts must render the language.** Check the `cyrillic` flag in the manifest; never set Russian text in a font marked "no Cyrillic".

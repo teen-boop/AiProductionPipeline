@@ -60,5 +60,12 @@ or the same pose across time. Always QC on sheets.
 
 ## Rules
 
+- **Source files are read-only.** Never run ffmpeg (or any tool) with `-y` while a project path can end up in the argument list:
+  - Write output only to a scratch or presentation folder.
+  - Pass inputs as a quoted array (`-i "$f"` per file). An unquoted list splits differently in zsh and bash, and ffmpeg then treats
+    the leftover paths as OUTPUT files and overwrites them.
+  - Prefer the bundled Pillow scripts for contact sheets.
+  - If duplicate checksums suddenly appear among source frames, stop and report. It is damage, not a pre-existing duplicate.
+
 - Never deliver a frame you did not look at. Deliver an explicit list of accepted files, never "everything in the folder".
 - A frame that was claimed by a worker before you changed its prompt comes back with the OLD prompt. Check its timestamp against your edit.
