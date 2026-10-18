@@ -92,7 +92,6 @@ Write `<out>/plan.md`:
   - scanning lines;
   - palette swatches dropping out of an image;
   - typographic slams on music hits;
-  - film grain overlay;
   - anamorphic streaks on highlights;
   - deterministic particle sparks.
 
@@ -151,6 +150,21 @@ Cover every step and rule of the subject across the parts, with real visuals in 
 only. Use SFX only if the user asks for them, because random clicks and whooshes read as noise. Then assemble the parts on a DaVinci
 timeline with `davinci-series-assembly`.
 
+## Image quality (hard rules)
+
+- **No grain or noise overlays** in presentation videos: no film-grain layer, no dust, no noise textures. Grain in a UI-style presentation
+  reads as "static noise" and is amplified by compression. The film look comes from the frames themselves.
+- **Never upscale.**
+  - Every displayed image must satisfy `natural size ≥ displayed size ÷ 1.4`.
+  - Never blow up thumbnails (contact sheets, timecode sheets, hero sheets). Rebuild them from full-resolution sources, or show them
+    small.
+  - For video stills, extract frames at native size with ffmpeg.
+- No CSS blur on content images, except deliberate depth-of-field on background plates.
+- **Masters** use `-q high`. **Share copies** use CRF 18 with `-preset slow`. Do not use CRF 27 or `-tune grain`: dark gradients band and
+  fine detail smears.
+- After rendering, pull frames from the MP4 and inspect images at 100% for sharpness before delivering.
+
+## Languages and frame rate
 ## Languages and frame rate
 
 - **Bilingual by default when the video will be used for promotion.** Make the Russian (or source-language) cut first. When it
