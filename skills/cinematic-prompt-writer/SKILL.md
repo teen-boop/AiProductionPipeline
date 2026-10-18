@@ -127,6 +127,13 @@ not a hard requirement — if the current project or the specific request is
 set somewhere else or some other time, keep the rest of the technical/style
 language but swap that clause for the right setting.
 
+## Change-to and keyframe prompts carry the FULL style
+
+A "change to" or next-keyframe prompt that attaches only the start frame drifts into a glossy, deep-focus, saturated look. Every
+such prompt must also attach the project's colour-grade frame LAST and repeat the full style/optics block — never a shortened version.
+Sunsets and sunrises stay restrained: the sun a small white-hot point through haze, a muted amber-rose glow — never orange-saturated.
+See `keyframe-chain-builder` and `generation-failure-fixes`.
+
 ## Output format
 
 ```

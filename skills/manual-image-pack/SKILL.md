@@ -127,6 +127,12 @@ If the plan changes (new requests, rejected frames to redo), update the jobs
 list. Mark delivered jobs `done` with their `outputs`, so change-to children get
 the real start frame copied in, then rebuild the pack.
 
+## Related single-purpose skills
+
+- QC the intake on sheets with `frame-qc-contact-sheet` (its `trim_bars.py` crops thin letterbox bars).
+- Rejected frame? Find the fix line in `generation-failure-fixes`; wrong face → `identity-fix-pass`.
+- Placing the delivered frames → `storyboard-insert-ops`; hand-off to the animator → `animation-handoff-folder`.
+
 ## Rules
 
 - One frame per job folder, one prompt per folder.

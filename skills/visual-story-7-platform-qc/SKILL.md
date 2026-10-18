@@ -45,6 +45,13 @@ checklist, the continuity-check list for coverage sequences, character-sheet QC,
 identity-fix techniques (minor patch-in-place vs. full clean-slate regeneration) are in
 `references/qc-and-fixes.md`.
 
+## Small single-purpose helpers
+
+- `frame-qc-contact-sheet` — batch QC on sheets (contact, pair, face crops) and the letterbox-bar trimmer.
+- `generation-failure-fixes` — symptom → cause → fix line for the recurring model failures.
+- `identity-fix-pass` — the head-only identity edit and its verification.
+- `generation-queue-runner` — worker limits, rate-limit back-off, cost confirmations.
+
 ## When done
 
 Scenes generated, QC'd, delivered. The pipeline is complete — loop back to `visual-story-4-references`

@@ -14,7 +14,7 @@ check() {  # $1 = label, $2 = extended regex
   fi
 }
 
-check "API keys / tokens" '(sk-[A-Za-z0-9_-]{16,}|sk_[A-Za-z0-9]{16,}|ak_[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|xox[abpr]-[A-Za-z0-9-]{10,}|hf_[A-Za-z0-9]{20,}|r8_[A-Za-z0-9]{20,})'
+check "API keys / tokens" '(\bsk-[A-Za-z0-9_-]{16,}|\bsk_[A-Za-z0-9]{16,}|\bak_[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|xox[abpr]-[A-Za-z0-9-]{10,}|hf_[A-Za-z0-9]{20,}|r8_[A-Za-z0-9]{20,})'
 check "Private key blocks" '-----BEGIN [A-Z ]*PRIVATE KEY-----'
 check "Key assignments with a value" '(API_KEY|SECRET|TOKEN|ACCESS_KEY|PASSWORD)[A-Z_]*[[:space:]]*[=:][[:space:]]*["'"'"']?[A-Za-z0-9_/+-]{12,}'
 check "E-mail addresses" '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(com|net|org|io|ru|de|co|me|ai)\b'

@@ -28,7 +28,11 @@ references  ── character-identity-lock-setup · detail-reference-intake · o
    ▼
 shot list   ── storyboard-narrative-breakdown · storyboard-shot-selection · continuity ledgers
    ▼
-still frames ── cinematic-prompt-writer · storyboard-reference-assembly · manual-image-pack
+still frames ── period-fact-check · cinematic-prompt-writer · keyframe-chain-builder · storyboard-reference-assembly · manual-image-pack
+   ▼
+generate + QC ── generation-queue-runner · frame-qc-contact-sheet · generation-failure-fixes · identity-fix-pass
+   ▼
+placement   ── storyboard-insert-ops · animation-handoff-folder
    ▼
 video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting · video-clip-continuity-chain
    ▼
@@ -41,6 +45,8 @@ storyboard + shot-list tracker
 - **Cinematic look:** a period-cinema prompt style (anamorphic, shallow depth of field, motivated light) that avoids the glossy "AI poster" look.
 - **"Change to" chaining:** close-ups and next moments are re-framed from a master frame. Only frames made this way are used as first + last video pairs.
 - **Manual generation pack** (`manual-image-pack`): one folder per frame with `PROMPT.txt`, the reference images already copied in and numbered, and an `INFO.txt`. When you drop `RESULT_1.png` into the folder, the skill checks it, crops thin black bars, files it into the project and updates the storyboard and the video prompts.
+- **Keyframe chains:** micro-stories and time-of-day transitions as K1 → K2 → K3 stills, each generated from the previous one, so a video model can play them as first + last frame pairs. Physical realism and forward-moving time are checked.
+- **Small, single-purpose QC skills:** contact-sheet QC with scripts, a catalogue of failure → fix lines, a head-only identity fix, and worker/rate-limit discipline. Each one does one job, so the pipeline stays stable.
 - **Motion-graphics add-on:** Remotion code route plus video route, for charts and explainers.
 
 ---
@@ -66,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **34 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **43 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 ---
 
@@ -121,6 +127,16 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `cinematic-prompt-writer` — wide, medium and close-up prompts in one locked cinematic style.
 - `manual-image-pack` — hand-generation packs and intake of the results.
 - `loveart-video-animation`, `loveart-project-director` — the same phases written for the Lovart platform, if you use it.
+- `period-fact-check` — checks the dates, liveries, construction stage and who was where against a source before prompting, and turns each fact into an ACCURACY line.
+- `keyframe-chain-builder` — K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset → night) for first + last frame video; enforces physical realism, forward-moving time and the full style on every keyframe.
+
+**Generation, QC and placement (one job each)**
+- `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
+- `frame-qc-contact-sheet` — batch QC on labelled contact sheets, start|end pair sheets and face crops, plus a letterbox-bar trimmer (`scripts/`).
+- `generation-failure-fixes` — catalogue of recurring model failures (second subject from a reference, leaked names, bars, orbs, wrong city, anachronisms, frozen poses, unsafe physics) with the exact fix line.
+- `identity-fix-pass` — fixes a wrong face without re-shooting the frame, verifies it against the identity bust and keeps the storyboard slot.
+- `storyboard-insert-ops` — declarative placement ops (replace, after/before, *_late after a beat rebuild, fixes of fixes last) and post-build checks.
+- `animation-handoff-folder` — one flat folder of final frames in story order plus one prompt list with first/last-frame pairing, synced after every delivery.
 
 **Video**
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.

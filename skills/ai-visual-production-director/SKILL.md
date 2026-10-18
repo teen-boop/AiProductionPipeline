@@ -130,6 +130,25 @@ exists)
   into its own folder (PROMPT.txt + numbered reference images + INFO.txt),
   then collects the user's RESULT files back into the project, QCs them and
   wires them into the storyboard and the video prompts.
+- Before writing prompts for a real historical event, run `period-fact-check`
+  (sourced facts become explicit ACCURACY lines in the prompt).
+- Micro-stories, reveals, time-of-day transitions and any start/end frame
+  pairs: `keyframe-chain-builder` (K1 → K2 → K3 in waves, physical realism,
+  time moves forward, full style + grade on every keyframe).
+
+**Phase 4b — Generation, QC and placement (small, single-purpose skills)**
+- `generation-queue-runner` — workers, limits, back-off on rate limits, never
+  auto-confirm cost, waves for chained frames.
+- `frame-qc-contact-sheet` — QC every batch on labelled contact sheets, pair
+  sheets and face crops; reject with one fix line.
+- `generation-failure-fixes` — look up the symptom of a rejected frame and paste
+  the proven fix line.
+- `identity-fix-pass` — wrong face in a good frame: replace only the head,
+  verify with face crops, keep the slot.
+- `storyboard-insert-ops` — place delivered frames (replace / after / before /
+  *_late after a beat rebuild / fixes of fixes last).
+- `animation-handoff-folder` — one flat folder of FINAL frames in story order
+  plus one prompt list, synced after every delivery.
 
 **Phase 5 — Video/Animation Prompt Writing**
 - `seedance-prompt-writer` — writes production-grade Seedance-format video

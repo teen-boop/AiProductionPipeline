@@ -44,3 +44,10 @@ Every clip prompt in a chain beyond the first carries its own STATE HANDOFF bloc
 ## Relationship to other skills
 
 `storyboard-continuity-tracker` checks continuity across shots *within* a single planned sequence, before any image/video exists, and is cheap to fix. This skill checks continuity across the *generation boundary* between separately-produced video clips, where mistakes are expensive to fix — run both where they apply; they are not substitutes for each other.
+
+## Related: keyframe chains
+
+When the clips are driven by first + last frame pairs (Kling, Seedance with start/end frames), the continuity starts in the stills:
+build them with `keyframe-chain-builder` — the same world, the same orientation, time moving forward (nobody frozen in one pose across a
+time-lapse), physically possible actions, and the full style + grade on every keyframe.
+

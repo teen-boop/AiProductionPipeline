@@ -1,6 +1,6 @@
 ---
 name: animation-effects-catalog
-description: Growing catalog of proven tricks that make AI video (Seedance 2.x, Higgsfield, Kling, Veo) look cinematic and impressive — organised by HERO TYPE (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, painted/puppet/material characters, levitation, falling/action humans, face recast) and by EFFECT (camera, physics and contact, performance, voice and sound, light and integration, workflow modes, negative blocks). Each entry gives when to use it and a copy-ready English phrase. Use while writing or upgrading any video/animation prompt, when a shot feels flat, fake, floaty or staged, when a character type is unusual, or when the user pastes a strong prompt to "learn from" — then extract its new tricks and append them here. Triggers on усилить анимацию, эффекты для анимации, каталог подсказок, сделать впечатляюще, научись у этого промпта, how to make this shot better, cinematic tricks, video prompt tips.
+description: Growing catalog of proven tricks that make AI video (Seedance 2.x, Higgsfield, Kling, Veo) look cinematic and impressive — organised by HERO TYPE (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, painted/puppet/material characters, levitation, falling/action humans, face recast) and by EFFECT (camera, physics and contact, performance, voice and sound, light and integration, workflow modes, negative blocks). Each entry gives when to use it and a copy-ready English phrase. Use while writing or upgrading any video/animation prompt, when a shot feels flat, fake, floaty or staged, when a character type is unusual, or when the user pastes a strong prompt to "learn from" — then extract its new tricks and append them here. Triggers on boost the animation, effects for animation, tips catalog, make it impressive, learn from this prompt, how to make this shot better, cinematic tricks, video prompt tips.
 ---
 
 # Animation effects catalog
@@ -14,7 +14,7 @@ A library, not a template. `cinema-director-v3` gives the prompt its spine; this
 4. Close with the matching **negative block** template → section H.
 5. Write the chosen tricks into the prompt as concrete sentences in the right spine slot (ASSETS, CAMERA, ACTION, PHYSICS, ACTING, AUDIO, LOCKS) — never as a disconnected tag list.
 
-## How to grow the catalog ("научись у этого промпта")
+## How to grow the catalog ("learn from this prompt")
 When the user pastes a strong prompt:
 1. Read it fully. For every technique ask: *is it already in CATALOG.md?* If yes, only add a sharper example phrase if it is clearly better.
 2. Add each NEW technique as one entry in the right section: **name — when — copy-ready phrase**. Generalise names and props (no brand names, no specific people), keep the phrase reusable.
