@@ -136,6 +136,11 @@ exists)
   pairs: `keyframe-chain-builder` (K1 → K2 → K3 in waves, physical realism,
   time moves forward, full style + grade on every keyframe).
 
+**Presentations (any time)**
+- `otf-presentations` — announcement / explainer / teaser video of the project
+  or the pipeline: context manifest from the chat + references (+ fonts tested
+  for the language), then a HyperFrames composition in the project's look.
+
 **Phase 4b — Generation, QC and placement (small, single-purpose skills)**
 - `style-lock-guard` — ALWAYS on: lock the look to the director's references,
   lint every prompt before sending (runner gate), measure results vs the refs.

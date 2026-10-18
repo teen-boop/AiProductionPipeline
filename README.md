@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **46 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **47 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 ---
 
@@ -147,6 +147,9 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `segment-reference-lock` — assigns references to every block (automatically from the frames, or manually) and writes a LOOK LOCK into every block from the reference descriptions or the base details, plus the block's exact-motion and voice lines (original voice by default; new words only from the user).
 - `video-clip-continuity-chain` — clips played back to back stay consistent.
 - `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
+
+**Presentations**
+- `otf-presentations` — OTF Presentations: cinematic announcement / explainer / teaser videos (HyperFrames). Reads the context from the chat and the project's references first (embedded source prompts, style lock, best frames ranked by the look, videos, docs), picks fonts that really render the language (glyph-tested) and an animation vocabulary matched to the look, then plans, composes, checks frame by frame and renders. `scripts/otf_context.py`.
 
 **Motion graphics (a parallel track)**
 - `motion-graphics-director`, `motion-style-core`, `motion-design-references`, `motion-remotion-build`, `motion-video-route`.

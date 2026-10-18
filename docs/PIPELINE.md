@@ -10,6 +10,7 @@
 | 5. QC | Format, identity, period, optics, physics, story beat on contact sheets; the look measured against the director's references; reject with a reason and a one-line prompt fix | `style-lock-guard`, `frame-qc-contact-sheet`, `generation-failure-fixes`, `identity-fix-pass`, `visual-story-7-platform-qc` | `_rejected_vN_*` with reasons |
 | 5b. Placement | Accepted frames into the storyboard by ops; final frames + prompts into the hand-off folder | `storyboard-insert-ops`, `animation-handoff-folder` | storyboard + `ANIMATION/` folder |
 | 6. Video | One frame = one clip; small motivated camera moves; colour lock; first+last pairs only from change-to frames | `cinema-director-v3`, `animation-effects-catalog`, `seedance-prompt-writer`, `seedance-edit-prompting` (edits of existing footage: `video-cut-timecodes` → `segment-reference-lock` → timecoded prompt), `video-clip-continuity-chain` | per-frame video prompts |
+| 6b. Presentation | Announcement / explainer / teaser of the project or the pipeline, in the project's own look, from a context manifest (chat + references + fonts + best frames) | `otf-presentations` | `otf-presentations/<name>/…mp4` |
 | 7. Storyboard | Frames in script order with labels; a checklist of clips | `visual-story-8-storyboard`, `seedance-shotlist-tracker` | storyboard sheet + tracker |
 
 ## Two working modes
