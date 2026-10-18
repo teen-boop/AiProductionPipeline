@@ -104,18 +104,20 @@ def classify(fam):
     return "other"
 
 
-def covers(path, text="\u0416\u0429\u042f\u0436\u0449\u044f\u0401\u0451"):
-    """True if the font draws real glyphs for the text (not the .notdef box) — checked by rendering, no fontTools needed."""
+def covers(path, text="\u0416\u0429\u042f\u0424\u041b\u0411"):
+    """True if the font draws real glyphs for these Cyrillic capitals (not the .notdef box) — checked by rendering, no fontTools needed.
+    Capitals only, so caps-only fonts (Bebas Neue) are judged correctly; missing glyphs all render as the SAME .notdef box."""
     from PIL import ImageFont
     try:
         f = ImageFont.truetype(path, 48)
-        notdef = f.getmask("\uffff").getbbox(); seen = set()
+        notdef = bytes(f.getmask("\uffff")); masks = []
         for ch in text:
-            m = f.getmask(ch); bb = m.getbbox()
-            if not bb or (bb == notdef and bytes(m) == bytes(f.getmask("\uffff"))):
+            m = f.getmask(ch)
+            if not m.getbbox():
                 return False
-            seen.add(bytes(m))
-        return len(seen) > len(text) // 2          # .notdef boxes are all identical
+            masks.append(bytes(m))
+        real = [m for m in masks if m != notdef]
+        return len(real) == len(masks) and len(set(masks)) >= len(masks) - 1
     except Exception:
         return False
 

@@ -58,7 +58,7 @@ The script writes:
 - **hero stills:** the project frames ranked by closeness to the look, with `hero_sheet.jpg`;
 - **videos** (durations) and **text docs** (headings, to pull titles and claims from);
 - **fonts:** every family classified (serif display / condensed / grotesk / script / mono). Each one is **tested for the language**:
-  the script renders the glyphs, so "Cinzel (no Cyrillic)" is a fact, not a guess. A display / accent / body pairing that covers the
+  the script renders the glyphs, so "Cinzel (no Cyrillic)" is a fact, not a guess; capital letters are tested so caps-only fonts such as Bebas Neue are judged correctly. A display / accent / body pairing that covers the
   language is proposed.
 
 Look at `hero_sheet.jpg` and `palette.png` yourself, then fill in `to_fill_by_model` in `otf-context.json`: purpose, audience, length,
