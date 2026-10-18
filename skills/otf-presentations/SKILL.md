@@ -5,17 +5,15 @@ description: >-
   HTML + GSAP → MP4), and UNDERSTANDS THE CONTEXT first: from the chat (purpose, audience, claims in the user's own words, must-show,
   banned) and from the project's material (the director's reference frames and the source prompts embedded in them, the style lock, the
   best project frames ranked by closeness to the look, videos, text docs). It also chooses FONTS that actually render the language
-  (Cyrillic coverage is tested, not guessed) and an ANIMATION vocabulary matched to the look. Successor of /brag for film and visual
-  projects. Use when the user asks for a presentation, announcement, teaser, launch or explainer video, "brag", "announcement", "presentation",
+  (Cyrillic coverage is tested, not guessed) and an ANIMATION vocabulary matched to the look. Use when the user asks for a presentation, announcement, teaser, launch or explainer video, "announcement", "presentation", "teaser",
   "how does X work", or a video about the pipeline itself.
 user-invocable: true
 ---
 
 # OTF Presentations
 
-`/brag` reads a website's code to make a launch video. A film project has no `index.html`. Its truth lives in the **chat** and in the
-**references**. OTF Presentations adds a context layer that reads both, writes down what it takes from where, and only then plans and
-renders the video in the project's own look.
+A film project's truth lives in the **chat** and in the **references**. OTF Presentations reads both, writes down what it takes
+from where, and only then plans and renders the video in the project's own look.
 
 ```
 chat + references + project frames + fonts
@@ -176,4 +174,3 @@ timeline with `davinci-series-assembly`.
   - `style-lock-guard`: the look;
   - `frame-qc-contact-sheet`: checking frames;
   - `animation-effects-catalog` and the `motion-*` skills: motion vocabulary;
-  - `brag` / `brag-slim`: the original website-to-video flow these steps extend.
