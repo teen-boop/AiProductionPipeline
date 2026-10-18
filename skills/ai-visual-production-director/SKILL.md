@@ -137,6 +137,8 @@ exists)
   time moves forward, full style + grade on every keyframe).
 
 **Phase 4b — Generation, QC and placement (small, single-purpose skills)**
+- `style-lock-guard` — ALWAYS on: lock the look to the director's references,
+  lint every prompt before sending (runner gate), measure results vs the refs.
 - `generation-queue-runner` — workers, limits, back-off on rate limits, never
   auto-confirm cost, waves for chained frames.
 - `frame-qc-contact-sheet` — QC every batch on labelled contact sheets, pair
@@ -163,6 +165,10 @@ exists)
   cover. Prefer this one for a project with no established Seedance-prompt
   conventions of its own; use `seedance-prompt-writer` when the project
   already has mandatory rules this skill should inherit.
+- Edits of existing footage (Seedance 2.5 Edit / Higgsfield / video-to-video):
+  `video-cut-timecodes` (one block per cut, auto or manual) →
+  `segment-reference-lock` (references + LOOK LOCK + motion + voice per block,
+  auto or manual) → `seedance-edit-prompting` assembles and verifies the prompt.
 - Whenever a scene is split into more than one clip meant to play
   consecutively, run `video-clip-continuity-chain` before writing each clip
   after the first — it forces the new clip's prompt to explicitly restate

@@ -34,7 +34,7 @@ generate + QC ── generation-queue-runner · frame-qc-contact-sheet · genera
    ▼
 placement   ── storyboard-insert-ops · animation-handoff-folder
    ▼
-video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting · video-clip-continuity-chain
+video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting (video-cut-timecodes · segment-reference-lock) · video-clip-continuity-chain
    ▼
 storyboard + shot-list tracker
 ```
@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **43 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **46 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 ---
 
@@ -131,6 +131,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `keyframe-chain-builder` — K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset → night) for first + last frame video; enforces physical realism, forward-moving time and the full style on every keyframe.
 
 **Generation, QC and placement (one job each)**
+- `style-lock-guard` — always-on look guard: locks the look to the director's own reference frames (and the source prompt embedded in their PNG metadata), lints every prompt before it is sent (required style phrases, no contradicting grade phrases, style frames attached last — wired into the runner as a gate), and measures every result against the references to catch the flat/grey "mediocre" look.
 - `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
 - `frame-qc-contact-sheet` — batch QC on labelled contact sheets, start|end pair sheets and face crops, plus a letterbox-bar trimmer (`scripts/`).
 - `generation-failure-fixes` — catalogue of recurring model failures (second subject from a reference, leaked names, bars, orbs, wrong city, anachronisms, frozen poses, unsafe physics) with the exact fix line.
@@ -142,6 +143,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
 - `seedance-prompt-writer` — Seedance-format prompts that follow a project's own mandatory rules.
 - `seedance-edit-prompting` — Seedance 2.5 Edit / Higgsfield video-to-video: recast characters, wardrobe or backgrounds in existing footage while keeping motion, cuts and timing (asset mapping, identity link, shot order, no effects in recast), plus numeric motion-match verification with ffmpeg.
+- `video-cut-timecodes` — splits a source video into one timecode block per cut (ffmpeg detection, frame sheet). When a block is wrong you choose: re-detect automatically or type the cuts manually (seconds or SS.FF).
+- `segment-reference-lock` — assigns references to every block (automatically from the frames, or manually) and writes a LOOK LOCK into every block from the reference descriptions or the base details, plus the block's exact-motion and voice lines (original voice by default; new words only from the user).
 - `video-clip-continuity-chain` — clips played back to back stay consistent.
 - `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
 
