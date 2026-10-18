@@ -114,7 +114,7 @@ Length: a teaser or announcement is 15–30 s. An explainer or "fireworks" piece
   - `<audio data-start>` for the music and SFX.
 - **Assets:** copy every image, video and font into the composition with ASCII file names. Paths with spaces or Cyrillic break
   loading. Load fonts with `@font-face` from the copied files.
-- **The look comes from the manifest:** the palette, the director's references, grain and light. A video about a dark, cinematic film is
+- **The look comes from the manifest:** the palette, the director's references and the light. A video about a dark, cinematic film is
   never a white SaaS card deck.
 - Particles and noise must be deterministic: use a seeded generator driven by the timeline, so renders are repeatable.
 
