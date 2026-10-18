@@ -173,6 +173,13 @@ timeline with `davinci-series-assembly`.
   - keep file and skill names as they are;
   - re-check that the longer lines still fit and hold.
   - Name the files `…_ru` / `…_en`.
+- **Language purity:** a version in one language shows NO text in the other script. An English cut contains zero Cyrillic:
+  - not in text, file names, code or prompt snippets;
+  - not in font samples;
+  - not inside images (UI screenshots, contact-sheet labels, thumbnails).
+
+  Keep a separate asset folder per language. Before rendering, grep the composition for the other script (`[\u0400-\u04FF]`). After
+  rendering, look at one frame per second of the finished MP4.
 - **Render at the frame rate of the edit it goes into.** Ask, or read it from the target DaVinci timeline (`timeline get_setting
   timelineFrameRate`). A 30 fps clip on a 24 fps timeline drops frames and stutters. Render with `npx hyperframes render -f 24`
   (or the timeline's rate).
