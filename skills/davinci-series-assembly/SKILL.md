@@ -24,6 +24,12 @@ python3 scripts/series_manifest.py <out>/series.json part1.mp4 part2.mp4 … [--
 - Each clip's record start (seconds and frames) becomes its marker position.
 - `series_master.mp4` is a stream-copied concatenation. Watch the joins in it before touching Resolve.
 
+## 1b. Match the timeline frame rate first
+
+Read the target timeline's rate (`timeline get_setting timelineFrameRate`). If the clips differ, re-render them at that rate before
+assembling, and do not let Resolve drop or repeat frames. Use the user's existing timeline if they named one (append to its end),
+otherwise create a new one.
+
 ## 2. Resolve: project and media
 
 Use the DaVinci Resolve MCP tools.

@@ -153,6 +153,18 @@ Cover every step and rule of the subject across the parts, with real visuals in 
 only. Use SFX only if the user asks for them, because random clicks and whooshes read as noise. Then assemble the parts on a DaVinci
 timeline with `davinci-series-assembly`.
 
+## Languages and frame rate
+
+- **Bilingual by default when the video will be used for promotion.** Make the Russian (or source-language) cut first. When it
+  passes, make an English copy:
+  - translate every on-screen line;
+  - keep file and skill names as they are;
+  - re-check that the longer lines still fit and hold.
+  - Name the files `…_ru` / `…_en`.
+- **Render at the frame rate of the edit it goes into.** Ask, or read it from the target DaVinci timeline (`timeline get_setting
+  timelineFrameRate`). A 30 fps clip on a 24 fps timeline drops frames and stutters. Render with `npx hyperframes render -f 24`
+  (or the timeline's rate).
+
 ## Rules
 
 - **Context before design.** No storyboard until the manifest exists and you have looked at its sheets.
