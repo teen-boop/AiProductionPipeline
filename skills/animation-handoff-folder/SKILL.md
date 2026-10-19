@@ -32,8 +32,10 @@ ANIMATION/                     (one flat folder — no subfolders)
   - the continuous-shot prompt with timed beats (`0–5 s: …`);
   - a colour lock line, generated from the frame's own palette;
   - a negative line.
-- **Keyframe chains:** the entry starts with
-  `KLING: Start frame = <this>, End frame = <next number>`. The last keyframe of a chain says it is a start frame only.
+- **Keyframe chains:** the entry starts with `KLING: Start frame = this picture, End frame = the picture <exact file name of the end frame>`.
+  Never write "the NEXT picture in this folder": as soon as another frame is inserted between a start and its end (transitions,
+  interleaved micro-stories), the next picture is the wrong one. Resolve the end frame from the chain's pairs at sync time; if it is not
+  final yet, say so. The last keyframe of a chain says it is a start frame only.
 
 ## Sync rules (run after every delivery)
 

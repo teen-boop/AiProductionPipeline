@@ -41,14 +41,23 @@ def main():
     OUT = a.out or f"{A}_PROMPTS.html"
     rel = os.path.relpath(A, os.path.dirname(os.path.abspath(OUT)))
     disk = {nfc(f): f for f in os.listdir(A) if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")) and not f.startswith("._")}
+    SRC = lambda n: quote(rel) + "/" + quote(disk.get(n, n))
     frames = parse(pr if os.path.isabs(pr) else f"{A}/{pr}")
     for i, f in enumerate(frames):
         f["src"] = quote(rel) + "/" + quote(disk.get(f["name"], f["name"]))
         f["block"] = block(f["name"])
-        f["pair"] = "End frame = the NEXT picture" in f["prompt"]
-        if f["pair"] and i + 1 < len(frames):
-            f["end"] = frames[i + 1]["name"]
-            f["endsrc"] = quote(rel) + "/" + quote(disk.get(frames[i + 1]["name"], frames[i + 1]["name"]))
+        f["pair"] = "End frame = " in f["prompt"] and "start frame only" not in f["prompt"].lower()
+        # the end frame is NAMED in the prompt ("End frame = the picture <file>" or "End frame = <number>"); "the NEXT picture" is legacy
+        m = re.search(r"End frame = (?:the picture )?(\S+?\.png)", f["prompt"]) or re.search(r"End frame = (\d{4}[a-z]*|[A-Z]+\d+)\b", f["prompt"])
+        j = None
+        if m:
+            key = nfc(m.group(1))
+            j = next((k for k, g in enumerate(frames) if g["name"] == key or g["name"].startswith(key + "_")), None)
+        elif "the NEXT picture" in f["prompt"] and "not in this folder" not in f["prompt"] and i + 1 < len(frames):
+            j = i + 1
+        if f["pair"] and j is not None:
+            f["end"] = frames[j]["name"]
+            f["endsrc"] = SRC(frames[j]["name"])
         f["missing"] = f["name"] not in disk
     blocks = []
     for f in frames:

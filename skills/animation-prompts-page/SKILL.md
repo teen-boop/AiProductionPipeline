@@ -27,7 +27,8 @@ python3 scripts/prompts_page.py <hand-off folder> [--prompts <list>.txt] [--out 
   it doesn't know.
 - **Images:** linked relative to the page by their exact on-disk names. Nothing is copied or resized, and the full-resolution picture
   opens on click.
-- **Pairs:** an entry whose prompt says `End frame = the NEXT picture` is shown as a pair, with the next frame as its end frame.
+- **Pairs:** an entry whose prompt names `End frame = the picture <file>` (or a storyboard number) is shown as a pair, with THAT frame as
+  its end frame. The legacy "the NEXT picture" wording falls back to the next frame, but it is unreliable; fix the list instead.
 - **Done ticks:** stored in `localStorage` under a key made from the folder path. They survive rebuilds. They are per browser, which is
   enough for one animator.
 - The script prints the frame count and how many pictures are missing. A missing picture means the folder and the list are out of sync,
