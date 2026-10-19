@@ -32,7 +32,7 @@ still frames ── period-fact-check · cinematic-prompt-writer · keyframe-cha
    ▼
 generate + QC ── generation-queue-runner · frame-qc-contact-sheet · generation-failure-fixes · identity-fix-pass
    ▼
-placement   ── storyboard-insert-ops · animation-handoff-folder
+placement   ── storyboard-insert-ops · animation-handoff-folder · animation-prompts-page
    ▼
 video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting (video-cut-timecodes · segment-reference-lock) · video-clip-continuity-chain
    ▼
@@ -138,6 +138,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `identity-fix-pass` — fixes a wrong face without re-shooting the frame, verifies it against the identity bust and keeps the storyboard slot.
 - `storyboard-insert-ops` — declarative placement ops (replace, after/before, *_late after a beat rebuild, fixes of fixes last) and post-build checks.
 - `animation-handoff-folder` — one flat folder of final frames in story order plus one prompt list with first/last-frame pairing, synced after every delivery.
+- `animation-prompts-page` — the hand-off folder as one browsable page: picture + prompt + copy button, Kling end frame, filters, search, "done" ticks; rebuilt on every sync and always opened for the user.
 
 **Video**
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.

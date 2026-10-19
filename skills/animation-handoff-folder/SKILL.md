@@ -25,6 +25,8 @@ ANIMATION/                     (one flat folder — no subfolders)
 ```
 
 - File name: `<storyboard number>_<beat>_<label>.png`. Sorting by name equals story order.
+- Letter suffixes for inserted frames must keep that order: `a … y`, then `za, zb, …`. Never `aa`, which sorts between `a` and `b` in
+  Finder, so the user cannot find the frames and every "End frame = the NEXT picture" pairing breaks.
 - Each prompt entry has:
   - the file name and the duration;
   - the continuous-shot prompt with timed beats (`0–5 s: …`);
@@ -46,7 +48,8 @@ ANIMATION/                     (one flat folder — no subfolders)
 5. Every picture must have a prompt. A frame without its own prompt inherits it:
    - **identity fix:** strip `_idfix<N>` repeatedly until a known prompt is found;
    - **extra version:** use the prompt of version 1.
-6. Report: `ANIMATION: <n> final frames + prompts`. If the count changed by something other than what you delivered, investigate before
+6. Rebuild the browsable page with `animation-prompts-page`. When the user wants to see the prompts, open that page; never paste the list.
+7. Report: `ANIMATION: <n> final frames + prompts`. If the count changed by something other than what you delivered, investigate before
    telling the user it is ready.
 
 ## Never
