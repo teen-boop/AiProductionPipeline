@@ -1,67 +1,105 @@
 ---
 name: video-cut-timecodes
 description: >-
-  Splits a source video into TIMECODE BLOCKS — one block per shot, a new block at every cut — for video-to-video edit prompts (Seedance
-  2.5 Edit, Higgsfield, Kling, Runway). Detects cuts automatically with ffmpeg, shows a sheet with the first / middle / last frame of every
-  block, and when a block is wrong lets the user choose: re-detect AUTOMATICALLY (other sensitivity) or enter the cut times MANUALLY
-  (seconds or SS.FF editing-timeline frames). Validates that blocks are continuous and end at the video's end. Use before writing any
-  prompt that is based on another video, when the user gives a source clip for an edit/recast, or when generated cuts land at the wrong time.
+  Frame-accurate breakdown of a source video into TIMECODE BLOCKS — one block per shot, a new block at every cut — plus the timing of
+  the ACTIONS inside long takes, for video-to-video edit prompts (Seedance 2.5 Edit, Higgsfield, Kling, Runway). Detects hard cuts,
+  SOFT cuts (between dark or similar shots, which a plain scene threshold misses) and black frames, snaps every time to the frame grid,
+  takes the duration from the video stream (not the container), and draws a frame sheet per block plus a beat sheet (a frame every
+  0.5 s) for every take longer than 4 s. When a block is wrong the user chooses: re-detect AUTOMATICALLY or enter cut times MANUALLY
+  (seconds or SS.FF). Use before writing any prompt based on another video, when the user gives a source clip for an edit/recast, when
+  the user says the timecodes are wrong ("таймкоды не правильные", "разбери на таймкоды"), or when generated cuts land at the wrong time.
 user-invocable: true
 ---
 
 # Video Cut Timecodes
 
 The source video is the timeline. Each cut gets its own block, so every block can carry its own motion line, voice line, references and
-look lock (`segment-reference-lock`). A missed cut merges two shots into one description, and the model then blends them.
+look lock (`segment-reference-lock`). A missed cut merges two shots into one description, and the model then blends them. A wrong time
+inside a long take puts the action on the wrong moment.
+
+## What goes wrong without this skill (all seen in real projects)
+
+- **Missed cuts between dark or similar shots.** A studio reveal on black cut from wide to close scored 0.21–0.25. That is under the
+  0.30 threshold, but ten times its neighbours (about 0.02). The result was 6 blocks instead of 9.
+- **Rounded times.** One decimal turns 2.875 into 2.9 and 4.333 into 4.3. Seedance then cuts a few frames off.
+- **Wrong duration.** The container duration includes audio and data streams (16.53 s against 16.46 s of real video).
+- **A lost end frame.** A single black frame at the end was merged into the last shot by the minimum-length rule.
+- **Guessed action times inside a long take.** "Bends at 9.5 s" was guessed from 1-second samples. In reality the robot stops at
+  9.0 s and lowers the load from 13.5 s.
 
 ## 1. Detect (automatic by default)
 
 ```
-python3 scripts/cut_timecodes.py auto SOURCE.mp4 --fps 24 --out <project>/edit/<clip>_timecodes
+python3 scripts/cut_timecodes.py auto SOURCE.mp4 --out <project>/edit/<clip>_timecodes
 ```
 
-- `--threshold` is the scene-change sensitivity. The default is 0.30. Use 0.20 for soft cuts and dissolves, 0.40 when camera moves or
-  flashes create false cuts.
-- `--min` is the shortest allowed block in seconds. The default is 0.4. Cuts closer together than this are merged.
-- The script writes:
-  - `segments.json` (machine-readable);
-  - `segments.md` (a table in seconds and SS.FF at the fps);
-  - `segments_sheet.jpg` (first, middle and last frame of every block).
+- **fps and the frame count** are read from the video stream.
+- **Cut types:**
+  - HARD: scene score above `--threshold`. The default is 0.30.
+  - SOFT: a lone peak above `--soft` (default 0.12) that is at least 5x the median of its ±12 neighbours. These are marked
+    `shot (soft cut)`.
+  - **Black frames:** mean luma ≤ 20 of 255. They become their own `black` blocks and are never merged away.
+- `--min` (default 0.4 s) merges only false hard/soft cuts that sit too close together.
+- **Outputs:**
+  - `segments.json` holds frame numbers (`start_f`/`end_f`) plus seconds.
+  - `segments.md` is a table in seconds (2 decimals), SS.FF and frames.
+  - `segments_sheet.jpg` shows the first, middle and last frame of every block.
+  - `beats_bNN.jpg` is written for every block of 4 s or longer: a frame every 0.5 s, each labelled with its time and frame number.
+    Tune with `--beat-min` and `--beat-step`.
 
-## 2. Show the user and confirm
+## 2. Look before you trust it (mandatory)
 
-1. **Look at `segments_sheet.jpg` yourself first:**
-   - Does one block contain two different shots? Then a cut was missed.
-   - Do two consecutive blocks show the same shot? Then a false cut was found (a flash or a fast pan).
-2. Show the user the table and the sheet, then ask ONE question with two options (in the user's language):
-   - **Automatic.** Re-detect with a corrected sensitivity and re-check. Lower the threshold for missed cuts, raise it for false
-     ones. Iterate at most twice, then switch to manual.
-   - **Manual.** The user types the cut times: `"3.21, 7.10, 12.00"`. Ask whether these are seconds or SS.FF from an editing timeline.
-     At 24 fps, "03.21" means 3 s + 21 frames = 3.875 s. Then run:
-     ```
-     cut_timecodes.py manual SOURCE.mp4 "3.21, 7.10, 12.00" --frames --fps 24 --out …
-     ```
-3. If the user only corrects one block ("cut #4 is at 9.12"), you may apply that single change directly, then show the table again.
+1. **`segments_sheet.jpg`:**
+   - Does one block contain two different shots? Then a cut was missed. Do two consecutive blocks show the same shot? Then a false
+     cut was found (a flash or a fast pan).
+2. **Every `beats_bNN.jpg`:**
+   - A sudden jump in framing between two neighbouring frames is a missed cut. Find its exact frame with a finer sheet
+     (`--beat-step 0.0417` = every frame) and add it manually.
+   - For a real single take, write down the action beats from the labelled frames: when the subject starts walking, stops, bends,
+     touches, releases, and when the camera starts or stops moving. Use these times. Never guess them from coarse samples.
+   - Note dissolves and fades: they get a block of their own, or a line "dissolve from X to Y over A–B s".
+3. **Tell the user about any `black` or very short blocks.** They belong in the prompt ("one black frame, exactly as in @vid-1").
 
-## 3. Validate
+## 3. Confirm with the user
+
+Show the table and the sheets, then ask ONE question with two options (in the user's language):
+
+- **Automatic.** Re-detect with another sensitivity:
+  - for missed cuts, lower `--soft` to 0.08 or `--threshold` to 0.20;
+  - for false cuts, raise them.
+  - Iterate at most twice, then switch to manual.
+- **Manual.** The user types the cut times, for example `"3.21, 7.10, 12.00"`. Ask whether they are seconds or SS.FF from an editing
+  timeline. At 24 fps, "03.21" means 3 s + 21 frames. Then run:
+  ```
+  cut_timecodes.py manual SOURCE.mp4 "3.21, 7.10, 12.00" --frames --out …
+  ```
+
+If the user corrects one block ("cut #4 is at 9.12"), apply that single change directly and show the table again.
+
+## 4. Validate
 
 ```
 python3 scripts/cut_timecodes.py check …/segments.json
 ```
 
-The blocks must be continuous (no gaps, no overlaps), start at 0 and end at the video's duration. Any block shorter than 0.3 s is
-almost always a false cut. Do not write a prompt until the check says OK and the user has confirmed the blocks.
+- The blocks must be continuous on the frame grid, start at frame 0 and end at the last video frame.
+- A block shorter than 0.3 s that is not `black` is almost always a false cut.
+- Do not write a prompt until the check says OK.
 
-## 4. Hand over
+## 5. Hand over to the prompt
 
 - The confirmed `segments.json` is the timeline for:
-  - `segment-reference-lock` (references and look per block);
-  - `seedance-edit-prompting` (the final prompt, one block per shot).
-- Write block ranges in the prompt in seconds with one decimal, matching the source's time base. If the clip was trimmed from a longer
-  video, say which base is used and convert the user's timestamps.
+  - `segment-reference-lock`;
+  - `seedance-edit-prompting` (one block per shot).
+- **Write block ranges with two decimals** (`[2.88-4.33 s]`), exactly from the table. Do not round to whole or half seconds.
+- **A long take split into sub-blocks for the action beats** is labelled "same take, no cut", with the beat times from the beat sheet.
+  This stops the model from inventing cuts there.
+- **The last block ends at the real video end**, including black frames.
+- **If the clip was trimmed from a longer video,** say which time base is used and convert the user's timestamps.
 
 ## Rules
 
-- Never write a shot order from memory or from a different clip length. Every block comes from this file.
+- Never write a shot order or an action time from memory, from a different clip length, or from 1-second samples. Every time comes
+  from this script's table or beat sheets.
 - Re-run the detection when the user re-uploads or re-trims the source.
 - The tool is free and local (ffmpeg + Pillow). It never uploads the video anywhere.

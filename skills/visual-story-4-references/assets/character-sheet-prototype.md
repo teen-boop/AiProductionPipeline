@@ -75,3 +75,22 @@ Reject and regenerate if any of these are true — they all silently poison ever
 
 Once approved, this map becomes canonical: attach it alongside the real face photo for every later
 generation of this character — see `references/character-lock.md`.
+
+## Age variants (the same person at different ages)
+
+Validated order (Midlife Crisis project, Oct 2026) — the face is locked from a CLOSE-UP, never from a wide shot:
+
+1. **Approved close-up portrait first.** Head-and-shoulders, frontal, generated from the real photos only.
+   The user approves it. Wide/full-body shots are NOT identity sources: at full length the face gets
+   ~60 px and drifts into a stranger; the user rejected every full-body-first attempt.
+2. **Current-age prototype map** from that portrait (attach: approved portrait FIRST + real photos).
+3. **Age close-ups, one per age**, each via the "Change to" technique: attach approved current portrait +
+   real face photo, prompt starts `Change to the same man N years younger/older (about AGE): ...`, list
+   only the age deltas (skin, lines, grey %, hair volume, facial hair, face fullness), restate hair/eye
+   colour and costume, end with the mandatory face clause. Keep pose, light, background, framing identical.
+   Children (−25 y and younger): child skull/face proportions, no facial hair, same eye colour,
+   same brow line and nose shape scaled down; costume in child size.
+4. User approves each age close-up → then that age's prototype map from (age close-up FIRST + current
+   approved portrait + real photo). Name: `<name>_prototype_<costume>_age<NN>`.
+5. QC across ages: same eye colour, brow shape, nose bridge, ear shape, hairline logic; grey/lines grow
+   monotonically with age; body proportions in the headless view match the age.

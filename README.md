@@ -144,7 +144,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
 - `seedance-prompt-writer` — Seedance-format prompts that follow a project's own mandatory rules.
 - `seedance-edit-prompting` — Seedance 2.5 Edit / Higgsfield video-to-video: recast characters, wardrobe or backgrounds in existing footage while keeping motion, cuts and timing (asset mapping, identity link, shot order, no effects in recast), plus numeric motion-match verification with ffmpeg.
-- `video-cut-timecodes` — splits a source video into one timecode block per cut (ffmpeg detection, frame sheet). When a block is wrong you choose: re-detect automatically or type the cuts manually (seconds or SS.FF).
+- `video-cut-timecodes` — splits a source video into one timecode block per cut, frame-accurate: hard cuts plus soft cuts (lone score peaks), black frames by luma, duration from the video stream, beat sheets for long takes, and a continuity check. When a block is wrong you choose: re-detect automatically or type the cuts manually (seconds or SS.FF).
 - `segment-reference-lock` — assigns references to every block (automatically from the frames, or manually) and writes a LOOK LOCK into every block from the reference descriptions or the base details, plus the block's exact-motion and voice lines (original voice by default; new words only from the user).
 - `video-clip-continuity-chain` — clips played back to back stay consistent.
 - `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
