@@ -51,6 +51,10 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Only one exception** — always · `only she levitates; visitors stay grounded, the rug lies flat`
 - **Lock the end state** — always · `the final frame still shows her floating; she never stands, lands or straightens`
 - **Override the sheet pose** — when using a character sheet · `the sheet controls identity and clothing only; replace its standing pose completely with the airborne pose below`
+- **Frozen time with one exempt character** — time-stop scenes · `time locks completely at the peak of the spill; every face freezes in shock; only the girl at the counter keeps moving, completely unfazed — one slow deliberate sip` — her calm sells the power, not the VFX
+- **Rewind that changes the outcome** — time-loop gags · `the frozen world rewinds smoothly to the exact starting positions` → `she raises two fingers and calls the waitress, who turns just before the collision` — the effect becomes plot
+- **Visible trigger wave** — time-stop/power moments · `he snaps his fingers; a bright spherical shockwave erupts from his hand with visible air distortion and refracted light, expanding across the street; reflections ripple across the glass buildings` — then list exactly what freezes (dust and debris mid-air, pedestrians mid-step, pigeons mid-flight, hair suspended, particles in sunlight); the second snap sends a STRONGER reverse wave
+- **Private act, put back exactly** — frozen-world gags · `he removes the cup from her hand, takes a sip, then places it back exactly as it was` → after release `she carries on unaware, still holding her coffee`
 
 ### A7. Falling / action human (parkour, web-swing, fall through a fortress)
 - **Body spec + mover type** — always · `165 cm, 47 kg, moves like a trained gymnast — core engaged, never ragdoll, never limp`
@@ -62,6 +66,7 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Recovery with weight transfer** — after impact · `a trembling palm plants, a knee comes underneath, weight transfers through hand, knee and foot; she pauses partway to balance`
 - **Contact at every opportunity** — parkour · `feet push off walls, body grazes fire escapes, feet skim a car roof — every contact: knees absorb, muscles engage`
 - **Avoid loops** — tumbling · `no rigid spinning, no repeated identical somersaults`
+- **Leap followed by a 360° turn** — jumps between moving vehicles/rooftops · `the camera leaves with her as she leaps and makes ONE full 360° turn around her in the air at quarter speed, ending above the landing point; everything shares the slow motion` — one take binds take-off, flight and landing
 
 ### A8. Face recast / identity replacement on existing footage (video-to-video)
 - **Master video pixel lock** — always · `the reference video is the master: every pixel outside the face area stays identical, 1:1, in every frame`
@@ -93,6 +98,23 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Placeholder video = camera only** — when given blocking footage · `use the video only for camera paths, framing, cuts, timing, speed and the approximate travel of her centre of mass; replace the placeholders completely`
 - **Speed ramp shared by everything** — slow-motion beats · `smoothly enter brief quarter-speed slow motion, then regain speed; body, cloth, particles and architecture share the same time change`
 - **Speed from near passes, scale from slow far** — vast environments · `distant structures drift slowly at different rates; speed comes from her descent and structures passing the lens`
+- **Tiny figures in the wide** — landscape montages, identity on a budget · `tiny figures in the wide shot`; `small silhouettes against a golden sunset` — the world sells the shot and the faces have no chance to drift
+- **Walk-away ending** — closing a montage · `final wide shot of the two walking away down the trail toward the glowing canyon at sunset. Slow fade out.`
+- **Landing read through the impact** — action landings · `real speed on contact: the camera is locked to the roof and shakes with the hull, sparks pass the lens` — show the consequence, not a pose
+- **Interior, world streaking past** — chases · `tight 24mm inside the cockpit; canyon walls and drones streak past the windows — speed comes from the background, not the actors`
+- **Roll with the loss of control** — crashes · `the camera rolls with the spinning car, horizon going over; it levels out on the impact; the shockwave passes the lens`
+- **Stillness after chaos** — action endings · `locked long lens: she walks out of the smoke into the low sun as a silhouette`
+- **One rig per beat** — multi-beat action · a CAMERA PLAN with seconds, one rig + move + lens per beat and the forbidden moves; never a pile of "FPV, sweeping aerial, close-ups" for the whole clip
+- **Landscape-with-human vs human-forward** — montages · label each shot: landscape shots keep the person small and the land sharp; human-forward shots let the land do half the work
+- **Honest focus** — always · `eyes sharp when we see her face, landscape sharp when the land is the point`
+- **Observational breath** — documentary/lifestyle · `handheld is observational breath, never shaky-cam; no crane, no drone, no orbit, no snap zoom`
+- **Observer camera as a character** — candid / voyeur / documentary POV · `the camera is held by ONE standing man at eye level, ~1.75 m, 12–18 m away with the roadway between them; tighter framing comes only from the optical zoom, never from approaching; pans start late, overshoot and settle; people, poles and vehicles interrupt the view; focus recovers after obstructions; he never crosses the road` + lens per shot as `100mm equivalent`
+- **Measured chaos window** — one burst of panic in a calm take · `at 17–18 s, EXACTLY ONE SECOND of chaotic handheld as he runs several steps along HIS pavement: footfall jolts, tilted horizon, blurred sideways search — then he settles and reacquires her`
+- **Operator lowers the camera** — POV endings · `at exactly 29 s he lowers the camera from his eyes and tips the lens down in one continuous movement onto his own trouser legs, shoes and asphalt; widen to 35mm as it drops; a final handling wobble settles. End there.`
+- **Pull-out twist** — reveals that recontextualise · `the camera suddenly pulls backward, faster and faster; the sunlit road shrinks into the curved glass of a CRT — we are still in the dark room, his silhouette watching his own escape`
+- **The camera is a device in a hand** — found footage · `Hi8 camcorder in his hand: micro-shake, bad framing, autofocus hunting, weak on-camera light` — the light, the flaws and the ending (`the lens hits the car and the tape cuts`) all belong to the device
+- **Bracketed shot tags at a fixed cut rhythm** — found footage / panic · `hard cut every 1.5 s, twenty cuts`, each slot opens with `[POV walk]`, `[Whip pan]`, `[Ground shot]`, `[Look-back]`, `[Edge of frame]`… — no two neighbouring slots share an angle
+- **Camera hunts the event** — disasters, falling objects · `camera moves forward fast at high altitude → banks hard and accelerates to follow the meteor down → orbits the impact at high speed as the shockwave passes underneath`
 
 ## C. PHYSICS, CONTACT, MATERIALS
 - **Contact before motion** — any grab · `fingers close around it before it moves; release only after it settles; it stays at its new position`
@@ -104,6 +126,10 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Assigned hands** — exchanges · `the bottle stays in her right hand; her left hand performs every exchange; the vacuum stays at her hip, unused`
 - **Prop state timeline** — continuity · `headphones start on the shoulders, pulled onto the ears before the fall, stay on`
 - **Wind as named movers** — exteriors · `wind moves curls, jackets, apron, petals and the spray`
+- **Material instead of a VFX word** — portals, magic surfaces · `instead of solid glass, the screen ripples like liquid mercury under his palm`
+- **Suspended liquid with volume** — freezes, slow motion · `coffee hangs in mid-air as glassy ribbons and spheres with perfect volume and surface tension`
+- **Motion blur only on what moves** — freezes · `perfect motion blur only on moving elements` — in a freeze only the camera and the exempt character blur
+- **Impact as a chain of scales** — explosions/impacts · `blinding white flash → shockwave ring racing across the water → trees flattening radially → earth and water launching up in a towering column`; give size by objects, not by "extreme speed"
 
 ## D. PERFORMANCE
 - **ACTING TASK** — every key character · situation → want + why → obstacle → where the eyes go → `play the cheerful call, not the crying`
@@ -117,6 +143,16 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Tone guardrails** — gentle scenes · `graceful and playful, never aggressive — no stabbing, jabbing or slashing`
 - **Fear that doesn't reset** — action · `fear carries across cuts without restarting; expressions change in response to events; no frozen open mouth`
 - **Searching eyes before the head** — reactions · `her eyes shift toward the disturbance before her head turns`
+- **Seen from behind and from the side** — recurring heroes in many quick shots · in each character card: `mostly seen from behind and from the side. Keep her look identical in every shot.` — outfit colours carry the identity instead of the face
+- **Personality pair per hero** — ensembles · one contrasting pair per card (`playful and adventurous` / `calm, curious and cheerful`) so the two move differently in every beat
+- **END STATE per shot** — montages with hard cuts · each shot closes with `END: she has turned the page and is still leaning` — the model gets a target and the cut lands on finished action
+- **The movement is part of the shot** — anti-statue · `the sit is part of the shot, not a freeze`; `every shot contains visible human movement`
+- **Gesture budget** — avoids fidgety AI acting · `she catches her lapel once — this is her only clothing-adjustment gesture in the entire scene`
+- **Hand sequence** — multi-step errands · `her handbag stays on her left forearm; her right hand handles payment, coffee and keys in sequence`
+- **Gaze safety: one look into the lens** — POV scenes · `her gaze belongs to the people and objects she meets; she looks into the lens only once, immediately before entering the car — brief and unsmiling`
+- **A real conversation** — two-handers · `they STOP and actually converse: she listens, then answers; he responds to what she says rather than holding a frozen smile; passers-by thread around them`
+- **Ration the hero's face** — POV horror/thrillers · `a rare snap onto himself — one cut only, eyes wet, mouth shut, cam already leaving him`
+- **Human threat, escalated by detail** — horror without monsters · `real people, not creatures; practical skin; smiles too wide and too happy` → `the smile gets wider` → count and distance grow (one → two between him and the car → an arm's length back)
 
 ## E. VOICE AND SOUND
 - **SFX score with a silence** — showpieces · ambience → foley → line → wind → impacts → laugh → `silence at the peak`
@@ -127,6 +163,13 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Small-world sound** — miniatures · `high hum of tiny wings, a clock ticking somewhere, one soft sip`
 - **Space as sound** — interiors · `the reverberant hush of an empty theatre, light footsteps on old boards, a faint creak of the stage`
 - **Sound changes at each cut; live music only in its own scene** — sequences
+- **Payoff line only at the end** — montages · no dialogue until the last beat, then two short lines, one per hero (`"Best road trip ever." / "Let's never go home."`), then silence and fade
+- **Music cue tied to a beat** — montages · `a warm acoustic-guitar-and-piano melody that swells at the sunset`
+- **Sound from the camera's side** — POV/observer · `street sound recorded from the observer's side; her speech stays spatially distant beneath the traffic; when he runs, his footfalls and handling noise come forward`
+- **Attributed dialogue lines** — any spoken line · `WOMAN, after a brief listening beat, answers: "Good! Call me."` — speaker + situation + line
+- **Soundscape swaps with the world** — portals/escapes · `natural birdsong replaces the electrical humming`; end on one device sound (`a single CRT shutdown click`)
+- **Sound arrives after the light** — distant explosions · `half a second of silence after the flash, then the rumble arrives`
+- **Silence score for frozen time** — time-stop scenes · `city ambience → sharp snap → deep expanding rumble → complete silence → his footsteps only, a subtle echo → one sip → second snap → stronger reverse rumble → city noise returns → brief pause → footsteps`
 
 ## F. LIGHT AND INTEGRATION
 - **Light as a time, with a NOT** — always · `a regular Tuesday 6 pm, overcast-leaning — NOT golden hour`
@@ -138,6 +181,11 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Exposure event** — flashes · `exposure jumps once with the flash and settles`
 - **Passing light reveals the face** — dark action · `passing light reveals her face intermittently so expressions stay readable`
 - **Occlusion and reappearance** — crowds · `a close, soft-focus passer-by blocks her for a second; she reappears still on the same path`
+- **Time-of-day ladder** — multi-location montages · each beat gets its own light (sun rays through trees → sea mist → golden sunset → dawn fog → pink-and-lavender dusk → canyon glow) so quick cuts never look like the same frame twice
+- **Conditional grade** — natural looks · `gold only when the sun is actually in frame`
+- **Light table per shot + nothing added** — montages · one light line per shot, then `no added rim lights, no studio fill, no cinematic smoke`
+- **Palette contrast as plot** — portals, dreams, flashbacks · cold room vs warm window: `warm sunlight lights his face while the surrounding room stays cold and green`; the world flips palette when he crosses
+- **Environment-only references** — atmosphere films · `use the four supplied images as environmental references; keep the same motel, fog, neon, CRTs and cables throughout` — lock the world with 3–4 frames, keep the hero simple and mostly silhouetted
 
 ## G. WORKFLOW MODES
 - **Start-frame image-to-video** · `the video begins exactly on this frame … keep hair, outfit, set, light and colour exactly as in it`; keep 4 s clips to two beats (0–2 s, 2–4 s)
@@ -148,6 +196,17 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Multi-scene edit** — absolute cut list, one continuous take per scene, global reference numbering, GLOBAL closing block
 - **Never show the sheet** — character sheets · `begin directly inside the scene; never show a reference sheet, turnaround or studio background; only one instance of her per scene`
 - **Environment with no edges** — vast worlds · `structures extend above, below and beyond every frame edge; no sky, no empty horizon, no boundary`
+- **Fast montage in one prompt** — 15–25 s promos and travel/brand films · header line (genre, format, length, fps, look reference, world list, light, camera mix, grade, mood) → one CARD per hero (age, hair, exact outfit colours, personality pair, back/side rule, identity lock) → emoji-tagged beats of ~3 s, each `location → action → "Cut to" a second shot` → payoff dialogue + walk-away → AUDIO block → STYLE line with `consistent faces and outfits, no text, no subtitles, no logos, no watermark`; strip trailing hashtags
+- **Accessory lock with one allowed exception** — glasses/hats/props that references leak · separate EYEWEAR / HEADWEAR LOCK blocks: what is banned, the single allowed form (`goggles resting on her forehead, never over her eyes`) and `if a reference shows glasses, ignore that part of the reference`; in shot lines write it positively (`bare face`, `bare head, hair down`) — repeating the banned word 15 times primes it
+- **LOOK table mapped to shots** — wardrobe changes · `LOOK A (Shots 1, 9) … LOOK B (Shots 2, 3)`; every look used in a shot must exist in the table; add `wardrobe changes are location changes, not identity drift`
+- **VO as narration across a cut** — montages · `VO, her voice, close, narration across Shots 7–8, no lip-sync` plus `no other intelligible speech`
+- **No captions in generation** — any montage · put titles in the edit; a "captions" line without exact words and seconds makes the model invent text
+- **Diptych reference sheet** — person or vehicle · 16:9, neutral mid-grey cyclorama, two photos with a clean gap: person = full-length front (clothes, proportions) + large head-and-shoulders (identity, hair, jewellery); vehicle = front-3/4 + rear-3/4 with the interior seen through an open window; light and film stock already match the target scene. In the video prompt: `use the large portrait for identity and the full-length view for clothing`; `controls … only`; `reference-sheet layouts and studio backgrounds stay outside the video`
+- **Editorial time jump inside a scene** — errands, waiting · cut marker `(CUT FORWARD IN TIME TO)` and both shots state the difference (`the cup has not yet been handed to her` / `later, with the previous customer gone`); also `(CUT ON ACTION TO)` for matched action
+- **Shot fields** — dense multi-shot scenes · per shot `first_frame / camera / lens (mm equivalent) / camera_motion / action_visual / reaction / dialog`, then a cut marker
+- **World that runs on its own** — busy locations · `activity continues independently around her` + a list of independent background jobs (newspaper browser, delivery workers, café customers)
+- **Brand names out** — vehicles/products · describe the shape, not the make or emblem; brand words get refused or produce warped logos
+- **Inheritance chain for openings/titles** — title sequences, intros · `every shot must inherit one object, shape, texture or typographic element from the previous shot, and that element must transform into the central subject of the next` (sphere → reflection like an O → the O of the title → tunnel → iris → radial sunburst behind the next card); test each link with `surprising in hindsight but visually inevitable`; ban `unrelated cuts, arbitrary imagery, dissolve-only transitions`; 5–7 title cards; the finale gathers earlier motifs without repeating them literally and resolves into the last title, held calm and minimal
 
 ## H. NEGATIVE BLOCK TEMPLATES (pick the lines that apply)
 - **Gentle craft**: no aggression (no stabbing, jabbing, slashing); no turning to the camera; no cuts or zoom jumps; no slow motion; no paint where the brush hasn't touched; no change to hair or outfit; no text.
@@ -158,6 +217,7 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Action**: no ragdoll, no floating limbs, no repeated somersaults, no hero landing, no camera teleporting, no music.
 
 ---
+- **Non-generator words to drop**: `4K, Ultra HD, HDR, professional film production quality, 9:16 reframing` — describe light and grain instead.
 
 ## SOURCE LOG
 - 2026-10-08 — CyberJungle ultra-realism guide: camera ownership, event→response→recovery, task→trigger→reaction, contact chain, texture by framing, mic perspective, targeted exclusions (B, C, D, E).
@@ -169,3 +229,13 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - 2026-10-08 — torn-canvas girl three-shot film: material construction, no living tells, puppet motion contained, composite integration, occlusion, subtle material deterioration (A5, F, H).
 - 2026-10-08 — falling into a vast fortress with placeholder video: placeholder = camera only, environment without edges, asymmetric body timing, reach→fail→protect, impact chain, recovery, varied screams, shared speed ramp (A7, B, E, G).
 - 2026-10-08 — Cats EP01 production lessons: giants vs tiny human, enormous rescuer, scale change on contact, real costumed pets (A2, A3).
+- 2026-11-01 — "Best road trip ever" Seedance 2.5 travel montage (22 s, 7 beats): fast montage in one prompt, tiny figures in the wide, seen from behind/side, personality pair, payoff line at the end, music cue tied to a beat, time-of-day ladder, walk-away ending (B, D, E, F, G).
+- 2026-11-01 — Nordic nine-shot montage ("I'm gonna live every minute of it"): accessory lock with one exception, LOOK table, END STATE per shot, movement-is-part-of-the-shot, landscape vs human-forward, honest focus, observational breath, conditional grade, light table, VO across a cut, no captions in generation (B, D, F, G).
+- 2026-11-01 — Futuristic sky chase (user: good camera moves): leap + 360° turn, landing read through impact, interior with world streaking past, roll with loss of control, stillness after chaos, one rig per beat, words to drop (A7, B, H).
+- 2026-11-01 — Manhattan 1989 observer POV (diptych person + car refs, 8 shots / 30 s): observer camera as a character, measured chaos window, operator lowers the camera, gesture budget, hand sequence, one look into the lens, real conversation, sound from the camera side, attributed lines, diptych sheet, time-jump cut, shot fields, independent world, brand names out (B, D, E, G).
+- 2026-11-01 — "Channel Nine" VHS motel mystery (@umesh_ai, Seedance 2.5 on Runway; refs in the AI pipeline project): pull-out twist, palette contrast as plot, environment-only references, material instead of VFX word, soundscape swap (B, C, E, F).
+- 2026-11-01 — Hi8 gas-station found footage (@techhalla): camera as a device in a hand, bracketed shot tags at a fixed cut rhythm, ration the hero's face, human threat escalated by detail (B, D).
+- 2026-11-01 — 1950s diner frozen time + rewind (Seedance 2.5, 30 s): frozen time with one exempt character, rewind that changes the outcome, suspended liquid with volume, motion blur only on what moves (A6, C).
+- 2026-11-01 — "ORIGIN → CONTINUUM" 30 s title sequence (user: good for openings and titles): inheritance chain, match transition by form, design memory in the finale (G).
+- 2026-11-01 — meteor impact aerial chase (one take): camera hunts the event, impact as a chain of scales, sound after the light (B, C, E).
+- 2026-11-01 — finger-snap time freeze on a city sidewalk (15 s, steadicam backwards): visible trigger wave, private act put back exactly, silence score (A6, E).

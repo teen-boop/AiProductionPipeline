@@ -94,6 +94,9 @@ sheet's own close-up panel — it exists because a single strong portrait is
 often more useful to reference or show for approval than a panel cropped
 out of a four-panel composite.
 
+### 3. Diptych variant (fast, one image per look)
+When one image per look is enough (a short scene, one age), generate a 16:9 diptych on a neutral mid-grey cyclorama with a clean gap: left a complete full-length front view (crown to shoes, the outfit and the bag/props in the hands that will hold them), right a large head-and-shoulders portrait (face, hair, earrings, collar). Light it and grade it in the target scene's film stock, so the reference already matches the look. In the video prompt assign the panels: "use the large portrait for identity and the full-length view for clothing", and "reference-sheet layouts and studio backgrounds stay outside the video". The same two-view diptych works for a vehicle: front-3/4 + rear-3/4 with the interior visible through an open window; describe the shape, not the brand.
+
 ## Prompt template (reuse verbatim, only swap age/wardrobe per stage)
 
 ```

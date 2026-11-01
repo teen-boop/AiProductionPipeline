@@ -804,6 +804,12 @@ Start every scene mid-life: `tears already on her cheeks`, `already delivering t
 ### 10. Global closing block
 End multi-scene prompts with a short **GLOBAL** paragraph: shared natural attention, blinking and breathing; no frozen stares or synchronised reactions; identities, costume continuity and real textures preserved; sound changes with each cut; physical in-world lettering preserved.
 
+### 11. Observer camera (someone holds the camera)
+When the camera is a person in the world (a man filming her from across the street, a phone in a crowd), write a `camera_character` block instead of a camera move list: who holds it, eye height, real distance and what lies between, how tighter framing happens (optical zoom only, never approaching), the imperfections (late pans that overshoot and settle, tremor at rest, sway when walking, obstructions, focus recovering), and where the operator may never go (no interior angle, no camera beside her, no floating tracking). Give each shot a lens in "mm equivalent". Put chaos in a measured window ("exactly one second at 17–18 s"), keep sound on the camera's side, allow the subject one brief look into the lens, and end physically (the operator lowers the camera onto his own feet). See CATALOG B/D/E.
+
+### 12. Editorial time jumps and cut markers
+Inside one scene, mark cuts explicitly: `(CUT TO)`, `(CUT ON ACTION TO)`, `(CUT FORWARD IN TIME TO)`. A forward cut needs both shots to state what differs (the cup not yet handed / later, with the previous customer gone), or the model plays one continuous moment. For dense scenes, give every shot the same fields: `first_frame / camera / lens / camera_motion / action_visual / reaction / dialog`.
+
 ### Sequence & performance check (add to the pre-delivery pass)
 - [ ] FORMAT lists absolute cut times; every scene says ONE CONTINUOUS TAKE and its range
 - [ ] Global reference numbering + per-scene subsets; one sheet per look; sheet controls identity only; never show the sheet
