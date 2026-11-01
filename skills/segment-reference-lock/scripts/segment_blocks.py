@@ -4,13 +4,13 @@
   segment_blocks.py SEGMENTS.json REFS.json ASSIGN.json [--base BASE.json] [--voice VOICE.json] [--video @vid-1] [--out blocks.txt]
 
 SEGMENTS.json  from video-cut-timecodes (blocks with start/end)
-REFS.json      {"@img-1": {"name": "Koss", "kind": "character", "look": "man in the black leather biker jacket, short dark hair …"}, …}
+REFS.json      {"@img-1": {"name": "Max", "kind": "character", "look": "man in the black leather biker jacket, short dark hair …"}, …}
                kind = character | location | prop | grade   (look = the confirmed one-line description of THAT reference)
-ASSIGN.json    {"1": {"refs": ["@img-1", "@img-3"], "framing": "medium two-shot", "eyes": "Koss looks off to the left, never into the lens"}, …}
+ASSIGN.json    {"1": {"refs": ["@img-1", "@img-3"], "framing": "medium two-shot", "eyes": "Max looks off to the left, never into the lens"}, …}
                (made automatically by looking at the block frames, or typed by the user — the script does not guess)
 BASE.json      optional base details used when a block has no image reference for something:
-               {"locations": {"street": "…", "cabin": "…"}, "light": "…", "wardrobe": {"Koss": "…"}, "props": {"chair": "…"}}
-               a block uses them only when ASSIGN names them: "base_location": "cabin", "base_chars": ["Koss"], "base_props": ["chair"]
+               {"locations": {"street": "…", "cabin": "…"}, "light": "…", "wardrobe": {"Max": "…"}, "props": {"chair": "…"}}
+               a block uses them only when ASSIGN names them: "base_location": "cabin", "base_chars": ["Max"], "base_props": ["chair"]
 VOICE.json     optional {"3": {"mode": "new", "speaker": "@img-1", "text": "exact words"}, …}; every other block keeps the original voice.
 
 Every block gets: TIMECODE · FRAMING · MOTION (exactly as in the source range) · VOICE · LOOK LOCK (auto-filled from the reference

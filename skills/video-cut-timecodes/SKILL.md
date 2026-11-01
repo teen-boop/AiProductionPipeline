@@ -7,7 +7,7 @@ description: >-
   takes the duration from the video stream (not the container), and draws a frame sheet per block plus a beat sheet (a frame every
   0.5 s) for every take longer than 4 s. When a block is wrong the user chooses: re-detect AUTOMATICALLY or enter cut times MANUALLY
   (seconds or SS.FF). Use before writing any prompt based on another video, when the user gives a source clip for an edit/recast, when
-  the user says the timecodes are wrong ("таймкоды не правильные", "разбери на таймкоды"), or when generated cuts land at the wrong time.
+  the user says the timecodes are wrong, or when generated cuts land at the wrong time.
 user-invocable: true
 ---
 

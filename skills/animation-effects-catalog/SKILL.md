@@ -1,11 +1,29 @@
 ---
 name: animation-effects-catalog
-description: Growing catalog of proven tricks that make AI video (Seedance 2.x, Higgsfield, Kling, Veo) look cinematic and impressive — organised by HERO TYPE (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, painted/puppet/material characters, levitation, falling/action humans, face recast) and by EFFECT (camera, physics and contact, performance, voice and sound, light and integration, workflow modes, negative blocks). Each entry gives when to use it and a copy-ready English phrase. Use while writing or upgrading any video/animation prompt, when a shot feels flat, fake, floaty or staged, when a character type is unusual, or when the user pastes a strong prompt to "learn from" — then extract its new tricks and append them here. Triggers on boost the animation, effects for animation, tips catalog, make it impressive, learn from this prompt, how to make this shot better, cinematic tricks, video prompt tips.
+description: Interactive shot-by-shot prompt builder AND growing catalog of proven tricks that make AI video (Seedance 2.x, Higgsfield, Kling, Veo) look cinematic and impressive — organised by HERO TYPE (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, painted/puppet/material characters, levitation, falling/action humans, face recast) and by EFFECT (camera, physics and contact, performance, voice and sound, light and integration, workflow modes, negative blocks). Each entry gives when to use it and a copy-ready English phrase. Use while writing or upgrading any video/animation prompt, when a shot feels flat, fake, floaty or staged, when a character type is unusual, or when the user pastes a strong prompt to "learn from" — then extract its new tricks and append them here. Triggers on boost the animation, effects for animation, tips catalog, make it impressive, learn from this prompt, how to make this shot better, cinematic tricks, video prompt tips.
 ---
 
 # Animation effects catalog
 
 A library, not a template. `cinema-director-v3` gives the prompt its spine; this catalog supplies the *moves* that make it hit. Pick 3–6 entries that fit the shot — never paste the whole catalog.
+
+## INTERACTIVE MODE — shot by shot, together with the user (default when building a new animation)
+
+The user chooses; Claude proposes. Never write the whole prompt alone in this mode.
+
+**Stage 0 — setup (once per scene):** confirm target model/length, the list of shots with timings, references/tags, and the scene's emotion in one line. Show it as a short table and ask "go?".
+
+**Stage 1 — per shot, CAMERA:** offer 3–4 camera options for THIS shot, each one line: rig + move + lens + what it gives emotionally (e.g. "dolly push-in, 32mm — calm, draws us into the group"; "handheld arc, 80mm — intimate, alive"; "locked-off wide — deadpan comedy"; "low insert — detail, suspense"). Mark one as recommended. Pull options from CATALOG section B and the hero type in section A.
+
+**Stage 2 — per shot, ENHANCEMENTS:** offer 4–6 enhancement options (multi-select) from the catalog that fit this shot and hero type — e.g. "already in progress", "insert detail", "hold on the empty frame", "task → trigger → reaction", "contact before motion", "exposure jump", "scale by props", "SFX beat / silence". One line each, with what it adds.
+
+**Stage 3 — per shot, ASSEMBLE:** write only this shot's block (CAMERA with forbidden moves · WHAT WE SEE · ACTION with timestamps · physics/sound notes) from the chosen options and show it. Ask: keep / change one thing.
+
+**Stage 4 — next shot.** Repeat 1–3. Keep a running list of chosen options so later shots stay consistent (e.g. if shot 1 is locked-off deadpan, suggest contrast for shot 2).
+
+**Stage 5 — scene assembly:** wrap the approved shot blocks with the scene-level parts (FORMAT with absolute cuts, LOOK, NO TEXT, SCRIPT/SCALE/GEOMETRY locks, REFERENCES, ACTING TASKS, SOUND score, NEGATIVE, RECAP), save to the project's prompts folder, and report the word count.
+
+Rules: use AskUserQuestion with short options (camera = single choice, enhancements = multi-select) when available; otherwise a numbered list. One shot per round. Respect choices even if Claude would pick differently — but say in one line if a choice breaks continuity or the model's limits.
 
 ## How to use
 1. Identify the **hero type(s)** in the shot → read that section of `references/CATALOG.md` (section A).

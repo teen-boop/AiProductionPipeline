@@ -85,18 +85,55 @@ Rules:
 - Quantities: give numbers and size per shot type. "Many turns of rope" was ignored; "at least eight tight turns as thick as a thumb", written separately for low-angle shots, close-ups and wide shots, came out as thick coils.
 - When a result is close and the user lists what was missed, strengthen exactly those points in the same prompt and keep the rest; do not switch to another workflow (second pass, splitting, recoloring the source) unless the user asks.
 
-## Per-shot character lock (user's standing rule)
+## Per-shot character lock
 
 Same actors often play several characters in the source, and the model mixes up who is who, what they wear and where they look. In every prompt:
 
 - Tags: the user names them `@vid-N` and `@img-N` (not `@video1` / `@image1`). Ask which number the video gets; keep the user's upload order.
-- Before writing, confirm the cast: list each tag with a one-line visual description of that image ("@img-5 = man in the black leather biker jacket") and have the user confirm. Images pasted into chat have no names; guessing which image is which character swapped Koss and Archi's outfits in both parts.
-- Every time a character's name appears anywhere in the prompt (mapping, identity link, shot order, dialogue), write the reference next to it: "Archi (@img-5)".
-- Every shot line restates the outfit of each character in that shot in short form ("Biggy (@img-4) in the grey tweed blazer and striped henley"), not only the mapping line.
+- Before writing, confirm the cast: list each tag with a one-line visual description of that image ("@img-5 = man in the black leather biker jacket") and have the user confirm. Images pasted into chat have no names; guessing which image is which character swapped two characters' outfits in both parts.
+- Every time a character's name appears anywhere in the prompt (mapping, identity link, shot order, dialogue), write the reference next to it: "Anna (@img-5)".
+- Every shot line restates the outfit of each character in that shot in short form ("Max (@img-4) in the grey tweed blazer and striped henley"), not only the mapping line.
 - Every shot line states the eye line: into the lens only in a point-of-view shot from another character's eyes; otherwise say where he looks (below the lens, off to the side at X, up, away from the camera) and add "never into the lens". Check the source frames for the real eye direction and follow the user's corrections.
 - When the user wants a different framing than the source (for example "wider, medium shot"), write it in that shot line ("medium shot, waist up, wider than in @vid-N") instead of "exactly as in".
-- Props that carry over between parts (a chair, a sack) are described with the same words in every part, with their state ("the black metal folding chair Koss sat on, now knocked over on its side").
+- Props that carry over between parts (a chair, a sack) are described with the same words in every part, with their state ("the black metal folding chair Max sat on, now knocked over on its side").
+- One actor shot every role separately (each shot has one person) but they share one place (a band on a stage): add a "BAND IN FRAME" line to every block — the named person stays the sharp main subject exactly as in @vid-1; the others appear at the sides of the frame, a step behind, partly cut and slightly out of focus, playing along, never covering him; in close shots only a shoulder or an instrument at the very edge. Keep the fixed left/center/right order from an approved layout keyframe, and replace "one person per shot" in the constraints with "the named person is the main subject; the others only at the sides; each appears once".
 - Dialogue from an SRT: subtract the timeline offset (01:00:00), check onsets against audio pauses (`silencedetect`), assign each line to the speaker by the shot it falls in.
+
+## Light match: characters lit exactly like the location
+
+Character references are usually studio sheets (flat even light, grey background). Seedance carries that light into the shot, so the people look pasted onto the location. Generic words like "warm light" do not fix it. Every prompt that puts characters into a location plate gets a measured LIGHT MATCH.
+
+1. **Location plates first.** All zone plates of one scene must show the same room in the same state (same backdrop, same lights); a plate that still shows an old version of the room (e.g. an old backdrop behind the table) gives the model two conflicting setups. Fix plates before writing prompts. Prefer realistic, lived-in plates over glossy cinematic ones; glossy "concert" plates read as unreal.
+   Pick ONE canonical version of each recurring set piece (the stage) and rebuild every other plate from it: generate the master with "the stage must be EXACTLY the stage in image N, identical in every detail, just seen from this angle", then edit each zone plate keeping its camera angle and swapping only that set piece. Check with a side-by-side sheet of all plates (and the keyframe) before writing prompts; one project had three different stages (corner stage, alcove stage, different light counts) across plates of one room.
+2. **Inventory the plate's light** by looking at it and measuring it (crop average per region):
+   ```bash
+   avg(){ ffmpeg -v error -i "$1" -vf "crop=$2,scale=1:1,format=rgb24" -f rawvideo - | od -An -tu1; }   # crop=w:h:x:y
+   ```
+   Measure the brightest lit surface (e.g. stage floor pool), the backdrop centre and edge, the room floor, a practical (sconce), and, in an approved keyframe, the faces. Write down: every visible source (where, pointing which way, hard or soft, colour), what is key / fill / bounce / practicals, the brightness relations (faces vs brightest surface vs backdrop vs room) and the colour cast on whites and blacks.
+3. **Mapping:** each character reference line says "face, hair and clothes exactly as in this reference — never its light, background or colour"; the location plate line says "take its light and photographic style".
+4. **LIGHT MATCH — CRITICAL block** (after the look lock): "Relight every person with the exact light of @img-N; take nothing of the light from the character references." Then the sources as a numbered list, "only these, nothing else", the exposure relations from the measurements in plain words, the colour cast (whites read warm cream, blacks stay warm-dark), contact shadows on the floor and on the wall behind, and "grain, noise and sharpness on the people identical to the background".
+5. **Per shot:** one short light line naming where the key hits that person in that shot ("the overhead par light on his hair and shoulders, eye sockets in soft shadow").
+6. **Keyframe:** generate and approve a still of the characters inside the plate first (characters full-body references, not head portraits — a head-portrait reference made the model paste the person oversized in front of the stage); attach it as "@img-N = how the light falls on the people and how big they are; never its framing".
+7. **Negatives:** no flat or studio lighting, no grey studio background, no rim or back light the plate does not have, no cool fill, no light from the camera side, no glow.
+8. **Verify:** crop a face and the nearby background in the result and compare their RGB relation with the plate/keyframe numbers; report it.
+
+## Persona face and costume: never rely on the tag alone
+
+Field case: a mapping line said only "his face, hair, beard and build AND his outfit exactly as in this reference (@persona)". Seedance kept the source actor's short hair, full beard, navy tee and white sneakers, so the persona looked nothing like itself and did not match its costume. The source actor is the real person behind the persona, so the model treats the existing face as "close enough".
+
+- Write the persona look out in full in the mapping line: hair, facial hair, scars or marks, every garment, shoes, gloves. Name the source actor's differing features as negatives ("never a full beard, short hair, navy t-shirt, white sneakers").
+- Attach one full-body costume image as its own `@img-N` next to the tag. Find one in the project (`references/<persona>`, stills, posters) and crop it if needed.
+- Generate an approved keyframe of the persona inside the scene plate, in the source pose, and map it first ("how he looks, how big he is, how the light falls on him; never its pose").
+- Start the mapping with "The man in @vid-1 is replaced completely by <name>".
+
+## Change requests: parse per character, read back before generating
+
+Users write fast, often without commas. A request like "make the recorder a funnier guitar an acoustic one" meant "make the recorder funnier (character A keeps it), change the guitar to an acoustic one (character B)". It was read as "replace A's recorder with a funny acoustic guitar", and four images were generated on the wrong reading before the user caught it.
+
+1. Split the sentence into change units at every noun + "to": `X → Y`. If a unit can attach to the previous or the next word, list every possible reading.
+2. Map each unit to the cast table: who holds or wears the object now (from the confirmed cast and props). A change that moves an object to a different character, removes a character's signature prop or gives two people the same prop is suspicious. Prefer the reading where every character keeps one distinct object.
+3. Before any generation or prompt rewrite, write one read-back line per character: "A: recorder → funnier recorder · B: blue electric → acoustic · C: no change". If two readings remain, ask one question with both options. Do not generate on a guess.
+4. After the user confirms, put the final mapping into the mapping lines and into GLOBAL CONSTRAINTS as negatives ("B's guitar is acoustic only, no electric guitar").
 
 ## Higgsfield tool choice
 
