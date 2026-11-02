@@ -49,6 +49,16 @@ or the same pose across time. Always QC on sheets.
    - the same orientation;
    - no colour jump between the frames.
 
+## Video clips (extra checks)
+
+For generated VIDEO, sample the first frame, frames every 0.5 s, and the frames around any camera change, and check:
+
+- **Burned-in subtitles or captions** the model added (a line of text at the bottom that nobody asked for) — reject.
+- **Frozen first frame** — the first 0.3–1 s identical to the start image with no motion, then a jump — trim or reject.
+- **Unasked angle change** around 2.5–3 s (the model cuts to a second camera) — keep only the first continuous seconds.
+- **Gibberish on-screen text** (signs, screens) — mask, crop or reject.
+- **Mid-transition frames** look clean (no ghost of the previous shot).
+
 ## Writing the result
 
 - **Accepted:** list it for delivery. Crop the bars first if there are only thin ones.

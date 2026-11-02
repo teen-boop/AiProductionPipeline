@@ -75,6 +75,13 @@ Never touch anything else on that timeline.
   - a table with part, start timecode, duration and title;
   - the path of the preview master.
 
+## Read back, stop on failure
+
+- After EVERY change (import, clip placed, marker, render setting) read the state back from Resolve and compare it with what was
+  intended (clip count, order, in/out, duration). Do not batch ten changes and check once.
+- Stop at the first failed call or mismatch: report what failed and the state left behind; never continue "around" it.
+- Run `media-path-verify` before importing and `render-cut-verification` on the exported master.
+
 ## Rules
 
 - **Never delete or overwrite** timelines, clips, folders or projects. Use only creating and versioning actions. Destructive MCP

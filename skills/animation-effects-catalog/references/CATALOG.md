@@ -153,6 +153,8 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **A real conversation** — two-handers · `they STOP and actually converse: she listens, then answers; he responds to what she says rather than holding a frozen smile; passers-by thread around them`
 - **Ration the hero's face** — POV horror/thrillers · `a rare snap onto himself — one cut only, eyes wet, mouth shut, cam already leaving him`
 - **Human threat, escalated by detail** — horror without monsters · `real people, not creatures; practical skin; smiles too wide and too happy` → `the smile gets wider` → count and distance grow (one → two between him and the car → an arm's length back)
+- **Provoke the reveal** — heists/retrievals · `she points toward the watchtower; he glances back for a moment, revealing the key on a chain around his neck; her eyes briefly confirm it; he notices her attention and grips the chain` — a silent dialogue of looks that plants the object
+- **Act through the impact** — fights with props · `he slams into the car door, denting it with realistic weight; she pulls the chain free during the impact, stumbles back, regains balance` — the win happens inside the collision, and every move has a cost
 
 ## E. VOICE AND SOUND
 - **SFX score with a silence** — showpieces · ambience → foley → line → wind → impacts → laugh → `silence at the peak`
@@ -207,6 +209,8 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **World that runs on its own** — busy locations · `activity continues independently around her` + a list of independent background jobs (newspaper browser, delivery workers, café customers)
 - **Brand names out** — vehicles/products · describe the shape, not the make or emblem; brand words get refused or produce warped logos
 - **Inheritance chain for openings/titles** — title sequences, intros · `every shot must inherit one object, shape, texture or typographic element from the previous shot, and that element must transform into the central subject of the next` (sphere → reflection like an O → the O of the title → tunnel → iris → radial sunburst behind the next card); test each link with `surprising in hindsight but visually inevitable`; ban `unrelated cuts, arbitrary imagery, dissolve-only transitions`; 5–7 title cards; the finale gathers earlier motifs without repeating them literally and resolves into the last title, held calm and minimal
+- **Logline before the timeline** — story-driven clips · open with `The story: <who> enters <where> to <goal>, <how>, and <outcome>` so every beat serves one want; close with `end with the story completed, not mid-action` and a micro-coda (rear view of the car → her calm eyes in the mirror, hand closing on the key)
+- **Reference lock without backgrounds or poses** — multi-ref scenes · `Ref 1 = A, Ref 2 = B, Ref 3 = location layout, Ref 4 = car. Preserve identities, proportions and designs. Do not inherit reference backgrounds or poses.`
 
 ## H. NEGATIVE BLOCK TEMPLATES (pick the lines that apply)
 - **Gentle craft**: no aggression (no stabbing, jabbing, slashing); no turning to the camera; no cuts or zoom jumps; no slow motion; no paint where the brush hasn't touched; no change to hair or outfit; no text.
@@ -239,3 +243,4 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - 2026-11-01 — "ORIGIN → CONTINUUM" 30 s title sequence (user: good for openings and titles): inheritance chain, match transition by form, design memory in the finale (G).
 - 2026-11-01 — meteor impact aerial chase (one take): camera hunts the event, impact as a chain of scales, sound after the light (B, C, E).
 - 2026-11-01 — finger-snap time freeze on a city sidewalk (15 s, steadicam backwards): visible trigger wave, private act put back exactly, silence score (A6, E).
+- 2026-11-01 — ruin-punk "stolen key" (30 s, 4 refs): logline before the timeline, reference lock without backgrounds/poses, provoke the reveal, act through the impact, closed ending with micro-coda (D, G).

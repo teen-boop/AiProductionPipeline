@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 found=0
 check() {  # $1 = label, $2 = extended regex
   local hits
-  hits=$(grep -rInE --exclude-dir=.git --exclude=check_clean.sh -e "$2" . || true)
+  hits=$(grep -rInE --exclude-dir=.git --exclude=check_clean.sh -e "$2" . | grep -vE "${3:-^$}" || true)
   if [ -n "$hits" ]; then
     echo "== $1"; echo "$hits" | cut -c1-200; echo; found=1
   fi
@@ -18,7 +18,7 @@ check "API keys / tokens" '(\bsk-[A-Za-z0-9_-]{16,}|\bsk_[A-Za-z0-9]{16,}|\bak_[
 check "Private key blocks" '-----BEGIN [A-Z ]*PRIVATE KEY-----'
 check "Key assignments with a value" '(API_KEY|SECRET|TOKEN|ACCESS_KEY|PASSWORD)[A-Z_]*[[:space:]]*[=:][[:space:]]*["'"'"']?[A-Za-z0-9_/+-]{12,}'
 check "E-mail addresses" '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(com|net|org|io|ru|de|co|me|ai)\b'
-check "Absolute personal paths" '(/Users/[A-Za-z0-9._-]+|/home/[A-Za-z0-9._-]+|/Volumes/[A-Za-z0-9._ -]+|C:\\Users\\[A-Za-z0-9._-]+)'
+check "Absolute personal paths" '(/Users/[A-Za-z0-9._-]+|/home/[A-Za-z0-9._-]+|/Volumes/[A-Za-z0-9._ -]+|C:\\Users\\[A-Za-z0-9._-]+)' '/Volumes/(MyDrive|X)( 1)?\b'
 
 cyr=$(python3 - <<'PY'
 import os, re

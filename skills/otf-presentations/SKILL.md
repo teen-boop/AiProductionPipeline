@@ -104,6 +104,21 @@ Write `<out>/plan.md`:
 
 Length: a teaser or announcement is 15–30 s. An explainer or "fireworks" piece may run 35–45 s if every beat earns its place.
 
+## Editing rhythm (from the reference study)
+
+Measured on 24 premium short videos; the full guide with 30 patterns, numbers and HyperFrames recipes is `references/EDIT_PATTERNS.md`. Read it before planning the cut list. The rules that change most edits:
+
+- **Hold or montage, decide first.** Most premium pieces are ONE living still held 5–25 s: the camera moves only 3–8% of the frame and one layer moves inside it (smoke, clouds, water, a light growing). A montage is the exception, not the default.
+- **Accelerate and release.** Open on a 1.3–1.5 s shot (no shot under 0.5 s in the first 1.5 s), peak at 0.4–0.6 s shots for 30–50% of the run, ease back to 0.8–1.1 s, end on a hold 1.5–4x the median shot. 15 s promo ≈ 11–15 shots; 30 s ≈ 22–30 shots with one fast cluster of 4–6 shots around the middle.
+- **Hard cuts.** The only transition worth using is an overexposure flash: 1–2 frames up to near-white with a ghost of the next shot, 0.30–0.40 s total, hard drop into the new shot. No spins, glitches, zoom-blurs or slide wipes.
+- **Beat sync is polish, not structure.** None of the references lands its cuts on beats; sync only the 3–5 accent cuts (open, peak, end) and let the picture drive the rest.
+- **Scale alternation.** Never two neighbouring shots at the same scale; detail / medium / wide, with a wide "breath" every 4–6 shots.
+- **Palette lock and few faces.** One hue family across every shot; faces in only 1 of every 3–4 shots (backs, hands, silhouettes hide AI identity drift).
+- **Text.** Keep it off the first 1.5 s and off fast sections; put titles on holds or in negative space, fade in 0.4–0.6 s, hold ≥ 1.5 s + 0.3 s per word.
+- **Slow pieces breathe with dips, not dissolves.** Between holds, darken over ~6 frames to about 15% and come back over ~7 frames (0.47 s), never resting on pure black; one every 8–10 s. "One moment, many angles": the same instant from 3–4 camera positions, 5–10 s each.
+- **Detect soft cuts by brightness.** Gradual dips are invisible to scene detection even at 0.15; measure mean luma per frame to find them.
+- **Endings.** A long warm hold, a white-out, a hard cut to black mid-motion, a seamless loop, the subject walking out of a stopped frame, or a fade to black into a small typed title (white bold sans ~2% of frame height, typed in ~0.2 s, held ~3.8 s). Never a logo slam.
+
 ## Step 3 — Compose with HyperFrames
 
 - Read the docs: `npx hyperframes docs compositions | data-attributes | gsap | rendering | examples | troubleshooting`.
@@ -164,7 +179,6 @@ timeline with `davinci-series-assembly`.
   fine detail smears.
 - After rendering, pull frames from the MP4 and inspect images at 100% for sharpness before delivering.
 
-## Languages and frame rate
 ## Languages and frame rate
 
 - **Bilingual by default when the video will be used for promotion.** Make the Russian (or source-language) cut first. When it

@@ -24,7 +24,7 @@ script / story idea
 generation backend?  ── generation-backend-setup ──►  CLI / API / MCP   (connected, tested)
    │                                              └─►  MANUAL MODE      (prompts + folders)
    ▼
-references  ── character-identity-lock-setup · detail-reference-intake · organize_refs.py
+references  ── reference-style-builder · character-identity-lock-setup · detail-reference-intake · organize_refs.py
    ▼
 shot list   ── storyboard-narrative-breakdown · storyboard-shot-selection · continuity ledgers
    ▼
@@ -72,7 +72,9 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **48 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **59 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+
+To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
 ---
 
@@ -111,6 +113,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `visual-story-1-setup` … `visual-story-8-storyboard` — an alternative fixed, linear 8-step pipeline: setup → script → cast & world → references → exposition → production → platform QC → storyboard.
 
 **References and identity**
+- `location-state-dials` — the same location in different states: dials (wear, wetness, light, tidiness, crowd, weather, time, damage, haze, season) with a "means here" sentence, named presets and a cost tag (prompt change vs new plate).
+- `reference-style-builder` — learns the look from the project's reference library (style frames, saved prompts, approved frames), writes a measured style card (60/30/10 palette in hex, light, lens, grain, composition) and builds the reference set in order: style frame → character sheet → empty location plate → prop sheet → keyframes → change-to close-ups, each with its role line.
 - `character-identity-lock-setup` — locks a character's face across every age or stage.
 - `detail-reference-intake` — catalogues new detail screenshots into the reference index.
 - `storyboard-reference-assembly` — resolves every noun in a shot to its locked reference asset.
@@ -131,6 +135,9 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `keyframe-chain-builder` — K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset → night) for first + last frame video; enforces physical realism, forward-moving time and the full style on every keyframe.
 
 **Generation, QC and placement (one job each)**
+- `independent-frame-critic` — fresh-eyes review of a batch: a reviewer who never saw the prompts scores 8 film categories, names up to 5 ranked fixes and gives each frame keep / fix / reject; pass rule, logged and capped rounds. `scripts/critic_log.py`.
+- `media-path-verify` — before any export or hand-off: every referenced file really exists, catches drives that remounted under a new name and phantom /Volumes folders; suggests relinks, applies none without a yes. `scripts/verify_media.py`.
+- `render-cut-verification` — the last gate on the ENCODED file: strips across every cut, black/flash frames, opening seconds, audio/video lengths, loudness and true peak, optional re-transcription. `scripts/cut_strips.py`.
 - `style-lock-guard` — always-on look guard: locks the look to the director's own reference frames (and the source prompt embedded in their PNG metadata), lints every prompt before it is sent (required style phrases, no contradicting grade phrases, style frames attached last — wired into the runner as a gate), and measures every result against the references to catch the flat/grey "mediocre" look.
 - `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
 - `frame-qc-contact-sheet` — batch QC on labelled contact sheets, start|end pair sheets and face crops, plus a letterbox-bar trimmer (`scripts/`).
@@ -141,6 +148,10 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `animation-prompts-page` — the hand-off folder as one browsable page: picture + prompt + copy button, Kling end frame, filters, search, "done" ticks; rebuilt on every sync and always opened for the user.
 
 **Video**
+- `nle-timeline-assembly` — one validated cut plan (in/out, tracks, transitions, markers, music ducking) built in DaVinci Resolve (MCP), Premiere Pro (MCP) or exported as CMX3600 EDL + CSVs; read back after every change. `scripts/cutplan_to_edl.py`.
+- `music-beat-grid` — optional, asks first: measured beat grid (kick-band phase, energy per bar), splices to length on beats, frame-exact cut sheet, checks cuts against the grid. `scripts/beat_grid.py`.
+- `retention-packaging-plan` — asks the video type first; for social / creator / explainer cuts: hook, visual events, punch-ins, captions and cards as a cue sheet anchored to words.
+- `text-behind-subject` — optional accent: title or number placed between background and subject (matting routes, composite, QC) for covers, title cards and hooks.
 - `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
 - `seedance-prompt-writer` — Seedance-format prompts that follow a project's own mandatory rules.
 - `seedance-edit-prompting` — Seedance 2.5 Edit / Higgsfield video-to-video: recast characters, wardrobe or backgrounds in existing footage while keeping motion, cuts and timing (asset mapping, identity link, shot order, no effects in recast), persona look and change-request read-back rules, a measured light match between characters and location plates, plus numeric motion-match verification with ffmpeg.
@@ -150,7 +161,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
 
 **Presentations**
-- `otf-presentations` — OTF Presentations: cinematic announcement / explainer / teaser videos (HyperFrames). Reads the context from the chat and the project's references first (embedded source prompts, style lock, best frames ranked by the look, videos, docs), picks fonts that really render the language (glyph-tested) and an animation vocabulary matched to the look, then plans, composes, checks frame by frame and renders. `scripts/otf_context.py`.
+- `otf-presentations` — OTF Presentations: cinematic announcement / explainer / teaser videos (HyperFrames). Reads the context from the chat and the project's references first (embedded source prompts, style lock, best frames ranked by the look, videos, docs), picks fonts that really render the language (glyph-tested) and an animation vocabulary matched to the look, then plans, composes, checks frame by frame and renders. `scripts/otf_context.py`. Its editing rhythm comes from a measured study of 24 premium short videos (`references/EDIT_PATTERNS.md`: accelerate-and-release, overexposure flash, dip-to-black breath, endings).
+- `cinematic-poster-designer` — unusual cinematic film posters: one visual metaphor from a device catalogue (object replaces the head, silhouette window, shard reveal, lone figure in fog, single colour field…), learned only from the poster references the user marks as liked (`LIKED.md`); key art is generated without text and the title, tagline and credits are set in code (`scripts/compose_poster.py`), 2:3 plus 4:5 and 9:16.
 
 - `davinci-series-assembly` — puts a series of finished clips (presentation parts, block reels) on a new DaVinci Resolve timeline in order via the Resolve MCP: validates fps/size, imports into a dated folder, creates a versioned timeline, adds a marker per part, verifies no gaps/overlaps, never deletes anything. `scripts/series_manifest.py` (+ ffmpeg preview master).
 
@@ -166,13 +178,14 @@ skills/          one folder per skill (SKILL.md + references/ scripts/ assets/)
 docs/            pipeline overview and the prompt style template
 examples/        example jobs and sections files for manual-image-pack
 tools/           check_clean.sh — scans the repo for keys, personal paths and non-English text
+                 validate_skills.py — checks every skill (front matter, referenced files, scripts compile)
 install.sh       installer for macOS / Linux / Git Bash / WSL
 install.ps1      installer for Windows PowerShell
 ```
 
 ## Contributing
 
-Pull requests are welcome. Before you commit, run `tools/check_clean.sh`. It must report no findings. Never commit keys, tokens, account IDs, personal names, e-mail addresses or absolute paths from your machine.
+Pull requests are welcome. Before you commit, run `tools/check_clean.sh` and `python3 tools/validate_skills.py`. Both must report no findings. Never commit keys, tokens, account IDs, personal names, e-mail addresses or absolute paths from your machine.
 
 ## License
 

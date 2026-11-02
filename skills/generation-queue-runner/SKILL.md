@@ -36,6 +36,15 @@ user-invocable: true
 - Use paid or fast mode only when the user explicitly asks ("make it paid", "make it fast today"). Pair it with a guard that switches
   back to the free mode when the queue empties or at midnight.
 
+## Quote, then one, then the batch
+
+Before any batch that costs money or a long queue:
+
+1. Print ONE quote line and wait for the user's yes: `N items · S seconds of video (or N images) · ≈C credits · balance B`
+   (read the balance from the backend; if it cannot be read, say "balance unknown").
+2. Run the FIRST item alone. Show it, run frame QC on it, and continue only when it passes (or the user approves).
+3. Then run the rest in rolling batches of about 10, so a bad prompt never burns the whole batch.
+
 ## Chained frames
 
 - Frames generated *from* other frames (change-to, keyframe chains) run in **waves**:

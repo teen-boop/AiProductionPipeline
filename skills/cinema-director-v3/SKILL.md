@@ -521,6 +521,15 @@ Add `no ambient pad, no swell, no drone, no rising tone` on emotional or dramati
 
 **Silences are assigned to the ambience explicitly** so they do not get scored: `carrying both silences on its own`.
 
+### Speech length and voice lock (characters who talk)
+
+- Size every spoken line by a measured speech rate: about 2.5 words per second for normal speech (2 for slow, tired or hungover
+  delivery, 3 for fast talkers). A 3-second slot holds 7–8 words at most; cut the line or lengthen the slot, never cram it.
+- Write a character's voice description ONCE in the exact same words in every shot (e.g. `Arch's voice: fast, rough, dry, close,
+  a slight rasp`). Changing a single adjective changes the generated voice between shots.
+- Do not open a clip with the key word of the line; give 0.3–0.5 s of breath or action before the first word.
+- Silent characters (e.g. Koss) get `never moves his lips` in the shot and the negatives.
+
 ### Proximity-governed dialogue
 
 When speakers hold their own microphones, level is a physical fact, not a mix choice, and it gets its own CRITICAL block:
