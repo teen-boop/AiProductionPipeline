@@ -65,7 +65,10 @@ for (const file of args) {
   const port = server.address().port;
   const page = await browser.newPage();
   await page.setViewport({ width: W, height: H });
-  await page.goto(`http://127.0.0.1:${port}/__page.html`, { waitUntil: "networkidle0", timeout: 60000 });
+  try {
+    // media keeps streaming, so wait for the DOM, then for images and video metadata only
+    await page.goto(`http://127.0.0.1:${port}/__page.html`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  } catch (e) { console.error(`skip ${file}: ${e.message}`); await page.close(); server.close(); continue; }
   await page.evaluate(() => Promise.all([...document.images].map((i) => (i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; })))));
   await page.evaluate(() => Promise.all([...document.querySelectorAll("video")].map((v) => (v.readyState >= 1 ? 0 : new Promise((r) => { v.onloadedmetadata = v.onerror = r; setTimeout(r, 4000); })))));
   if (PCLASS) await page.evaluate((spec) => { const [sel, cls] = spec.split("="); document.querySelectorAll(sel).forEach((e) => e.classList.add(cls)); }, PCLASS);
@@ -74,7 +77,7 @@ for (const file of args) {
     // the first ancestor that clips, so a box larger than its frame is measured by what is really visible
     let clip = null; for (let p = el.parentElement; p; p = p.parentElement) { const s = getComputedStyle(p); if (s.overflow !== "visible") { const b = p.getBoundingClientRect(); clip = [b.left, b.top, b.right, b.bottom]; break; } }
     return { id: el.id || "", cls: el.className || "", src: el.getAttribute("src"), tag: el.tagName.toLowerCase(),
-      box: [r.left, r.top, r.width, r.height], clip, fit: cs.objectFit, pos: cs.objectPosition,
+      box: [r.left, r.top, r.width, r.height], clip, fit: cs.objectFit, pos: cs.objectPosition, filter: cs.filter,
       natural: el.tagName === "IMG" ? [el.naturalWidth, el.naturalHeight] : [el.videoWidth, el.videoHeight],
       mediaStart: +(el.getAttribute("data-media-start") || 0), display: cs.display };
   }));

@@ -16,6 +16,7 @@ people in the source with Apple Vision (scripts/subjects.swift, compiled on firs
   BODY_CUT      a person whose face is visible keeps under 60% of the body (sheets, full-length shots)  (medium)
   HEAVY_CROP    under --min-area of the source is visible (boards, text, wide plates)  (medium)
   DISTORTED     object-fit: fill with an aspect change over 2%                         (high)
+Blurred fills (a CSS blur filter) are skipped: they decorate the space around the real image.
 
 For every flagged item it suggests the object-position that centres the faces (or people) in the window, or says the
 subject does not fit the box and needs contain, a wider box, or another source frame.
@@ -153,12 +154,17 @@ def main():
     det = detect(sorted(set(v for v in src_for.values() if v)))
     rows, tiles = [], []
     for it in data["items"]:
+        if "blur(" in (it.get("filter") or ""):  # a blurred fill behind the real image is decoration, not a crop
+            continue
         src = src_for.get(id(it))
         if not src:
             rows.append({**it, "flags": [["high", "MISSING", "media file not found"]]})
             continue
         nat = it["natural"] if it["natural"][0] else Image.open(src).size
         win, geo = window(it, nat, a.push)
+        if win[2] <= win[0] or win[3] <= win[1]:  # clipped away in the resting layout (off-stage, behind a mask)
+            rows.append({"file": it["file"], "src": it["src"], "flags": [], "note": "not visible in the resting layout"})
+            continue
         d = det.get(src, {"faces": [], "humans": []})
         flags = []
         if geo[6] == "fill" and abs((nat[0] / nat[1]) / (geo[0] / geo[1]) - 1) > 0.02:
