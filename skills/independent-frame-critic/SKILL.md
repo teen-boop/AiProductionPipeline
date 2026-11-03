@@ -66,7 +66,7 @@ match the style frames closely. Framing, staging and the parts of a place the re
 are not marked down for being different.
 
 The bar: [a frame a director would accept for the storyboard and for animation / a hero still for a poster or a pitch].
-Judge at normal viewing size. Do not nitpick: nothing an editor would fix in a minute, nothing that is merely a different choice.
+Open every frame at FULL size before scoring plausibility; a contact sheet hides wrong limbs and extra fingers. Do not nitpick: nothing an editor would fix in a minute, nothing that is merely a different choice.
 
 Score the batch 1-10 in each category (7 = solid and usable, 9 = exceptional):
 - world_fit: the same kind of place, period and world as the references; nothing from another era or city;
@@ -74,7 +74,9 @@ Score the batch 1-10 in each category (7 = solid and usable, 9 = exceptional):
 - look: grade, contrast, palette, grain and lens character match the style frames; nothing flat, grey or glossy-CG;
 - light: motivated light with real sources; not flat, muddy or blown out; consistent across the batch;
 - composition: each frame is well composed for its shot size; eye-lines and screen direction make sense;
-- plausibility: nothing floating, melted, merged, duplicated or physically impossible; hands and contact read;
+- plausibility: nothing floating, melted, merged, duplicated or physically impossible; hands and contact read; count every
+  person's arms, hands and fingers and trace each limb back to its own body (an arm reaching a steering wheel or a product from
+  the wrong side, or from nobody, is a reject); a driver sits behind the wheel;
 - text_signage: no garbled text, no real brands or logos, no captions or watermarks; any wanted signage reads;
 - story_beat: each frame shows what its INTENT line says.
 

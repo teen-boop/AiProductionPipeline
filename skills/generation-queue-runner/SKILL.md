@@ -64,3 +64,12 @@ Before any batch that costs money or a long queue:
 
 - Never re-submit a job whose remote task is still running. Poll it and adopt its late result.
 - Never print or store API keys. Keep them in environment variables only.
+
+## Stale-result traps (check your runner for both)
+
+- **A failed run must never return an old image.** If the runner copies "the newest image in the job folder", a generation that
+  produced nothing hands back the previous attempt and reports ok. Move earlier results aside (`_prev/`) before each run, and
+  compare the new file's checksum with the rejected versions after the batch: identical bytes = the regeneration did not happen.
+- **Cache uploaded references by content, not by path.** When a reference (product master, key frame) is regenerated under the
+  same file name, a path-keyed upload cache keeps sending the OLD picture to the model. Key the cache on path + size + mtime
+  (or a hash).

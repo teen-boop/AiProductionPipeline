@@ -47,10 +47,15 @@ For several aspect ratios, run and look at each render separately. A 9:16 that p
 
 ## 4. Listen
 
-Listen to every join and the last word. Compare the end of the audio stream with the end of the video stream (the report flags
-more than one frame of difference). If the video has speech and a transcription tool is available, transcribe the FINAL file and
+Run `dialogue-audio-finish/scripts/edge_qa.py render <file> --cuts-file <plan> --out qc/edges_render` when the video has
+speech: it measures joins that land inside sound and level jumps over 7 dB across cuts on the encoded file, and tells you
+which joins to listen to first. Then listen to every join and the last word. Compare the end of the audio stream with the end of the video stream (the report flags
+more than one frame of difference). If the video has speech, transcribe the FINAL file (DaVinci Resolve: import the render, Create Subtitles from Audio,
+read the cues with the MCP `timeline get_transcript`) and
 compare it word by word with the approved script around every cut: a transcript can guess a clipped word correctly while a
-listener hears it broken, so a match is supporting evidence, not proof. For lip sync, compare a face frame on each side of a few
+listener hears it broken, so a match is supporting evidence, not proof. Before comparing, drop the transcriber's silence inventions ("thank you",
+"thanks for watching", the Russian "to be continued", a lone "you" in near-silence). Then look for a phrase of 2 to 8 words repeated
+back to back: that is a doubled take at a join. For lip sync, compare a face frame on each side of a few
 cuts with the same moment in the source.
 
 ## 5. Write VERIFY.md next to the render

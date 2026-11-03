@@ -63,6 +63,19 @@ they are pasted into the prompt as an `ACCURACY FIX` / `FIX` line, which overrid
 | Women or children in a workplace where they did not work | Mixed crowd default | Name who was there: "ONLY MEN on this line". |
 | Unsafe or impossible physics (throwing hot metal, catching bare-handed) | Literal "toss" wording | Rewrite the action safely: tongs to tongs, gloves, tools. Re-check with `keyframe-chain-builder` law 1. |
 
+## Products, ads and anatomy
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| An arm reaching a steering wheel or a product from the wrong side, or from nobody | Interior and over-shoulder close-ups confuse the model | Avoid vehicle-interior close-ups; use a roadside portrait or a front view outside the car. If it must be inside: "she sits in the driver's seat, both of HER OWN hands on the wheel, every limb attached to her own shoulders". Always check at full size. |
+| A second copy of the product in the frame (extra sneaker pair, bottle reflection on the floor) | The product master is attached and the model places it twice | "Exactly ONE product in the whole frame, the one she wears or holds; nothing lying around; no floor reflection of it". |
+| The scenes show a different product from the product shot | The product master was regenerated after the scenes were made | Regenerate the product shot FROM an approved scene ("exactly the car of image 1"), or regenerate every scene after the new master. Never let the two drift apart. |
+| Steam rising from iced drinks | "Coffee" implies hot | "No steam anywhere: it is an iced, cold drink". |
+| A real-brand-like mark (bitten-apple cut-out on a laptop, stripes on a sneaker) | Props default to famous designs | Remove the prop or say "plain unbranded lid / no stripes or marks resembling any real brand". |
+| A flat black band or colour panel across the top of a packshot | "Keep the upper third empty" read as padding | "The background continues naturally to the top edge; no flat band, panel or rectangle". |
+| Readable neon signs in a night city | Night-city default | "All signs are abstract light bars and shapes with no letters of any script". |
+| Same-side arm and leg swing in a running pose | Pose prior | "Natural gait: the arm opposite the leading leg swings forward". |
+
 ## Faces
 
 A wrong face (hairline, face width) goes to `identity-fix-pass`. Do not re-roll the whole shot.

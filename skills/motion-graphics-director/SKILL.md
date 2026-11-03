@@ -51,6 +51,17 @@ Mixed piece? That is normal and correct — the hybrid wins. Route **per shot**,
 
 `references/PROMPT-LIBRARY.md` — 46 composable blocks in 9 groups (ING, CAM, ENT, VAL, ANN, FIN, TRN, AUD, QA), plus 5 assembled combos and a compatibility matrix.
 
+`references/BOARD-RECIPES.md` covers narration-aligned explainer boards on the CODE route:
+- the seek contract;
+- graphics locked to the voice (in-time = start of the naming word, minimum time on screen, motion tokens);
+- safe zones next to a presenter or PiP camera;
+- the transcript → brief → static board → motion → review chain;
+- 18 board effects BRD-01 to BRD-18 (line-to-frame reveal, tile-to-full insert, iris, brush mask, knockout, scramble, liquid fill, spotlight, lens, virtual camera with minimap, line rider, cinematic open, receipt, exploded layers, gooey merge, squash, deck fan, odometer).
+
+Use it whenever graphics must follow a voice-over.
+
+`assets/effects-gallery.html` plays every move live: the film helpers, the library blocks and BRD-01 to BRD-18, each with a copy button for its recipe. Open it in a browser to pick by eye.
+
 **Composition formula for any one shot:**
 ```
 SETUP + STYLE CORE + 1×CAM + 1–3×ENT/VAL + 1–2×ANN + FIN + QA

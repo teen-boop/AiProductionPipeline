@@ -49,6 +49,19 @@ Rules for the plan:
 - Motion: small and motivated (push-in or pull-out of 3-8 %). Never animate a shot the video model already moves.
 - Audio: music bed with `base_db` (about -18 dB under voice) and `duck` windows `[start, end, ducked_db]` in record seconds.
 
+Plan files and versions:
+- Anything a script or an agent proposes is a candidate: `edit/cutplan.candidate.json`. Only the user's approval copies it to
+  `edit/cutplan.json`.
+- The previous approved plan goes to `edit/history/cutplan.<YYYYMMDD-HHMMSS>.json` first.
+- Write through a temp file plus rename, never in place.
+- Never load a candidate into an open editor session that the user is working in.
+
+Frame grid and sound edges:
+- Snap the picture `src_in` down and `src_out` up to the frame grid, so a shot never loses its own last frame or word.
+- Dialogue and any clip with speech keep exact audio edges (`audio_in`/`audio_out` from `dialogue-audio-finish`) on a split or
+  separate audio track, with room tone under the gap.
+- Never trim a speaking clip on a round number by eye. Run `dialogue-audio-finish/scripts/edge_qa.py plan` on the plan first.
+
 Validate and export (this also produces the file route):
 
 ```
@@ -103,6 +116,16 @@ Hand over `edit/export/`:
 - Watch the joins: extract the frame on each side of every cut (`ffmpeg -ss <t> -frames:v 1`) on a contact sheet
   (`frame-qc-contact-sheet`). Look for a flash frame, a duplicated frame, or a jump in the middle of a dissolve.
 - Report: timeline/sequence name, backend, table of `id | record TC | duration | marker`, and the list of "apply by hand" items.
+- When the cut goes to another editor or another person, write `edit/HANDOFF.md` with these fields:
+  - project and plan version, with the sha256 of `cutplan.json`;
+  - the approved dialogue/VO WAV and its sha256 (the only narration; nobody reprocesses it);
+  - the source folders and relink notes: files are matched by name plus byte size, and absolute paths are never stored;
+  - the EDL/XML files;
+  - captions and word timings of the final export;
+  - graphics renders and their timeline JSON;
+  - canvas, fps and camera placement;
+  - known issues;
+  - approvals (cut, graphics, final, publication), each `pending` until the user signs it off.
 
 ## Never
 

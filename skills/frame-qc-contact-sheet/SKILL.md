@@ -22,28 +22,45 @@ or the same pose across time. Always QC on sheets.
 | `face_crops.py OUT.jpg REF.png IMG@x,y[,r] …` | The identity reference plus crops centred on (x, y) as fractions of width and height, for face checks |
 | `trim_bars.py IMG…` | Detects near-black rows at the top and bottom and crops them, keeping 16:9. The original is kept as `_orig_bars_*` |
 
+## Two passes, never one
+
+1. **Sheet pass** (`contact_sheet.py`): consistency ACROSS frames — the same face, product, grade, orientation, no colour jump.
+   A sheet cell is too small to judge anything inside one frame.
+2. **Full-size pass, one frame at a time:** every frame that shows hands, limbs, bodies touching objects or each other,
+   a person in a vehicle, text or a hero product is opened at full size (or a 100% crop of that region). Skipping this pass is
+   how a wrong arm, a sixth finger or a second product reaches the edit. A frame that only passed the sheet pass is NOT checked.
+
 ## The checklist (apply to every frame)
 
 1. **Format:**
-   - full-bleed 16:9;
-   - no letterbox bars, rounded corners or vignette frame;
-   - no split screen.
-2. **Text:** no readable text except what the shot needs; no wrong names.
+   - the project's target ratio (9:16, 16:9, 1:1 — read it from the brief, never assume 16:9), full-bleed;
+   - no letterbox bars, rounded corners, vignette frame, split screen, colour panels or hard rectangles in the sky.
+2. **Text:** no readable text except what the shot needs; no wrong names; no real brands, logos or brand-like marks.
 3. **Hero count and shape:**
-   - exactly one of each hero;
-   - signature features correct (for example, exactly 4 funnels and smoke only where it should be).
-4. **Period:**
-   - no anachronisms in clothes, machines, buildings or the stage of construction;
-   - the right city or country.
-5. **Physics and safety:** the action is plausible; nobody is in danger in a way the story does not intend.
-6. **Identity:** in-focus faces match the reference (hairline, face width, age). Check them with `face_crops.py`; thumbnails lie.
-7. **Optics and grade:**
-   - shallow depth of field;
+   - exactly one of each hero (person, product, vehicle); no duplicate product lying in the frame (extra sneaker pair, second bottle);
+   - signature features correct (the product's colours and shape match its master; the vehicle's design matches its sheet).
+4. **Anatomy and body continuity** (full-size pass):
+   - count arms, hands and fingers of every person: two of each, five fingers, no fused or extra digits;
+   - **trace every visible limb back to its body.** An arm entering from a frame edge must belong to the person on that side;
+     a hand on a steering wheel, a product or another person must connect to a shoulder you can see or that is plausibly
+     just out of frame on the SAME side as that person;
+   - the grip is real: fingers wrap the object, the object is not floating or clipping through the hand;
+   - in vehicles: the driver sits behind the wheel, on the side the wheel is on; the arms reach it from the driver's body;
+     the view through the windows matches the direction of travel;
+   - heads, necks and shoulders sit naturally; no twisted torsos, no limbs bending the wrong way.
+5. **World and period:**
+   - no anachronisms in clothes, machines, buildings;
+   - the right city, country and season for the brief.
+6. **Physics and safety:** the action is plausible (shadows match the light, water and dust behave, objects rest on surfaces);
+   nobody is in danger in a way the story does not intend.
+7. **Identity:** in-focus faces match the reference (hairline, face width, age). Check them with `face_crops.py`; thumbnails lie.
+8. **Optics and grade:**
+   - the look the brief asks for (lens, depth of field, grain);
    - the series grade;
-   - no sourceless bokeh orbs or blue streaks;
+   - no sourceless bokeh orbs or streaks;
    - no glossy CGI.
-8. **Story beat:** the frame shows what the script line says (time of day, the ship sinking rather than level, and so on).
-9. **Chains:** use `pair_sheet.py` and check:
+9. **Story beat:** the frame shows what its intent line says (action, time of day, location).
+10. **Chains:** use `pair_sheet.py` and check:
    - the same world;
    - time moving forward;
    - the same orientation;
@@ -77,5 +94,6 @@ For generated VIDEO, sample the first frame, frames every 0.5 s, and the frames 
   - Prefer the bundled Pillow scripts for contact sheets.
   - If duplicate checksums suddenly appear among source frames, stop and report. It is damage, not a pre-existing duplicate.
 
+- Never deliver a frame you did not look at at full size when it shows hands, limbs, contact, a vehicle interior or text.
 - Never deliver a frame you did not look at. Deliver an explicit list of accepted files, never "everything in the folder".
 - A frame that was claimed by a worker before you changed its prompt comes back with the OLD prompt. Check its timestamp against your edit.

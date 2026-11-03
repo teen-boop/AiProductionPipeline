@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **59 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **61 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -149,6 +149,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 **Video**
 - `nle-timeline-assembly` — one validated cut plan (in/out, tracks, transitions, markers, music ducking) built in DaVinci Resolve (MCP), Premiere Pro (MCP) or exported as CMX3600 EDL + CSVs; read back after every change. `scripts/cutplan_to_edl.py`.
+- `dialogue-cut` — voice-over and dialogue from several takes: DaVinci Resolve's own transcript (subtitles from audio) or any word timings, matched to every script line (any language), each reading scored (completeness, extra words, fillers, redo cues, confidence), the best one frame-snapped into a CANDIDATE cut with runner-ups, flags for loose or missing lines, and subtitles on the record timeline; a person listens before it is approved. Also finds where an ordered line sits inside a generated clip with speech. `scripts/take_select.py`.
+- `dialogue-audio-finish` — measures every speech edge at 1 ms (clipped onsets, cut-off words, s/sh/t tails, dead air, cuts inside continuous speech, level jumps between takes) and suggests exact edges; sample-exact audio inside frame-snapped picture with room tone, 12 ms fades, level match, music ducking, and the delivery loudness pass on the final stereo file. `scripts/edge_qa.py`.
 - `music-beat-grid` — optional, asks first: measured beat grid (kick-band phase, energy per bar), splices to length on beats, frame-exact cut sheet, checks cuts against the grid. `scripts/beat_grid.py`.
 - `retention-packaging-plan` — asks the video type first; for social / creator / explainer cuts: hook, visual events, punch-ins, captions and cards as a cue sheet anchored to words.
 - `text-behind-subject` — optional accent: title or number placed between background and subject (matting routes, composite, QC) for covers, title cards and hooks.
@@ -190,3 +192,5 @@ Pull requests are welcome. Before you commit, run `tools/check_clean.sh` and `py
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+The take scoring, edge measurements and board mechanics in `dialogue-cut`, `dialogue-audio-finish` and `motion-graphics-director/references/BOARD-RECIPES.md` were studied in [YouTube-AI-Video-Editing-System](https://github.com/sirioberati/YouTube-AI-Video-Editing-System) by Sirio Berati (MIT) and rewritten for this pipeline.

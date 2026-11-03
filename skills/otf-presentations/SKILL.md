@@ -104,6 +104,14 @@ Write `<out>/plan.md`:
 
 Length: a teaser or announcement is 15–30 s. An explainer or "fireworks" piece may run 35–45 s if every beat earns its place.
 
+## Graphics that follow a voice-over
+
+When the piece has narration, read `motion-graphics-director/references/BOARD-RECIPES.md` first. The rules that change most boards:
+- each element enters on the start of the word that names it, timed from the final dialogue export;
+- each element holds at least `max(1.5 s, 0.6 s + words / 3.2)`;
+- never an empty board;
+- one hero effect per board (BRD-01 to BRD-18), with pop/rise tokens for everything else.
+
 ## Editing rhythm (from the reference study)
 
 Measured on 24 premium short videos; the full guide with 30 patterns, numbers and HyperFrames recipes is `references/EDIT_PATTERNS.md`. Read it before planning the cut list. The rules that change most edits:
