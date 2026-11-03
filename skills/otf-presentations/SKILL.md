@@ -104,6 +104,10 @@ Write `<out>/plan.md`:
 
 Length: a teaser or announcement is 15–30 s. An explainer or "fireworks" piece may run 35–45 s if every beat earns its place.
 
+## Crops
+
+Before every render, run `frame-crop-guard` on each aspect ratio. It catches tiles that keep the background and lose the face, which a contact sheet of the finished frames shows too late. Give tiles the source's aspect ratio rather than a row of narrow strips.
+
 ## Graphics that follow a voice-over
 
 When the piece has narration, read `motion-graphics-director/references/BOARD-RECIPES.md` first. The rules that change most boards:

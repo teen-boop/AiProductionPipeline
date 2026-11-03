@@ -68,6 +68,7 @@ What it does:
 - **Scores each reading:**
   `100*recall - 2.5*extra words - 2*fillers + 4*mean word confidence`, minus 35 when a redo cue follows within 3 s, plus 2
   for the last attempt of the line in that take.
+- **Names:** transcribers spell invented names as common words (in a test, Resolve heard "Koss! Koss!" as "cost Cost"). Pass `--alias cost=koss` per name before trusting a MISSING flag.
 - **Chooses:** the best reading with recall at least 0.6. Otherwise the best with at least 0.3, flagged `LOOSE`. Otherwise
   `MISSING`: ask for a pickup. Never paper over a missing line with a partial one.
 - **Snaps to the frame grid:** in is floored and out is ceiled, so a clip never shortens its own words. Edges are padded

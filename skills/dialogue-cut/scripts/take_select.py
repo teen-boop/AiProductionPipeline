@@ -24,6 +24,7 @@ Writes into --out (never touches dialogue_cut.json, the approved plan):
 
 Scoring (per reading): 100*recall - 2.5*extra words - 2*fillers + 4*mean word probability
                        - 35 if a redo cue follows within 3 s, +2 for the last reading of the line in that take.
+Names: --alias heard=meant maps transcriber spellings of invented names (cost=koss) before matching.
 Choice: best reading with recall >= --min-recall; else the best with recall >= 0.3, flagged LOOSE; else MISSING (ask for a pickup).
 Word times from speech recognition are only good to about 50-100 ms: edges here are padded candidates. Run
 dialogue-audio-finish/scripts/edge_qa.py on the result before anyone listens to it as a cut.
@@ -252,8 +253,10 @@ def main():
     ap.add_argument("--fps", type=float, default=24.0)
     ap.add_argument("--min-recall", type=float, default=0.6)
     ap.add_argument("--srt", action="store_true")
+    ap.add_argument("--alias", action="append", default=[], help="heard=meant, e.g. cost=koss: invented names the transcriber spells as common words")
     a = ap.parse_args()
 
+    alias = dict(x.lower().split("=", 1) for x in a.alias)
     takes = []
     for spec in a.takes:
         path, _, media = spec.partition(":") if not os.path.exists(spec) else (spec, "", "")
@@ -262,6 +265,8 @@ def main():
             media, _, off = media.rpartition("@")
             offset = tc_seconds(off, a.fps) if ":" in off else float(off)
         words, src = load_words(path, a.fps, offset)
+        for w in words:
+            w["t"] = alias.get(w["t"], w["t"])
         name = re.sub(r"(\.words|\.cues)?\.(json|srt)$", "", os.path.basename(path))
         takes.append({"name": name, "source": media or src or re.sub(r"(\.words|\.cues)?\.(json|srt)$", "", path),
                       "all": words, "content": [w for w in words if w["t"] not in FILLERS],

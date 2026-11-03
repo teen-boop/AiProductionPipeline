@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **61 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **62 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -137,6 +137,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 **Generation, QC and placement (one job each)**
 - `independent-frame-critic` — fresh-eyes review of a batch: a reviewer who never saw the prompts scores 8 film categories, names up to 5 ranked fixes and gives each frame keep / fix / reject; pass rule, logged and capped rounds. `scripts/critic_log.py`.
 - `media-path-verify` — before any export or hand-off: every referenced file really exists, catches drives that remounted under a new name and phantom /Volumes folders; suggests relinks, applies none without a yes. `scripts/verify_media.py`.
+- `frame-crop-guard` — checks every crop before a render: real boxes from headless Chrome (vertical layouts included), faces and people in each source with Apple Vision, flags lost or cut faces and bodies, suggests the object-position or a better box, and draws a sheet of every crop window. `scripts/crop_boxes.mjs`, `crop_check.py`, `subjects.swift`.
 - `render-cut-verification` — the last gate on the ENCODED file: strips across every cut, black/flash frames, opening seconds, audio/video lengths, loudness and true peak, optional re-transcription. `scripts/cut_strips.py`.
 - `style-lock-guard` — always-on look guard: locks the look to the director's own reference frames (and the source prompt embedded in their PNG metadata), lints every prompt before it is sent (required style phrases, no contradicting grade phrases, style frames attached last — wired into the runner as a gate), and measures every result against the references to catch the flat/grey "mediocre" look.
 - `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
