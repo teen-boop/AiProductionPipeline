@@ -8,7 +8,9 @@ description: >-
   or more; rounds are logged, capped, and stopped when three rounds in a row fail to beat the best one. Use after mechanical QC
   (frame-qc-contact-sheet) and before frames go into the storyboard, the hand-off folder or a video prompt; when the user says "get a
   second opinion", "critique this batch", "independent review", "fresh eyes", "is this good enough", "why does it still look off";
-  or when you have fixed the same batch twice and it still is not landing. Includes scripts/critic_log.py.
+  or when you have fixed the same batch twice and it still is not landing. Every frame with a locked face also gets the
+  identity triple check (same-scale crops, a fresh critic, then in context at delivery size). Includes scripts/critic_log.py
+  and scripts/face_compare.py.
 user-invocable: true
 ---
 
@@ -44,6 +46,38 @@ Never put in the packet:
 - "this one is the best" or any other hint.
 
 The reviewer must judge the pictures, not our plans for them.
+
+## 1a. Identity triple check (every frame with a known face)
+
+One look is not enough: a face that is "close" passes a tired eye, and a face pasted onto a body passes a quick glance at
+thumbnail size. Any frame that shows a locked character (a real person, a recurring cast member) goes through THREE separate
+passes before it is used in a storyboard, a hand-off or a video. One "no" in any pass rejects the frame.
+
+1. **Pass 1, same-scale crops.** Run `scripts/face_compare.py --ref <character sheet or approved bust> --out compare.jpg <frames>`.
+   It puts every face in the frame next to the reference face at the same size. Compare, feature by feature: face shape and
+   weight, eyes (colour, spacing, lids), nose, mouth, moustache or beard (shape and colour), hairline and haircut, scars and
+   marks, apparent age. Write one line per frame: `same / not same + the differing features`.
+2. **Pass 2, a fresh critic on the crops.** A NEW reviewer (section 2) gets only `compare.jpg` and the reference sheet, no
+   prompts, no intent, no pass-1 notes, and answers per face: "Is this the same person as REF? yes / no / unsure, which
+   features differ? Does the face look pasted in (lighting, grain, skin texture, edge or scale different from the rest of the
+   frame)?". `unsure` counts as no.
+3. **Pass 3, in context at delivery size.** Look at the frame exactly as the viewer will see it (the 16:9 frame AND the 9:16
+   crop, at the size it plays in the video), with a second fresh reviewer, and ask the same two questions. This catches faces
+   that only pass as a crop, and composites that only show at full frame.
+
+Rules:
+- A frame labelled APPROVED, "fixed" or "locked" in a promo or tutorial must pass all three passes; a promo that shows a
+  drifted face as the good example destroys the claim it makes.
+- A frame shown as a REJECT must be visibly wrong at playback size (pass 3). If the reject and the fix look alike, cut the
+  pair; it proves nothing.
+- A pasted-in or face-swapped look (lighting, grain or skin that does not match the shot) is a reject even when the
+  likeness is right. Regenerate the whole shot with the sheet attached; do not patch the face again.
+- Record the three verdicts in the round log (`critic_log.py`), with the frame ID.
+- When a frame fails on identity, never attach the failed frame (or an older take of the same shot) as the composition
+  reference for the regeneration: the model copies the wrong face back from it. Regenerate from the character sheets plus a
+  text description of the scene; an already approved frame of the same character may be attached as an extra identity reference.
+- A frame that passes pass 1 can still fail pass 2 or 3 (a missing scar, hair colour, a 9:16 crop that loses the face). Fix
+  small misses with a minimal edit of the passing frame, then run all three passes again on the edit.
 
 ## 2. Run the reviewer in a fresh context
 

@@ -78,6 +78,38 @@ python3 scripts/beat_grid.py snap --period 0.4688 --phase 0.0 --fps 24 --cuts "1
 Anything flagged OFF GRID is moved or justified. Then `render-cut-verification` on the encoded file, and `dialogue-audio-finish`
 for the final mix and loudness.
 
+## 7. Music video from generated shots (the two soundtracks)
+
+Music written inside a generated shot restarts in a new key at every cut, so the score always comes from outside the video
+model: the supplied master. What the model makes is only the sound bolted to the picture. Decide before generating (adapted from
+scenario-labs/skills `scenario-seedance-music-video`, MIT):
+
+- **Song alone:** generate every shot without audio. Lay the master once at the end and stream-copy it, so the delivered
+  soundtrack is the master bit for bit.
+- **Song over the shots' own sound:** generate with audio, every prompt naming only what the scene makes after "Diegetic sound
+  only:" (heels on wet asphalt, room tone). Never name an instrument or genre and never write "no music": both have triggered
+  audio refusals or a self-scored shot. Mix the clips under the master at 0.1 to 0.3 gain, master at unity.
+
+Per shot: generate one or two seconds longer than its slot for a trim handle. To land an action on a beat inside a shot,
+timecode it from the clip's start: beat time minus the shot's start in the edit, plus any planned head trim. One camera move and
+one dominant action per shot; a prompt describing a sequence makes the model cut inside the clip. When a state must carry across
+a cut, pass the outgoing state as the next shot's first frame (reference mode restarts every shot from its base state).
+
+Assembly rules: each shot runs until the next one starts (no gaps), every start snaps to a frame of the grid, clips are conformed
+to one fps and size first, and the master is never trimmed, normalized, faded or re-encoded by hand. Song alone, after the
+picture-only concat:
+
+```
+ffmpeg -i cut_silent.mp4 -i audio/master.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest out.mp4
+```
+
+(use `-c:a copy` when the master is AAC already). Record the master's hash (`shasum -a 256`) in the edit notes and check it is
+unchanged before delivery.
+
+Judging clips: a sparse contact sheet makes a continuous camera move look like a hard cut. Measure: downscale to about 160x90,
+take the mean absolute difference between consecutive frames, and call it a cut only where it spikes far above the clip's own
+baseline. Watch the delivery once with sound and once muted.
+
 ## Never
 
 - Never beat-lock by default; ask, and default to holds for slow pieces.

@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  A seamless loop as a HyperFrames composition (seamless-motion-loops skill).
+  Same contract as scripts/loop-template.html: draw(ctx, w, h, t, P) depends on t alone and every
+  period divides LOOP. HyperFrames seeks the page with an hf-seek event; the canvas is redrawn from
+  e.detail.time, wrapped into [0, LOOP). Set LOOP, data-duration (= LOOP or a whole multiple of it),
+  data-width and data-height together. Render from the folder that holds this file as index.html:
+    npx -y hyperframes@0.8.229 render -q delivery -o loop.mp4
+  To use it as a background inside a promo, keep the canvas and script inside a <template> sub-composition
+  and give its host slot the same data-duration (or a whole multiple of LOOP).
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Seamless loop (HyperFrames)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; overflow: hidden; background: #161616; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #loop { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1920" data-height="1080">
+      <canvas id="loop" data-layout-allow-overflow></canvas>
+    </div>
+    <script>
+      const LOOP = 12; // seconds; equal to data-duration above, or data-duration is a whole multiple of it
+      const BRAND = { accent: "#F0962B", ink: "#0F0F0F", paper: "#F2EFE9", card: "#161616" };
+      const P = { bg: BRAND.card, fg: BRAND.accent, fg2: BRAND.paper, accent: BRAND.accent, ink: BRAND.ink, paper: BRAND.paper };
+
+      // The few helpers this tile needs (the full set lives in scripts/loop-template.html).
+      const TAU = Math.PI * 2;
+      const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+      const fract = (x) => x - Math.floor(x);
+      const mod = (x, m) => ((x % m) + m) % m;
+      const phase = (t, period = LOOP, offset = 0) => fract((t + offset) / period);
+      const smoothstep = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+      const hex = (c) => { const n = parseInt(c.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+      const rgba = (c, a) => { const [r, g, b] = hex(c); return `rgba(${r},${g},${b},${a})`; };
+      const proj = (x, y, z, f, cx, cy) => [cx + (f * x) / z, cy - (f * y) / z];
+
+      // The tile: the template's Perspective Floor, a grid streaming toward the camera.
+      function draw(ctx, w, h, t, P) {
+        const u = h / 100, cx = w / 2, cy = h * 0.5, f = h * 0.55;
+        const p = phase(t, LOOP / 8); // one row per LOOP / 8 s: a whole number of rows per loop
+        const zNear = 0.35, zFar = 26;
+        for (const side of [1, -1]) {
+          for (let k = 0; k < 60; k++) {
+            const z = k + 1 - p;
+            if (z < zNear || z > zFar) continue;
+            const y = cy + (f * side) / z;
+            ctx.strokeStyle = rgba(P.fg, (1 - smoothstep(2.5, 9, z)) * clamp((z - zNear) * 3));
+            ctx.lineWidth = Math.max(0.06 * u, (0.55 * u) / Math.sqrt(z));
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+          }
+          const span = Math.ceil(w / 2 / (f / zNear)) + 18;
+          for (let i = -span; i <= span; i++) {
+            let zPrev = zNear;
+            for (let s = 1; s <= 24; s++) {
+              const z = zNear * Math.pow(zFar / zNear, s / 24);
+              const [x0, y0] = proj(i, -side, zPrev, f, cx, cy);
+              const [x1, y1] = proj(i, -side, z, f, cx, cy);
+              ctx.strokeStyle = rgba(P.fg, 1 - smoothstep(2.5, 11, (zPrev + z) / 2));
+              ctx.lineWidth = Math.max(0.06 * u, (0.55 * u) / Math.sqrt(zPrev));
+              ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+              zPrev = z;
+            }
+          }
+        }
+        ctx.fillStyle = rgba(P.fg2, 0.9);
+        ctx.fillRect(0, cy - 0.12 * u, w, 0.24 * u);
+      }
+
+      // HyperFrames wiring: size from the root's data attributes, redraw on every seek.
+      const rootEl = document.getElementById("root");
+      const W = Number(rootEl.dataset.width), H = Number(rootEl.dataset.height);
+      const canvas = document.getElementById("loop");
+      canvas.width = W; canvas.height = H;
+      const ctx = canvas.getContext("2d");
+      function renderAt(time) {
+        const t = mod(time, LOOP);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.fillStyle = P.bg; ctx.fillRect(0, 0, W, H);
+        ctx.save(); draw(ctx, W, H, t, P); ctx.restore();
+      }
+      window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
+      renderAt(0);
+      // An empty paused timeline that spans the loop, as our promos register one per composition.
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, LOOP);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -90,3 +90,19 @@ Put K1 | K2 | K3 side by side (see `frame-qc-contact-sheet`, `pair_sheet.py`) an
 - [ ] no duplicated hero, no new text, no letterbox bars.
 
 Reject the single failing keyframe with a one-line prompt fix, regenerate it, and re-check its neighbours.
+
+## 7. Continuous movement across many shots (dance, fight, sport)
+
+When limbs teleport, feet slide or motion resets at every cut, build the sequence from a light storyboard and a pose chain.
+Full method in [references/storyboard-to-motion.md](references/storyboard-to-motion.md). The short version:
+
+- **Script first:** a timecoded shot list where every shot names its ENTRY and EXIT pose, and shot N's exit is shot N+1's entry.
+  Write the action as physics (approach, contact, transfer of force, recovery, cloth settling a beat late), never as adjectives.
+- **Pick the lane:** one scripted Seedance run when the sequence fits the model's duration cap (plates + board + 2 or 3 photoreal
+  key frames as references); chained per-shot runs (start frame = boundary still N-1, end frame = boundary still N) past the cap,
+  when the sequence must open on an exact pose, or when someone leaves frame and returns.
+- **Draw the board LIGHT:** thin pale pencil on bare paper. A heavily drawn or photoreal board leaks its arrows and numbers into
+  the video as objects. In the prompt, DEFINE the marks as the director's planning guides instead of prohibiting them.
+- **Gate every panel twice** (artifacts, then spot-the-difference against the plate: counts, part-to-whole, costume, screen
+  side). A board-level pass averages defects away.
+- **Check the delivery every 0.5 s**, not only at the cuts: a leaked marking can fade in mid-shot.

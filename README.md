@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **62 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **65 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -142,6 +142,9 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `style-lock-guard` — always-on look guard: locks the look to the director's own reference frames (and the source prompt embedded in their PNG metadata), lints every prompt before it is sent (required style phrases, no contradicting grade phrases, style frames attached last — wired into the runner as a gate), and measures every result against the references to catch the flat/grey "mediocre" look.
 - `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
 - `frame-qc-contact-sheet` — batch QC on labelled contact sheets, start|end pair sheets and face crops, plus a letterbox-bar trimmer (`scripts/`).
+- `reference-roles-leak-check`: one job per reference image (who, where, pose, style, light, palette...), a "do not take" line for each, the most-ignored job first, and a leak check before a frame is kept (no stranger's face, props or colors from the wrong card).
+- `video-color-grade`: deterministic grading in local code (ffmpeg + numpy): cinematic looks baked to .cube LUTs, match to the approved key frame, day-for-night, B&W with one kept color, log to Rec.709, look grids and a grading showreel. `scripts/render_looks.py`, `match.py`, `showreel.py`.
+- `seamless-motion-loops`: brand-color motion backgrounds as code, rendered to MP4 with a verified seam (frame at LOOP equals frame 0), optional character still on top, plus the same loop as a HyperFrames composition. `scripts/render-loop.mjs`, `loop-template.html`.
 - `generation-failure-fixes` — catalogue of recurring model failures (second subject from a reference, leaked names, bars, orbs, wrong city, anachronisms, frozen poses, unsafe physics) with the exact fix line.
 - `identity-fix-pass` — fixes a wrong face without re-shooting the frame, verifies it against the identity bust and keeps the storyboard slot.
 - `storyboard-insert-ops` — declarative placement ops (replace, after/before, *_late after a beat rebuild, fixes of fixes last) and post-build checks.

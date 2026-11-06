@@ -15,6 +15,34 @@ user-invocable: true
 Each entry says what you see, why it happens, and what to change. When a fix works, add a new entry. Keep the one-line fixes literal:
 they are pasted into the prompt as an `ACCURACY FIX` / `FIX` line, which overrides anything above it.
 
+## The refine loop (before reaching for a fix)
+
+Two ways to waste a budget: accept the first roll, or reword the whole prompt and re-roll until the money is gone. The loop that
+converges (adapted from scenario-labs/skills `scenario-refine-loop`, MIT):
+
+1. **Rubric before generating.** Turn the brief into pass/fail lines a viewer can check ("four funnels", "face matches the
+   persona sheet", "no text"), never taste words. A rubric written after seeing the batch inherits the batch's flaws.
+2. **Smallest batch** that tests the recipe, at the cheapest tier where every rubric line can still be judged.
+3. **Recorded verdict per asset**, citing the rubric: `<index>: pass|fail, <the failed line>`. "Could be better" is not a verdict.
+   Use `independent-frame-critic` so the judge never saw the prompt.
+4. **Cheapest targeted fix per fail line**, routed per item (never re-roll the whole batch for one failure):
+
+| The verdict says | Fix |
+| --- | --- |
+| One local defect on a keeper | Masked inpaint, or an edit of the keeper naming that one change (`identity-fix-pass` for faces) |
+| A uniform finish is off (grade, tint, crop) | A deterministic pass in code (`video-color-grade`, `frame-crop-guard`), not a re-roll |
+| Wrong content, composition or palette | Edit the delta clause, re-run from the approved baseline |
+| Identity or style drift | Tighten the enumeration, add or re-role references (`reference-roles-leak-check`) |
+| Every line failing | Change the model, keep the prompt |
+
+5. **Change one variable per round,** so the improvement can be attributed.
+6. **Regenerate from the baseline, never from the last attempt:** chaining output to output compounds drift.
+7. **Hard stop:** a clean round ships. Three rounds without one, or one line failing twice under two different fixes, means report
+   to the user, not respin: that is evidence about the model, not bad luck. A tier change (draft to final) is a new generation:
+   re-run the keeper's recipe and re-critique it.
+
+When a fix below works for a new symptom, add its row.
+
 ## Composition
 
 | Symptom | Cause | Fix |
