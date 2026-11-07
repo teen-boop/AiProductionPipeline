@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **65 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **66 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -132,6 +132,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `manual-image-pack` — hand-generation packs and intake of the results.
 - `loveart-video-animation`, `loveart-project-director` — the same phases written for the Lovart platform, if you use it.
 - `period-fact-check` — checks the dates, liveries, construction stage and who was where against a source before prompting, and turns each fact into an ACCURACY line.
+- `theme-research-module` — a swappable theme for a fixed series format (for example surreal home-video tapes): pins the era window, builds a reality bank (places, rituals, types, props), a twist bank (one impossible thing nobody reacts to), an annotated reference board with the camera of the era and a draft STYLE LOCK, runs an anachronism check and waits for approval before any download or story work.
 - `keyframe-chain-builder` — K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset → night) for first + last frame video; enforces physical realism, forward-moving time and the full style on every keyframe.
 
 **Generation, QC and placement (one job each)**
