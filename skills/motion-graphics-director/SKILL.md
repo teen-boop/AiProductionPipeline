@@ -46,6 +46,7 @@ Mixed piece? That is normal and correct — the hybrid wins. Route **per shot**,
 | `motion-design-references` | 3 | reference intake, STYLE/ASSET split, locked images, INDEX, Lovart attachment sets |
 | `motion-remotion-build` | 4 | Remotion project, props, exact numbers, render |
 | `motion-video-route` | 4 | master style sheet image, image→video, shot blocks |
+| `cinematic-motion-graphics` | 1–5 | the cinematic / documentary category set: period maps with routes, date stamps, press headlines, lower thirds, fact cards, timelines, blueprints, title cards, overlays inside a film's look |
 
 ## The prompt library
 

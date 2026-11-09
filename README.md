@@ -113,6 +113,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `visual-story-1-setup` … `visual-story-8-storyboard` — an alternative fixed, linear 8-step pipeline: setup → script → cast & world → references → exposition → production → platform QC → storyboard.
 - `visual-story-pipeline` — the same 8-step pipeline as one umbrella skill with its full reference library (reference taxonomy, script structures, prompt engineering, character lock, platforms, QC and fixes, location and prop references).
 - `story-bible-builder` — interview-driven: turns a story into one dense canon document (the story's bible) that every later prompt reads from.
+- `ai-book-writer` — scene engine for writing a book with an AI co-writer: Harmon's 8-beat circle per scene, THEREFORE / BUT joints (shared causality module), English cards, prose in the book's language; build, audit, chapter/book, stuck, resume from BOOK_LEDGER.md, and screen mode that turns a scene into a shot list. `scripts/prose_lint.py` flags weak connectors, telling, beat weight, tense and POV drift.
 - `story-continuity-ledger` — continuity memory for long illustrated stories: a versioned ledger of every recurring element (look, injuries, vehicles, props, who is where) that grows with the story and opens a new version when the story changes something; pre-generation checklist and post-generation QC.
 
 **References and identity**
@@ -172,6 +173,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 **Presentations**
 - `otf-presentations` — OTF Presentations: cinematic announcement / explainer / teaser videos (HyperFrames). Reads the context from the chat and the project's references first (embedded source prompts, style lock, best frames ranked by the look, videos, docs), picks fonts that really render the language (glyph-tested) and an animation vocabulary matched to the look, then plans, composes, checks frame by frame and renders. `scripts/otf_context.py`. Its editing rhythm comes from a measured study of 24 premium short videos (`references/EDIT_PATTERNS.md`: accelerate-and-release, overexposure flash, dip-to-black breath, endings).
+- `otf-project-trailer` — a cinematic trailer or teaser cut from a project's own approved frames and clips: ranked material pick, trailer structures with beat timing, style-locked requests for missing shots, beat-grid edit, per-language renders, verified encode, share copy. `scripts/pick_material.py`, `frame_check_sheet.py`.
+- `cinematic-promo-film` — a promo, launch or brand film for a client made like a short film from AI shots: brief with one feeling and one claim, 2–3 story concepts, product fidelity lock, stills-first generation with paid steps gated, music-first edit with a cinematic cut catalog, masters and cutdowns per aspect and language.
 - `cinematic-poster-designer` — unusual cinematic film posters: one visual metaphor from a device catalogue (object replaces the head, silhouette window, shard reveal, lone figure in fog, single colour field…), learned only from the poster references the user marks as liked (`LIKED.md`); key art is generated without text and the title, tagline and credits are set in code (`scripts/compose_poster.py`), 2:3 plus 4:5 and 9:16.
 
 - `davinci-series-assembly` — puts a series of finished clips (presentation parts, block reels) on a new DaVinci Resolve timeline in order via the Resolve MCP: validates fps/size, imports into a dated folder, creates a versioned timeline, adds a marker per part, verifies no gaps/overlaps, never deletes anything. `scripts/series_manifest.py` (+ ffmpeg preview master).
@@ -189,6 +192,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 **Motion graphics (a parallel track)**
 - `motion-graphics-director`, `motion-style-core`, `motion-design-references`, `motion-remotion-build`, `motion-video-route`.
+- `cinematic-motion-graphics` — graphics inside a film's look: period maps with animated routes, date / time stamps, archival press headlines, documentary lower thirds, fact cards, timelines, blueprints, title cards, composite overlays; JSON spec lint, route projection, alpha renders. `scripts/spec_lint.py`, `route_overlay.py`.
 
 ---
 

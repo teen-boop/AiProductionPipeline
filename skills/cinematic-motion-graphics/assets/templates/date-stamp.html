@@ -1,0 +1,261 @@
+<!doctype html>
+<html
+  lang="en"
+  data-composition-variables='[
+    {"id":"date","type":"string","label":"Date line","default":"14 APRIL 1912"},
+    {"id":"time_from","type":"string","label":"Clock starts at (HH:MM)","default":"23:31"},
+    {"id":"time_to","type":"string","label":"Clock settles on (HH:MM)","default":"23:40"},
+    {"id":"place","type":"string","label":"Place line","default":"NORTH ATLANTIC"},
+    {"id":"transparent","type":"boolean","label":"Alpha overlay (no plate)","default":false},
+    {"id":"guides","type":"boolean","label":"Show title-safe guides (QC only)","default":false},
+    {"id":"grain","type":"number","label":"Grain opacity","default":0.07,"min":0,"max":0.25,"step":0.01}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Date stamp - cinematic-motion-graphics template</title>
+    <!--
+      Cinematic date / time / place stamp. HyperFrames composition (HTML + one paused GSAP timeline).
+      24 fps, 8 s, 1920x1080. Typewriter date, a minute clock that settles on the event time,
+      a ledger rule, a place line, deterministic film grain. Render as ProRes 4444 / WebM alpha
+      with transparent=true to lay it over graded footage.
+
+      Before use: replace the generic font stacks with the project's glyph-tested face through a local
+      @font-face (fonts/<file>.woff2) and set the palette tokens from the project's STYLE_LOCK / style card.
+      Every word on screen must be approved by the user; the date and time need an accuracy line.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #ede3cf;          /* paper-white ink: from the style lock, never pure #fff */
+        --ink-dim: rgba(237, 227, 207, 0.62);
+        --rule: rgba(237, 227, 207, 0.45);
+        --halation: rgba(255, 96, 48, 0.16); /* warm bloom on bright type, very faint */
+        --plate: #07090b;        /* deep black, never flat grey */
+      }
+      body {
+        margin: 0;
+        background: transparent;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Courier New", Courier, monospace;
+        color: var(--ink);
+      }
+      #plate {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 75% 70% at 50% 45%, #14171b 0%, var(--plate) 70%);
+      }
+      #stamp {
+        filter: url(#ink-f);
+        position: absolute;
+        left: 8%;
+        bottom: 9%;
+        width: 44%;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .line {
+        display: block;
+        white-space: nowrap;
+        text-shadow: 0 0 14px var(--halation);
+      }
+      #date {
+        font-size: 56px;
+        letter-spacing: 0.14em;
+      }
+      #date .ch {
+        opacity: 0;
+      }
+      #clock-row {
+        display: flex;
+        align-items: baseline;
+        gap: 22px;
+      }
+      #time {
+        font-size: 84px;
+        letter-spacing: 0.06em;
+        font-variant-numeric: tabular-nums;
+      }
+      #tick {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--ink);
+        opacity: 0;
+      }
+      #rule {
+        height: 2px;
+        width: 100%;
+        background: var(--rule);
+        transform-origin: left center;
+      }
+      #place {
+        font-size: 34px;
+        letter-spacing: 0.3em;
+        color: var(--ink-dim);
+      }
+      #grain,
+      #ink-defs {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+      #guides {
+        position: absolute;
+        inset: 5%;
+        border: 2px dashed rgba(255, 0, 80, 0.7);
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="date-stamp"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="8"
+      data-fps="24"
+    >
+      <div id="plate"></div>
+      <div id="stamp">
+        <span id="date" class="line">14 APRIL 1912</span>
+        <div id="clock-row">
+          <span id="time" class="line">23:31</span>
+          <span id="tick"></span>
+        </div>
+        <div id="rule"></div>
+        <span id="place" class="line">NORTH ATLANTIC</span>
+      </div>
+      <svg id="grain" width="1920" height="1080" viewBox="0 0 1920 1080" aria-hidden="true">
+        <filter id="grain-f" x="0" y="0" width="100%" height="100%">
+          <feTurbulence id="grain-t" type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="1920" height="1080" filter="url(#grain-f)" />
+      </svg>
+      <svg id="ink-defs" width="0" height="0" aria-hidden="true">
+        <filter id="ink-f" x="-5%" y="-20%" width="110%" height="140%">
+          <feTurbulence id="ink-t" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="1" result="noise" />
+          <feColorMatrix id="ink-m" in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.14 1" result="mask" />
+          <feComposite in="SourceGraphic" in2="mask" operator="in" />
+        </filter>
+      </svg>
+      <div id="guides"></div>
+    </div>
+    <script>
+      (function () {
+        var FPS = 24;
+        var DUR = 8;
+        var defaults = {
+          date: "14 APRIL 1912",
+          time_from: "23:31",
+          time_to: "23:40",
+          place: "NORTH ATLANTIC",
+          transparent: false,
+          guides: false,
+          grain: 0.07
+        };
+        var hf = window.__hyperframes;
+        var v = Object.assign({}, defaults, hf && hf.getVariables ? hf.getVariables() : {});
+
+        function toMin(s) {
+          var p = String(s).split(":");
+          return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+        }
+        function fmt(m) {
+          m = ((Math.round(m) % 1440) + 1440) % 1440;
+          var h = Math.floor(m / 60), mm = m % 60;
+          return (h < 10 ? "0" : "") + h + ":" + (mm < 10 ? "0" : "") + mm;
+        }
+
+        // static setup (no animation): plate, guides, grain, typewriter spans.
+        // Full-frame grain only over our own plate; in an alpha overlay it would lay a grey veil over the
+        // footage, so there the grain lives inside the ink only (#ink-f) and the plate keeps its own grain.
+        document.getElementById("plate").style.display = v.transparent ? "none" : "block";
+        document.getElementById("grain").style.display = v.transparent ? "none" : "block";
+        document.getElementById("guides").style.display = v.guides ? "block" : "none";
+        document.getElementById("grain").style.opacity = String(v.grain);
+        document.getElementById("ink-m").setAttribute("values",
+          "0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 " + (-2 * Number(v.grain)).toFixed(3) + " 1");
+        var dateEl = document.getElementById("date");
+        var chars = String(v.date).split("");
+        dateEl.textContent = "";
+        chars.forEach(function (c) {
+          var s = document.createElement("span");
+          s.className = "ch";
+          s.textContent = c === " " ? "\u00a0" : c;
+          dateEl.appendChild(s);
+        });
+        var spans = dateEl.querySelectorAll(".ch");
+        document.getElementById("place").textContent = String(v.place);
+        var timeEl = document.getElementById("time");
+        var t0 = toMin(v.time_from), t1 = toMin(v.time_to);
+        if (t1 < t0) t1 += 1440;
+        timeEl.textContent = fmt(t0);
+        var turb = document.getElementById("grain-t");
+        var inkTurb = document.getElementById("ink-t");
+
+        var tl = gsap.timeline({ paused: true });
+
+        // 1. typewriter date: one character per step, seek-safe (state derived from the proxy only)
+        var typer = { n: 0 };
+        tl.to(typer, {
+          n: spans.length,
+          duration: 1.4,
+          ease: "none",
+          onUpdate: function () {
+            var k = Math.floor(typer.n + 1e-6);
+            for (var i = 0; i < spans.length; i++) spans[i].style.opacity = i < k ? "1" : "0";
+          }
+        }, 0.6);
+
+        // 2. ledger rule draws under the clock
+        tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "power2.inOut" }, 1.9);
+
+        // 3. clock: appears, ticks minute by minute, decelerates onto the event time
+        tl.fromTo("#time", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "sine.out" }, 2.2);
+        var clock = { m: t0 };
+        tl.to(clock, {
+          m: t1,
+          duration: 2.4,
+          ease: "power2.out",
+          onUpdate: function () { timeEl.textContent = fmt(Math.floor(clock.m + 1e-6)); }
+        }, 2.2);
+        tl.fromTo("#tick", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12, ease: "none" }, 4.6);
+        tl.to("#tick", { autoAlpha: 0.35, duration: 0.9, ease: "sine.inOut" }, 4.75);
+
+        // 4. place line, after the date is fully readable
+        tl.fromTo("#place", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "sine.out" }, 3.2);
+
+        // 5. long hold, then a slow fade (cinema exit: no slide-out)
+        tl.to("#stamp", { autoAlpha: 0, duration: 0.7, ease: "sine.inOut" }, 7.2);
+
+        // 6. grain: a new deterministic seed every frame for the whole duration
+        var g = { f: 0 };
+        tl.to(g, {
+          f: DUR * FPS,
+          duration: DUR,
+          ease: "none",
+          onUpdate: function () {
+            var seed = String((Math.floor(g.f) % 97) + 1);
+            turb.setAttribute("seed", seed);
+            inkTurb.setAttribute("seed", seed);
+          }
+        }, 0);
+
+        tl.seek(0);
+        window.__timelines["date-stamp"] = tl;
+      })();
+    </script>
+  </body>
+</html>

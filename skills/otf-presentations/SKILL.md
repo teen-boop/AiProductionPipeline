@@ -10,6 +10,8 @@ description: >-
 user-invocable: true
 ---
 
+> **Neighbouring routes.** A trailer or teaser cut from a project's own frames and clips → `otf-project-trailer`. A cinematic promo or brand film for a client's product, made from new AI shots → `cinematic-promo-film`. This skill stays the route for presentations, announcements and explainers.
+
 # OTF Presentations
 
 A film project's truth lives in the **chat** and in the **references**. OTF Presentations reads both, writes down what it takes
