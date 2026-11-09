@@ -127,5 +127,5 @@ for that later step.
 
 ## 10. VERIFIED
 ⚠️ Not verified by render. A direct analogue of the proven mechanics from the
-an earlier project project (article card, EV-34) — the same "no names to the generator"
+an earlier project (article card, EV-34) — the same "no names to the generator"
 principle, carried over here as a rule, not a hypothesis.
