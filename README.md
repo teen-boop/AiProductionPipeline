@@ -72,7 +72,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **66 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **77 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -177,6 +177,15 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `davinci-series-assembly` — puts a series of finished clips (presentation parts, block reels) on a new DaVinci Resolve timeline in order via the Resolve MCP: validates fps/size, imports into a dated folder, creates a versioned timeline, adds a marker per part, verifies no gaps/overlaps, never deletes anything. `scripts/series_manifest.py` (+ ffmpeg preview master).
 
 - `press-clipping-engine` — turns any screenshot into a press / newspaper-style image prompt: phase 1 distils style references into reusable archetypes (editorial broadsheet, pulp tabloid, redacted dossier, torn stack, Vox-style clip), phase 2 applies one in a minute.
+
+**Project files and delivery**
+- `project-scaffold` — one standard tree for every project (00_BRIEF, 01_REFERENCES, 02_PROMPTS, 03_GENERATED, 04_EDIT, 05_FINAL_OUTPUTS, 06_DELIVERY, 07_POSTING, 99_ARCHIVE) with PROJECT.json and a brief template; only adds missing folders, `--check` audits a messy project. `scripts/scaffold.py`.
+- `reference-library-organizer` — understands references and sorts them into EXTERNAL (found: look only, never shipped), INTERNAL (ours, LOCKED vs CANDIDATES), PROMPTS and PERSONAL (real people: indexed in place, never copied); classifies by name, source URL, camera metadata and the generation log, then by eye from contact sheets; stable ids with role lines and shot usage; leak check before anything leaves. `scripts/refs.py`.
+- `generation-log` — append-only log of every generated file: prompt, model, references, params, cost, shot, parent take, approval; matched by content so renamed copies still find their prompt; regenerate recipes and spend reports. `scripts/genlog.py`.
+- `edit-media-bins` — copies generated clips, stills, audio, graphics, LUTs and cut plans into editor bins grouped and ordered by shot, renames hash-named takes, flags clips with a different size or fps; originals untouched. `scripts/edit_bins.py`.
+- `final-outputs-organizer` — gathers finished videos into Category/NN-Title/aspect/[LANG]: aspect measured, stable numbers, language level only when needed, editable plan, copies only, INDEX.md. `scripts/organize_finals.py`.
+- `delivery-package` — client or platform packages (YouTube, Shorts, TikTok, Reels, feed, LinkedIn, X): spec checks, private-reference block, naming rules, captions, covers, notes and SHA-256 checksums; never uploads. `scripts/deliver.py`.
+- `versions-and-archive` — stable final paths with old versions in `_previous/`, a space report (caches, duplicates, rejected takes), verified archiving to another drive; removal only to the Finder Trash after a yes. `scripts/versions.py`.
 
 **Motion graphics (a parallel track)**
 - `motion-graphics-director`, `motion-style-core`, `motion-design-references`, `motion-remotion-build`, `motion-video-route`.
