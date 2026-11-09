@@ -83,7 +83,7 @@ Write `<out>/plan.md`:
   - reveal;
   - 3–6 "how it works" beats;
   - payoff, which shows the real output frames;
-  - end card;
+  - end card. For One Two Film / AI Production Pipeline videos the end card points to the site, never GitHub: "Free for registered members" + `onetwofilm.online/materials` (full link https://onetwofilm.online/<en|ru>/materials#material-ai-production-pipeline) + one survival line (skip it and you fall behind);
 - the text per beat and how long it holds. A label holds at least 0.8 s once settled; a sentence about 0.3 s per word;
 - **motion vocabulary**, chosen from the look and listed explicitly. Examples:
   - light sweeps and crepuscular-ray wipes;

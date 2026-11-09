@@ -111,6 +111,9 @@ The director skill (`ai-visual-production-director`) takes it from there:
 **Script and story**
 - `script-extractor` — breaks a screenplay or prose into locations (day/night), characters, props, actions and wardrobe, each linked to its scene.
 - `visual-story-1-setup` … `visual-story-8-storyboard` — an alternative fixed, linear 8-step pipeline: setup → script → cast & world → references → exposition → production → platform QC → storyboard.
+- `visual-story-pipeline` — the same 8-step pipeline as one umbrella skill with its full reference library (reference taxonomy, script structures, prompt engineering, character lock, platforms, QC and fixes, location and prop references).
+- `story-bible-builder` — interview-driven: turns a story into one dense canon document (the story's bible) that every later prompt reads from.
+- `story-continuity-ledger` — continuity memory for long illustrated stories: a versioned ledger of every recurring element (look, injuries, vehicles, props, who is where) that grows with the story and opens a new version when the story changes something; pre-generation checklist and post-generation QC.
 
 **References and identity**
 - `location-state-dials` — the same location in different states: dials (wear, wetness, light, tidiness, crowd, weather, time, damage, haze, season) with a "means here" sentence, named presets and a cost tag (prompt change vs new plate).
@@ -172,6 +175,8 @@ The director skill (`ai-visual-production-director`) takes it from there:
 - `cinematic-poster-designer` — unusual cinematic film posters: one visual metaphor from a device catalogue (object replaces the head, silhouette window, shard reveal, lone figure in fog, single colour field…), learned only from the poster references the user marks as liked (`LIKED.md`); key art is generated without text and the title, tagline and credits are set in code (`scripts/compose_poster.py`), 2:3 plus 4:5 and 9:16.
 
 - `davinci-series-assembly` — puts a series of finished clips (presentation parts, block reels) on a new DaVinci Resolve timeline in order via the Resolve MCP: validates fps/size, imports into a dated folder, creates a versioned timeline, adds a marker per part, verifies no gaps/overlaps, never deletes anything. `scripts/series_manifest.py` (+ ffmpeg preview master).
+
+- `press-clipping-engine` — turns any screenshot into a press / newspaper-style image prompt: phase 1 distils style references into reusable archetypes (editorial broadsheet, pulp tabloid, redacted dossier, torn stack, Vox-style clip), phase 2 applies one in a minute.
 
 **Motion graphics (a parallel track)**
 - `motion-graphics-director`, `motion-style-core`, `motion-design-references`, `motion-remotion-build`, `motion-video-route`.
