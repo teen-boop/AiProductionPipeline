@@ -1,13 +1,13 @@
-# blueprint - hull plans, cross-sections and schematics drawn in
+# blueprint - plans, cross-sections and schematics drawn in
 
 ## Intent
 
 Explain how a thing is built or how it failed, the way the period's own drawing office drew it: lines drafted in order, labels with
-leaders, dimensions, then the explanatory change (water entering compartments, a part moving).
+leaders, dimensions, then the explanatory change (water filling a chamber, a part moving).
 
 ## When to use
 
-- The narration explains structure: decks, bulkheads, watertight compartments, engines, a mechanism.
+- The narration explains structure: chambers, gates, sluices, pumps, a mechanism.
 - A drafting-office scene of the film needs a drawing that comes alive.
 - Not for maps (use `period-map`) or numbers alone (use `fact-card`).
 
@@ -35,12 +35,12 @@ invent internal structure.
 
 ## Motion
 
-- Draw order like a draughtsman: centreline and datum -> outer profile -> decks -> bulkheads -> details -> leaders and labels ->
+- Draw order like a draughtsman: centreline and datum -> outer profile -> chambers -> gates -> details -> leaders and labels ->
   dimensions. `ink_draw` with constant speed (300-500 px/s), `power1.inOut` per stroke group.
 - Hero part by weight (a heavier line) and position, not by colour.
-- Explanatory change: flooding as a flat wash rising compartment by compartment (clip-path or mask height), at a slow steady pace,
-  with each compartment's label lighting up; parts move with a hard, damped stop, never a bounce.
-- One camera move: a slow pan along the hull or a push into a section.
+- Explanatory change: filling as a flat wash rising chamber by chamber (clip-path or mask height), at a slow steady pace,
+  with each chamber's label lighting up; parts move with a hard, damped stop, never a bounce.
+- One camera move: a slow pan along the structure or a push into a section.
 
 ## Film look
 
@@ -49,23 +49,23 @@ HUD elements, no scanning bars.
 
 ## Accuracy
 
-- Number and position of decks, bulkheads, funnels and compartments from a source drawing.
-- Which compartments were breached and in what order, with the source's wording ("the first five" vs "six") and its uncertainty.
+- Number and position of chambers, gates, sluices and culverts from a source drawing.
+- Which chambers filled and in what order, with the source's wording ("the upper two" vs "three") and its uncertainty.
 - Units and dimension values as the drawing states them.
 
 ## Spec example
 
 ```json
 {
-  "category": "blueprint", "period": 1912, "fps": 24,
+  "category": "blueprint", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 12, "export": "mp4", "background": "plate",
   "texts": [
-    { "id": "lbl_bulkheads", "text": "WATERTIGHT BULKHEADS", "approved": true, "in_s": 5.0, "enter_s": 0.6, "hold_s": 3.0 },
-    { "id": "lbl_flood", "text": "FIRST COMPARTMENTS OPEN TO THE SEA", "approved": true, "in_s": 8.0, "enter_s": 0.6, "hold_s": 3.0 }
+    { "id": "lbl_gates", "text": "LOCK GATES", "approved": true, "in_s": 5.0, "enter_s": 0.6, "hold_s": 3.0 },
+    { "id": "lbl_fill", "text": "UPPER CHAMBER FILLS FIRST", "approved": true, "in_s": 8.0, "enter_s": 0.6, "hold_s": 3.0 }
   ],
-  "accuracy": [ { "claim": "Bulkhead positions and breached compartments", "source": "fill from period-fact-check", "status": "pending" } ],
-  "content": { "drawing": { "source": "plates/hull_profile_trace.svg", "style": "linen ink", "layers": ["datum", "profile", "decks", "bulkheads", "labels"] },
-               "draw_order": ["datum", "profile", "decks", "bulkheads", "labels"], "labels": ["lbl_bulkheads", "lbl_flood"], "dimensions": [] }
+  "accuracy": [ { "claim": "Gate positions and the order the chambers fill", "source": "fill from period-fact-check", "status": "pending" } ],
+  "content": { "drawing": { "source": "plates/lock_section_trace.svg", "style": "linen ink", "layers": ["datum", "profile", "chambers", "gates", "labels"] },
+               "draw_order": ["datum", "profile", "chambers", "gates", "labels"], "labels": ["lbl_gates", "lbl_fill"], "dimensions": [] }
 }
 ```
 
@@ -73,4 +73,4 @@ HUD elements, no scanning bars.
 
 - Drawn lines match the traced source when overlaid (difference snapshot).
 - Labels never cross a line they do not point at; leaders end on their part.
-- The flooding order and count match the accuracy line.
+- The fill order and count match the accuracy line.

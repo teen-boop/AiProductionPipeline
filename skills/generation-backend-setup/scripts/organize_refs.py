@@ -8,9 +8,9 @@ Sort     copy (or --move) the files according to a mapping and write the index:
          organize_refs.py --src references/_inbox --dest references --map mapping.json [--move]
 
 mapping.json — a list, one entry per file:
-  [{"file": "IMG_0412.png", "category": "Characters", "name": "hero", "label": "age_39_bust", "note": "main character"},
-   {"file": "dock.jpg",     "category": "Locations",  "name": "harbour_dock", "label": "master_wide"},
-   {"file": "ship.png",     "category": "Props",      "name": "liner", "label": "side_view"}]
+  [{"file": "IMG_0412.png", "category": "Characters", "name": "hero", "label": "front_bust", "note": "main character"},
+   {"file": "room.jpg",     "category": "Locations",  "name": "location_a", "label": "master_wide"},
+   {"file": "prop.png",     "category": "Props",      "name": "prop_a", "label": "side_view"}]
 Categories: Characters, Locations, Props, Style, Recreate (any other name also works).
 Result: <dest>/<Category>/<name>/NN_<label>.<ext>, plus <dest>/INDEX.md and <dest>/index.json.
 Requires Pillow (only for --scan sizes).

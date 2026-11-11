@@ -2,7 +2,7 @@
 
 ## Intent
 
-The world reacting: a front page, a wireless message, an official document, revealed as a physical object in the film's light. The
+The world reacting: a front page, a telegram, an official document, revealed as a physical object in the film's light. The
 plate is a still (generated through `press-clipping-engine` or the project's own scan); the motion and every readable word are code.
 
 ## When to use
@@ -26,7 +26,7 @@ Run the plate prompt through `style-lock-guard` lint before it is sent, and comp
 
 - The page sits like a photographed object: slightly rotated (0.5-2 degrees), lit from one side, edges falling into shadow.
 - The headline occupies the upper third of the frame at the hold; the keyword is fully inside title-safe.
-- Telegram / wireless form: the period form layout (printed form fields, typed or pencilled message); message text typed on.
+- Telegram / cable form: the period form layout (printed form fields, typed or pencilled message); message text typed on.
 
 ## Motion
 
@@ -46,14 +46,14 @@ drop shadow box: the shadow is the desk's.
 ## Accuracy
 
 - Paper name, date and edition; the headline wording exactly as printed (with its period spelling and punctuation).
-- Wireless messages: sender, receiver, time and wording from a source; the form type of that service and year.
+- Telegrams: sender, receiver, time and wording from a source; the form type of that service and year.
 - If a headline is a dramatised paraphrase, it is shown as such (no real masthead) and the user approves that choice.
 
 ## Spec example
 
 ```json
 {
-  "category": "press-headline", "period": 1912, "fps": 24,
+  "category": "press-headline", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 9, "export": "mp4", "background": "plate",
   "texts": [ { "id": "headline", "text": "<exact headline as printed>", "approved": true, "in_s": 0.0, "enter_s": 0.0, "hold_s": 6.0 } ],
   "accuracy": [ { "claim": "<paper>, <date>, <edition>: headline wording", "source": "<archive / issue reference>", "status": "pending" } ],

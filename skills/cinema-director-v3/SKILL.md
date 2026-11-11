@@ -5,6 +5,16 @@ description: "Cinema director v3 for Seedance 2.0/2.5 and Higgsfield video promp
 
 # Cinema Director v3 — Seedance 2.5 / Higgsfield Prompt Grammar
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 Every prompt is a production document. Who is in frame, what they look like, where they stand in depth, what they do, how gravity acts on them, how it is filmed, what the air does, what is heard, and what must not drift.
 
 **The model is a physics engine, not a mood board.** It renders what it can see, count, and weigh. Mood words evaporate.
@@ -523,12 +533,12 @@ Add `no ambient pad, no swell, no drone, no rising tone` on emotional or dramati
 
 ### Speech length and voice lock (characters who talk)
 
-- Size every spoken line by a measured speech rate: about 2.5 words per second for normal speech (2 for slow, tired or hungover
+- Size every spoken line by a measured speech rate: about 2.5 words per second for normal speech (2 for slow, tired or sleepy
   delivery, 3 for fast talkers). A 3-second slot holds 7–8 words at most; cut the line or lengthen the slot, never cram it.
-- Write a character's voice description ONCE in the exact same words in every shot (e.g. `Arch's voice: fast, rough, dry, close,
+- Write a character's voice description ONCE in the exact same words in every shot (e.g. `Character A's voice: fast, rough, dry, close,
   a slight rasp`). Changing a single adjective changes the generated voice between shots.
 - Do not open a clip with the key word of the line; give 0.3–0.5 s of breath or action before the first word.
-- Silent characters (e.g. Koss) get `never moves his lips` in the shot and the negatives.
+- A character with no line in a shot gets `the mouth stays closed, never forms words` in the shot and the negatives.
 
 ### Proximity-governed dialogue
 

@@ -24,6 +24,6 @@ Requirements: neutral grey background only, no text/labels/logos/watermarks/prop
 
 Attach the character's real face photo alongside this prompt for identity grounding. Once approved,
 this sheet becomes an additional locked reference attached alongside the real photo and approved
-hero portrait for every later generation of this character — see `05-character-lock.md`.
+hero portrait for every later generation of this character — see `references/character-lock.md`.
 
-QC before locking in: see the "Character sheet QC" section of `08-qc-and-fixes.md`.
+QC before locking in: see "QC before locking in" in `assets/character-sheet-prototype.md`.

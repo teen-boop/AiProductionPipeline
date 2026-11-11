@@ -15,7 +15,7 @@ Name a person on screen with the restraint of a documentary: name, role at that 
 - Lower left in 16:9 (left 8 %, baseline 10-12 % from the bottom), away from the face and hands; 9:16: lower third above the
   caption zone.
 - Line 1: the name in the film's serif or grotesque, mixed case or caps per the pack.
-- Line 2: role at the time of the scene and years in a smaller, tracked face: "Captain, RMS Titanic  1850-1912".
+- Line 2: role at the time of the scene and years in a smaller, tracked face: "Role, Organisation  1840-1900".
 - An optional hairline rule between or before the lines. No box. For a bright plate, a soft gradient scrim (black at 20-35 %,
   feathered over 300-400 px) behind the lower band only.
 - The same position, size and timing for every name card in the film.
@@ -42,14 +42,14 @@ shadow tone, never a neutral grey. Contrast checked over the real plate.
 
 ```json
 {
-  "category": "lower-third", "period": 1912, "fps": 24,
+  "category": "lower-third", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 5, "export": "prores4444", "background": "transparent",
   "texts": [
-    { "id": "name", "text": "EDWARD JOHN SMITH", "font": "Period Serif", "approved": true, "in_s": 0.4, "enter_s": 0.7, "hold_s": 3.4, "box": [154, 880, 820, 64] },
-    { "id": "role", "text": "CAPTAIN, RMS TITANIC  1850-1912", "font": "Ledger Mono", "approved": true, "in_s": 0.7, "enter_s": 0.7, "hold_s": 3.1, "box": [154, 950, 820, 36] }
+    { "id": "name", "text": "FULL NAME", "font": "Period Serif", "approved": true, "in_s": 0.4, "enter_s": 0.7, "hold_s": 3.4, "box": [154, 880, 820, 64] },
+    { "id": "role", "text": "ROLE, ORGANISATION  1840-1900", "font": "Ledger Mono", "approved": true, "in_s": 0.7, "enter_s": 0.7, "hold_s": 3.1, "box": [154, 950, 820, 36] }
   ],
-  "accuracy": [ { "claim": "Name, rank in April 1912 and life years", "source": "fill from period-fact-check", "status": "pending" } ],
-  "content": { "person": { "name": "Edward John Smith", "role": "Captain, RMS Titanic", "years": "1850-1912" },
+  "accuracy": [ { "claim": "Name, rank in Month 1900 and life years", "source": "fill from period-fact-check", "status": "pending" } ],
+  "content": { "person": { "name": "Full Name", "role": "Role, Organisation", "years": "1840-1900" },
                "position": "lower-left", "scrim": { "opacity": 0.3, "height_px": 360 } }
 }
 ```

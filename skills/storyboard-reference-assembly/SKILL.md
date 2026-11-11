@@ -5,6 +5,16 @@ description: Assembles and verifies the complete set of locked reference images 
 
 # Storyboard Reference Assembly
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
 A concrete failure this skill fixes: a storyboard panel set in a previously-locked location was generated with a *plausible-looking but wrong* room — different bookshelf, different window, different lamp — because the panel's own one-line shot description ("she opens the laptop") didn't explicitly re-list every object in that room. The room reference existed in the project's locked-reference library the whole time; it just wasn't attached. A plausible room that is not the canon room is a failure, not an acceptable variation — the whole point of a locked reference is that it stops being negotiable once approved.
@@ -49,8 +59,8 @@ At the storyboard-building stage of `loveart-video-animation` (Stage 3 / panel c
 
 7. **Produce a short manifest per panel before generating**, and keep it next to the shot list:
    ```
-   Panel 3 references: character (CANONICAL_prototype.png) + cat (CANONICAL_cat_prototype.png)
-                        + location: desk_empty.png (angle1) + prop: sketchbook_portrait_state1.png
+   Panel 3 references: character (character_A_sheet.png) + pet (pet_sheet.png)
+                        + location: room_A_empty.png (angle1) + prop: notebook_open_state1.png
    ```
    After generation, check the result against this manifest, not just against the prose description — a missing bookshelf or a swapped lamp is a manifest violation even if the shot "looks fine" in isolation.
 
@@ -58,12 +68,12 @@ At the storyboard-building stage of `loveart-video-animation` (Stage 3 / panel c
 
 A location often has both (a) its canonical empty/clean location plate (e.g.
 `kitchen_empty.png`) and (b) secondary in-scene photos that happen to be set in that
-location (e.g. a photo of the cat drinking milk, a photo of ramen being poured). Secondary
+location (e.g. a photo of a pet at its bowl, a photo of tea being poured). Secondary
 photos are useful for prop/action detail, but they are NOT a substitute for the canon plate
 - attaching only secondary photos and skipping the canon plate lets the model invent a
 generic version of the room that can look nothing like the actual established location
-(a real failure: a canon kitchen that is a dense apothecary workshop with dried herbs
-hanging from the ceiling and dozens of labeled jars came back as a generic tiled kitchen,
+(a typical failure: a canon kitchen that is a narrow galley with open wooden shelves
+along one wall and a row of copper pans comes back as a generic tiled kitchen,
 because only the secondary action photos were attached and the canon plate was left out).
 Always attach the canon location plate itself, first, and state explicitly in the prompt
 that it is the locked room every panel must be staged inside - secondary photos are
@@ -76,15 +86,15 @@ additional prop/action references layered on top of it, not a replacement for it
 - A shot in a location with multiple locked angles attaches the wrong angle (or no angle), instead of the one matching the requested framing or the location's established master.
 - A background detail visible only "at the edges" of frame (a bookshelf behind the subject, a window's exact shape) is treated as unimportant and left unreferenced, when the location's canon includes it.
 - A shot's day/night value drifts from its scene's script-extractor entry (e.g. a scene resolved as NIGHT gets a daylight-lit panel) because the prompt was written from the shot's short description alone instead of checking the breakdown.
-- A character's standing wardrobe rule from the cross-reference index (e.g. "always wears a dark suit and sunglasses") is dropped or contradicted in one panel because it wasn't re-checked against the index for that shot.
+- A character's standing wardrobe rule from the cross-reference index (e.g. "always wears a green raincoat and yellow boots") is dropped or contradicted in one panel because it wasn't re-checked against the index for that shot.
 
 ## Color Fidelity (Non-Negotiable for Color Storyboards)
 
 When a storyboard panel is generated in color (not a black-and-white sketch previz), the
 panel's color grade, lighting temperature, and palette must match its attached location/prop
-references exactly, not just approximately. This project has a documented history of color
-and light drifting away from established references during generation (a past batch was
-rejected outright for this reason). To prevent a repeat:
+references exactly, not just approximately. Generated panels have a known tendency for color
+and light to drift away from established references during generation (a whole batch can be
+rejected for this reason). To prevent it:
 
 - Attach the actual color reference images (the location plate, the specific prop
   close-ups involved in the shot) every time, never rely on a text color description alone.

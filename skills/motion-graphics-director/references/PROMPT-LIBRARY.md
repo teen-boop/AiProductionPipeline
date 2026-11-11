@@ -67,7 +67,7 @@ what it pairs with · what to avoid.
 ## 0.1 FORMAT: why the numbers in these blocks can't be ported blindly
 
 All numbers in the catalog below are given in the **reference format `1920×1080 @ 30fps`** (the
-format test-01 was built and verified at). When the format changes, **two different classes of
+format the reference pack was built and verified at). When the format changes, **two different classes of
 numbers get recalculated by two different rules** — and this is the most common hidden mistake
 when porting.
 
@@ -458,7 +458,7 @@ fractal noise, base frequency 0.02, 3 octaves, displacement scale 4, and freeze 
 seed — no boiling, the edge holds still. Oversize the filter region so the edges
 never clip. Text never goes inside the filter.
 ```
-> **VERIFIED (test-01).** The tutorial names `base frequency 5` — this is a **scale error**: at
+> **VERIFIED by render.** The tutorial names `base frequency 5` — this is a **scale error**: at
 > 1920px it produces invisible micro-dust along the edge. The working range is **0.02–0.05**.
 > `0.02 / scale 4` gives a clean marker edge. `0.03 / scale 6` is already torn paper, the edge
 > eaten away.

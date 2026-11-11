@@ -17,6 +17,16 @@ user-invocable: true
 
 # OTF Project Trailer
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 A trailer sells one promise with the project's best real images. This skill finds those images, builds a cinematic structure
 around them, asks for anything missing, and cuts it to measured music in the project's own look. It is for film and
 documentary makers who work with AI-generated stills and video. For a client's product or brand film use `cinematic-promo-film`;
@@ -52,7 +62,7 @@ cannot be inferred (usually: which project folder, and the release line).
 | `--voice` | voice-over on | off (music only) |
 | `--nle` | also build an editor timeline | off |
 
-Free direction ("like an old disaster-film trailer") maps to the nearest tone for timing and is kept verbatim in the plan.
+Free direction ("like an old spy-film trailer") maps to the nearest tone for timing and is kept verbatim in the plan.
 Tone details: [references/tones.md](references/tones.md).
 
 ## Output folder
@@ -132,7 +142,7 @@ optional `nle-timeline-assembly` hand-off. Report paths, beats with timestamps, 
 - **One promise.** The trailer sells one question or feeling; no spoilers past the midpoint.
 - **Accelerate, break, release.** Shots shorten into the peak, one designed rhythm break, the end is a hold into the title.
 - **Hard cuts.** Plus at most two overexposure flashes and the dip-to-black breath; no wipes, spins or glitches.
-- **The look is the style lock.** Deep blacks, the lock's light and palette, shallow depth of field and the anamorphic
+- **The look is the style lock.** The lock's own blacks, light and palette, and the depth of field and lens
   character of the frames; never a flat grey "film look".
 - **Few faces.** About one face shot in three or four.
 - **Text small and late.** Titles in glyph-tested fonts, held long enough to read; at most three intertitles.

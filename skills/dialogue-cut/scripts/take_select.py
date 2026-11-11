@@ -24,7 +24,7 @@ Writes into --out (never touches dialogue_cut.json, the approved plan):
 
 Scoring (per reading): 100*recall - 2.5*extra words - 2*fillers + 4*mean word probability
                        - 35 if a redo cue follows within 3 s, +2 for the last reading of the line in that take.
-Names: --alias heard=meant maps transcriber spellings of invented names (cost=koss) before matching.
+Names: --alias heard=meant maps transcriber spellings of invented names (rice=riz) before matching.
 Choice: best reading with recall >= --min-recall; else the best with recall >= 0.3, flagged LOOSE; else MISSING (ask for a pickup).
 Word times from speech recognition are only good to about 50-100 ms: edges here are padded candidates. Run
 dialogue-audio-finish/scripts/edge_qa.py on the result before anyone listens to it as a cut.
@@ -253,7 +253,7 @@ def main():
     ap.add_argument("--fps", type=float, default=24.0)
     ap.add_argument("--min-recall", type=float, default=0.6)
     ap.add_argument("--srt", action="store_true")
-    ap.add_argument("--alias", action="append", default=[], help="heard=meant, e.g. cost=koss: invented names the transcriber spells as common words")
+    ap.add_argument("--alias", action="append", default=[], help="heard=meant, e.g. rice=riz: invented names the transcriber spells as common words")
     a = ap.parse_args()
 
     alias = dict(x.lower().split("=", 1) for x in a.alias)

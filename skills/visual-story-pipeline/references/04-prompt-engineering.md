@@ -17,7 +17,7 @@ Photographic mode: [cinematic film still / editorial fashion photography / other
 Light: [named source(s) and behavior, e.g. "saturated crimson and cool cyan neon, low-key, volumetric in rain"]
 Depth of field: [shallow with foreground blur / flat sharp-throughout]
 Atmosphere: [haze / grain / desaturation / rain / etc, named explicitly]
-Colour palette: [explicit named palette, e.g. "warm sandy tones, red desert cliffs, bright midday sun" or "deep red/cyan neon, black shadow"]
+Colour palette: [explicit named palette, e.g. "cool slate blues, pale birch wood, soft overcast daylight" or "deep red/cyan neon, black shadow"]
 Film / technical: [e.g. "heavy film grain, anamorphic widescreen" or "flat lighting, sharp focus throughout"]
 Aspect ratio: [locked value from project setup]
 ```

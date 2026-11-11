@@ -2,10 +2,10 @@
 <html
   lang="en"
   data-composition-variables='[
-    {"id":"date","type":"string","label":"Date line","default":"14 APRIL 1912"},
-    {"id":"time_from","type":"string","label":"Clock starts at (HH:MM)","default":"23:31"},
-    {"id":"time_to","type":"string","label":"Clock settles on (HH:MM)","default":"23:40"},
-    {"id":"place","type":"string","label":"Place line","default":"NORTH ATLANTIC"},
+    {"id":"date","type":"string","label":"Date line","default":"17 MONTH 1900"},
+    {"id":"time_from","type":"string","label":"Clock starts at (HH:MM)","default":"06:06"},
+    {"id":"time_to","type":"string","label":"Clock settles on (HH:MM)","default":"06:15"},
+    {"id":"place","type":"string","label":"Place line","default":"OPEN SEA"},
     {"id":"transparent","type":"boolean","label":"Alpha overlay (no plate)","default":false},
     {"id":"guides","type":"boolean","label":"Show title-safe guides (QC only)","default":false},
     {"id":"grain","type":"number","label":"Grain opacity","default":0.07,"min":0,"max":0.25,"step":0.01}
@@ -128,13 +128,13 @@
     >
       <div id="plate"></div>
       <div id="stamp">
-        <span id="date" class="line">14 APRIL 1912</span>
+        <span id="date" class="line">17 MONTH 1900</span>
         <div id="clock-row">
-          <span id="time" class="line">23:31</span>
+          <span id="time" class="line">06:06</span>
           <span id="tick"></span>
         </div>
         <div id="rule"></div>
-        <span id="place" class="line">NORTH ATLANTIC</span>
+        <span id="place" class="line">OPEN SEA</span>
       </div>
       <svg id="grain" width="1920" height="1080" viewBox="0 0 1920 1080" aria-hidden="true">
         <filter id="grain-f" x="0" y="0" width="100%" height="100%">
@@ -157,10 +157,10 @@
         var FPS = 24;
         var DUR = 8;
         var defaults = {
-          date: "14 APRIL 1912",
-          time_from: "23:31",
-          time_to: "23:40",
-          place: "NORTH ATLANTIC",
+          date: "17 MONTH 1900",
+          time_from: "06:06",
+          time_to: "06:15",
+          place: "OPEN SEA",
           transparent: false,
           guides: false,
           grain: 0.07

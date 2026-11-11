@@ -13,19 +13,29 @@ user-invocable: true
 
 # Video Cut Timecodes
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The source video is the timeline. Each cut gets its own block, so every block can carry its own motion line, voice line, references and
 look lock (`segment-reference-lock`). A missed cut merges two shots into one description, and the model then blends them. A wrong time
 inside a long take puts the action on the wrong moment.
 
 ## What goes wrong without this skill (all seen in real projects)
 
-- **Missed cuts between dark or similar shots.** A studio reveal on black cut from wide to close scored 0.21–0.25. That is under the
+- **Missed cuts between dark or similar shots.** A cut from wide to close on a dark set scored 0.21–0.25. That is under the
   0.30 threshold, but ten times its neighbours (about 0.02). The result was 6 blocks instead of 9.
 - **Rounded times.** One decimal turns 2.875 into 2.9 and 4.333 into 4.3. Seedance then cuts a few frames off.
 - **Wrong duration.** The container duration includes audio and data streams (16.53 s against 16.46 s of real video).
 - **A lost end frame.** A single black frame at the end was merged into the last shot by the minimum-length rule.
-- **Guessed action times inside a long take.** "Bends at 9.5 s" was guessed from 1-second samples. In reality the robot stops at
-  9.0 s and lowers the load from 13.5 s.
+- **Guessed action times inside a long take.** "Bends at 9.5 s" was guessed from 1-second samples. In reality the subject stops at
+  9.0 s and starts to bend at 13.5 s.
 
 ## 1. Detect (automatic by default)
 

@@ -19,7 +19,7 @@ Append one block per shot to `<run>/GENERATION_REQUESTS.md`:
 
 ```markdown
 ## GR-03 - beat 6 (peak) - 4 s
-Why: no image bigger than the hero shots; the peak needs the full ship against the storm.
+Why: no image bigger than the hero shots; the peak needs the whole valley under the morning fog.
 Based on: <relative path of the closest approved frame> (continuity of place, light, lens)
 
 ### Still (start frame)
@@ -29,7 +29,7 @@ Prompt:
   <the project's style block, copied whole from the style lock; never shortened>
   <cinematic optics: lens and focal length, shallow depth of field, explicit anamorphic traits
    (oval bokeh, horizontal flares from a named practical), film stock and grain>
-  <light: a named physical source, warm practicals against a cool sky if the lock says so, deep blacks>
+  <light: a named physical source, and the contrast, colour balance and black level the lock asks for>
 References (in order): 1 = <continuity frame>, 2 = <character or prop ref>, last = <director style frame>
 Lint: style-lock-guard lint -> OK
 
@@ -39,7 +39,7 @@ Made FROM the start frame with keyframe-chain-builder ("change to"): same place,
 ### Video
 Route: image-to-video model of the backend (e.g. Kling), start frame (+ end frame), 5 s, generate 1 s longer than the slot.
 Prompt:
-  <one small, motivated camera move that follows a detail (push-in 5 % toward the lantern as it swings)>
+  <one small, motivated camera move that follows a detail (push-in 5 % toward the kettle as it steams)>
   <one dominant action, physically plausible, time moves forward; nobody frozen in a pose>
   <the second motion layer: smoke, rain, water, light>
   <no on-screen text, no music; diegetic sound only if the backend makes sound>

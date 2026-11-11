@@ -15,6 +15,16 @@ user-invocable: true
 
 # Edit Media Bins
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 Generation tools drop files named `98d7125d…_690b358e….mp4` into download folders, references sit next to prompts, music is
 somewhere else. An editor needs the opposite: one folder, grouped the way the film is cut, every take traceable back to its
 source and prompt.
@@ -38,7 +48,7 @@ source and prompt.
 ```
 
 - **Group** (the `NN_` folder): from a shot code in the filename or its folders (`S03`, `SC12`, `SH010`, `K07`, `EP2`,
-  `A4`), or a leading number + name (`01_ZEPHRA_…` → group `ZEPHRA`, position 1), or the parent folder, or the source folder.
+  `A4`), or a leading number + name (`01_BRANDNAME_…` → group `BRANDNAME`, position 1), or the parent folder, or the source folder.
   Force it with `--src DIR=S07`.
 - **Group order**: `--order shotlist.txt` (one code per line, in cut order), then leading numbers, then natural sort
   (S2 before S10). The same group number is used in 01_VIDEO and 02_STILLS, so a shot's clips and frames line up.

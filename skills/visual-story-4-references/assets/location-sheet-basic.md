@@ -29,7 +29,7 @@ fixed room elements only. No text/labels/logos/watermarks.
 
 Once approved, this sheet becomes the location's canonical reference — attach it alongside (not
 instead of) the scene's actual character-in-location shot for every later generation set in this
-location. The character-in-location shot (see `09-location-and-prop-references.md` step 1) stays the
+location. The character-in-location shot (see `references/location-and-prop-references.md` step 1) stays the
 primary practical reference for actual scene generation; this turnaround sheet is what keeps the
 *architecture itself* consistent when a scene needs an angle the character shot didn't establish.
 

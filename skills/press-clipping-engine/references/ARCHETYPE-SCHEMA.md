@@ -26,7 +26,7 @@ serif / sans), case, position.
 
 ## 4. PALETTE
 Base + ink + **one hot accent** (in this genre almost always red —
-confirmed independently in 6 of 8 references). The accent is reserved
+check it against this project's references). The accent is reserved
 **only** for the annotation device (see §6) — never a decorative fill.
 
 ## 5. IMAGERY TREATMENT

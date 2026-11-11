@@ -70,11 +70,11 @@ Extract the *pattern*, not just phrases:
    turtleneck", not "green sweater").
 2. **A named practical prop tied to the character's role/action** — always mid-action with something
    specific, never just standing.
-3. **Backgrounds: atmosphere, not just blur.** Specific-but-blurred beats generic ("massive orange
-   distillation tanks with brass fittings", not "lab equipment"). Layer in: atmospheric haze/mist/
+3. **Backgrounds: atmosphere, not just blur.** Specific-but-blurred beats generic ("tall green
+   filing cabinets with chrome handles", not "office furniture"). Layer in: atmospheric haze/mist/
    humidity, a tightly muted 2–3 color palette applied to the WHOLE frame (not just the subject's
    outfit), and often a secondary background figure/action barely visible in the haze for depth (e.g.
-   a crouched figure on a bamboo canopy). Name the weather/haze condition explicitly, restate the
+   a figure sweeping a doorway far behind). Name the weather/haze condition explicitly, restate the
    muted palette as covering foreground AND background, and consider one small background
    detail/figure for depth layering.
 4. **An explicit, named color-palette statement** as part of the prompt itself.

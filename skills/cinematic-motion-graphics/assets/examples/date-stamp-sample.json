@@ -1,0 +1,30 @@
+{
+  "id": "EP01_MG_STAMP_04",
+  "category": "date-stamp",
+  "period": 1900,
+  "narration_beat": "VO 07:42.5 - lands on the cut to the engine room; the clock settles on the word 'stopped'",
+  "fps": 24,
+  "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" },
+  "duration_s": 8,
+  "export": "prores4444",
+  "background": "transparent",
+  "engine": "hyperframes",
+  "template": "assets/templates/date-stamp.html",
+  "look": { "style_lock": "STYLE_LOCK.json", "notes": "paper-white ink #EDE3CF, faint warm halation, grain matched to the plate" },
+  "fonts": [
+    { "family": "Ledger Mono", "file": "fonts/ledger-mono.woff2", "cyrillic": true, "glyph_test": "pass" }
+  ],
+  "texts": [
+    { "id": "date", "text": "17 MONTH 1900", "font": "Ledger Mono", "approved": true, "in_s": 0.6, "enter_s": 1.4, "hold_s": 5.2, "box": [154, 770, 760, 70] },
+    { "id": "time", "text": "06:15", "font": "Ledger Mono", "approved": true, "in_s": 2.2, "enter_s": 2.4, "hold_s": 2.6, "box": [154, 850, 300, 90] },
+    { "id": "place", "text": "OPEN SEA", "font": "Ledger Mono", "approved": true, "in_s": 3.2, "enter_s": 0.8, "hold_s": 3.2, "box": [154, 950, 600, 40] }
+  ],
+  "accuracy": [
+    { "claim": "Engines failed at 06:15 local time on 17 Month 1900 (local time, not GMT or the destination time)", "source": "fill from period-fact-check", "status": "pending" }
+  ],
+  "assets": [],
+  "content": {
+    "variables": { "date": "17 MONTH 1900", "time_from": "06:06", "time_to": "06:15", "place": "OPEN SEA", "transparent": true, "grain": 0.07 }
+  },
+  "qc": { "snapshots_at": [0.3, 1.5, 3.4, 4.8, 6.5, 7.9] }
+}

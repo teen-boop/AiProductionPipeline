@@ -39,10 +39,10 @@ above/extra characters.
 Attach the character's real face photo (and prior approved portrait, if one exists) alongside this
 prompt. Once approved, this sheet is the primary locked reference for this character for the rest
 of the project — attach it, plus the real face photo, to every subsequent generation (see
-`05-character-lock.md` for attachment order).
+`references/character-lock.md` for attachment order).
 
 If the character will appear in a specific recurring locked state (soaked from rain, injured,
 mid-costume-change), generate a `character-sheet-state.md` variant in addition — don't try to cram
 every state into this one sheet.
 
-QC before locking in: see the "Character sheet QC" section of `08-qc-and-fixes.md`.
+QC before locking in: see "QC before locking in" in `assets/character-sheet-prototype.md`.

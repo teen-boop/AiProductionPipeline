@@ -21,17 +21,17 @@ typography layout. The ids are stable so prompts and notes can refer to them. Up
 | D11 | **Surreal object in a landscape** | Mirrors / doors / monoliths standing in a misty field or water | `dozens of tall mirrors stand upright in a misty boggy field, reflecting the grey sky, puddles in front` |
 | D12 | **Light stripes from above** | A tiny figure seen from high above, crossing bars of hard light and shadow | `top-down view of a tiny figure crossing a floor striped by hard bars of golden light and black shadow, long shadows` |
 | D13 | **Glow silhouette** | A soft-focus profile silhouette backlit by a single coloured glow | `a soft out-of-focus profile silhouette against a deep red-orange glow, halation, film grain, minimal` |
-| D14 | **Prop as the world** | One giant textured prop fills the poster (a hat whose brim becomes desert dunes) | `an extreme close-up of <prop> whose texture becomes a landscape: <detail>, a figure tiny on it` |
+| D14 | **Prop as the world** | One giant textured prop fills the poster (a coat whose folds become mountain ridges) | `an extreme close-up of <prop> whose texture becomes a landscape: <detail>, a figure tiny on it` |
 | D15 | **Uncanny corridor** | A yellowed office corridor in deep perspective, a face looming close at one side | `a sickly yellow empty office corridor with fluorescent panels in deep perspective; a man's face huge and close at the left edge, half out of frame` |
 
 ## B. Typography layouts (rendered in code, never by the generator)
 
 | id | Layout | Seen in | compose_poster.py |
 |---|---|---|---|
-| T1 | Thin caps, very wide tracking, top | SERENITY, ANNIHILATOR (bottom variant) | `--layout wide-top` |
-| T2 | Heavy condensed caps filling the width, bottom, accent colour | LIMINAL, FRONTLINE | `--layout giant-bottom` |
-| T3 | Small elegant serif in negative space, centre | EL SÉPTIMO SELLO, RAW | `--layout serif-center` |
-| T4 | Stacked grotesk words down one side, tight leading | Ideas Are Alive | `--layout side-vertical` |
+| T1 | Thin caps, very wide tracking, top | FILM TITLE A, FILM TITLE B (bottom variant) | `--layout wide-top` |
+| T2 | Heavy condensed caps filling the width, bottom, accent colour | FILM TITLE C, FILM TITLE D | `--layout giant-bottom` |
+| T3 | Small elegant serif in negative space, centre | FILM TITLE E, FILM TITLE F | `--layout serif-center` |
+| T4 | Stacked grotesk words down one side, tight leading | a stacked three-word title | `--layout side-vertical` |
 
 Common to all: a credit block in tiny tracked caps at the bottom, a date line in the accent colour, and generous negative space. The
 title never covers the subject's face.
@@ -42,7 +42,7 @@ title never covers the subject's face.
 - Black and white + one red element (bar, circle, wedge).
 - One saturated field: orange, red, yellow.
 - Monochrome grey crowd + one red.
-- Teal night + amber (works with our THE KEEPER look).
+- Teal night + amber.
 
 ## D. Composition rules
 

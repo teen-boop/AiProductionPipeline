@@ -5,11 +5,21 @@ description: Watches a project's "working detailed references" folder for new sc
 
 # Detail Reference Intake
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
 Not every reusable visual detail is planned in advance. Often the best version of a small recurring object (a cup, a jar label, a piece of furniture) shows up as a side effect of an unrelated test — a test animation render, a still frame, an experiment that wasn't primarily about that object at all. The user's workflow for capturing these is simple: screenshot the good frame, drop it into the project's `working detailed references` folder. Nothing about the filename or the moment it was captured says what detail it's actually good for — that has to be figured out by looking at it.
 
-Without a deliberate intake step, these files just sit in the folder, get referenced verbally from memory ("that matcha cup, it's small"), drift, or get forgotten entirely by the next generation batch. This skill is the step that turns "there's a new file in the folder" into "this is now a locked, named reference used everywhere it applies."
+Without a deliberate intake step, these files just sit in the folder, get referenced verbally from memory ("that blue mug, the small one"), drift, or get forgotten entirely by the next generation batch. This skill is the step that turns "there's a new file in the folder" into "this is now a locked, named reference used everywhere it applies."
 
 ## Folder convention
 
@@ -17,7 +27,7 @@ Every project has (or should have) a folder at:
 ```
 reference/working detailed references/
 ```
-This is distinct from `reference/props/` (deliberately-generated, already-cataloged detail assets) and from `reference/locations/_empty_no_character/` (deliberately-generated location plates). Files here are raw captures — often named by their source tool (e.g. `Still 2026-08-29 164500_1.2.1.png`), not by content. Treat the filename as a source ID, never as a description.
+This is distinct from `reference/props/` (deliberately-generated, already-cataloged detail assets) and from `reference/locations/_empty_no_character/` (deliberately-generated location plates). Files here are raw captures — often named by their source tool (e.g. `Still 0001_1.2.1.png`), not by content. Treat the filename as a source ID, never as a description.
 
 ## When this runs
 
@@ -34,9 +44,9 @@ At the start of any work session that touches this project, before storyboarding
 
 3. **Name and describe each new detail like any other locked reference** — a short canonical name, a concrete visual description (materials, size, color, distinguishing marks), and the source file. Example:
    ```
-   Matcha cup: small ceramic cup, speckled grey-cream glaze with faint brown/rust speckling,
+   Blue mug: small enamel mug, matte navy glaze with a thin white rim and one chipped spot,
    simple rounded shape, small enough to be held in both hands.
-   Source: working detailed references/Still 2026-08-29 164500_1.4.1.png
+   Source: working detailed references/Still 0002_1.4.1.png
    ```
 
 4. **Add each new detail to the project's locked-reference index** (`LOCKED-REFERENCES.md` or equivalent), in a dedicated section for details sourced this way, so `storyboard-reference-assembly` picks it up like any other canonical asset in its checklist pass.

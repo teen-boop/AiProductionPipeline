@@ -13,6 +13,16 @@ user-invocable: true
 
 # Style Lock Guard
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## The failure it prevents
 
 A project's style block slowly drifts away from the director's references:
@@ -21,7 +31,7 @@ A project's style block slowly drifts away from the director's references:
 - change-to prompts drop the style blocks.
 
 The frames come out flat and grey. Every frame "passes" QC because nobody checks against the original references, but the director
-sees "very mediocre". The guard makes the references, not our derived texts, the source of truth, and checks every step mechanically.
+sees a weak, flat image. The guard makes the references, not our derived texts, the source of truth, and checks every step mechanically.
 
 ## 1. Lock the look (once per project, or when the director gives new references)
 
@@ -64,7 +74,7 @@ python3 scripts/style_lock.py compare STYLE_LOCK.json RESULT.png [RESULT2.png â€
   references) and every **warm light accent** (below 0.25 Ã— the references). Milky blacks show as a p5 more than 25 levels above the
   references.
 - A `FLAT` result is rejected like any other QC failure. The fix is in the prompt's light, not in the colour: add a real key light (low
-  sun through clouds, rays, warm practical lamps or portholes against a cool sky), and attach the style frames last.
+  sun through a window, one warm practical lamp, a clear colour contrast between key and fill), and attach the style frames last.
 
 ## 4. When the director says "not cinematic"
 
@@ -76,7 +86,7 @@ python3 scripts/style_lock.py compare STYLE_LOCK.json RESULT.png [RESULT2.png â€
 
 ## Rules
 
-- A derived grade file (a "GRADE_xx" frame picked from earlier output) must never replace the director's references as the style
+- A derived grade file (a frame picked from earlier output and saved as "the grade") must never replace the director's references as the style
   target.
 - A style block is never shortened in change-to, keyframe or fix prompts. The lint enforces this.
 - A new reference from the director means `init` again, and a re-lint of everything pending.

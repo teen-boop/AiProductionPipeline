@@ -9,10 +9,10 @@ even when the user works in another language.
 The FIRST attached image is the locked LOCATION — stage the scene inside exactly this place (same architecture, objects and light), ignore any text or equipment in it. The other attached images are the identity references for the hero.
 ```
 Variants:
-- Object or vehicle lock: `The attached image is the locked look of the <ship/car/creature>.`
+- Object or vehicle lock: `The attached image is the locked look of the <vehicle/object/creature>.`
 - Change-to: `The FIRST attached image is the START frame — change to <a closer shot / a few seconds later> of the SAME moment: same place, light, colour grade, same people.`
 - Recreate a composition: `The FIRST attached image is the COMPOSITION reference only — keep its framing, pose, action, setting and mood, but replace the person with our hero and fix everything to the project's period and look.`
-- Recreate an archive photo: `The FIRST attached image is a real historical black-and-white photograph — recreate it as a COLOUR frame of a modern period feature film: keep its composition, viewpoint, subject and moment.`
+- Recreate an archive photo: `The FIRST attached image is a real historical black-and-white photograph — recreate it as a COLOUR frame in this project's look: keep its composition, viewpoint, subject and moment.`
 
 ## 2. SCENE (written per frame)
 ```
@@ -31,7 +31,7 @@ Examples: a hero object that must stay accurate (counts, colours, markings); per
 
 ## 5. LOOK + OPTICS (always)
 ```
-LOOK: a still frame from a high-end 35mm period feature film shot on a real location — practical, motivated light, real weathered textures, natural imperfect skin, real crowds with varied faces, ages, builds and postures, clothes that are worn and creased; atmospheric haze and depth. NOT a glossy AI illustration, NOT a poster, NOT a catalogue pose, nobody poses for the camera, no plastic faces, no over-sharpened HDR, no centred symmetrical hero pose.
+LOOK: a still frame from a high-end 35mm feature film shot on a real location — practical, motivated light, real weathered textures, natural imperfect skin, real crowds with varied faces, ages, builds and postures, clothes that are worn and creased; atmospheric haze and depth. NOT a glossy AI illustration, NOT a poster, NOT a catalogue pose, nobody poses for the camera, no plastic faces, no over-sharpened HDR, no centred symmetrical hero pose.
 
 OPTICS: vintage anamorphic cinema lenses, shallow depth of field — subject sharp, foreground and background soft — an out-of-focus foreground element close to the lens on wider shots, atmospheric haze for distance, never the miniature/tilt-shift look; vertical oval bokeh and flares ONLY from real visible light sources; daylight exteriors have no floating bokeh discs. Organic 35mm film grain. ARRI camera, Cooke lenses, 50mm dominant, 75mm for close-ups, subtle handheld tension. Cinematic premium theatrical grade, gritty but beautiful. Ultra realistic.
 ```
@@ -65,7 +65,7 @@ Full-bleed 16:9, no black bars, no vignette, no rounded corners, no borders, no 
 - Glossy AI poster, posing people → LOOK.
 - Everything sharp, toy-like → OPTICS (shallow DOF, haze, foreground element).
 - Bokeh discs in daylight → "bokeh ONLY from real visible light sources".
-- Duplicate hero object (e.g. two identical ships) when the character stands on it → "only ONE <object> in frame" + put the camera on it.
+- Duplicate hero object (e.g. two identical vehicles) when the character stands on it → "only ONE <object> in frame" + put the camera on it.
 - Black bars, rounded corners → FORMAT (intake.py also crops thin bars).
 - Two shots merged into one split-screen image → one shot per prompt (the pack splits "Image 1 / Image 2" jobs into PROMPT_1.txt, PROMPT_2.txt) and "ONE single full frame — NOT a split screen, NOT a diptych" in FORMAT.
 - Face drift → attach the identity refs and repeat the age in the text.

@@ -5,12 +5,12 @@ caption strip under each panel (slug line + CAM + ACTION/DIALOGUE).
 Usage:
   caption_storyboard.py --src grid.png --out captioned.png --captions captions.json
                         [--cols 3] [--rows 4] [--inset 6]
-                        [--title "TITLE: MY FILM"] [--scene "SCENE 01 — THE CALL"] [--page "PAGE 1 of 1"]
+                        [--title "TITLE: MY FILM"] [--scene "SCENE 01 — SCENE NAME"] [--page "PAGE 1 of 1"]
                         [--font-bold PATH.ttf] [--font PATH.ttf]
 
 captions.json — a list of [slug, cam, action] triples, one per panel, in reading order, e.g.
-  [["1. INT. THREE-DOOR ROOM — WS", "CAM: static", "Empty symmetrical room. (soft room tone)"],
-   ["2. INT. THREE-DOOR ROOM — WS", "CAM: slow push in", "The center door begins to open."]]
+  [["1. INT. LOCATION A — WS", "CAM: static", "Empty room, morning light. (soft room tone)"],
+   ["2. INT. LOCATION A — WS", "CAM: slow push in", "Character A walks to the window."]]
 """
 import argparse, json, os
 from PIL import Image, ImageDraw, ImageFont

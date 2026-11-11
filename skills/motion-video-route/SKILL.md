@@ -5,6 +5,16 @@ description: The VIDEO route for motion graphics — producing animated collage/
 
 # Motion Video Route
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 Companion to `motion-style-core` (produces the master style sheet) and `motion-graphics-director` (routes and owns the prompt library).
 
 ## Which sub-route
@@ -97,7 +107,7 @@ For a Seedance shot, hand off to `seedance-prompt-writer` / `cinema-director-v3`
 
 1. Did the style hold end to end, or drift after ~2 seconds?
 2. Is every visible word one of the approved samples — no invented text?
-3. Are people still halftone black-and-white, not full colour?
+3. Are people still in the style pack's own treatment, not a different one?
 4. Any warped letterforms at small sizes? If yes, that element belongs in the CODE route.
 5. Exactly one camera move, or did it cut?
-6. One hero accent, or did red leak into ordinary fills?
+6. One hero accent, or did the accent colour leak into ordinary fills?

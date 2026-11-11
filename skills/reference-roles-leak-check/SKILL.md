@@ -14,6 +14,16 @@ user-invocable: true
 
 # Reference Roles and Leak Check
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 A reference image lends EVERYTHING it shows unless the prompt says otherwise. Hand a model a film still as a style reference
 and the actor in that still walks into your frame. That is how a pasted-on face appears on an invented character: a scene
 reference carried its own person, and nothing told the model to leave that person out.
@@ -30,7 +40,7 @@ images ("Image 1", `@Image1`, attachment order) come from the model's own docs; 
 | WHO (main subject) | the character, product | "Use only this person's face and hair. Do not copy the sheet's layout, labels or background." |
 | WHERE (stage) | the place | "Do not include any person from this photo." |
 | POSE | the body pose | "Do not show the mannequin or any wood." |
-| ANGLE | the camera | "Do not include the lighthouse." |
+| ANGLE | the camera | "Do not include the windmill." |
 | STYLE | medium, render, texture | "Do not include the actor, the set or the props of this still." |
 | LIGHT | the light only | "Do not include the flowers or vase." |
 | PALETTE | the only allowed colors | "No green anywhere." |
@@ -59,7 +69,7 @@ Image N (<what it shows>) = <JOB> only. <What it lends, concretely.> Do not <wha
 - **The job most likely to be ignored goes first**, usually STYLE, with "This is the most important job." A clay scene came
   back as chrome CG until the Style line moved to the top.
 - **Lend concretely.** "Copy its 3D render look, soft materials, warm bounce light" beats "use its style". A palette job
-  names each element's color ("the scarf is red, the coat is teal"); "palette only" barely recolors.
+  names each element's color ("the hat is yellow, the coat is navy"); "palette only" barely recolors.
 - **Settle conflicts between jobs.** Every picture carries more than its job: a style card brings its own colors, a subject
   photo its own fur. With a palette card, the style line adds "do not copy its colors". When that would recolor something the
   user cares about (their character, their product), ask before running.

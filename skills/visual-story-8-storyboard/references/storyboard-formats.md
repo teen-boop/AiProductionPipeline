@@ -6,14 +6,14 @@ scene stills are generated and face-locked, and the reference tests have all pas
 it's clear which shots the scene needs and which movements to add — storyboard is where those
 decisions get committed, not explored.
 
-There are three paired deliverables (confirmed by reference examples the user supplied). Produce them
+There are three paired deliverables. Produce them
 in this order: **shot list → storyboard frames → motion annotations**, then assemble the Seedance
 prompt (`seedance-storyboard-format.md`) from all three.
 
 ## Panel count — minimum 12
 
-**Every storyboard sheet has AT LEAST 12 panels** (matching the reference examples — the 12-shot
-"Two Birds" board and the 12-shot action board). Lay them out as a 3×4 or 4×3 grid (or more panels
+**Every storyboard sheet has AT LEAST 12 panels** (a full coverage board, for example a 12-shot
+dialogue board or a 12-shot action board). Lay them out as a 3×4 or 4×3 grid (or more panels
 if the scene needs them). Six or nine is not enough — plan the scene's full coverage to 12+ beats.
 If a scene is short, break its beats finer (more shot sizes / angles / inserts) to reach 12.
 
@@ -60,7 +60,7 @@ Lay the shots out as a numbered grid of **12+ panels** (3×4 or 4×3) or a verti
 Top of the sheet carries `TITLE:` / `PROJECT:` / `PAGE: x of y`.
 
 **Where the text lives — captions are a post-process, never baked into the generation.** Image
-models garble baked-in text (verified: "2003" came out "2005 / 2063 / SORTIE" across panels). So:
+models garble baked-in text (a year or a sign comes out different in every panel). So:
 1. Generate the clean 12+ frame grid, face-locked (real face photo + still + clause), NO text in the
    image.
 2. Add captions as a **post-processing layout pass** with PIL/Pillow: crop the grid into its N

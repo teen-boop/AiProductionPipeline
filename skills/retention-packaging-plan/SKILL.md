@@ -13,6 +13,16 @@ user-invocable: true
 
 # Retention Packaging Plan
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 > **Ask first: what kind of video is this?** Before planning, ask the user the video type and destination (e.g. daily social post / reel, talking-head explainer, cinematic promo or trailer, tutorial, film episode). Apply this packaging only to social / creator / explainer formats, and only as far as the user wants; never force retention tricks onto a cinematic promo or a film.
 
 `otf-presentations` and its `EDIT_PATTERNS.md` cover premium cinematic pieces (long holds, few cuts, little text). Creator-style

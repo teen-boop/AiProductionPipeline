@@ -2,7 +2,7 @@
 
 ## Intent
 
-Point at something inside a shot (a ship on the horizon, a crow's nest, a person in a crowd) or set type inside the shot's depth,
+Point at something inside a shot (a rider on the horizon, a window in a facade, a person in a crowd) or set type inside the shot's depth,
 so the graphic seems to be in the scene: tracked, lit, focused, grained and graded like the footage.
 
 ## When to use
@@ -44,16 +44,16 @@ so the graphic seems to be in the scene: tracked, lit, focused, grained and grad
 
 ## Accuracy
 
-Whatever the callout names (a ship, a place, a person, a distance) has an accuracy line like any period graphic.
+Whatever the callout names (a vehicle, a place, a person, a distance) has an accuracy line like any period graphic.
 
 ## Spec example
 
 ```json
 {
-  "category": "composite-overlay", "period": 1912, "fps": 24,
+  "category": "composite-overlay", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 5, "export": "prores4444", "background": "transparent",
-  "texts": [ { "id": "callout", "text": "CROW'S NEST", "approved": true, "in_s": 0.8, "enter_s": 0.6, "hold_s": 2.8, "box": [1180, 210, 360, 48] } ],
-  "accuracy": [ { "claim": "Position of the crow's nest on the foremast", "source": "fill from period-fact-check", "status": "pending" } ],
+  "texts": [ { "id": "callout", "text": "SIGNAL TOWER", "approved": true, "in_s": 0.8, "enter_s": 0.6, "hold_s": 2.8, "box": [1180, 210, 360, 48] } ],
+  "accuracy": [ { "claim": "Position of the signal tower on the ridge", "source": "fill from period-fact-check", "status": "pending" } ],
   "assets": [ { "role": "plate", "path": "plates/S041_take2.mp4", "origin": "generated", "user_approved": true } ],
   "content": { "plate": { "file": "plates/S041_take2.mp4", "in_s": 1.25 }, "track": { "file": "plates/S041_track.json" },
                "callouts": [ { "text_id": "callout", "target": "track", "leader_px": 140, "side": "right" } ], "depth": "far plane, soft" }

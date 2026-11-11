@@ -17,9 +17,19 @@ description: >-
 
 # Character Identity Lock — Setup
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
-An AI image generator asked to draw "the same man, but now at 35" from
+An AI image generator asked to draw "the same woman, but now at 40" from
 nothing but a text description will drift — the face changes shot to shot,
 sometimes subtly, sometimes not. The fix is not a better prompt; it's a
 **locked reference image** for each distinct stage the character appears
@@ -53,8 +63,8 @@ touch it again unless the user asks for a redo.
    source material is ambiguous about how many are needed.
 3. **A wardrobe/context note per age/stage** — what era, role, and
    clothing register the character is in at that point in the story (a
-   schoolboy uniform at 11, an apprentice's work clothes at 16, a
-   director's suit at 35, etc.). This drives the reference sheet's
+   school uniform at 10, a waiter's apron at 22, a
+   chef's whites at 40, etc.). This drives the reference sheet's
    wardrobe description; get it right once here so every downstream scene
    prompt can just say "wearing the locked reference outfit" instead of
    re-describing it.
@@ -100,7 +110,7 @@ When one image per look is enough (a short scene, one age), generate a 16:9 dipt
 ## Prompt template (reuse verbatim, only swap age/wardrobe per stage)
 
 ```
-Character turnaround reference sheet — ONE single composite image, four panels arranged left to right on one seamless neutral mid-grey studio background, consistent soft even studio lighting across all four panels (no dramatic cinematic lighting — clean production reference sheet, no lens flare, no heavy grain). [Full color photograph, natural period color palette. / Monochrome grey-tone photograph.]
+Character turnaround reference sheet — ONE single composite image, four panels arranged left to right on one seamless neutral mid-grey studio background, consistent soft even studio lighting across all four panels (no dramatic cinematic lighting — clean production reference sheet, no lens flare, no heavy grain). [Full color photograph, natural color palette. / Monochrome grey-tone photograph.]
 Panel 1 (full body, front view): standing straight, arms relaxed at sides, facing camera directly, full body head to shoes.
 Panel 2 (full body, back view): same person, same pose, same outfit, seen directly from behind.
 Panel 3 (close-up, front view): head and shoulders, facing camera, calm neutral expression.

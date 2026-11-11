@@ -2,7 +2,7 @@
 name: cinematic-prompt-writer
 description: >-
   Writes manual, copy-paste-ready image-generation prompts in a locked
-  period-cinematic style (anamorphic lens, Canon 5D Mark II, gritty premium
+  cinematic style (anamorphic lens, Canon 5D Mark II, gritty premium
   theatrical grade). Given a scene/subject description, produces THREE
   framing variants — wide, medium, and close-up — all sharing the same
   subject and the same style block. Works across any project: if the
@@ -16,14 +16,24 @@ user-invocable: true
 
 # Cinematic Prompt Writer
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 Produces prompt sets for manual/one-off image generation (Midjourney, Nano
 Banana, GPT Image, etc. — anywhere the user pastes a prompt by hand), kept
 in one consistent visual language across requests and across projects.
 
 ## What the user gives you
 
-A scene or subject in plain language — as short as one line ("Victorian
-building decorated for Christmas") or as detailed as they like. It does not
+A scene or subject in plain language — as short as one line ("a brick
+bakery on a rainy morning") or as detailed as they like. It does not
 need to already specify time of day, season, year, or location.
 
 ## What you produce
@@ -41,8 +51,8 @@ same moment in time, only the camera distance changes.
 ## Process
 
 1. **Check for project context first.** Look for a project-local style bible,
-   locked character references, or QC rules — e.g. a `PRODUCTION_QUEUE.md`,
-   a `.claude/skills/*-frame-qc` or `*-style` skill, a `video/*style*.md`
+   locked character references, or QC rules — e.g. a `STYLE_LOCK.json`,
+   a `STYLE-PACK.md`, a `REFERENCES.md`, a `*style*.md`
    file, or similar in the current working project. If found, use its
    established timeline/characters/locations and its own style block
    instead of (or layered on top of) the default below, and follow its own
@@ -62,8 +72,8 @@ same moment in time, only the camera distance changes.
    that breakdown's day/night, wardrobe, and location facts for the scene
    are binding — pull them from there instead of resolving independently.**
    Don't write "golden afternoon light" for a shot whose scene entry says
-   NIGHT, and don't invent or drop a wardrobe detail (e.g. "dark suit and
-   sunglasses") the breakdown already established for that character. An
+   NIGHT, and don't invent or drop a wardrobe detail (e.g. "green raincoat and
+   yellow boots") the breakdown already established for that character. An
    **[inferred]** value in the breakdown is still a resolved answer, not an
    invitation to guess something else.
 
@@ -108,21 +118,21 @@ same moment in time, only the camera distance changes.
 ## DEFAULT STYLE BLOCK (used unless the current project defines its own)
 
 ```
-Anamorphic lens, arri camera cooke lenses england 1900s 40 50mm dominant, occasional 75mm close up, subtle handheld tension. Cinematic premium theatrical grade, gritty but beautiful. Ultra realiste. No flat lighting, no documentary, no sci fi gloss, no cartoon, no generic streaming look Canon EOS 5D Mark II, 50mm f/1.8, shallow depth of field, gentle film grain.
+Anamorphic lens, arri camera cooke lenses [place and period of this project] 40 50mm dominant, occasional 75mm close up, subtle handheld tension. Cinematic premium theatrical grade, gritty but beautiful. Ultra realiste. No flat lighting, no documentary, no sci fi gloss, no cartoon, no generic streaming look Canon EOS 5D Mark II, 50mm f/1.8, shallow depth of field, gentle film grain.
 ```
 
 **Known risk with this exact wording (flag once per session if it comes up,
 don't silently rewrite it):** the literal phrase "arri camera" (or any
-explicit camera-brand wording) has been confirmed on at least one project
+explicit camera-brand wording) is known
 to occasionally cause a model to render a physical camera body as a stray
-in-scene prop. This is the user's standing default and is used verbatim.
+in-scene prop. This wording is the skill's default and is used verbatim.
 If a generation comes back with a camera rig visible in frame, the
 confirmed fix is to swap that clause for "filmed in the visual language of
 premium anamorphic cinema lenses" + "no visible camera, crew, or equipment
 anywhere in frame" — mention this as the fix if it happens, don't
 pre-emptively change the wording unasked.
 
-The "england 1900s" clause in the style block is a default period anchor,
+The "[place and period of this project]" clause in the style block is a slot to fill,
 not a hard requirement — if the current project or the specific request is
 set somewhere else or some other time, keep the rest of the technical/style
 language but swap that clause for the right setting.
@@ -131,7 +141,7 @@ language but swap that clause for the right setting.
 
 A "change to" or next-keyframe prompt that attaches only the start frame drifts into a glossy, deep-focus, saturated look. Every
 such prompt must also attach the project's colour-grade frame LAST and repeat the full style/optics block — never a shortened version.
-Sunsets and sunrises stay restrained: the sun a small white-hot point through haze, a muted amber-rose glow — never orange-saturated.
+Light effects stay inside the project's style lock: copy its own words for sun, sky and glow, and add no new colour words.
 See `keyframe-chain-builder` and `generation-failure-fixes`.
 
 ## Output format

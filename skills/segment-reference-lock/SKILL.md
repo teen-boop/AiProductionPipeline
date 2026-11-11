@@ -12,6 +12,16 @@ user-invocable: true
 
 # Segment Reference Lock
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The model reads a long prompt unevenly. A description that appears only once, in the mapping at the top, holds in the first shots and
 fades later. Restating the look **inside every block** keeps the image stable for the whole clip. The restatement uses the same words
 every time, because changing the wording changes the result.
@@ -47,9 +57,9 @@ Then show the result as a table (block | time | framing | references | eyes) and
 
 Write the confirmed table to `assign.json`:
 ```json
-{"3": {"refs": ["@img-1","@img-2"], "framing": "medium two-shot in the cabin",
-       "eyes": "Andrews looks down at his notebook, never into the lens",
-       "base_location": "cabin", "base_chars": [], "base_props": ["chair"]}}
+{"3": {"refs": ["@img-1","@img-2"], "framing": "medium two-shot in the office",
+       "eyes": "Lead looks down at his notebook, never into the lens",
+       "base_location": "office", "base_chars": [], "base_props": ["chair"]}}
 ```
 
 ## 2. Voice per block
@@ -68,11 +78,11 @@ python3 scripts/segment_blocks.py segments.json refs.json assign.json --base bas
 
 Every block comes out as:
 ```
-[10.1-15.1 s] BLOCK 3 — medium two-shot in the cabin; Andrews (@img-1), the stewardess (@img-2).
+[10.1-15.1 s] BLOCK 3 — medium two-shot in the office; Lead (@img-1), the assistant (@img-2).
 MOTION: exactly as in @vid-1 10.1-15.1 s — the same body movement, gestures, facial expressions, eye direction, camera move, framing and timing; nothing added, nothing re-described.
-EYES: Andrews looks down at his notebook, never into the lens.
+EYES: Lead looks down at his notebook, never into the lens.
 VOICE: the original voice, words, intonation and timing of @vid-1 10.1-15.1 s, lips in sync; no new words.
-LOOK LOCK: Andrews (@img-1): …; the stewardess (@img-2): …; location: exactly as in @vid-1 in this range; light and grade: ….
+LOOK LOCK: Lead (@img-1): …; the assistant (@img-2): …; location: exactly as in @vid-1 in this range; light and grade: ….
 ```
 
 The script stops with an error if any block has no assignment. Fix that first (automatically or manually).

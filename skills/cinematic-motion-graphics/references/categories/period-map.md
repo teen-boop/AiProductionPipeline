@@ -8,8 +8,8 @@ neighbouring shots.
 
 ## When to use
 
-- A journey the narration follows stop by stop (a 1912 liner route Belfast -> Southampton -> Cherbourg -> Queenstown -> the
-  North Atlantic, with New York as the intended, never reached, destination).
+- A journey the narration follows stop by stop (a mail-steamer route Port A -> Port B -> Port C -> Port D -> the
+  open sea, with the destination as the intended, never reached, destination).
 - Where something happened relative to something else (a position at sea, a front line, a coastal route).
 - Not for a single place name (use `date-stamp`) or for statistics by region (use `fact-card`).
 
@@ -23,8 +23,8 @@ neighbouring shots.
 **Vector lane.** Project with `route_overlay.py` (`projection: mercator` for sea charts, `equirect` for a plain atlas sheet),
 `bounds` around the route and `padding_px` for the safe area. Draw coastlines as hairlines (1-1.5 px at 1080p), sea as fine
 horizontal hatching or a flat paper tone, land in the paper tone, a graticule every 5 or 10 degrees with period degree marks. Modern
-borders are wrong on a period map: draw coast only, or use a historical boundary set for that year (no border across Ireland in
-1912; Austria-Hungary, the Ottoman and Russian Empires as they stood).
+borders are wrong on a period map: draw coast only, or use a historical boundary set for that year (no later borders in
+1900; Austria-Hungary, the Ottoman and Russian Empires as they stood).
 
 **Raster lane.** Georeference the plate: read 3-6 control points (graticule crossings, harbour mouths, capes) at full resolution as
 `{lon, lat, x, y}`, then:
@@ -42,7 +42,7 @@ transformed wrapper so the line can never drift off the printed coast.
 
 - The route occupies the middle two thirds; the head of the line stays inside the centre third during camera moves.
 - Labels: period names in the spec's serif caps, beside the stop on the `label_side`, never over the line or a coast. Close stops
-  (Southampton and Cherbourg at Atlantic scale) get a leader line or a short inset.
+  (Port B and Port C at Atlantic scale) get a leader line or a short inset.
 - Date stamps: mono, smaller than the place name, under it.
 - A cartouche or legend only if the film's period map would have one; never a modern legend box.
 
@@ -76,26 +76,26 @@ clean vector glow.
 
 ## Accuracy
 
-- Place names as of the date shown (Queenstown, Kingstown, Constantinople, St. Petersburg...).
+- Place names as of the date shown (Christiania, Constantinople, St. Petersburg...).
 - Each stop's date, and arrival vs departure: say which one the stamp shows.
 - The route shape (via points) from a source, not "a plausible line".
 - What did not happen is drawn as intended (dashed) and labelled only if the user approves the wording.
 
 ## Spec example
 
-Full file: `assets/examples/period-map-1912.json`. The route part:
+Full file: `assets/examples/period-map-sample.json`. The route part:
 
 ```json
 "route": {
   "lane": "vector", "projection": "mercator",
   "bounds": { "lon": [-76, 2], "lat": [36, 57] }, "padding_px": 96,
   "stops": [
-    { "id": "queenstown", "name": "QUEENSTOWN", "lon": -8.29, "lat": 51.85, "date": "11 APRIL 1912", "label_side": "left" },
-    { "id": "collision", "name": "", "lon": -49.95, "lat": 41.73, "date": "14 APRIL 1912, 23:40", "label_side": "below" }
+    { "id": "port_d", "name": "PORT D", "lon": -4.49, "lat": 48.39, "date": "9 MONTH 1900", "label_side": "left" },
+    { "id": "breakdown", "name": "", "lon": -38.50, "lat": 45.20, "date": "17 MONTH 1900, 06:15", "label_side": "below" }
   ],
   "legs": [
-    { "from": "queenstown", "to": "collision", "via": [[-47.0, 42.0]], "densify": "great-circle", "style": "solid" },
-    { "from": "collision", "to": "newyork", "via": [[-69.6, 40.6]], "style": "intended" }
+    { "from": "port_d", "to": "breakdown", "via": [[-20.0, 47.6]], "densify": "great-circle", "style": "solid" },
+    { "from": "breakdown", "to": "destination", "via": [[-55.0, 44.3]], "style": "intended" }
   ]
 }
 ```

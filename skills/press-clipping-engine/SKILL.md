@@ -5,6 +5,16 @@ description: Two-phase engine for turning any screenshot into a press/newspaper-
 
 # Press Clipping Engine
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this is a separate skill
 
 One task, two different working rhythms. **Analyzing references** is a rare,
@@ -50,7 +60,7 @@ a concrete description does.
    into the affected archetypes, not into a separate file — duplicate the
    rule in every place where it applies.
 
-**Ready-made library** (built from the first reference set, all marked
+**Ready-made library** (sample archetypes, all marked
 "not verified by render" — details in each file):
 
 | Archetype | Device | Used for |
@@ -106,7 +116,7 @@ circle/underline) is later meant to be **animated as a separate layer**
 (sliding in, being drawn on, appearing on a timing), it is **not baked into
 the static generation**. The frame carries only clean text with no
 color/mark on top; the mark is added separately in Remotion/After Effects,
-as already worked out in an earlier project (`ANN-01`, highlighter swipe). Otherwise you
+as a separate animated layer (for example a highlighter swipe). Otherwise you
 end up with two highlighters — one drawn by the generator and one animated
 on top — or you have to clean out the first one. Archetypes with such a
 device (`vox-clip`, `pulp-tabloid`) have a template variant in §9 for
@@ -154,5 +164,5 @@ code" rule — **the project's rules take precedence over the archetype's
 rules**. This skill produces one static clipping frame; if it is going to be
 animated afterward, the finished frame becomes material for
 `motion-remotion-build` / `motion-video-route`, and their own discipline
-(for example, a complete ban on generator text for a documentary project)
+(for example, a rule that all on-screen text is set in code)
 applies on top of it, not instead of it.

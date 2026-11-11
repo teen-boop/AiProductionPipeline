@@ -5,7 +5,7 @@ description: >-
   to MP4: title and lower-third backgrounds, filler for the dead seconds between AI shots, bumpers, transitions and shape
   animations, optionally with a character or product still (from Lovart, Higgsfield or an approved frame) composited over
   the loop on the same clock. Verifies the seam (frame at LOOP equals frame at 0, the step across the loop point matches the
-  motion around it) before and after encoding, and shows the same loop as a HyperFrames composition for our promos. Use when
+  motion around it) before and after encoding, and shows the same loop as a HyperFrames composition for promos. Use when
   the user says "seamless loop", "looping background", "motion background", "animated background behind the title",
   "filler between shots", "bumper", "brand-color loop", "the loop jumps", "check the loop seam", or needs an endless
   background under otf-presentations or a promo. Includes scripts/render-loop.mjs and scripts/loop-template.html.
@@ -13,6 +13,16 @@ user-invocable: true
 ---
 
 # Seamless Motion Loops
+
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
 
 Adapted from scenario-labs/skills, MIT (see `LICENSE-scenario.txt`).
 
@@ -150,7 +160,7 @@ A loop is not done until the seam is measured, not eyeballed:
 
 ## The same loop as a HyperFrames composition
 
-Our promos render with HyperFrames 0.8.229 (`npx -y hyperframes@0.8.229 render`). When the loop sits under titles in a
+This skill was tested with HyperFrames 0.8.229 (`npx -y hyperframes@0.8.229 render`). When the loop sits under titles in a
 promo, build it inside the composition instead of importing an MP4, so it renders at the promo's size and frame rate.
 `references/hyperframes-loop.html` is the template's tile wired to HyperFrames:
 
@@ -159,7 +169,7 @@ promo, build it inside the composition instead of importing an MP4, so it render
   `requestAnimationFrame`; the seek must drive it.
 - Size comes from the root's `data-width` and `data-height`. Set `data-duration` to `LOOP` or a whole multiple of it, so the
   composition ends on the seam.
-- An empty paused GSAP timeline spanning `LOOP` is registered in `window.__timelines["main"]`, as our promo pages do.
+- An empty paused GSAP timeline spanning `LOOP` is registered in `window.__timelines["main"]`, as HyperFrames pages do.
 - To render it alone: copy it as `index.html` into an empty folder, set `LOOP`, `data-duration`, `data-width`, `data-height`
   and the viewport meta together, then run `npx -y hyperframes@0.8.229 render -q delivery -o loop.mp4` in that folder. Check
   the result with `render-loop.mjs --qa` and the PSNR steps above.

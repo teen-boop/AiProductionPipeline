@@ -2,20 +2,20 @@
 
 The output of the reference step is not a pile of loose turnaround images — it's a **Production
 Design Guide**: an organized design bible that pulls the whole story's look into a consistent,
-labeled system. This is the format professional AI-film pipelines use (ref: the "Until the Last
-Wait" production design guide and single-character design sheets the user supplied). Two tiers:
+labeled system. This is the format professional AI-film pipelines use (a full production design
+guide board plus single-character design sheets). Two tiers:
 
 1. **Per-item design sheets** — one polished sheet per character, plus prop and location sheets.
 2. **A consolidated Production Design Guide board** — a single master spread laying every item out
    in labeled sections, so the whole story's design reads at a glance and every downstream
    generation (and the storyboard) pulls from one locked source.
 
-The pipeline the user wants: **story → break it down into this reference bible → then storyboard.**
+The pipeline: **story → break it down into this reference bible → then storyboard.**
 Do the whole bible before storyboarding.
 
 ## Tier 1 — per-character design sheet (richer than a bare 4-view)
 
-Match the supplied examples. A full character design sheet contains, on one clean sheet with a
+A full character design sheet contains, on one clean sheet with a
 consistent neutral/tinted background:
 
 - **TURNAROUND** — front, side (profile), back. For a lead, add a 3/4 view. Full body, head to toe,
@@ -26,9 +26,9 @@ consistent neutral/tinted background:
   as separate labeled turnaround rows, or a wet/injured/costume-change state (see
   `assets/character-sheet-state.md`).
 - **ASSOCIATED PROP** — if the character carries a signature object, show it on the sheet (the
-  skates on the roller-derby sheet, the collar near the dog).
+  umbrella on Character A's sheet, the satchel next to Character B).
 - **COLOR PALETTE** — a row of hex swatches for that character's costume/skin/hair key colors.
-- **LABELS** — role name in a clean caption (MAIN ACTOR, THE REAPER, DOG). Keep any baked-in text
+- **LABELS** — role name in a clean caption (CHARACTER A, CHARACTER B, THE STRANGER). Keep any baked-in text
   minimal and legible; text can garble, so prefer captions only where they read cleanly and keep the
   authoritative naming in the written spec.
 
@@ -46,19 +46,19 @@ sheet is canonical — attach it to every later generation of that character.
 
 One master spread, laid out in labeled sections like a real production design guide. It's a **very
 wide horizontal board (~2.4:1)** on a single consistent parchment/cream background, with thin section
-dividers and clean serif labels. Sections, following the reference example precisely:
+dividers and clean serif labels. Sections:
 
 - **Title block (far-left vertical column):** "A FILM BY [studio/author]" small, then the large
   story **TITLE**, then the subtitle "PRODUCTION DESIGN GUIDE", then a **LOG LINE** heading with one
   sentence, then one tall key poster/mood image that sets the tone (the emotional anchor shot).
 - **CHARACTER DESIGN (center, largest area, its own header band):** each character in its **own
-  bordered box with a caption header** (e.g. `MAIN ACTOR (YOUNG)`, `MAIN ACTOR (OLD)`, `DOG (YOUNG)`,
-  `DOG (OLD)`, `THE REAPER`), each box showing a 3-view turnaround (front / side / back). Group by
+  bordered box with a caption header** (e.g. `CHARACTER A (YOUNG)`, `CHARACTER A (OLD)`, `CHARACTER B (YOUNG)`,
+  `CHARACTER B (OLD)`, `THE STRANGER`), each box showing a 3-view turnaround (front / side / back). Group by
   importance: leads first (with age/state variants as their own separate labeled boxes), then
   supporting, then non-human/special figures (animals, a personified figure). Boxes tile across two
   rows.
 - **PROPS (right vertical column, its own header):** each recurring prop isolated on the parchment
-  background, labeled (`DOG COLLAR & TAG`), often with a detail view + a flat/laid-out view + close
+  background, labeled (`BRASS LANTERN & HOOK`), often with a detail view + a flat/laid-out view + close
   detail of a sub-element (the tag).
 - **SET DESIGN (lower center band, its own header):** each key location as a small strip of 3–4
   frames, labeled in slate format (`INT. HOSPITAL ROOM — NIGHT`, `EXT. CITY STREET — RAINY DAY`),
@@ -67,8 +67,8 @@ dividers and clean serif labels. Sections, following the reference example preci
 - **NOTES FOR ART DEPARTMENT (lower-right corner block):** the story's global art direction as short
   bulleted lines, each with a concrete value — **Tone** (e.g. "Melancholic, realistic, restrained"),
   **Time** (era, e.g. "Contemporary"), **Palette** (e.g. "Desaturated, cold blues and warm browns"),
-  **Texture** (e.g. "Real-world materials, worn, lived-in"), **Theme** (e.g. "Loyalty, time, and the
-  promise beyond life"). This is the written companion to the STYLE LOCK block; it's what keeps every
+  **Texture** (e.g. "Real-world materials, worn, lived-in"), **Theme** (e.g. "Patience, craft, and the
+  pride of a finished job"). This is the written companion to the STYLE LOCK block; it's what keeps every
   sheet and every scene in one world. A small ghosted mood image can sit under it.
 
 The board can be **assembled** (compose the already-approved individual sheets into one layout — most

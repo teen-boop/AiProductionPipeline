@@ -87,5 +87,5 @@ vector edges over a grainy plate.
 
 Every period graphic carries an `accuracy` list in its spec: one line per claim the frame makes (date, time, place name, border,
 livery, number, title of a person), each with a source from `period-fact-check`. Period names are used as of the date shown
-(Queenstown, not Cobh, in 1912; no borders that did not yet exist). When sources disagree, say which one the graphic follows. A
+(the place names of the period, not today's; no borders that did not yet exist). When sources disagree, say which one the graphic follows. A
 pending line blocks the final render, not the draft.

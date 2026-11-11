@@ -5,6 +5,16 @@ description: Builds and locks a per-project STYLE PACK for motion graphics — t
 
 # Motion Style Core
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## The rule this skill exists to enforce
 
 **The pipeline is constant. The design is not.** Every project gets its own STYLE PACK, written once, referenced by name afterwards ("same project, same look"). Style is never re-described per shot — re-describing is how drift happens.
@@ -39,7 +49,7 @@ A palette is a list of **jobs**. Every swatch gets a hex and a rule. Fill the fi
 ### Step 3 — surface, edge, depth in numbers
 These three decide whether the piece reads as printed, drafted, or moulded. Adjectives are not values — `28% opacity`, `baseFrequency 0.02`, `1.5px ruled` are.
 
-**Edge is the signature slot.** It is the fastest way to tell two packs apart, and the fastest thing to get wrong: marker-edge base frequency is scale-sensitive — 0.02–0.05 at 1920x1080; values of 1 and above collapse into invisible pixel fuzz (verified in test-01).
+**Edge is the signature slot.** It is the fastest way to tell two packs apart, and the fastest thing to get wrong: marker-edge base frequency is scale-sensitive — 0.02–0.05 at 1920x1080; values of 1 and above collapse into invisible pixel fuzz (confirm with a test render).
 
 ### Step 4 — motion vocabulary, allowed and forbidden
 List which PROMPT-LIBRARY block IDs belong to this pack **and which are banned**. The bans matter more: paper-vox forbids CAM-02 because a 3D rotate breaks the paper plane; clay forbids every FIN paper texture; blueprint forbids springs with overshoot. Give the tempo as a physical metaphor — "a hand dragging a marker", "a part seating into its socket", "clay settling".

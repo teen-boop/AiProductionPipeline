@@ -4,7 +4,7 @@
 
 Whenever a real face-reference photo exists for a character, attach it as one of the image
 references — every single generation, no exceptions. This holds even when also attaching a base/scene
-image (e.g. for a "Change to..." variant, see `04-prompt-engineering.md`) or a character sheet —
+image (e.g. for a "Change to..." variant, see the pipeline's prompt-writing step) or a character sheet —
 attach the face photo together with them, not instead of them. Never rely on a base image or sheet
 alone to carry identity forward, even if it already shows that character's face correctly.
 
@@ -52,9 +52,9 @@ How to apply:
   isn't done until both are updated together, in the same pass.
 - Give the reworked persona a concrete GOAL that explains their action in their scene(s) — not a
   generic bystander errand dressed in a new costume. The persona should drive the plot beat, not the
-  other way around (e.g. a scientist's action should be scientist-appropriate; a traveler's action
-  should tie to travel).
-- A "true self" bonus-reveal montage bolted onto the finale is not a substitute for rewriting the
+  other way around (e.g. a baker's action should be baker-appropriate; a courier's action
+  should tie to deliveries).
+- A bonus montage that only shows off the new look at the end is not a substitute for rewriting the
   actual plot beat the character occupies. Don't reach for that shortcut.
 - **Before generating any production images for a reworked character, run a small test batch of the
   NEW scene action/goal specifically, and get the user's explicit confirmation that the direction is
@@ -78,4 +78,4 @@ causes drift and half-updated scenes — cut the cord fully instead.
 
 **Minor identity correction** (same character, a corrected reference photo or a small costume-detail
 fix — NOT a wholesale identity change): don't regenerate every shot from scratch. Patch existing
-delivered shots in place instead — see `08-qc-and-fixes.md` for the exact technique.
+delivered shots in place instead — see `identity-fix-pass` for the exact technique.

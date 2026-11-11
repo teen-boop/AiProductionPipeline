@@ -29,6 +29,16 @@ description: >-
 
 # Script Extractor
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
 A formatted screenplay already contains almost everything a production
@@ -42,12 +52,12 @@ input. This skill is the extraction pass that turns it into structured,
 per-scene, cross-referenced data — the actual prerequisite for locking
 character references or writing a single generation prompt.
 
-The non-negotiable design constraint, stated by the user who commissioned
+The non-negotiable design constraint, and the reason for the design of
 this skill: **every extracted detail must stay linked to the specific
 scene and circumstance it occurred in.** A prop, an action, a wardrobe
 note extracted without its scene context is much less useful than the
 same fact tied to "this happens in scene 9, at night, on the roof, while
-Trinity is being chased" — the scene context is what a later prompt
+the courier is being chased" — the scene context is what a later prompt
 actually needs.
 
 ## Where this sits relative to other skills
@@ -109,9 +119,9 @@ For every scene, pull out:
    incidental blocking ("she stands up") unless the incidental blocking is
    itself the point of a shot.
 5. **Wardrobe/appearance** — any costume, appearance, or physical-detail
-   note the scene states, whether it's a one-time description ("a woman
-   in black leather") or an explicit standing rule for a recurring
-   character/group ("they wear dark suits and sunglasses even at night").
+   note the scene states, whether it's a one-time description ("a man
+   in a yellow raincoat") or an explicit standing rule for a recurring
+   character/group ("they wear grey overalls and caps even indoors").
 
 ## Resolving missing day/night
 
@@ -134,7 +144,7 @@ lines later, in an action line or by another character addressing them.
 Read forward before finalizing the character list for a scene — if a
 generic cue is resolved to a named identity anywhere in that scene or the
 immediately following context, use the real name in the extraction (and
-note the resolution, e.g. "`MAN (V.O.)` → Cypher, named in the action line
+note the resolution, e.g. "`MAN (V.O.)` → Marek, named in the action line
 below"). Keep genuinely generic, unnamed role characters (a nameless COP,
 a LIEUTENANT with no other name given) as their role label — don't invent
 a name that isn't in the script — but do note when the same generic label
@@ -165,16 +175,16 @@ technique:
   or by carrying forward the nearest earlier explicit value per the same
   rule as screenplays (mark it **[inferred]**) when it doesn't.
 - **Character resolution runs through narration and speech tags, not cue
-  lines.** A speaker is identified by a dialogue tag ("said Cypher," "she
+  lines.** A speaker is identified by a dialogue tag ("said Marek," "she
   answered") or by the narrator naming them directly in a nearby sentence
-  ("The man's name was Cypher. The woman, Trinity.") rather than an
+  ("The man's name was Marek. The woman, Ilse.") rather than an
   ALL-CAPS cue. Resolve pronouns (he/she/they, or their equivalent) to
   the nearest explicit named antecedent, and flag as an ambiguity (per
   the rule above) any pronoun that could plausibly point to more than one
   recently-named character of the same gender/role.
 - **Props, actions, and wardrobe extract exactly as they would from a
   screenplay** — they're simply phrased as narration ("a woman in
-  tight black leather" instead of a wardrobe note in an action line)
+  a yellow raincoat" instead of a wardrobe note in an action line)
   rather than as a formal description line.
 - Everything else — the per-scene output format, the cross-reference
   index, flagging ambiguities instead of resolving them silently — applies
@@ -209,9 +219,9 @@ technique:
    every character, prop, and location that recurs, note which scene
    first establishes its defining visual detail (a wardrobe rule, a
    specific look, a prop's exact description) and which later scenes it
-   reappears in. This is what lets a downstream skill reuse "Agents wear
-   dark suits and sunglasses even at night" (established once) instead of
-   restating or re-deriving it for every later Agent scene.
+   reappears in. This is what lets a downstream skill reuse "Guards wear
+   grey overalls and caps even indoors" (established once) instead of
+   restating or re-deriving it for every later Guard scene.
 
 5. **Flag ambiguities explicitly** rather than resolving them silently —
    an unnamed recurring role whose sameness across scenes is unclear, a

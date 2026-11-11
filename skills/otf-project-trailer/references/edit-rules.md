@@ -58,7 +58,7 @@ No wipes, spins, zoom-blurs, glitches, light-leak packs or slide transitions.
 
 ## 5. Film look
 
-- The look is the style lock: if it asks for deep blacks, warm practicals against a cool sky and rays, the trailer keeps
+- The look is the style lock: if it asks for soft pastel daylight and low contrast, the trailer keeps
   exactly that. Never lift blacks or flatten contrast for a "film" feel when the lock forbids it.
 - Grade all picked clips through one look with `video-color-grade` (match to the approved key frame when a clip drifted),
   BEFORE they enter the composition. Keep the `.cube` for the NLE hand-off.

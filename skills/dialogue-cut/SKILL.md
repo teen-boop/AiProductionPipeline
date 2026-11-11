@@ -15,6 +15,16 @@ user-invocable: true
 
 # Dialogue Cut
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The script is the spine; the takes are material. This skill finds every attempt at every line, scores them and proposes one
 reading per line. It never decides alone: the output is a candidate that a person listens to. Edges come from word timings,
 which speech recognition gets right only to about 50 to 100 ms, so `dialogue-audio-finish` measures and moves every edge
@@ -68,7 +78,7 @@ What it does:
 - **Scores each reading:**
   `100*recall - 2.5*extra words - 2*fillers + 4*mean word confidence`, minus 35 when a redo cue follows within 3 s, plus 2
   for the last attempt of the line in that take.
-- **Names:** transcribers spell invented names as common words (in a test, Resolve heard "Koss! Koss!" as "cost Cost"). Pass `--alias cost=koss` per name before trusting a MISSING flag.
+- **Names:** transcribers spell invented names as common words (in a test, Resolve heard "Riz! Riz!" as "rice Rice"). Pass `--alias rice=riz` per name before trusting a MISSING flag.
 - **Chooses:** the best reading with recall at least 0.6. Otherwise the best with at least 0.3, flagged `LOOSE`. Otherwise
   `MISSING`: ask for a pickup. Never paper over a missing line with a partial one.
 - **Snaps to the frame grid:** in is floored and out is ceiled, so a clip never shortens its own words. Edges are padded

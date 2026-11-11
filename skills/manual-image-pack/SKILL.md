@@ -21,6 +21,16 @@ user-invocable: true
 
 # Manual Image Pack
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 One frame = one folder. The user should only have to open a folder, copy
 `PROMPT.txt`, attach `ref_1…`, `ref_2…` in order, generate, and save the result
 as `RESULT_1.png` in the same folder. Everything else — prompt writing,
@@ -46,7 +56,7 @@ Prompt structure and blocks: `references/prompt-blocks.md`.
    `id`, `base` (output prefix), `folder` (destination in the project),
    `prompt`, `refs`, `after`, `section`.
    - Build every prompt from the blocks in `references/prompt-blocks.md`:
-     REFERENCES → SCENE → CHARACTER LOCK → domain locks (ship, period,
+     REFERENCES → SCENE → CHARACTER LOCK → domain locks (hero object, period,
      night…) → LOOK + OPTICS → FORMAT. The LOOK block is mandatory: it is what
      separates a film still from a glossy AI poster.
    - **References, in attach order:** the location or composition reference
@@ -107,7 +117,7 @@ Then, for every delivered frame:
 1. **QC by eye.** Build a contact sheet and Read it. Check:
    - 16:9, with no bars or rounded borders left;
    - faces match the identity references for that age;
-   - domain rules (ship details, period, no anachronisms);
+   - domain rules (hero object details, period, no anachronisms);
    - no unmotivated bokeh or flares;
    - the frame actually tells the beat.
 2. If a frame fails QC, move it to the project folder's `_rejected/` with the reason in the filename. Tell the user why, and give the exact fix to add to that folder's PROMPT.txt. Edit PROMPT.txt yourself if the user agrees.

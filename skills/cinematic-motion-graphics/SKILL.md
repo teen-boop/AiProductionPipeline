@@ -19,6 +19,16 @@ description: >-
 
 # Cinematic Motion Graphics
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 A documentary graphic is a shot of the film, not a widget laid on top of it. It shares the film's blacks, grain, light and tempo,
 it says only what the user approved, and every period claim it makes has a source. This skill holds the nine cinematic categories,
 the film-look rules they share, one JSON shot plan, and a verify gate. Builds are code (exact text, exact numbers, exact dates);
@@ -70,12 +80,12 @@ Pick one per shot. Each file has intent, when to use, layout and motion rules, f
 | id | Use it for | File |
 |---|---|---|
 | `period-map` | a voyage or route on an era-correct map | `references/categories/period-map.md` |
-| `date-stamp` | "14 April 1912, 23:40", place lines, clocks, countdowns | `references/categories/date-stamp.md` |
+| `date-stamp` | "17 Month 1900, 06:15", place lines, clocks, countdowns | `references/categories/date-stamp.md` |
 | `press-headline` | newspaper, telegram, document reveal | `references/categories/press-headline.md` |
 | `lower-third` | name, role and years of a person | `references/categories/lower-third.md` |
 | `fact-card` | a number, a ledger, a to-scale comparison | `references/categories/fact-card.md` |
 | `timeline` | an era chronology with events and photos | `references/categories/timeline.md` |
-| `blueprint` | hull plans, sections, schematics drawn in | `references/categories/blueprint.md` |
+| `blueprint` | plans, sections, schematics drawn in | `references/categories/blueprint.md` |
 | `title-card` | episode, chapter and end cards | `references/categories/title-card.md` |
 | `composite-overlay` | callouts and type over footage | `references/categories/composite-overlay.md` |
 
@@ -98,8 +108,8 @@ Ambiguous between two? Ask one question. A shot that needs two categories is two
 **1 Brief.** Read the script or VO line the graphic lands on, the project's `STYLE_LOCK.json` / style card / `STYLE-PACK.md`, and the
 language plan. Ask only what is missing, in one message.
 
-**3 Spec.** Fill the shot plan (`references/shot-plan.md`; full examples in `assets/examples/period-map-1912.json` and
-`assets/examples/date-stamp-1912.json`). List every word, its timing and its approval; the accuracy list; fonts with glyph-test
+**3 Spec.** Fill the shot plan (`references/shot-plan.md`; full examples in `assets/examples/period-map-sample.json` and
+`assets/examples/date-stamp-sample.json`). List every word, its timing and its approval; the accuracy list; fonts with glyph-test
 results; assets with origin. Then:
 
 ```bash
@@ -171,4 +181,4 @@ exported, `render-cut-verification` checks the graphic on the encoded film.
 - `scripts/route_overlay.py` - projects a route (vector projection or georeferenced raster plate) into per-leg SVG paths and stop timings.
 - `assets/templates/date-stamp.html` - working HyperFrames composition: typewriter date, settling clock, ledger rule, place line,
   deterministic grain; alpha-ready.
-- `assets/examples/period-map-1912.json`, `assets/examples/date-stamp-1912.json` - complete shot plans.
+- `assets/examples/period-map-sample.json`, `assets/examples/date-stamp-sample.json` - complete shot plans.

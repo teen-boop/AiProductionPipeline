@@ -2,14 +2,14 @@
 
 ## Intent
 
-Make one number felt: the length of a hull, a tonnage, a count of people, set like letterpress or engraved type, or compared to
+Make one number felt: the length of a bridge, a tonnage, a count of people, set like letterpress or engraved type, or compared to
 something the viewer knows, at true scale. Code route always: video models invent digits.
 
 ## When to use
 
 - A single number the narration stresses (count up and settle).
-- A short table the narration walks through (a ledger of classes, lifeboats, crew departments).
-- A size comparison (a ship against a city block, a building, another ship), with silhouettes drawn to one scale.
+- A short table the narration walks through (a ledger of wages, cargo, departments).
+- A size comparison (a bridge against a city block, a building, another bridge), with silhouettes drawn to one scale.
 
 ## Layout
 
@@ -36,9 +36,9 @@ No chart-library styling: no rounded bars, no gridlines unless a ledger's rules,
 
 ## Accuracy
 
-- Every number with its source and unit as the source states it (feet and inches, gross register tons); a conversion only if the
-  film's language needs it, rounded honestly ("about 269 m").
-- Where sources disagree (passenger and crew counts often do), the accuracy line says which source is followed, and the card uses
+- Every number with its source and unit as the source states it (feet and inches, long tons); a conversion only if the
+  film's language needs it, rounded honestly ("about 412 m").
+- Where sources disagree (workforce and attendance counts often do), the accuracy line says which source is followed, and the card uses
   "about" if the narration does.
 - Comparison silhouettes from real dimensions, all at the same scale; no artistic stretch.
 
@@ -46,15 +46,15 @@ No chart-library styling: no rounded bars, no gridlines unless a ledger's rules,
 
 ```json
 {
-  "category": "fact-card", "period": 1912, "fps": 24,
+  "category": "fact-card", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 7, "export": "mp4", "background": "plate",
   "texts": [
-    { "id": "value", "text": "882 FT 9 IN", "font": "Etched Serif", "approved": true, "in_s": 0.5, "enter_s": 1.6, "hold_s": 3.6 },
-    { "id": "label", "text": "LENGTH OVERALL", "font": "Ledger Mono", "approved": true, "in_s": 2.0, "enter_s": 0.6, "hold_s": 3.4 }
+    { "id": "value", "text": "1350 FT 6 IN", "font": "Etched Serif", "approved": true, "in_s": 0.5, "enter_s": 1.6, "hold_s": 3.6 },
+    { "id": "label", "text": "MAIN SPAN", "font": "Ledger Mono", "approved": true, "in_s": 2.0, "enter_s": 0.6, "hold_s": 3.4 }
   ],
-  "accuracy": [ { "claim": "Length overall 882 ft 9 in", "source": "fill from period-fact-check", "status": "pending" } ],
-  "content": { "value": 882.75, "unit": "ft", "format": "{ft} FT {in} IN", "label": "LENGTH OVERALL",
-               "comparison": { "items": [ { "name": "city block", "length_m": 80 }, { "name": "ship", "length_m": 269.1 } ], "scale_px_per_m": 5.6 } }
+  "accuracy": [ { "claim": "Main span 1350 ft 6 in", "source": "fill from period-fact-check", "status": "pending" } ],
+  "content": { "value": 1350.5, "unit": "ft", "format": "{ft} FT {in} IN", "label": "MAIN SPAN",
+               "comparison": { "items": [ { "name": "city block", "length_m": 80 }, { "name": "bridge", "length_m": 411.6 } ], "scale_px_per_m": 3.8 } }
 }
 ```
 

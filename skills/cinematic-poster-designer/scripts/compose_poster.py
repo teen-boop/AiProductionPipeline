@@ -2,15 +2,15 @@
 """Lay clean film-poster typography over generated key art (the generator never draws text).
 
 Usage:
-  python3 compose_poster.py ART.png OUT.png --title "THE KEEPER" [--layout wide-top|giant-bottom|serif-center|side-vertical]
+  python3 compose_poster.py ART.png OUT.png --title "FILM TITLE" [--layout wide-top|giant-bottom|serif-center|side-vertical]
       [--tagline "..."] [--credits "A FILM BY ... · ..."] [--date "IN CINEMAS SOON"] [--size 2000x3000]
       [--ink "#f3eee8"] [--accent "#f0962b"] [--scrim 0.0-1.0]
 
-Layouts (from the poster reference study):
-  wide-top      thin caps with very wide tracking near the top (SERENITY, ANNIHILATOR)
-  giant-bottom  heavy condensed caps filling the width at the bottom (LIMINAL, FRONTLINE)
-  serif-center  small elegant serif title in the middle of negative space (EL SEPTIMO SELLO, RAW)
-  side-vertical a stacked title down the right edge, grotesk, tight leading (Ideas Are Alive)
+Layouts:
+  wide-top      thin caps with very wide tracking near the top (FILM TITLE A)
+  giant-bottom  heavy condensed caps filling the width at the bottom (FILM TITLE B)
+  serif-center  small elegant serif title in the middle of negative space (FILM TITLE C)
+  side-vertical a stacked title down the right edge, grotesk, tight leading (FILM TITLE D)
 Every layout adds an optional tagline, a credit block and a date line in small caps at the bottom.
 The art is cover-cropped to the poster size; --scrim darkens the band behind the title.
 Fonts are macOS system fonts (Avenir Next, Avenir Next Condensed, Didot, Helvetica Neue).

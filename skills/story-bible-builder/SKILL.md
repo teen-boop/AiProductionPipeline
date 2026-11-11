@@ -5,6 +5,16 @@ description: "Interview-driven skill that helps AI filmmakers, worldbuilders, an
 
 # Story Bible Builder
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 An interview-driven skill for building a **single dense canon document** — a story's bible — that ships as an installable SKILL.md the user can drop into Claude as their own custom skill.
 
 The point: instead of burning memory slots on world context, or re-explaining the story every chat, the user gets one file that lives as a skill and auto-loads every time they work on their world.
@@ -163,7 +173,7 @@ Assistant now assembles the full SKILL.md. The final section — "When this skil
 
 Ask the user what production companion skills they use (if any) and name them explicitly in this closing section so future Claude knows the paired workflow.
 
-Ship the file with the YAML frontmatter (name + pushy description) and the full canon body. Save to `/mnt/user-data/outputs/[working-title-slug].md` and present.
+Ship the file with the YAML frontmatter (name + pushy description) and the full canon body. Save it in this project's output folder as `[working-title-slug].md` and present.
 
 Offer to zip it as an installable `.skill` file if the user wants that packaging.
 

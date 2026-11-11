@@ -41,8 +41,8 @@ def init(lock, refs):
     data = {"style_refs": [os.path.abspath(r) for r in refs],
             "source_prompts": {os.path.basename(r): source_prompt(r) for r in refs},
             "ref_metrics": avg,
-            "required": ["No flat lighting", "shallow depth of field", "film grain", "anamorphic"],
-            "forbidden": ["no golden hour", "no direct sun", "desaturated, muted palette", "lifted blacks", "soft-to-medium matte contrast"],
+            "required": [],  # fill from the source prompts of THIS project's references after init
+            "forbidden": [],  # fill with phrases that contradict THIS project's references
             "tolerance": {"saturation": 0.8, "warm": 0.25, "range": 0.8}}
     json.dump(data, open(lock, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps({k: data[k] for k in ("ref_metrics", "required", "forbidden")}, indent=1))
@@ -77,7 +77,7 @@ def compare(lock, imgs):
         m = metrics(p); flags = []
         # calibrated on real frames: flat grey frames keep their contrast but lose saturation and every warm light accent
         if m["saturation"] < ref["saturation"] * tol.get("saturation", 0.8): flags.append("washed-out colour")
-        if ref["warm"] > 1 and m["warm"] < ref["warm"] * tol.get("warm", 0.25): flags.append("no warm light accents (sun / lamps / portholes)")
+        if ref["warm"] > 1 and m["warm"] < ref["warm"] * tol.get("warm", 0.25): flags.append("no warm light accents (sun / lamps / windows)")
         if m["range"] < ref["range"] * tol["range"]: flags.append("compressed tonal range")
         if m["p5"] > ref["p5"] + 25: flags.append("milky / lifted blacks")
         verdict = "FLAT — " + ", ".join(flags) if flags else "OK"

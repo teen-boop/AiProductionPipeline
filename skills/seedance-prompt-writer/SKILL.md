@@ -19,6 +19,16 @@ description: >-
 
 # Seedance Prompt Writer (project-merged, v2)
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The project's house grammar for Seedance prompts. Merges three sources:
 `anthropic-skills:seedance-clean` (block structure, FOV-degree optics),
 `cinema-director-v3` (the stricter 16-slot spine, CRITICAL blocks,
@@ -55,8 +65,8 @@ identify *which reference image to attach*, and that's all they do. List
 them in a **numbered reference list above the code block** (not inside
 it). Inside the actual prompt text that gets sent to Seedance, refer to
 every character/prop/location by its **visual descriptor**, never by its
-tag. `@char_Alice` becomes, in the prompt body, "the young woman with the
-black blunt bob and grey-green eyes." The tag tells *you* (and the
+tag. `@char_A` becomes, in the prompt body, "the tall man with the
+grey beard and round glasses." The tag tells *you* (and the
 attachment UI) what to load; the descriptor is what the model reads.
 
 This also resolves the earlier "context isolation vs continuity chain"
@@ -71,13 +81,13 @@ citation to a filename, clip number, or "as before."
 
 ## Canonical @tag Registry (this project — reference-list only, never in the prompt body)
 
-**Characters:** `@char_Alice`, `@char_cat`, `@char_opossum_v1`
+**Characters:** fill from this project, e.g. `@char_A`, `@char_B`, `@char_pet_v1`
 
-**Wardrobe (3 outfits):** `@wardrobe-morning-home-int` (home), `@prop_wadrobe-ext` (street/7-11, current canon - no uniform change), `@prop_wardrobe-store-int` (uniform, reference only, not in active script)
+**Wardrobe:** fill from this project, e.g. `@wardrobe_A-home` (home), `@wardrobe_A-street` (street), `@wardrobe_A-work` (work clothes, only if the script uses them)
 
-**Locations:** `@loc_bedrooom_v1`, `@loc_kitchen_v1`, `@loc_living-desk`, `@loc_corridor_v1`, `@loc_store-ext_v1`, `@loc_store-int`
+**Locations:** fill from this project, e.g. `@loc_room-A_v1`, `@loc_room-B_v1`, `@loc_street_v1`
 
-**Props:** `@prop_journal` (sketchbook), `@prop_kettle_v1`, `@prop_email_v1`, `@prop_money-jar`
+**Props:** fill from this project, e.g. `@prop_notebook`, `@prop_lamp_v1`, `@prop_letter_v1`
 
 Resolve anything not listed through `storyboard-reference-assembly` (canon
 location plate mandatory) and flag the gap rather than inventing a tag -
@@ -99,10 +109,10 @@ the user's asset library expects exact matches.
    same FOV without a stated reason.
 4. **Color fidelity to locked references.** The percentage color doctrine
    (slot 10) must bind its bands to this project's actual locked palette
-   for that location/prop, not a generic mood word - this project has a
-   documented history of color drifting from references.
+   for that location/prop, not a generic mood word - generated color has a
+   known tendency to drift away from references.
 5. **Physical in-scene text is a physical object, never on-screen-text.**
-   The email screen, the TV ad, a jar label - these are real content that
+   A phone screen, a wall poster, a jar label - these are real content that
    exists in the scene and gets described in Assets/Geometry Map with
    shape, color, placement and legibility, same as `cinema-director-v3`
    treats garment prints and signage. The NO ON-SCREEN TEXT block (slot 3)
@@ -112,11 +122,11 @@ the user's asset library expects exact matches.
 
 ```
 1.  HEADER              shot count · runtime · timecodes · cut policy · speed policy
-2.  STYLE PREFIX        invariants — for this project: semi-realistic anime
-                        illustration, cinematic lighting, soft painterly
-                        rendering, detailed textures (NOT photoreal, NOT
-                        3D render, NOT game-cutscene — this project's style
-                        IS the illustrated/anime register, so the render-quad
+2.  STYLE PREFIX        invariants — copied from this project's style lock:
+                        its medium, lighting and rendering words, plus
+                        its own negations (for example NOT photoreal, NOT
+                        3D render, NOT game-cutscene; when the project's style
+                        IS an illustrated register, the render-quad
                         negation flips: state what it must NOT collapse into,
                         which is flat/generic AI-illustration mush, not
                         photorealism)
@@ -158,20 +168,20 @@ own rules override or extend it, above.
 Cap at 4, ordered by importance, first content in the prompt after Style
 Prefix/No-Text. Common ones for this project:
 
-- `THE SCRIPT` — any scene with real dialogue (e.g. the tourist's line in
-  Scene 5: "Oh, wow. That's very Hopper...", her "Thank you"). Always the
+- `THE SCRIPT` — any scene with real dialogue (e.g. a visitor's line in
+  one scene: "Is this seat taken?", and the reply "Go ahead"). Always the
   first CRITICAL block when present, restated verbatim in AUDIO, and
   restated again inside its Action Timing beat — three times total, this
   overrides the no-repetition rule.
-- `NOBODY ELSE IS IN THE FRAME` — the empty-store beats (Scene 4, Scene 6,
-  Scene 7) where the model might invent extras.
+- `NOBODY ELSE IS IN THE FRAME` — beats set in an empty place (an empty shop,
+  an empty corridor) where the model might invent extras.
 - `THE GEOMETRY` / `THE STAGING` — any shot where a prop's position must
-  not invert or drift (matcha cup's exact desk position, the cat's
-  position relative to the sketchbook).
-- `TWO DISTINCT DESIGNS` — anywhere the cat and the opossum could get
-  confused, or the money jar and any other jar/container in frame.
+  not invert or drift (a cup's exact position on the desk, a pet's
+  position relative to a notebook).
+- `TWO DISTINCT DESIGNS` — anywhere two similar animals or characters could get
+  confused, or one container and another similar container in frame.
 
-## Dialogue protocol (for the tourist scene and any future spoken line)
+## Dialogue protocol (for any scene with a spoken line)
 
 Generated dialogue fails when the script is buried in Action Timing
 without being stated up top. Fix: state it twice, plainly, nowhere else in
@@ -191,30 +201,30 @@ project's Seedance-generates-its-own-speech scenes).
 
 ### Speech length and voice lock (characters who talk)
 
-- Size every spoken line by a measured speech rate: about 2.5 words per second for normal speech (2 for slow, tired or hungover
+- Size every spoken line by a measured speech rate: about 2.5 words per second for normal speech (2 for slow, tired or sleepy
   delivery, 3 for fast talkers). A 3-second slot holds 7–8 words at most; cut the line or lengthen the slot, never cram it.
-- Write a character's voice description ONCE in the exact same words in every shot (e.g. `Arch's voice: fast, rough, dry, close,
+- Write a character's voice description ONCE in the exact same words in every shot (e.g. `Character A's voice: fast, rough, dry, close,
   a slight rasp`). Changing a single adjective changes the generated voice between shots.
 - Do not open a clip with the key word of the line; give 0.3–0.5 s of breath or action before the first word.
-- Silent characters (e.g. Koss) get `never moves his lips` in the shot and the negatives.
+- Silent characters (for example a mute character) get `never moves his lips` in the shot and the negatives.
 
 ## Repair pass (project-tuned — check this before the generic one)
 
 | Symptom | Fix |
 |---|---|
-| A prop (matcha cup, sketchbook) vanishes between clips | Geometry Map / Locks didn't restate its exact position as present-tense fact in the new clip |
+| A prop (a cup, a notebook) vanishes between clips | Geometry Map / Locks didn't restate its exact position as present-tense fact in the new clip |
 | Laptop/door/lid already open when it should still be closed | Action Timing's state-change beat is missing, or Locks didn't say "opens exactly once, at [beat]" |
-| Tourist's line doesn't render as scripted, model invents something else | THE SCRIPT isn't the first CRITICAL block, or Audio didn't restate it verbatim |
+| A scripted line doesn't render as written, model invents something else | THE SCRIPT isn't the first CRITICAL block, or Audio didn't restate it verbatim |
 | Room doesn't match the established location | Canon location plate wasn't in the reference list, or Geometry Map re-described a generic room instead of the locked one |
-| Color drifts from the established warm apothecary-kitchen palette | Color doctrine bands aren't bound to this project's actual locked reference — restate the specific palette, not a mood word |
-| Cat and opossum blend or swap markings | Promote to a `TWO DISTINCT DESIGNS` CRITICAL block |
-| Extra people appear in an empty-store beat | Add `NOBODY ELSE IS IN THE FRAME` as a CRITICAL block |
+| Color drifts from the location's established palette | Color doctrine bands aren't bound to this project's actual locked reference — restate the specific palette, not a mood word |
+| Two similar animals or characters blend or swap markings | Promote to a `TWO DISTINCT DESIGNS` CRITICAL block |
+| Extra people appear in a beat set in an empty place | Add `NOBODY ELSE IS IN THE FRAME` as a CRITICAL block |
 | Everything else | Fall back to `cinema-director-v3`'s full repair-pass table |
 
 ## Checklist (project version)
 
 - Target Seedance version established (2.0 vs 2.5)?
-- Style Prefix states the anime-illustration register, not photoreal?
+- Style Prefix states this project's own render register, copied from its style lock?
 - NO ON-SCREEN TEXT present, with physical in-scene text (screens, jar
   labels) carved out as physical objects elsewhere, not as an exception
   clause inside this block?

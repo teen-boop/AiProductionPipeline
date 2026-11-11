@@ -12,8 +12,18 @@ user-invocable: true
 
 # Keyframe Chain Builder
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 A chain is 2–4 stills of ONE continuous shot. Video models interpolate between a start and an end frame, so the stills must be the same
-world at different moments. If they differ in anything you did not ask for — a second ship, a flipped hull, a new face, a new grade —
+world at different moments. If they differ in anything you did not ask for — a second car, a mirrored building, a new face, a new grade —
 the clip morphs instead of moving.
 
 ## 1. Design the micro-story on paper first
@@ -33,19 +43,19 @@ Then check each step against the four laws below **before** generating anything.
 ## 2. The four laws
 
 1. **Physically possible.** Every action must be something real people and objects do safely and plausibly:
-   - Hot metal is passed tongs-to-tongs, never thrown at a person.
-   - Nobody stands in front of a moving vehicle or hull.
-   - Water rises from the low end and finds its level.
-   - Lights go out on a dead ship and its funnels stop smoking.
+   - A hot pan is handed over by its handle, never thrown at a person.
+   - Nobody stands in the path of a moving vehicle.
+   - Poured liquid falls straight down and settles level.
+   - When the power is cut the lamps go dark and the fan stops turning.
    - Ask yourself: "would a stunt coordinator allow this?"
 2. **Time moves forward.** If minutes or hours pass between keyframes:
    - People have moved, turned, left or been replaced. **Never the same person in the same pose** across a time-lapse.
-   - Small details progress too: carts, ropes, lamps (lit → put out), smoke, water level, birds.
+   - Small details progress too: parked cars, shop shutters, lamps (off → lit), shadows, cups on a table, birds.
 3. **Same camera side, same orientation.**
-   - The subject keeps its facing (a bow on the left stays on the left), the quay stays on the same side, and the horizon keeps its height.
-   - A camera move is allowed only if it is stated ("dollies forward along the same quay toward the bow").
-4. **One of each hero.** Only one ship, one bride, one raven. On-board shots must not show the vessel the camera stands on as a second
-   ship (see `generation-failure-fixes`).
+   - The subject keeps its facing (a car nose pointing left stays pointing left), the pavement stays on the same side, and the horizon keeps its height.
+   - A camera move is allowed only if it is stated ("dollies forward along the same pavement toward the car").
+4. **One of each hero.** Only one car, one bride, one raven. Shots from inside the car must not show the vehicle the camera sits in as a second
+   car (see `generation-failure-fixes`).
 
 ## 3. Generate in waves
 

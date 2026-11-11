@@ -4,7 +4,7 @@
 - **Name:** `blueprint`
 - **Mood:** precise, technical, drafting-table calm
 - **Purpose:** "how it works" pieces, engineering breakdowns, assembly diagrams
-- **Origin:** MG-BLUEPRINT from tutorial 1
+- **Origin:** sample pack, written from a generic blueprint reference sheet
 
 ## 2. TYPE
 | Role | Typeface | Weight | Size | Case |
@@ -57,4 +57,4 @@ No color fills beyond the two tones. No photorealism. No glow. No grain.
 A flat field of blueprint blue with graph paper and corner frame markers, empty.
 
 ## 10. VERIFIED
-⚠️ Nothing verified by render. Numbers are derived from tutorial 1's reference sheet; need testing.
+⚠️ Nothing verified by render. Numbers are starting values from a sample reference sheet; need testing.

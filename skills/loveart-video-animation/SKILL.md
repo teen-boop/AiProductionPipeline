@@ -5,11 +5,21 @@ description: Skill for creating consistent image sequences for video animation e
 
 # Love Art Video Animation
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Overview
 
 This skill creates consistent image sequences intended for video animation. It works only with image generation inside Love Art (primarily free Nano Banana 2 at 2K/4K and GPT Image 2.0 for face work). The skill never invents story details. It manages locked references for the main character (face + body), locations with named angles, recurring subjects/objects and clothing so every generated frame stays visually coherent.
 
-**Recurring subject/object** is the general category this skill locks for consistency: any pet, animal, secondary character, prop, or object that appears more than once and must look identical every time (a cat, a car, a specific mug, a sibling character — whatever the story actually has). Don't assume the recurring subject is an animal or a cat — treat it as a variable per project, and identify what it actually is from the script before locking a reference for it.
+**Recurring subject/object** is the general category this skill locks for consistency: any pet, animal, secondary character, prop, or object that appears more than once and must look identical every time (a cat, a car, a specific mug, a sibling character — whatever the story actually has). Don't assume what kind of thing the recurring subject is — treat it as a variable per project, and identify what it actually is from the script before locking a reference for it.
 
 ## Core Principles
 
@@ -43,7 +53,7 @@ After script approval the skill extracts and locks:
 
 ### Character-locking discipline (adapted from `character-builder`, style-agnostic parts only)
 
-`character-builder` is built for photoreal humans on a flat gray plate — its default render register (photoreal, 3D-render negations, flat-shadowless-plate) does NOT apply here; this project's locked style is semi-realistic anime illustration and stays that way. What DOES transfer, because it's about prompt discipline rather than render style:
+`character-builder` is built for photoreal humans on a flat gray plate — its default render register (photoreal, 3D-render negations, flat-shadowless-plate) does NOT apply when the project's locked style is not photoreal (an illustrated look, for example); the project's own style lock stays as it is. What DOES transfer, because it's about prompt discipline rather than render style:
 
 - **Prompt economy.** When a strong identity reference is attached (the canonical prototype, the turnaround sheet), the reference carries the identity load — don't re-describe face structure, skin tone, or eye shape the reference already shows. Spend the prompt's words on what the reference can't say: this shot's pose, expression, wardrobe delta, and composition. A sentence that just re-describes something already visible in the attached reference gets cut unless it's load-bearing for this specific composition.
 - **Text-first wardrobe/outfit proposal.** Before generating a new outfit or a wardrobe variant, write it out in plain text (every garment, color, fit) and get it confirmed — same as Stage 1 requires script approval before visual work. Never combine a new-outfit proposal and its first generation in the same step; text iteration is free, generation is not.
@@ -96,7 +106,7 @@ All subsequent generations must attach the relevant locked references.
    - The goal is that clothing, background, lighting, color palette and overall look remain extremely close between the wide shot and every close-up / alternative angle.
    - In the prompt explicitly instruct the model to keep the same background, same clothing appearance, same lighting and same style as the provided master/wide-shot reference, changing only framing, camera distance or the specific detail requested by the script.
 4. Output structure:
-   - Locked References block (Character, Locations with names, Animals, Clothing)
+   - Locked References block (Character, Locations with names, Recurring subjects/objects, Clothing)
    - Numbered prompts ready for Love Art, with clear notes when a prompt is an adaptation of a previous master frame
 
 ### Stage 3.5 — Block-to-Block Continuity (Mandatory)

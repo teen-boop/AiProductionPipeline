@@ -15,11 +15,11 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - **Tiny-world sound** — always · `the fine high hum of tiny wings, the plop of the cube, the spoon ringing softly against porcelain`
 - **The big human holds still for them** — when a normal-size person shares the frame · `her job is to hold the cup dead still for them; her eyes follow each one from above, careful and fond`
 
-### A2. Giants vs a tiny human (real-size pets towering over a 15 cm man, a giant paw entering a street)
+### A2. Giants vs a tiny human (a real-size animal towering over a 15 cm person, a giant hand or paw entering frame)
 - **Giant part as a soft, motion-blurred mass** — the giant enters the frame · `a giant paw comes down from the top of frame, bigger than his whole body, soft and slightly motion-blurred, real fur strands`
 - **Camera at the tiny one's eye level** — always · `camera placed low at the tiny man's eye level inside the miniature world; the giant is out of focus beyond`
 - **Faces as a sky** — POV of the tiny one · `two enormous faces fill the opening above like a sky`
-- **Rescue reads only if the giant is ENORMOUS** — lift/carry beats · `the cat's head alone is bigger than the man's whole body; it holds him up in front of its face like a toy`
+- **Rescue reads only if the giant is ENORMOUS** — lift/carry beats · `the giant's head alone is bigger than the tiny person's whole body; it lifts them up in front of its face like a toy`
 - **Scale change on contact** — returning to normal size · `the moment his boots touch the rug he grows smoothly to full human size; slow motion only on the growth`
 
 ### A3. Real animals as characters (costumed pets, deadpan)
@@ -232,15 +232,15 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - 2026-10-08 — face-only recast prompt: master pixel lock, target region, geometry-only face, colour lock list, weather preserved, light-matched skin (A8, H).
 - 2026-10-08 — torn-canvas girl three-shot film: material construction, no living tells, puppet motion contained, composite integration, occlusion, subtle material deterioration (A5, F, H).
 - 2026-10-08 — falling into a vast fortress with placeholder video: placeholder = camera only, environment without edges, asymmetric body timing, reach→fail→protect, impact chain, recovery, varied screams, shared speed ramp (A7, B, E, G).
-- 2026-10-08 — Cats EP01 production lessons: giants vs tiny human, enormous rescuer, scale change on contact, real costumed pets (A2, A3).
+- 2026-10-08 — giant animals vs a tiny human, production notes: enormous rescuer, scale change on contact, real costumed animals (A2, A3).
 - 2026-11-01 — "Best road trip ever" Seedance 2.5 travel montage (22 s, 7 beats): fast montage in one prompt, tiny figures in the wide, seen from behind/side, personality pair, payoff line at the end, music cue tied to a beat, time-of-day ladder, walk-away ending (B, D, E, F, G).
 - 2026-11-01 — Nordic nine-shot montage ("I'm gonna live every minute of it"): accessory lock with one exception, LOOK table, END STATE per shot, movement-is-part-of-the-shot, landscape vs human-forward, honest focus, observational breath, conditional grade, light table, VO across a cut, no captions in generation (B, D, F, G).
-- 2026-11-01 — Futuristic sky chase (user: good camera moves): leap + 360° turn, landing read through impact, interior with world streaking past, roll with loss of control, stillness after chaos, one rig per beat, words to drop (A7, B, H).
+- 2026-11-01 — Futuristic sky chase: leap + 360° turn, landing read through impact, interior with world streaking past, roll with loss of control, stillness after chaos, one rig per beat, words to drop (A7, B, H).
 - 2026-11-01 — Manhattan 1989 observer POV (diptych person + car refs, 8 shots / 30 s): observer camera as a character, measured chaos window, operator lowers the camera, gesture budget, hand sequence, one look into the lens, real conversation, sound from the camera side, attributed lines, diptych sheet, time-jump cut, shot fields, independent world, brand names out (B, D, E, G).
-- 2026-11-01 — "Channel Nine" VHS motel mystery (@umesh_ai, Seedance 2.5 on Runway; refs in the AI pipeline project): pull-out twist, palette contrast as plot, environment-only references, material instead of VFX word, soundscape swap (B, C, E, F).
-- 2026-11-01 — Hi8 gas-station found footage (@techhalla): camera as a device in a hand, bracketed shot tags at a fixed cut rhythm, ration the hero's face, human threat escalated by detail (B, D).
+- 2026-11-01 — "Channel Nine" VHS motel mystery (Seedance 2.5 on Runway): pull-out twist, palette contrast as plot, environment-only references, material instead of VFX word, soundscape swap (B, C, E, F).
+- 2026-11-01 — Hi8 gas-station found footage: camera as a device in a hand, bracketed shot tags at a fixed cut rhythm, ration the hero's face, human threat escalated by detail (B, D).
 - 2026-11-01 — 1950s diner frozen time + rewind (Seedance 2.5, 30 s): frozen time with one exempt character, rewind that changes the outcome, suspended liquid with volume, motion blur only on what moves (A6, C).
-- 2026-11-01 — "ORIGIN → CONTINUUM" 30 s title sequence (user: good for openings and titles): inheritance chain, match transition by form, design memory in the finale (G).
+- 2026-11-01 — "ORIGIN → CONTINUUM" 30 s title sequence: inheritance chain, match transition by form, design memory in the finale (G).
 - 2026-11-01 — meteor impact aerial chase (one take): camera hunts the event, impact as a chain of scales, sound after the light (B, C, E).
 - 2026-11-01 — finger-snap time freeze on a city sidewalk (15 s, steadicam backwards): visible trigger wave, private act put back exactly, silence score (A6, E).
 - 2026-11-01 — ruin-punk "stolen key" (30 s, 4 refs): logline before the timeline, reference lock without backgrounds/poses, provoke the reveal, act through the impact, closed ending with micro-coda (D, G).

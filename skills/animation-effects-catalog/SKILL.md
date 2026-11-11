@@ -5,6 +5,16 @@ description: Interactive shot-by-shot prompt builder AND growing catalog of prov
 
 # Animation effects catalog
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 A library, not a template. `cinema-director-v3` gives the prompt its spine; this catalog supplies the *moves* that make it hit. Pick 3–6 entries that fit the shot — never paste the whole catalog.
 
 ## INTERACTIVE MODE — shot by shot, together with the user (default when building a new animation)
@@ -38,7 +48,7 @@ When the user pastes a strong prompt:
 2. Add each NEW technique as one entry in the right section: **name — when — copy-ready phrase**. Generalise names and props (no brand names, no specific people), keep the phrase reusable.
 3. Add a line to the SOURCE LOG at the bottom of CATALOG.md (date, short description of the source prompt, which entries it added).
 4. If the trick changes how prompts must be *structured*, also add one line to `cinema-director-v3`.
-5. If the skill lives in a git repo (e.g. AiProductionPipeline), commit and push when the user asks.
+5. If the skill lives in a git repo, commit and push only when the user asks.
 
 ## Rules
 - Every trick must produce a visible pixel or an audible sound. Mood words are not tricks.

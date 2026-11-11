@@ -14,6 +14,16 @@ user-invocable: true
 
 # Reference Style Builder
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 References decide the look before any prompt does. This skill turns a pile of inspiration into a small, ordered, measured reference
 set that every later prompt can lean on. It works with any image generator (Lovart, Krea, Higgsfield, Midjourney, by hand).
 
@@ -26,7 +36,7 @@ Look in this order and write down what each source contributes:
    verbatim plus "why it works" and "what to fix". Reuse its structures (character card, LOOK table, accessory lock, shot fields,
    cut markers), not only its adjectives.
 3. **Approved frames** from earlier work (a style frame the user liked is a stronger reference than the original inspiration).
-4. **Character references** (persona sheets, real photos) and their standing rules (tags, who speaks, signature props).
+4. **Character references** (persona sheets, real photos) and their standing rules (tags, voice, signature props).
 
 If a source is missing or unreadable (a login wall, a private post), say so and work with what loaded.
 
@@ -49,7 +59,7 @@ Negatives: <what would break it — glossy AI look, extra colours, readable sign
 
 - Measure the palette with `python3 scripts/palette.py <ref images…>`. It prints dominant colours with their share of the frame and a
   60/30/10 reading where the accent is the most saturated colour covering at least 2% (not merely the third-largest).
-- The 10% accent must have an owner in the scene: a scarf, a neon sign, a car. Write it into costume, prop or set design, so the
+- The 10% accent must have an owner in the scene: a hat, a neon sign, a car. Write it into costume, prop or set design, so the
   generator places it rather than tinting everything.
 - Keep the card short. Every line must be something a generator can see.
 
@@ -65,11 +75,11 @@ Each step uses the previous step's approved output as a reference. Never skip fo
 | 4 | **Prop sheet** — the recurring objects on grey | exact materials and colours | "controls this object only" |
 | 5 | **Keyframes** — hero + plate + props in action | refs 1–4 attached with their role lines | start frames for video |
 | 6 | **Change-to close-ups** — re-framed from an approved keyframe | "the SAME moment, re-framed tighter, same light and colour" | first/last pairs |
-| 7 | **Storyboard sheet** (optional) — pencil panels of the shots | panels described one by one, "illegible scribbles only" | pipeline demo material |
+| 7 | **Storyboard sheet** (optional) — pencil panels of the shots | panels described one by one, "illegible scribbles only" | planning material |
 
 Role lines go into every prompt that uses the reference, for example:
-`Image 1 = the LOOK only (red monochrome fog, one hard circular light from above) — copy its light, colour and mood, not its place.
-Image 2 = ARCH (face, mullet, moustache, scar, black leather jacket) — keep him exactly. Do not inherit reference backgrounds or poses.`
+`Image 1 = the LOOK only (soft blue dusk, one warm window light from the left) — copy its light, colour and mood, not its place.
+Image 2 = CHARACTER A (face, short grey hair, round glasses, green raincoat) — keep this person exactly. Do not inherit reference backgrounds or poses.`
 
 ## 4. Check every result against the card
 
@@ -105,4 +115,4 @@ prompts use which references. Later skills (`cinematic-prompt-writer`, `cinema-d
 - Never generate keyframes before the style frame and the character reference are approved.
 - Never describe a palette with mood words only ("moody, cinematic"); give hex values and owners.
 - Never attach a reference without a role line; an unexplained image leaks its background, pose and light into the result.
-- Never write the card or role lines in any language but English when the pipeline is shared (the public repo is English-only).
+- Never write the card or role lines in any language but English when the pipeline is shared with other people.

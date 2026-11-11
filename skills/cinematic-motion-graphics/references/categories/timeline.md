@@ -43,18 +43,18 @@ frames, graded to the lock, with a thin paper border or a soft vignette, never r
 
 ```json
 {
-  "category": "timeline", "period": 1912, "fps": 24,
+  "category": "timeline", "period": 1900, "fps": 24,
   "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" }, "duration_s": 14, "export": "mp4", "background": "plate",
   "texts": [
-    { "id": "e1", "text": "31 MARCH 1909  KEEL LAID", "approved": true, "in_s": 1.5, "enter_s": 0.8, "hold_s": 2.4 },
-    { "id": "e2", "text": "31 MAY 1911  LAUNCHED", "approved": true, "in_s": 5.0, "enter_s": 0.8, "hold_s": 2.4 },
-    { "id": "e3", "text": "10 APRIL 1912  MAIDEN VOYAGE", "approved": true, "in_s": 8.8, "enter_s": 0.8, "hold_s": 3.0 }
+    { "id": "e1", "text": "4 MONTH 1897  FOUNDATION LAID", "approved": true, "in_s": 1.5, "enter_s": 0.8, "hold_s": 2.4 },
+    { "id": "e2", "text": "19 MONTH 1899  ROOF RAISED", "approved": true, "in_s": 5.0, "enter_s": 0.8, "hold_s": 2.4 },
+    { "id": "e3", "text": "6 MONTH 1900  DOORS OPENED", "approved": true, "in_s": 8.8, "enter_s": 0.8, "hold_s": 3.0 }
   ],
-  "accuracy": [ { "claim": "Keel laying, launch and departure dates", "source": "fill from period-fact-check", "status": "pending" } ],
-  "content": { "orientation": "horizontal", "range": [1909, 1912],
-               "events": [ { "date": "1909-03-31", "label": "KEEL LAID", "photo": "plates/slipway.png" },
-                           { "date": "1911-05-31", "label": "LAUNCHED", "photo": "plates/launch.png" },
-                           { "date": "1912-04-10", "label": "MAIDEN VOYAGE", "photo": "plates/departure.png" } ],
+  "accuracy": [ { "claim": "Foundation, roof-raising and opening dates", "source": "fill from period-fact-check", "status": "pending" } ],
+  "content": { "orientation": "horizontal", "range": [1897, 1900],
+               "events": [ { "date": "1897-03-04", "label": "FOUNDATION LAID", "photo": "plates/foundation.png" },
+                           { "date": "1899-05-19", "label": "ROOF RAISED", "photo": "plates/roof.png" },
+                           { "date": "1900-01-06", "label": "DOORS OPENED", "photo": "plates/opening.png" } ],
                "breaks": [], "camera": { "move": "truck", "px_per_year": 900 } }
 }
 ```

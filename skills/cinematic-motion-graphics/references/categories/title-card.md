@@ -22,7 +22,7 @@ cards. Kinetic, but with the restraint of a main-title sequence: the motion is i
 
 - Fade from black or `iris` open; letters may fade in with a 1-2 frame stagger per character, never fly in.
 - Tracking breath: letter-spacing eases from about 0.30 em to 0.24 em over the hold (`sine.inOut`); a 2-3 % `push_in` on the plate.
-- A light sweep across the type only if the film's light would do it (a passing practical, a lighthouse beam), soft and slow.
+- A light sweep across the type only if the film's light would do it (a passing practical, a projector beam), soft and slow.
 - Hold: read time plus a beat (titles carry weight); exit with a dip to black or a cut on the music.
 
 ## Film look

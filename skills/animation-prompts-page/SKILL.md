@@ -12,8 +12,18 @@ user-invocable: true
 
 # Animation Prompts Page
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The user animates by hand: open a picture, copy its prompt, paste it into the video tool, and mark it done. One long text file makes
-that slow; a page with the picture next to its prompt and a copy button is what they asked to keep using ("always open it like this").
+that slow; a page with the picture next to its prompt and a copy button is faster to work through, so it is the default view.
 
 ## Build
 
@@ -37,7 +47,7 @@ python3 scripts/prompts_page.py <hand-off folder> [--prompts <list>.txt] [--out 
 ## Keep it in sync
 
 Call the page build at the end of the hand-off sync, right after the prompt list is written, so the page can never be older than the
-folder. In the Titanic project that is `build_video_master.py` → `make_anim_page.main()`.
+folder. In a project that has a build script, make the page build the last step of that script.
 
 ## Always open it
 

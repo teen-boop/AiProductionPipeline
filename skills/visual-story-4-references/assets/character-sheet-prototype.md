@@ -29,7 +29,7 @@ CROP THE HEAD OUT of this view: the top edge of the full-length view cuts straig
 collarbones, so nothing above the collarbones is visible: no chin, no mouth, no hair, no neck. This view exists to lock body proportions and the complete
 costume.
 
-CRITICAL: the character holds NOTHING. No props, no equipment, no bags, no balls, no rackets, no
+CRITICAL: the character holds NOTHING. No props, no equipment, no bags, no tools, no instruments, no
 objects of any kind in either hand. Both hands empty and clearly visible.
 
 Style & Consistency: the same face, the same body proportions, the same hairstyle, the same
@@ -53,7 +53,7 @@ background.
 
 ## Costume: one prototype per costume, not one per character
 
-If a character appears in materially different costume across the story (competition uniform vs
+If a character appears in materially different costume across the story (work uniform vs
 street clothes vs formal), generate a **separate prototype map per costume**, named
 `<name>_prototype_<costume>`. The head grid is the same face each time; the headless full-length
 is what actually changes. Don't try to fit two costumes into one map — the layout has exactly one
@@ -78,11 +78,11 @@ generation of this character — see `references/character-lock.md`.
 
 ## Age variants (the same person at different ages)
 
-Validated order (Midlife Crisis project, Oct 2026) — the face is locked from a CLOSE-UP, never from a wide shot:
+Validated order — the face is locked from a CLOSE-UP, never from a wide shot:
 
 1. **Approved close-up portrait first.** Head-and-shoulders, frontal, generated from the real photos only.
    The user approves it. Wide/full-body shots are NOT identity sources: at full length the face gets
-   ~60 px and drifts into a stranger; the user rejected every full-body-first attempt.
+   ~60 px and drifts into a stranger; a full-body-first attempt does not hold the face.
 2. **Current-age prototype map** from that portrait (attach: approved portrait FIRST + real photos).
 3. **Age close-ups, one per age**, each via the "Change to" technique: attach approved current portrait +
    real face photo, prompt starts `Change to the same man N years younger/older (about AGE): ...`, list

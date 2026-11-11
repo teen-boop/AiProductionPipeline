@@ -6,8 +6,8 @@
   on one page
 - **For source:** a long article, a thread, a digest — when you need to show
   "this is a real magazine" rather than a clipping of one quote
-- **Origin:** "ORIGEN" (Spanish-language tabloid), "EXTRA KUNST"
-  (German museum newspaper)
+- **Origin:** sample reference A (a tabloid front page), sample reference B
+  (a museum newspaper page)
 
 ## 2. SURFACE
 The whole full page, shot flat/almost flat (not a table, not a collage of
@@ -16,7 +16,7 @@ and no torn edges — this is clean print design, not an archive.
 
 ## 3. TYPE
 - Masthead: large, centered, serif or condensed serif, may be
-  colored (red in ORIGEN) — the only place where the accent color is
+  colored (red, for example) — the only place where the accent color is
   allowed in the type itself
 - A thin rule under the masthead, under it a small italic tagline
 - Section labels: caps, small, tracked
@@ -50,8 +50,8 @@ ipsum (verified many times), or it distorts words. Two working paths:
 - **A. Headlines as content, body as texture** — ask for real
   headlines of 2–4 stories (short, reliable), and everything below the byline
   demand as "illegible grey typographic texture, no lorem ipsum,
-  nothing resolves into letters" — exactly the formula confirmed as working
-  on an earlier project archive.
+  nothing resolves into letters" — a formula to confirm by a test render
+  in this project first.
 - **B. Blank page + code** — generate the whole page with empty text
   zones, overlay all the text as a layer on top (the most reliable, but goes
   beyond a single Nano Banana prompt — do not choose by default).
@@ -91,5 +91,5 @@ beyond the named masthead, no UI chrome.
 ## 10. VERIFIED
 ⚠️ Not verified by render. The formula "headline as real text / body as
 forbidden lorem ipsum, illegible texture only" is carried over from
-confirmed practice from an earlier project (`plateFLAT3`, the third attempt after two
-failures with readable lorem ipsum).
+common practice (expect the first attempts to fail: plan for about two
+retries because of readable lorem ipsum).

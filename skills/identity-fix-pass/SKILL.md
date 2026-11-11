@@ -10,6 +10,16 @@ user-invocable: true
 
 # Identity Fix Pass
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Inputs
 
 - The frame with the wrong face.
@@ -34,7 +44,7 @@ whole head with <NAME at AGE>: <the identity sentence>. Keep his expression, pos
 ```
 
 Rules:
-- Say which person it is when there are several: "the man on the LEFT with the pencil; the captain on the right stays as he is".
+- Say which person it is when there are several: "the man on the LEFT with the folder; the woman on the right stays as she is".
 - Name what is wrong in the current face. "Make it him" alone does not move the model.
 - If a hat hides the hairline and the scene allows it, take the hat off. The hairline is the strongest identity cue.
 

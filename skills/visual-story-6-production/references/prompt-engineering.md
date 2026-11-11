@@ -17,7 +17,7 @@ Photographic mode: [cinematic film still / editorial fashion photography / other
 Light: [named source(s) and behavior, e.g. "saturated crimson and cool cyan neon, low-key, volumetric in rain"]
 Depth of field: [shallow with foreground blur / flat sharp-throughout]
 Atmosphere: [haze / grain / desaturation / rain / etc, named explicitly]
-Colour palette: [explicit named palette, e.g. "warm sandy tones, red desert cliffs, bright midday sun" or "deep red/cyan neon, black shadow"]
+Colour palette: [explicit named palette, e.g. "warm ochre tones, pale stone walls, bright midday sun" or "deep red/cyan neon, black shadow"]
 Film / technical: [e.g. "heavy film grain, anamorphic widescreen" or "flat lighting, sharp focus throughout"]
 Aspect ratio: [locked value from project setup]
 ```
@@ -45,7 +45,7 @@ consistent evidence of it — this is not automatic, state it explicitly:
 - If real time has passed and a character has genuinely dried off or changed, say so explicitly in
   the prompt — otherwise assume continuity, not a fresh, decontextualized version of the character.
 
-**Recurring-prop and detail lock.** Any object that recurs across multiple shots (a cord, a
+**Recurring-prop and detail lock.** Any object that recurs across multiple shots (a rope, a
 suitcase, a key, a costume accessory, a specific stain or tear) needs its description held EXACTLY
 constant in every prompt — same color/material/size words, pasted verbatim, not re-described from
 memory. Treat the character's full current appearance in a scene (costume pieces, glasses on/off,

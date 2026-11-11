@@ -4,8 +4,8 @@
 - **Name:** `vox-clip`
 - **Mood:** documentary explainer, calm, one detail per frame
 - **For source:** a short fact, a video frame, one quote-fact from an article
-- **Origin:** the reference "Vox — Why China's population is shrinking"
-  (freeze frame with a The Guardian inset)
+- **Origin:** sample reference (a freeze frame from a news explainer video
+  with a newspaper clipping inset)
 
 ## 2. SURFACE
 Not a table — **a light stage**: light beige paper with a barely visible grid
@@ -38,7 +38,7 @@ be drawn on as a separate motion, rather than being a finished detail of a
 static image) — **do not bake the highlight into the generation at all**. The
 static frame carries only the printed text with no color block behind it; the
 highlighter itself is added as a separate layer in Remotion (width shift,
-timing, multiply), as already worked out in an earlier project (`ANN-01`). Otherwise you get
+timing, multiply), as a separate animated layer. Otherwise you get
 two highlighters — the drawn one and the animated one — or you have to clean
 out the drawn one before overlaying the animated one, which is unnecessary.
 Ask/clarify before generating: is this frame the final image or a base plate
@@ -49,7 +49,7 @@ Minimal. One clipping: masthead + headline + byline + date.
 No article body. This is a direct application of the text-in-image law: the
 headline is the only large text, everything else is just service captions.
 
-**Addendum (ACLU web card with a dek paragraph) — corrected after the fact:**
+**Addendum (a web card with a dek paragraph):**
 the source sometimes carries a coherent paragraph under the headline that is
 the substance of the material, not decorative filler. **Rule: if the paragraph
 is the reason the frame exists at all, it goes into the generation as real
@@ -127,5 +127,5 @@ for that later step.
 
 ## 10. VERIFIED
 ⚠️ Not verified by render. A direct analogue of the proven mechanics from the
-an earlier project (article card, EV-34) — the same "no names to the generator"
+"text set in code" approach — the same "no names to the generator"
 principle, carried over here as a rule, not a hypothesis.

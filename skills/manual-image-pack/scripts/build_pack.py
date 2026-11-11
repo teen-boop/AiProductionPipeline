@@ -13,7 +13,7 @@ The user saves results into the same folder as RESULT_1.png, RESULT_2.png …
 
 Jobs file (JSON list), one object per frame job:
   id       unique id                          (required)
-  base     output file prefix, e.g. "C3_v3_train_"   (required)
+  base     output file prefix, e.g. "S01_wide_"      (required)
   folder   destination folder in the project  (required)
   prompt   full prompt text                   (required)
   refs     list of image paths, or "@<job_id>#<n>" = the n-th result of another job
@@ -25,7 +25,7 @@ Jobs file (JSON list), one object per frame job:
 Usage:
   build_pack.py --jobs jobs.json --out PACK_DIR [--root PROJECT_ROOT] [--sections sections.json]
                 [--head "text prepended to every prompt"] [--lang en] [--style-file STYLE.md]
-sections.json: [["01_RECREATE", "^rec_"], ["02_CLIMAX", "^f\\d"], …] — first regex matching the job id wins;
+sections.json: [["01_FIRST", "^a_"], ["02_SECOND", "^b\\d"], …] — first regex matching the job id wins;
 jobs without a match go to the job's own "section" or "99_OTHER".
 """
 import argparse, json, os, re, shutil, unicodedata

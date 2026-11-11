@@ -5,6 +5,16 @@ description: Reference and design intake for a motion-graphics project — the s
 
 # Motion Design References
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this step exists
 
 **Every project has its own design.** The pipeline and the ten-slot schema stay constant; the look does not. So references cannot live in the skill — they live in the project, get inventoried per project, and feed that project's STYLE PACK. Nothing is inherited from a previous project unless the user says so explicitly.
@@ -35,7 +45,7 @@ A file can be both — a frame that teaches the look *and* contains the hero pro
 
 ## Law 3 — read the reference concretely before naming it
 
-Do not shortcut to a style label ("looks Vox", "kind of Wes Anderson") and generate from the label. Before a reference feeds anything, write down in concrete terms:
+Do not shortcut to a style label ("looks Vox", "kind of mid-century") and generate from the label. Before a reference feeds anything, write down in concrete terms:
 
 - **Color blocking** — which areas carry which color, in what proportion, what is deliberately empty
 - **Placement** — where the subject sits in frame, where weight and eye go
@@ -83,7 +93,7 @@ One row per reference. This is what gets consulted at generation time, not the f
 
 | ID | File | Class | Depicts | Feeds | Locked? | Notes |
 |---|---|---|---|---|---|---|
-| `CHR-01` | assets/characters/anna/locked/portrait-v3.png | ASSET | Anna, 3/4, neutral | every Anna shot | ✅ | approved 01-09 |
+| `CHR-01` | assets/characters/character-a/locked/portrait-v3.png | ASSET | Character A, 3/4, neutral | every Character A shot | ✅ | approved, date noted |
 | `STY-04` | style/composition/vox-frame-02.png | STYLE | halftone cutout + offset stroke | PACK: EDGE, DEPTH | — | |
 
 ## Assembly for Lovart

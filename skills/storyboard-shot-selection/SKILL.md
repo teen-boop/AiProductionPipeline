@@ -5,6 +5,16 @@ description: Determines, for every beat in a script, WHY a specific shot size/ty
 
 # Storyboard Shot Selection (Shot-Size Rationale)
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
 Choosing a shot size is not a style flourish — every shot size exists to serve one specific narrative job. A storyboard built by cycling through shot types for variety, rather than deriving each one from what the beat actually needs, produces sequences where two adjacent panels do the same job (or worse, where the wrong shot type is used for the job — an establishing shot used for a reaction, or a close-up used to show a location). This skill makes the reason for each shot explicit and checkable, instead of implicit and assumed.
@@ -32,9 +42,9 @@ Use a shot type only for the job it is defined for below. Do not pick a shot typ
 ## User-Dictated Shot Lists (Authoritative)
 
 Often the user dictates the exact shot breakdown directly, scene by scene, in a terse
-format like: "1. Medium shot — takes the ramen off the shelf, cat drinking milk in the
-background. Close-up — pours water in. Medium shot — takes the matcha and leaves, cat
-darts out ahead of her." When this happens:
+format like: "1. Medium shot — takes the book off the shelf, dog asleep on the rug in the
+background. Close-up — opens the cover. Medium shot — takes the mug and leaves, dog
+trots out ahead of her." When this happens:
 
 - The user's stated shot sizes, order, and action-per-shot are **authoritative** — do not
   override them with independently-derived shot-selection choices from the taxonomy below.
@@ -58,7 +68,7 @@ darts out ahead of her." When this happens:
 
 3. **Write the reason inline, next to the shot type, in the shot description** — not as a separate detached note, but attached to the shot itself, e.g.:
    ```
-   Shot 3 — Cowboy shot (reason: she sits down and places the matcha on the table —
+   Shot 3 — Cowboy shot (reason: she sits down and places the mug on the table —
    action + visible gesture, not yet close enough for pure emotion)
    ```
    This makes the justification checkable later, by the user or by a follow-up pass, without having to re-derive it from scratch.
@@ -75,10 +85,10 @@ Each shot in the finalized list carries its shot type AND its one-line reason, e
 
 ```
 1. Establishing shot (reason: orient the viewer — this is the character's apartment, first shot of the scene)
-2. Wide shot (reason: she enters and exists in the room, holding matcha — space + presence, not yet gesture)
-3. Cowboy shot (reason: sits down, places matcha on table — action + visible gesture)
-4. Medium shot (reason: reaches toward the cat on the desk — emotion + contact with a subject)
-5. Close-up (reason: her reaction to the cat's stubbornness — the beat's whole point is the emotion)
+2. Wide shot (reason: she enters and exists in the room, holding a mug — space + presence, not yet gesture)
+3. Cowboy shot (reason: sits down, places the mug on the table — action + visible gesture)
+4. Medium shot (reason: reaches toward the dog beside the desk — emotion + contact with a subject)
+5. Close-up (reason: her reaction to the dog ignoring her — the beat's whole point is the emotion)
 6. Extreme close-up (reason: the email text on the laptop screen — a single specific detail the story needs noticed)
 ```
 

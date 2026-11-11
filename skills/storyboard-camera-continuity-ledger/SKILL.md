@@ -20,10 +20,20 @@ description: >-
 
 # Storyboard Camera Continuity Ledger
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
-Camera movement and transition logic ("the camera pushes in on the poster,"
-"smoke match-cuts into the train's smoke") is usually only written down once,
+Camera movement and transition logic ("the camera pushes in on the sign,"
+"steam match-cuts into the next shot's steam") is usually only written down once,
 inside a paragraph of narrative prose, and then either re-derived from
 memory or silently dropped by the time actual prompts get written — twice
 over, once for stills and again later for any video/animation pass. This
@@ -67,7 +77,7 @@ removing them, so the history of a sequence's cutting logic stays legible):
 ```markdown
 | # | Sequence | Shot label | Camera movement | Incoming transition | Outgoing transition | Bridge detail | Source |
 |---|----------|-----------|------------------|---------------------|---------------------|----------------|--------|
-| 1 | opening_montage | City poster | Push-in (fly toward) | none — cold open | Match-cut via poster→window | poster text visible, then reveal window above it | narrative-breakdown 2026-09-06 |
+| 1 | sequence_a | Street sign | Push-in (fly toward) | none — cold open | Match-cut via sign→window | sign visible, then reveal window above it | narrative-breakdown <date> |
 ```
 
 - **Camera movement**: the formal term(s) for what the camera does *during*
@@ -77,7 +87,7 @@ removing them, so the history of a sequence's cutting logic stays legible):
   shot (see vocabulary below).
 - **Bridge detail**: the specific visual element that must appear in both
   this shot's prompt and its neighbor's prompt for the transition to
-  actually read as continuous (e.g. "chimney smoke, thick grey, rising
+  actually read as continuous (e.g. "kettle steam, thick white, rising
   vertically" — specific enough that you could check a generated image
   against it).
 - **Source**: which skill/session/date produced this row, so a later
@@ -100,7 +110,7 @@ these terms so later lookups are consistent):
 | camera moves alongside / glides past | **Tracking shot** (lateral move alongside the subject) |
 | camera follows (someone/something) | **Follow shot** (tracking, subject-led) |
 | camera turns / swings around | **Pan** (horizontal) or **Tilt** (vertical), infer from context |
-| camera moves along (a wire/line/edge) | **Tracking shot along a line** — note the guiding element explicitly (e.g. "tracks along telephone wires") |
+| camera moves along (a wire/line/edge) | **Tracking shot along a line** — note the guiding element explicitly (e.g. "tracks along a fence") |
 | hard cut / sharp cut / straight to the next shot | **Straight cut** |
 | smoke/dust/object turns into another smoke/dust/object | **Match-cut** — log the shared visual element in Bridge detail |
 | smoke/dust morphs into / dissolves into | **Match-dissolve** (if described as a gradual morph rather than an instant cut) |

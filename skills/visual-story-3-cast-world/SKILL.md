@@ -5,9 +5,19 @@ description: STEP 3 of 8 in the sequential visual-story pipeline. Cast & world d
 
 # Visual story — Step 3: Cast & world development
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 The planning/analysis layer between the finished script and generating any images. **Nothing is
 generated here** — this is where you decide, per character and per location/prop, what will later be
-built. Skipping it is why casts drift into "a new look with no reason to exist" and why locations get
+built. Skipping it is why casts drift into looks that have no story reason and why locations get
 invented differently each scene. Produce a written **cast & world bible**; step 4 (`references`)
 generates sheets from it.
 
@@ -26,7 +36,7 @@ For each character (person or animal), work out and write down:
 1. **Role tier** — main / secondary / other. (Leads carry the arc; secondaries have a clear function;
    others are defined but lighter.)
 2. **Goal / tasks** — what they want and what they concretely DO in the story. Every character needs a
-   reason to be on screen. For an animal: its behavior and what it drives (the goat Areg milks, the
+   reason to be on screen. For an animal: its behavior and what it drives (the goat the farmer milks, the
    dog that waits).
 3. **Arc** (leads and key secondaries) — how they change from first to last appearance. Others may
    have no arc, just a consistent function — that's fine, state it.
@@ -51,7 +61,7 @@ After the cast, enumerate the world:
   (architecture, palette, light, era) and which characters/scenes use it. These become location
   sheets in step 4.
 - **Props** — every recurring object that appears in more than one scene or is set up to reappear (a
-  telephone, a cord, an invention, a vehicle, an animal's collar). For each: what it is and which
+  lantern, a suitcase, a tool, a vehicle, an animal's collar). For each: what it is and which
   scenes it recurs in. These become prop sheets in step 4.
 - When it's unclear whether a background detail will recur, **ask the user** which details are worth
   locking down rather than guessing.

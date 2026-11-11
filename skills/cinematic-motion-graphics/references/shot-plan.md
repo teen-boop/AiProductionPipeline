@@ -2,7 +2,7 @@
 
 One file per graphic: `motion/<shot-id>/shot-plan.json`. It is the contract between the brief and the build, and the thing the user
 approves line by line. Plain JSON (no comments) so `spec_lint.py` and `route_overlay.py` can read it. Complete examples:
-`assets/examples/period-map-1912.json`, `assets/examples/date-stamp-1912.json`.
+`assets/examples/period-map-sample.json`, `assets/examples/date-stamp-sample.json`.
 
 ## Envelope (every category)
 

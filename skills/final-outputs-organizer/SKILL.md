@@ -16,6 +16,16 @@ user-invocable: true
 
 # Final Outputs Organizer
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 Renders end up scattered: `renders/`, `promo-9x16/`, `tutorials/EN/…`, dated export folders. Anyone who later needs
 "the 1x1 Russian version of tutorial 2" should find it by walking one tree, without opening a single file.
 
@@ -33,10 +43,10 @@ Renders end up scattered: `renders/`, `promo-9x16/`, `tutorials/EN/…`, dated e
       02-Step_Minis_13s/
         1x1/EN/…   9x16/RU/…
     Promos/
-      01-Unbox_NYC/16x9/…
-      02-Skill_Promos_8s/9x16/01_one-job-per-picture_8s_9x16.mp4
+      01-Launch_Teaser/16x9/…
+      02-Feature_Promos_8s/9x16/01_first-feature_8s_9x16.mp4
     Long_Videos/
-      01-Lighthouse_Main_Film/…
+      01-Orchard_Main_Film/…
 ```
 
 Order of levels is fixed: **Category → NN-Title → aspect → language (only if needed) → file.**
@@ -63,7 +73,7 @@ Order of levels is fixed: **Category → NN-Title → aspect → language (only 
    python3 scripts/organize_finals.py --root "<project>" \
      --src "<project>/renders" \
      --src "<project>/tutorials=Tutorials" \
-     --src "<project>/shorts_8s=Promos/Skill_Promos_8s"      # whole folder = one series
+     --src "<project>/shorts_8s=Promos/Feature_Promos_8s"      # whole folder = one series
    ```
    `DIR=Category` forces the category. `DIR=Category/Title` makes the whole folder one title (a series), otherwise every
    subfolder becomes its own title.

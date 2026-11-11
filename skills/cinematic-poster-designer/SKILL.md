@@ -13,6 +13,16 @@ user-invocable: true
 
 # Cinematic Poster Designer
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## 1. The reference library (only what the user likes)
 
 - Poster references live in the project's `references/poster/` folder (or wherever the user points).
@@ -52,8 +62,8 @@ over a literal scene, a fragment over a full figure, a small subject in big nega
 ## 4. Typography in code
 
 ```bash
-python3 scripts/compose_poster.py ART.png OUT.jpg --title "THE KEEPER" --layout wide-top \
-  --tagline "Some letters find their way home" --credits "a film by … | One Two Film" --date "Coming soon" \
+python3 scripts/compose_poster.py ART.png OUT.jpg --title "FILM TITLE" --layout wide-top \
+  --tagline "One line tagline" --credits "a film by … | Studio Name" --date "Coming soon" \
   --scrim 0.5 --size 2000x3000
 ```
 

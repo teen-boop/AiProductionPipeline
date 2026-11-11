@@ -6,7 +6,7 @@
   image instead of a page of text
 - **For source:** one quote/statement/headline, when a poster-like,
   not archival, effect is needed — a thumbnail, a cover
-- **Origin:** the cover of the book "Babysitter" (Joyce Carol Oates)
+- **Origin:** sample reference (a book cover made of torn newspaper scraps)
 
 ## 2. SURFACE
 **A flat solid background in a saturated brand color** (not a table, not paper,

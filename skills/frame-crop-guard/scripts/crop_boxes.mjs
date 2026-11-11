@@ -5,7 +5,7 @@
 //
 // Usage: node crop_boxes.mjs --width 1920 --height 1080 --out boxes.json [--portrait-class "#root=is-portrait"] comp1.html ...
 // Scripts are not run, so a class a runtime adds for the vertical layout must be named (default for H > W:
-// "#root=is-portrait", the HyperFrames promo convention; pass "" to switch it off).
+// "#root=is-portrait"; name this project's own class, or pass "" to switch it off).
 // Accepts HyperFrames sub-compositions (<template> wrappers) and plain HTML pages. Media paths resolve against the
 // project root: the parent of a compositions/ folder, otherwise the file's own folder.
 // Needs puppeteer-core (local install, global, or the npx cache HyperFrames uses) and a Chrome: CHROME_PATH, the
@@ -19,7 +19,7 @@ import { createRequire } from "node:module";
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); if (i < 0) return d; const v = args[i + 1]; args.splice(i, 2); return v; };
 const W = +opt("--width", 1920), H = +opt("--height", 1080), OUT = opt("--out", "boxes.json");
-// layout classes a runtime would add (HyperFrames promo engines set #root.is-portrait for vertical formats)
+// layout classes a runtime would add (for example a runtime that sets #root.is-portrait for vertical formats)
 const PCLASS = opt("--portrait-class", H > W ? "#root=is-portrait" : "");
 if (!args.length) { console.error("give one or more composition HTML files"); process.exit(1); }
 

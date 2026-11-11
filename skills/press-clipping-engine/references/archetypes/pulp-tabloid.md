@@ -5,8 +5,8 @@
 - **Mood:** loud, dramatic, a screaming headline, tabloid energy
 - **For source:** a sensational fact, a meme-style exposé, one striking
   number/statement that demands maximum visual loudness
-- **Origin:** "The Hawkins Post" (Stranger Things fan mockup),
-  "Daily Bugle" (Spider-Man fan mockup)
+- **Origin:** sample reference A (a fan-made tabloid front page),
+  sample reference B (a comic-style newspaper mockup)
 
 ## 2. SURFACE
 A full page, dense, no torn edges and no table — a clean print mockup,
@@ -35,7 +35,7 @@ panel — never a clean color photo.
 **A hand-drawn red mark directly over the headline or page**: an uneven
 freehand ellipse/circle around part of the headline, OR an underline of one
 word, OR a rectangular frame around a short inner teaser. Two passes,
-uneven pressure — the same wax pencil as in an earlier project's `STROKE` pack.
+uneven pressure — a wax-pencil line with a dry, broken edge.
 
 ## 7. LAYOUT COMPLEXITY
 Medium-high: one dominant headline + 3–5 side teaser headlines
@@ -77,5 +77,5 @@ teasers listed, no watermark, no logos beyond the named masthead.
 
 ## 10. VERIFIED
 ⚠️ Not verified by render. The red hand-drawn circling in two uneven passes is a
-direct repeat of the `ANN-04` technique, confirmed by render in an earlier project
-(detail `el-circle.png`).
+common annotation technique; confirm it by a test render in this project
+(check the circle at full size).

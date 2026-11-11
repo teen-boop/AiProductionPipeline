@@ -5,6 +5,16 @@ description: STEP 4 of 8 in the sequential visual-story pipeline. The reference-
 
 # Visual story — Step 3: Reference sheets (characters, locations, props)
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 **Step 3 of 5.** Before this: `visual-story-2-script` (a finished script segmented into numbered
 scenes). After this: `visual-story-6-production`.
 
@@ -13,7 +23,7 @@ looking different every time they're generated. The fix is the same for all thre
 reference BEFORE using them across scenes, then attach it every time.
 
 **The output of this step is a Production Design Guide — a design "bible" for the whole story, not a
-pile of loose images.** The intended pipeline (confirmed by the user with reference examples): **story
+pile of loose images.** The intended pipeline: **story
 → break it down into this reference bible → then storyboard.** Read
 `references/production-design-guide.md` — it defines the two tiers (polished per-item design sheets +
 one consolidated Production Design Guide board with CHARACTER DESIGN / PROPS / SET DESIGN / NOTES FOR
@@ -25,7 +35,7 @@ ART DEPARTMENT sections) and the order of work. Do the whole bible before storyb
 For each scene's prompt/description, read back through the text and **literally extract**:
 - every **character** who appears,
 - every **location** the scene uses,
-- every **recurring prop/object** (a telephone, an invention, a vehicle, a cart) that appears here
+- every **recurring prop/object** (a lantern, a toolbox, a vehicle, a cart) that appears here
   or is set up to reappear later.
 
 This is a concrete extraction over the prompt text, not a vague "keep an eye out."
@@ -53,8 +63,8 @@ the "ask when unclear whether something needs a reference" rule are in
 Once a reference sheet is approved, it becomes canonical — attach it to every later generation that
 includes that character/location/prop, the same way a character's real face photo is always
 attached. For characters specifically, the face-photo + approved-portrait + mandatory-clause rules
-are in `references/character-lock.md` — read it; those rules are load-bearing and were established
-through direct correction.
+are in `references/character-lock.md` — read it; those rules are load-bearing and apply to
+every character generation.
 
 ## Save into the folder structure from step 1
 

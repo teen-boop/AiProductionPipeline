@@ -6,7 +6,7 @@
 - **For source:** a leak, an official document, a screenshot of a chat with
   sensitive content — when the fact "this is a document" matters more than "this is a
   newspaper"
-- **Origin:** the cover of the book "REDACTED" (Calvin Harris)
+- **Origin:** sample reference (a typographic book cover built from redaction bars)
 
 ## 2. SURFACE
 A flat document card, light warm beige/cream background, no torn
@@ -88,7 +88,7 @@ beyond the single red stamp.
 
 ## 10. VERIFIED
 ⚠️ Not verified by render. The "redaction bar + repeating service words instead
-of prose" technique directly uses a finding from an earlier project (`REDACTION` in pack
-v0.2) — the only new part is the torn corner with letters peeking through, which
+of prose" technique is a common device, still to be confirmed in this project. New in this
+archetype is the torn corner with letters peeking through, which
 requires a separate check for failure (the model may produce readable text instead
 of partially hidden text).

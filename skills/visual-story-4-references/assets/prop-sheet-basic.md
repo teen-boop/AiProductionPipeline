@@ -28,8 +28,8 @@ Attach any existing scene image showing the object (if one exists) alongside thi
 sheet matches the object's already-established appearance, rather than inventing a new one. Once
 approved, this sheet becomes the object's canonical reference — attach it to every later generation
 that includes it, the same way an approved character portrait is attached (see
-`05-character-lock.md`).
+`references/character-lock.md`).
 
-QC before locking in: same principle as character-sheet QC in `08-qc-and-fixes.md` — check
+QC before locking in: same principle as the QC list in `assets/character-sheet-prototype.md` — check
 panel-to-panel that it's the same object, not four different interpretations of the same
 description.

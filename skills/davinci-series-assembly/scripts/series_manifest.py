@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""series_manifest.py — prepares a series of clips (e.g. OTF_part1.mp4 … OTF_partN.mp4) for assembly on a DaVinci Resolve timeline.
+"""series_manifest.py — prepares a series of clips (e.g. Series_part1.mp4 … Series_partN.mp4) for assembly on a DaVinci Resolve timeline.
 
   series_manifest.py OUT.json CLIP [CLIP ...] [--sort] [--titles "Part 1 title|Part 2 title|…"] [--master MASTER.mp4]
 

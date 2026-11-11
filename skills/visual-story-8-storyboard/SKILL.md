@@ -5,6 +5,16 @@ description: FINAL production step of the sequential visual-story pipeline — t
 
 # Visual story — Storyboard (the production-ready step)
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 **This is the last step, and it goes straight into production.** Do it ONLY when all of these are
 true:
 - the script is final and segmented into numbered scenes (`visual-story-2-script`),
@@ -18,7 +28,7 @@ where those get committed, not explored** — no experimenting with look or iden
 already locked upstream. Full format spec in `references/storyboard-formats.md` and
 `references/seedance-storyboard-format.md` — read both.
 
-## Hard requirements (from direct user direction)
+## Hard requirements
 
 - **The face must be IDENTICAL to the real reference in every panel.** This is the top priority. A
   storyboard whose face has drifted from the real actor is a failure, no matter how good the layout.
@@ -66,14 +76,14 @@ ART DEPARTMENT. The storyboard plans motion; the design guide owns the look; the
 ## Tooling — which engine, and the one real gotcha
 
 **nano-banana-pro via Lovart works fine and free** for single-image generations AND multi-panel
-sheets (turnarounds, storyboard grids) — this was the workhorse all through the project (character
-shots, 4-panel location/prop turnarounds, the whole v7/v8 rework, convergence groups). Lovart's CLI
+sheets (turnarounds, storyboard grids) — a dependable choice for everyday work (character
+shots, 4-panel location/prop turnarounds, multi-panel grids). Lovart's CLI
 does route everything through its `chat` (agent) endpoint, but for nano-banana that has been reliable
 and cost-free. Default to it: `--prefer-models '{"IMAGE":["generate_image_nano_banana_pro"]}'`.
 
 Two genuine gotchas, both verified live — the distinction is by MODEL, not by "agent vs not":
 - **GPT Image 2 on Lovart is paid and step-gated.** The Lovart agent runs it per-panel and prompts
-  for paid-credit confirmation each step (17, then 16+ credits), and its first output was a single
+  for paid-credit confirmation each step, and its first output can be a single
   portrait, not a grid. So do NOT use GPT Image 2 via Lovart for a multi-panel storyboard. If GPT
   Image 2 is specifically wanted, use **Krea's direct `generate_image` with `openai/gpt-image-2`**
   (one generation, no agent) — paid, but predictable.

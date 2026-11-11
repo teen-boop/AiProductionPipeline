@@ -18,6 +18,16 @@ description: >-
 
 # Storyboard Narrative Breakdown
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why this exists
 
 A continuous narrative description ("camera flies to a poster, then rises to
@@ -76,9 +86,9 @@ already exists in text form):
 ### 1. Read the whole narrative once, straight through, before segmenting anything
 
 Don't start cutting mid-read — the ending can recontextualize an earlier
-beat (e.g. "the drafting-office chalk dust" only makes sense as a *bridge*
-once you've read that the previous beat ended on chalk dust from an
-equation). Get the whole shape first.
+beat (e.g. "the bakery flour dust" only makes sense as a *bridge*
+once you've read that the previous beat ended on flour dust from a
+kneading table). Get the whole shape first.
 
 ### 2. Segment into mini-scenes at every location change AND every event change
 

@@ -1,7 +1,7 @@
 ---
 name: otf-presentations
 description: >-
-  OTF Presentations (One Two Film) — turns a project into a short cinematic presentation, announcement or explainer video (HyperFrames:
+  OTF Presentations — turns a project into a short cinematic presentation, announcement or explainer video (HyperFrames:
   HTML + GSAP → MP4), and UNDERSTANDS THE CONTEXT first: from the chat (purpose, audience, claims in the user's own words, must-show,
   banned) and from the project's material (the director's reference frames and the source prompts embedded in them, the style lock, the
   best project frames ranked by closeness to the look, videos, text docs). It also chooses FONTS that actually render the language
@@ -13,6 +13,16 @@ user-invocable: true
 > **Neighbouring routes.** A trailer or teaser cut from a project's own frames and clips → `otf-project-trailer`. A cinematic promo or brand film for a client's product, made from new AI shots → `cinematic-promo-film`. This skill stays the route for presentations, announcements and explainers.
 
 # OTF Presentations
+
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
 
 A film project's truth lives in the **chat** and in the **references**. OTF Presentations reads both, writes down what it takes
 from where, and only then plans and renders the video in the project's own look.
@@ -85,7 +95,7 @@ Write `<out>/plan.md`:
   - reveal;
   - 3–6 "how it works" beats;
   - payoff, which shows the real output frames;
-  - end card. For One Two Film / AI Production Pipeline videos the end card points to the site, never GitHub: "Free for registered members" + `onetwofilm.online/materials` (full link https://onetwofilm.online/<en|ru>/materials#material-ai-production-pipeline) + one survival line (skip it and you fall behind);
+  - end card. The end card's link and wording come from this project's brief, never from another project.
 - the text per beat and how long it holds. A label holds at least 0.8 s once settled; a sentence about 0.3 s per word;
 - **motion vocabulary**, chosen from the look and listed explicitly. Examples:
   - light sweeps and crepuscular-ray wipes;
@@ -195,12 +205,12 @@ timeline with `davinci-series-assembly`.
 
 ## Languages and frame rate
 
-- **Bilingual by default when the video will be used for promotion.** Make the Russian (or source-language) cut first. When it
+- **Bilingual only when the brief asks for two languages.** Make the source-language cut first. When it
   passes, make an English copy:
   - translate every on-screen line;
   - keep file and skill names as they are;
   - re-check that the longer lines still fit and hold.
-  - Name the files `…_ru` / `…_en`.
+  - Name the files with a language suffix, e.g. `…_xx` / `…_en`.
 - **Language purity:** a version in one language shows NO text in the other script. An English cut contains zero Cyrillic:
   - not in text, file names, code or prompt snippets;
   - not in font samples;

@@ -1,13 +1,13 @@
 # Location and prop references — build them like character references
 
-**Confirmed directly by the user after observing that skipping this step produces inconsistent
+**Rule, because skipping this step produces inconsistent
 locations/props across scenes: locations and recurring objects need their own dedicated reference
 images, generated and locked BEFORE they're used across multiple scenes — the same discipline
 already applied to characters, not a lighter-weight version of it.**
 
 ## The core workflow, in order
 
-**Confirmed directly by the user: locations get the exact same treatment as characters, including
+**Rule: locations get the exact same treatment as characters, including
 multi-angle coverage — a single shot is not enough on its own, the same way one character portrait
 alone isn't enough for a character who'll get more than a few appearances.**
 
@@ -30,7 +30,7 @@ alone isn't enough for a character who'll get more than a few appearances.**
    photo and the approved portrait.
 4. **Once a scene's prompt is written, read back through it and extract every character and every
    recurring prop mentioned** — this is a literal extraction pass over the prompt text itself, not a
-   vague "keep an eye out." A second character, an animal, or an important prop (a telephone, an
+   vague "keep an eye out." A second character, an animal, or an important prop (an umbrella, a
    invention, a specific vehicle) that appears in this scene or is set up to reappear in a later one
    all get pulled out this way. Anything meeting that bar gets its own dedicated reference sheet,
    generated from the *same template structure* every time — the four-part shape (Subject
@@ -61,8 +61,8 @@ alone isn't enough for a character who'll get more than a few appearances.**
 ```
 01_References/
   Characters/<character-name>/
-  Locations/<location-name>/       -- e.g. Locations/ThreeDoorRoom/, Locations/HotelLobby/
-  Props/<prop-name>/                -- e.g. Props/BlackTelephone/, Props/RitaInvention/
+  Locations/<location-name>/       -- e.g. Locations/Kitchen/, Locations/TrainPlatform/
+  Props/<prop-name>/                -- e.g. Props/RedUmbrella/, Props/BrassKey/
 ```
 Each location/prop folder holds its canonical reference image(s) — the character-medium-shot that
 doubles as the location master, or the standalone prop portrait. When a location or prop gets a
@@ -75,8 +75,8 @@ overwriting — the same non-destructive discipline as everywhere else in this p
   Tests_v<version>/          -- exploratory/rough attempts, not yet approved
   Working_frames_v<version>/ -- approved shots actually used in the cut
 ```
-Example: `Scene_09_v1/Tests_v1/hotel_lobby_wide_attempt1.png`,
-`Scene_09_v1/Working_frames_v1/hotel_lobby_wide.png`. This replaces the flatter `output/V1/` scheme
+Example: `Scene_02_v1/Tests_v1/kitchen_wide_attempt1.png`,
+`Scene_02_v1/Working_frames_v1/kitchen_wide.png`. This replaces the flatter `output/V1/` scheme
 in `SKILL.md` §8 for any project using the location/prop-reference workflow — scope generations to
 the scene they belong to, version the whole scene folder when a scene gets reworked, and keep tests
 separate from approved working frames so it's obvious at a glance what's actually in the cut.
@@ -84,7 +84,7 @@ separate from approved working frames so it's obvious at a glance what's actuall
 ## Why this is worth the extra step
 
 A location's architecture, color story, and lighting drift just as easily as a face does when it's
-only ever re-described in text — a "mint-green three-door room" prompted fresh five times across a
+only ever re-described in text — a "blue-tiled corner kitchen" prompted fresh five times across a
 project will not reliably produce the same room five times. Treating the location itself as a
 locked reference, generated once and attached everywhere after, is the same fix that already works
 for character identity, applied to the space the characters move through. The same logic applies to

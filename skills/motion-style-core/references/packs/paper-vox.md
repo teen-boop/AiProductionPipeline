@@ -4,7 +4,7 @@
 - **Name:** `paper-vox`
 - **Mood:** newsroom-serious, layered, tactile, slightly retro
 - **Purpose:** documentary explainers, editorial graphics, collage breakdowns
-- **Origin:** MG-VOXSTAGE from tutorials 1–2
+- **Origin:** sample pack, written from a generic paper-collage reference sheet
 
 ## 2. TYPE
 | Role | Typeface | Weight | Size | Case |
@@ -54,5 +54,5 @@ No glossy CG. No lens flares. No invented logos. Every visible word comes from a
 A muted archival map field, evenly toned, empty, pre-lit.
 
 ## 10. VERIFIED
-✅ test-01: the full palette, score, grain, EDGE 0.02/4, speckle, marker pace.
+⚠️ Sample values (palette, grain, EDGE 0.02/4, speckle, marker pace): re-test in this project.
 ⚠️ Not verified: FIN-03 boil, STAGE, the VIDEO route.

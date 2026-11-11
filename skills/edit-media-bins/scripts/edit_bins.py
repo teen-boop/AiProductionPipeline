@@ -88,7 +88,7 @@ def group_of(src_root, forced, path):
     if forced:
         return clean(forced)
     rel = os.path.relpath(path, src_root).split(os.sep)
-    m = LEAD_RE.match(rel[-1])  # 01_ZEPHRA_take.mp4 -> group ZEPHRA, edit position 1
+    m = LEAD_RE.match(rel[-1])  # 01_BRANDNAME_take.mp4 -> group BRANDNAME, edit position 1
     if m and not SHOT_RE.fullmatch(m.group(2)):
         g = clean(m.group(2)).upper()
         HINTS.setdefault(g, int(m.group(1)))

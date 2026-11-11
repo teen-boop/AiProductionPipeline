@@ -8,7 +8,7 @@ Two paired deliverables per mini-scene, and their styles MUST match each other:
 The storyboard image is the visual plan; the written prompt is what actually drives Seedance. The
 one rule that breaks everything if ignored: **the STYLE described in the written prompt must be the
 same style shown in the storyboard image** — same film stock, palette, lighting, camera discipline.
-If the storyboard looks like flat Wes-Anderson pastel but the prompt says "handheld documentary
+If the storyboard looks like flat pastel symmetry but the prompt says "handheld documentary
 grain," the video will fight itself.
 
 ## The single storyboard image
@@ -24,9 +24,9 @@ grain," the video will fight itself.
   prompt).
 - Generate/test with **GPT Image 2.0**, but only via a **direct single-image generation call** —
   Krea's `generate_image` with model `openai/gpt-image-2`. **Do NOT use Lovart's `chat` endpoint for
-  a storyboard grid.** Confirmed by direct test: Lovart `chat` is an *agent* — it decomposes a
-  "4-panel storyboard" prompt into per-panel steps, charges credits per step (17 for the first, then
-  another 16 for the next, etc.), and its first output was a single full-body character portrait,
+  a storyboard grid.** Lovart `chat` is an *agent* — it can decompose a
+  "4-panel storyboard" prompt into per-panel steps, charge credits for every step (one charge, then
+  another for the next, etc.), and return a single character portrait first,
   not a grid. A storyboard grid must be ONE image from ONE generation. GPT Image 2 is also NOT in
   Lovart's free/unlimited tier — it prompts for paid-credit confirmation there. So: for the grid,
   use Krea direct `openai/gpt-image-2` (paid, but one image per call, no agent decomposition). Free
@@ -35,13 +35,13 @@ grain," the video will fight itself.
 ## The written Seedance animation prompt (dense format)
 
 Use the CAMERA / LOOK / STYLE / CHARACTER / SETTING / SCENES structure, with embedded beat-by-beat
-action and dialogue. This is the format validated in-project. Keep animation direction in English;
-keep spoken lines in the story's language (e.g. Russian), clearly marked as voice for a separate
+action and dialogue. Keep animation direction in English;
+keep spoken lines in the story's language, clearly marked as voice for a separate
 recording — video models generate ambience reliably, and Seedance can lip-sync, but dialogue is laid
 in during editing for control.
 
 ```
-CAMERA: [the project's camera discipline — e.g. locked-off symmetrical tripod, static; or a single
+CAMERA: [the project's camera discipline — e.g. locked-off tripod, static; or a single
 slow tracking move. Name what the camera is NOT doing if it must stay still.]
 
 LOOK: [film stock, grain, lighting behavior, palette, contrast — copied to match the STYLE LOCK

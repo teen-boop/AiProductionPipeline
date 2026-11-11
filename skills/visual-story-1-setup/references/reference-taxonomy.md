@@ -10,13 +10,13 @@ junk drawer:
 - **`Locations/`** and **`Props/`** — one folder per location and per recurring object, holding the
   canonical reference image(s) generated per scene as the script locks (a location's reference is
   usually the scene's first character medium-shot, doing double duty). See
-  `09-location-and-prop-references.md` for the full workflow — this is mandatory alongside character
+  `visual-story-4-references` for the full workflow — this is mandatory alongside character
   references, not an optional extra tier.
 - **Title/text-overlay references** (if any) — scoped specifically to title-card/text-overlay design.
   Treat as its own discrete task, not folded into scene generation.
 - **`style and color/`** — the single source of truth for consistent style, palette, and lighting
   across every generated image. Check new prompts against this folder's actual contents, not vibes
-  or a one-word style label. Once the project has approved masters (§4 in SKILL.md), add them here
+  or a one-word style label. Once the project has approved masters, add them here
   too — real, produced-in-this-project images are an even stronger style reference than mood boards.
 - The user's own pasted text prompts count as references too — study their phrasing/color/light
   language as the primary template for new prompts.
@@ -34,7 +34,7 @@ change; atmosphere is not.
 
 Before writing a new prompt from any reference, extract and explicitly restate:
 1. **Photographic mode** — see the two-mode breakdown below.
-2. **Light source(s) and behavior** — e.g. a banker's lamp as sole warm light source, flat even
+2. **Light source(s) and behavior** — e.g. one desk lamp as sole warm light source, flat even
    studio light, foggy diffused daylight.
 3. **Depth-of-field behavior** — shallow with foreground blur, or flat sharp-throughout.
 4. **Atmospheric quality** — haze, mist, grain, desaturation.
@@ -66,15 +66,15 @@ image before choosing — don't guess from a style-label shortcut.
 
 Extract the *pattern*, not just phrases:
 
-1. **Specific fabric + color pairing for every garment**, never vague ("chunky knit emerald green
+1. **Specific fabric + color pairing for every garment**, never vague ("ribbed wool dark blue
    turtleneck", not "green sweater").
 2. **A named practical prop tied to the character's role/action** — always mid-action with something
    specific, never just standing.
-3. **Backgrounds: atmosphere, not just blur.** Specific-but-blurred beats generic ("massive orange
-   distillation tanks with brass fittings", not "lab equipment"). Layer in: atmospheric haze/mist/
+3. **Backgrounds: atmosphere, not just blur.** Specific-but-blurred beats generic ("tall grey
+   storage tanks with steel ladders", not "factory equipment"). Layer in: atmospheric haze/mist/
    humidity, a tightly muted 2–3 color palette applied to the WHOLE frame (not just the subject's
    outfit), and often a secondary background figure/action barely visible in the haze for depth (e.g.
-   a crouched figure on a bamboo canopy). Name the weather/haze condition explicitly, restate the
+   a worker crossing a far walkway). Name the weather/haze condition explicitly, restate the
    muted palette as covering foreground AND background, and consider one small background
    detail/figure for depth layering.
 4. **An explicit, named color-palette statement** as part of the prompt itself.
@@ -106,4 +106,4 @@ Naming a specific real-world director/franchise/brand in a prompt can bleed trad
 props/signage — the model pattern-matches "in the style of X" into actual proper nouns from X's work
 appearing on signage, badges, or props. Proactively add "no real logos, brand names, or text from
 existing works" to every vintage-prop/signage-heavy prompt up front. This recurs even after being
-caught once — treat it as a standing risk on any project that names a specific stylistic touchstone.
+fixed once — treat it as a standing risk on any project that names a specific stylistic touchstone.

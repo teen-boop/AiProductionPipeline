@@ -1,0 +1,73 @@
+{
+  "id": "EP01_MG_MAP_01",
+  "category": "period-map",
+  "period": 1900,
+  "narration_beat": "VO 02:14.0 - the line that names the crossing; the ink reaches Port D on the word 'harbour'",
+  "fps": 24,
+  "canvas": { "w": 1920, "h": 1080, "aspect": "16:9" },
+  "duration_s": 16,
+  "export": "mp4",
+  "background": "plate",
+  "engine": "hyperframes",
+  "look": {
+    "style_lock": "STYLE_LOCK.json",
+    "style_pack": "STYLE-PACK.md",
+    "notes": "warm paper under a cool window light, ink near-black, deep shadow vignette, grain from the lock"
+  },
+  "fonts": [
+    { "family": "Period Serif", "file": "fonts/period-serif.woff2", "cyrillic": false, "glyph_test": "pass" },
+    { "family": "Ledger Mono", "file": "fonts/ledger-mono.woff2", "cyrillic": false, "glyph_test": "pass" }
+  ],
+  "texts": [
+    { "id": "lbl_port_a", "text": "PORT A", "font": "Period Serif", "approved": true, "in_s": 1.0, "enter_s": 0.6, "hold_s": 14.0 },
+    { "id": "date_port_a", "text": "3 MONTH 1900", "font": "Ledger Mono", "approved": true, "in_s": 1.3, "enter_s": 0.8, "hold_s": 2.5 },
+    { "id": "lbl_port_b", "text": "PORT B", "font": "Period Serif", "approved": true, "in_s": 3.6, "enter_s": 0.6, "hold_s": 11.4 },
+    { "id": "date_port_b", "text": "8 MONTH 1900", "font": "Ledger Mono", "approved": true, "in_s": 3.9, "enter_s": 0.8, "hold_s": 2.2 },
+    { "id": "lbl_port_c", "text": "PORT C", "font": "Period Serif", "approved": true, "in_s": 5.2, "enter_s": 0.6, "hold_s": 9.8 },
+    { "id": "lbl_port_d", "text": "PORT D", "font": "Period Serif", "approved": true, "in_s": 7.0, "enter_s": 0.6, "hold_s": 8.0 },
+    { "id": "date_port_d", "text": "9 MONTH 1900", "font": "Ledger Mono", "approved": true, "in_s": 7.3, "enter_s": 0.8, "hold_s": 2.2 },
+    { "id": "date_breakdown", "text": "17 MONTH 1900, 06:15", "font": "Ledger Mono", "approved": true, "in_s": 11.6, "enter_s": 1.0, "hold_s": 3.0 },
+    { "id": "lbl_destination", "text": "DESTINATION", "font": "Period Serif", "approved": true, "in_s": 12.8, "enter_s": 0.8, "hold_s": 2.2 }
+  ],
+  "accuracy": [
+    { "claim": "Left Port A for Port B on 3 Month 1900 after loading mail", "source": "fill from period-fact-check", "status": "pending" },
+    { "claim": "Sailed from Port B on 8 Month 1900; called at Port C the next morning", "source": "fill from period-fact-check", "status": "pending" },
+    { "claim": "Called at Port D on 9 Month 1900, berthed at the mail pier, cargo loaded by crane", "source": "fill from period-fact-check", "status": "pending" },
+    { "claim": "Place name is the period's own name for each port; no border that did not exist in the period", "source": "fill from period-fact-check", "status": "pending" },
+    { "claim": "Engines failed at 06:15 local time on 17 Month 1900; the destination was never reached, so that leg is drawn as intended, dashed", "source": "fill from period-fact-check", "status": "pending" }
+  ],
+  "assets": [
+    { "role": "paper texture", "path": "plates/paper_plate.png", "origin": "project" }
+  ],
+  "content": {
+    "route": {
+      "lane": "vector",
+      "projection": "mercator",
+      "bounds": { "lon": [-76, 2], "lat": [36, 57] },
+      "padding_px": 96,
+      "stops": [
+        { "id": "port_a", "name": "PORT A", "lon": -9.14, "lat": 38.71, "date": "3 MONTH 1900", "label_side": "right" },
+        { "id": "port_b", "name": "PORT B", "lon": -8.39, "lat": 43.37, "date": "8 MONTH 1900", "label_side": "right" },
+        { "id": "port_c", "name": "PORT C", "lon": -3.80, "lat": 43.47, "label_side": "below" },
+        { "id": "port_d", "name": "PORT D", "lon": -4.49, "lat": 48.39, "date": "9 MONTH 1900", "label_side": "left" },
+        { "id": "breakdown", "name": "", "lon": -38.50, "lat": 45.20, "date": "17 MONTH 1900, 06:15", "label_side": "below" },
+        { "id": "destination", "name": "DESTINATION", "lon": -63.57, "lat": 44.65, "label_side": "left" }
+      ],
+      "legs": [
+        { "from": "port_a", "to": "port_b", "via": [[-9.6, 39.2], [-9.8, 41.0], [-9.6, 42.8], [-8.9, 43.5]], "style": "solid" },
+        { "from": "port_b", "to": "port_c", "via": [[-6.0, 43.8]], "style": "solid" },
+        { "from": "port_c", "to": "port_d", "via": [[-4.3, 45.5], [-5.0, 48.0]], "style": "solid" },
+        { "from": "port_d", "to": "breakdown", "via": [[-20.0, 47.6]], "densify": "great-circle", "style": "solid" },
+        { "from": "breakdown", "to": "destination", "via": [[-55.0, 44.3]], "style": "intended" }
+      ],
+      "control_points": [
+        { "lon": -10.0, "lat": 54.0, "x": 1559.4, "y": 312.1, "note": "raster lane only: graticule crossing read off the scan" },
+        { "lon": -60.0, "lat": 46.0, "x": 449.6, "y": 591.0 },
+        { "lon": -70.0, "lat": 42.0, "x": 230.2, "y": 712.1 },
+        { "lon": 0.0, "lat": 50.0, "x": 1778.8, "y": 458.0 }
+      ],
+      "ship_marker": { "kind": "engraved vessel silhouette, side view", "size_px": 46, "orient": "follow path" }
+    }
+  },
+  "qc": { "snapshots_at": [0.5, 3.6, 7.0, 11.6, 13.5, 15.5] }
+}

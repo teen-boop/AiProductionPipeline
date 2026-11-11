@@ -4,7 +4,7 @@
 - **Name:** `clay`
 - **Mood:** friendly, tactile, toy-like, calm
 - **Purpose:** metaphorical explainers, onboarding, product "how it works" pieces
-- **Origin:** MG-SOFT3D from tutorial 1
+- **Origin:** sample pack, written from a generic soft-3D reference sheet
 
 ## 2. TYPE
 | Role | Typeface | Weight | Size | Case |

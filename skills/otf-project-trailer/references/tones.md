@@ -1,7 +1,7 @@
 # Tone presets
 
 A tone changes pacing, cutting, typography and the music shape. It never changes the project's look: the style lock wins over
-any tone. A freeform direction from the user ("like a 70s disaster film trailer", "quiet like a museum") is mapped to the
+any tone. A freeform direction from the user ("like a 70s spy film trailer", "quiet like a library") is mapped to the
 nearest preset for timing and kept word for word in the plan.
 
 | Tone | Feels like | Pacing | Transitions | Titles | Music shape |

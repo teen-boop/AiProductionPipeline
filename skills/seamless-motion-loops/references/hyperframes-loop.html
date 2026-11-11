@@ -28,7 +28,7 @@
     </div>
     <script>
       const LOOP = 12; // seconds; equal to data-duration above, or data-duration is a whole multiple of it
-      const BRAND = { accent: "#F0962B", ink: "#0F0F0F", paper: "#F2EFE9", card: "#161616" };
+      const BRAND = { accent: "#5CC8FF", ink: "#0F0F0F", paper: "#F2EFE9", card: "#161616" };
       const P = { bg: BRAND.card, fg: BRAND.accent, fg2: BRAND.paper, accent: BRAND.accent, ink: BRAND.ink, paper: BRAND.paper };
 
       // The few helpers this tile needs (the full set lives in scripts/loop-template.html).
@@ -88,7 +88,7 @@
       }
       window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
       renderAt(0);
-      // An empty paused timeline that spans the loop, as our promos register one per composition.
+      // An empty paused timeline that spans the loop, as HyperFrames pages register one per composition.
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
       tl.set({}, {}, LOOP);

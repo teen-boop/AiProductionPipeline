@@ -40,7 +40,7 @@ One page. It is the contract the user approves before anything renders. Paths ar
 ## Shot list (the pick)
 | Shot | Beat | Source (relative) | src in-out | Kind | Scale | Face | Motion added | Rank |
 |---|---|---|---|---|---|---|---|---|
-| S01 | 1 | generated/ep1/clips/storm_detail_v2.mp4 | 0.42-2.92 | clip | detail | no | none | 3 |
+| S01 | 1 | clips/approved/shot_detail_v2.mp4 | 0.42-2.92 | clip | detail | no | none | 3 |
 | ... |
 
 ## Gaps -> generation requests
@@ -67,9 +67,9 @@ directly into the `cutplan.json` of `nle-timeline-assembly`.
 ```json
 {"fps": 24, "length": 30.0, "format": "16:9",
  "shots": [
-  {"id": "S01", "beat": "cold open", "src": "generated/ep1/clips/storm_detail_v2.mp4",
+  {"id": "S01", "beat": "cold open", "src": "clips/approved/shot_detail_v2.mp4",
    "src_in": 0.417, "record_in": 0.0, "record_out": 2.5, "transition_after": "cut"},
-  {"id": "S02", "beat": "world", "src": "frames/approved/harbour_wide.png",
+  {"id": "S02", "beat": "world", "src": "frames/approved/place_wide.png",
    "src_in": 0.0, "record_in": 2.5, "record_out": 4.25, "motion": {"type": "push_in", "from": 1.0, "to": 1.05},
    "transition_after": "flash"},
   {"id": "T1", "beat": "title card", "kind": "title", "record_in": 26.0, "record_out": 28.5},

@@ -1,7 +1,7 @@
 # Edit Patterns from 24 Pinterest References (+1 still)
 
-Source clips: `work/refs/edit_study/e01.mp4` ... `e24.mp4`, still `e_still.jpg`.
-Contact sheets: `work/refs/edit_study/sheets/`. Raw numbers: `measurements.json` (same folder as this file).
+Source clips: a study set of 24 short reference videos (ids e01 ... e24) and one still (e_still); the files are not bundled.
+Contact sheets and raw numbers are not bundled with the skill; the figures below are the record of the study.
 Method: ffmpeg scene detection at 0.30 and 0.15 on a 180 px proxy, every cut checked on a contact sheet, beats with `hyperframes beats`, onset hit-rate test against random cut sets, luminance curves (signalstats YAVG) for flashes and burst.
 
 ## Headline findings

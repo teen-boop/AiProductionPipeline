@@ -11,7 +11,7 @@ Examples
   # 1. plan (no changes)
   organize_finals.py --root "/path/project" --src "/path/project/renders"
   # several sources, one forced category, one folder forced to be a single title (series)
-  organize_finals.py --root P --src P/renders --src "P/tutorials=Tutorials" --src "P/shorts=Promos/Skill_Promos_8s"
+  organize_finals.py --root P --src P/renders --src "P/tutorials=Tutorials" --src "P/shorts=Promos/Feature_Promos_8s"
   # 2. user edits P/FINAL_OUTPUTS/_plan.csv, then
   organize_finals.py --root P --from-plan P/FINAL_OUTPUTS/_plan.csv --apply
 """

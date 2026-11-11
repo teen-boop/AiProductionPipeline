@@ -16,7 +16,7 @@ Project file: `<project>/STYLE-PACK.md`
   amplitudes × scale, timings × fps ratio).
 - **Mood:** 3–5 words
 - **Purpose:** what kind of material this style serves
-- **Origin:** the reference/brand/previous project it was derived from
+- **Origin:** the reference or brand inside this project it was derived from
 
 ## 2. TYPE
 | Role | Typeface | Weight | Size guide | Case |

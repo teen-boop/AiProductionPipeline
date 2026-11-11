@@ -3,13 +3,13 @@
 ## Intent
 
 Anchor the viewer in time and place with the least possible graphic: a typed or stamped date, a time that settles on the event, a
-place line. It should feel like a ledger entry, a ship's log or a typewriter, not a news ticker.
+place line. It should feel like a ledger entry, a station log or a typewriter, not a news ticker.
 
 ## When to use
 
 - The first shot of a sequence that jumps in time or place.
-- A clock running toward an event ("23:31 ... 23:40"), or a countdown the narration counts with.
-- A chapter of hours ("02:05", "02:17", "02:20") repeated across a sequence: same position, same font, every time.
+- A clock running toward an event ("06:06 ... 06:15"), or a countdown the narration counts with.
+- A chapter of hours ("09:05", "09:30", "10:10") repeated across a sequence: same position, same font, every time.
 
 ## Layout
 
@@ -43,21 +43,21 @@ glyph-tested face and the colour tokens for the lock's values.
 
 ## Accuracy
 
-- Which clock: ship's time, local time, GMT? Name it in the accuracy line; label it on screen only if the narration does.
-- 12 h vs 24 h notation as the film's language and period would write it; the date order of the language (14 April 1912).
+- Which clock: local time, railway time, GMT? Name it in the accuracy line; label it on screen only if the narration does.
+- 12 h vs 24 h notation as the film's language and period would write it; the date order of the language (17 Month 1900).
 - Place name of the period.
 
 ## Spec example
 
-Full file: `assets/examples/date-stamp-1912.json`.
+Full file: `assets/examples/date-stamp-sample.json`.
 
 ```json
 "texts": [
-  { "id": "date",  "text": "14 APRIL 1912",  "approved": true, "in_s": 0.6, "enter_s": 1.4, "hold_s": 5.2, "box": [154, 770, 760, 70] },
-  { "id": "time",  "text": "23:40",          "approved": true, "in_s": 2.2, "enter_s": 2.4, "hold_s": 2.6, "box": [154, 850, 300, 90] },
-  { "id": "place", "text": "NORTH ATLANTIC", "approved": true, "in_s": 3.2, "enter_s": 0.8, "hold_s": 3.2, "box": [154, 950, 600, 40] }
+  { "id": "date",  "text": "17 MONTH 1900",  "approved": true, "in_s": 0.6, "enter_s": 1.4, "hold_s": 5.2, "box": [154, 770, 760, 70] },
+  { "id": "time",  "text": "06:15",          "approved": true, "in_s": 2.2, "enter_s": 2.4, "hold_s": 2.6, "box": [154, 850, 300, 90] },
+  { "id": "place", "text": "OPEN SEA", "approved": true, "in_s": 3.2, "enter_s": 0.8, "hold_s": 3.2, "box": [154, 950, 600, 40] }
 ],
-"content": { "variables": { "date": "14 APRIL 1912", "time_from": "23:31", "time_to": "23:40", "place": "NORTH ATLANTIC", "transparent": true } }
+"content": { "variables": { "date": "17 MONTH 1900", "time_from": "06:06", "time_to": "06:15", "place": "OPEN SEA", "transparent": true } }
 ```
 
 ## QC

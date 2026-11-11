@@ -38,8 +38,8 @@ Attach the character's base sheet and real face photo alongside this prompt.
 ## Using a state variant in production
 
 When a scene calls for this character in this state (e.g. the master shot establishes rain and this
-character has just come in from it — see the weather-propagation rule in
-`04-prompt-engineering.md`), attach the state-variant panel alongside the base sheet and real face
+character has just come in from it — carry the weather onto every character it touches;
+the prompt-writing step covers this), attach the state-variant panel alongside the base sheet and real face
 photo, and say so explicitly in the prompt:
 
 > "Use the attached state-variant panel for the [wet/muddy/injured/etc.] appearance. Match the

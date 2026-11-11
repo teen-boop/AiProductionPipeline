@@ -16,6 +16,16 @@ user-invocable: true
 
 # Independent Frame Critic
 
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
+
 ## Why
 
 `frame-qc-contact-sheet` catches mechanical defects: bars, wrong count, a wrong face in a crop. It does not catch "this whole batch
@@ -109,8 +119,8 @@ Score the batch 1-10 in each category (7 = solid and usable, 9 = exceptional):
 - light: motivated light with real sources; not flat, muddy or blown out; consistent across the batch;
 - composition: each frame is well composed for its shot size; eye-lines and screen direction make sense;
 - plausibility: nothing floating, melted, merged, duplicated or physically impossible; hands and contact read; count every
-  person's arms, hands and fingers and trace each limb back to its own body (an arm reaching a steering wheel or a product from
-  the wrong side, or from nobody, is a reject); a driver sits behind the wheel;
+  person's arms, hands and fingers and trace each limb back to its own body (an arm reaching a table or a product from
+  the wrong side, or from nobody, is a reject); every person is placed where their action needs them;
 - text_signage: no garbled text, no real brands or logos, no captions or watermarks; any wanted signage reads;
 - story_beat: each frame shows what its INTENT line says.
 

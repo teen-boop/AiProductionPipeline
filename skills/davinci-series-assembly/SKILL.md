@@ -1,7 +1,7 @@
 ---
 name: davinci-series-assembly
 description: >-
-  Assembles a SERIES of finished clips (presentation parts, block reels, episode segments — e.g. OTF_part1 … OTF_partN) into a DaVinci
+  Assembles a SERIES of finished clips (presentation parts, block reels, episode segments — e.g. Series_part1 … Series_partN) into a DaVinci
   Resolve timeline in the right order, through the DaVinci Resolve MCP: probes and validates the clips (fps, size, duration, audio),
   imports them into a dated Media Pool folder, creates a NEW timeline (never overwrites or deletes an existing one), places the clips
   back to back, adds a named marker at every part, verifies the result (item count, gaps/overlaps, total length) and saves the project.
@@ -11,6 +11,16 @@ user-invocable: true
 ---
 
 # DaVinci Series Assembly
+
+## This project first (binding)
+
+This skill arrives at every project knowing nothing about it. Before applying any default written below:
+
+1. **Study this project.** Read its brief or script, every file in its references folder (images, video frames, saved prompts and their notes) and the results already approved in it. Say what you see in concrete terms before generating or writing anything.
+2. **Learn from this project's results.** After each approved result, add to this project's `LESSONS.md` what was asked, the prompt or setting that produced it and why it worked; after each rejection, what failed and the fix. Read `LESSONS.md` before the next task. For this project it overrides the defaults below.
+3. **Stay inside this project.** Never open, copy or imitate material from another project, brand or earlier job: no images, fonts, prompts, names or folders from elsewhere. What is missing comes from this project's own sources or from the user.
+4. **Examples here are samples.** Every name, date, place or line used as an example in this skill is invented sample data. Do not carry it into the work.
+5. **Improve the skill, not a memory of one project.** When a lesson would help any project, propose it to the user as a general rule with no project names in it.
 
 ## 1. Prepare and validate (local, free)
 
@@ -52,8 +62,8 @@ Use the DaVinci Resolve MCP tools.
 2. Add markers: `timeline_markers add {frame: record_start_frame, name: "<title>", color: "Blue", note: "<file>"}`, one per part.
 
 Marker colors Resolve accepts: Blue, Cyan, Green, Yellow, Red, Pink, Purple, Fuchsia, Rose, Lavender, Sky, Mint, Lemon, Sand, Cocoa,
-Cream. There is no "Orange". For a bilingual or multi-series reel, give each series and language its own colour (e.g. RU pipeline Blue,
-RU presentations Purple, EN pipeline Green, EN presentations Cyan), and prefix every marker name with the language: "RU · …", "EN · …".
+Cream. There is no "Orange". For a bilingual or multi-series reel, give each series and language its own colour (e.g. language A series 1 Blue,
+language A series 2 Purple, language B series 1 Green, language B series 2 Cyan), and prefix every marker name with the language: "RU · …", "EN · …".
 
 When the user asks to redo an existing assembly on a NAMED timeline:
 1. Remove only the old items and markers that this skill placed there; the MCP archives a version first.
