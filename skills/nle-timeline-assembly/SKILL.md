@@ -42,7 +42,7 @@ in Resolve, in Premiere, or exported as files, so the editor is a backend, not t
 
 ## 2. Write the cut plan
 
-Write `edit/cutplan.json` (schema in `scripts/cutplan_to_edl.py`). One entry per shot:
+Write the plan in the project's edit tree: `04_EDIT/<Project>/00_TIMELINES/cutplan.json` when `edit-media-bins` made one (read clip paths from its `EDIT_MANIFEST.csv`), otherwise `edit/cutplan.json`. The `edit/...` paths below mean that folder. Schema in `scripts/cutplan_to_edl.py`. One entry per shot:
 
 ```json
 {"id": "S07", "file": "/abs/ANIMATION/S07/S07_take2.mp4", "src_in": 0.42, "src_out": 3.92, "track": "V1",
@@ -85,7 +85,7 @@ It fails on overlaps, missing files, reversed or out-of-range source times. Fix 
 
 ### A. DaVinci Resolve (DaVinci Resolve MCP)
 
-1. `project_manager get_current`. Work in the project the user named or the current one; never create, load or close another.
+1. `project_manager get_current`. Work in THIS project's own Resolve project: the one the user named, or the current one only if it belongs to this project. If the open Resolve project belongs to another brand or job, do not build there: save it, then load this project's Resolve project or create one named after this project (say so). Never delete or overwrite another project.
 2. `media_pool add_subfolder` -> `<project>/rough/<YYYY-MM-DD>`; import the plan's files with `safe_import_media`
    (`dry_run: true` first, then `false`). Map clip IDs back to file names; never rely on import order.
 3. Create a NEW timeline (`if_exists: "version"`), set to the plan's frame rate. Never append into the user's cut unasked.

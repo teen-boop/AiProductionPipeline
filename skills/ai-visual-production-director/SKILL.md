@@ -167,7 +167,7 @@ exists)
 - `animation-handoff-folder` — one flat folder of FINAL frames in story order
   plus one prompt list, synced after every delivery.
 
-**Phase 5 — Video/Animation Prompt Writing**
+**Phase 5 — Video/Animation Prompt Writing** (then Phases 6 to 8 below)
 - `seedance-prompt-writer` — writes production-grade Seedance-format video
   prompts, reading the camera-movement and transition data straight out of
   the Phase 1 ledger instead of re-deriving it from the original narrative.
@@ -193,6 +193,60 @@ exists)
   package them into one interactive, checkbox-per-clip production tracker —
   a delivery/tracking layer only; it never writes or simplifies prompt
   content, it packages what the video-prompt skill already produced.
+
+## Ads and commercials — the entry before Phase -1
+
+When the job is an ad, a commercial or a promo for a brand, start here, in this order, before any story or image phase:
+
+0. `project-scaffold` — the project's own folder tree first. The edit, finals and delivery skills expect it (`04_EDIT`, `FINAL_OUTPUTS`, `06_DELIVERY`); without it each one invents its own folder.
+1. `ad-research-glossary` — research THIS brand from its own link; writes the Ad Glossary (audience categories, their words, product terms, pain map, proof, do-not-say list).
+2. `ad-copy-director` — hooks, ad lines, captions and title-card texts per audience category, looked up in that glossary.
+3. `ad-script-writer` — one category, one pain, one result: a 6 to 30 s beat sheet plus the production handoff (cast, location, props, title cards, sound).
+
+The script's handoff is the brief for the phases below: cast and locations go to Phase 0, title cards to Phase 6, the Sound column to Phase 8.
+
+Decide the delivery target (platform, aspect, loudness) here, at the script, not at the end: the sound mix in Phase 8 and the package in Phase 8 must use the same loudness target.
+
+## Phase 6 — Titles and motion graphics (after the stills or clips exist)
+
+Place every title on the REAL frame it sits on, never on a plan written before the frame existed.
+
+- `motion-graphics-director` — picks the route per shot (CODE or VIDEO) and the style pack. Start here for any title, card, chart or graphic.
+- `cinematic-motion-graphics` — title cards, lower thirds, date stamps, maps, fact cards and overlays inside a film's look, with a spec lint, an alpha check and the NLE hand-off. For an ad end card (logo, line, button in brand colours) its film-look bans do not apply: the brand's own look does.
+- `motion-style-core` — the project's style pack. For a brand, fonts and colours come from the brand's own site or files, never from another project.
+- `text-behind-subject` — a title placed between the background and the person.
+- `seamless-motion-loops` — looping backgrounds under titles and filler between shots.
+- `cinematic-poster-designer` — key art and posters.
+- `hyperframes` (if installed) — the engine the CODE route renders with.
+
+Checks every title passes: whole phrases stay on one line (no single word left alone), nothing sits on a face or hands, platform safe zones for the aspect, read time of about 0.5 s plus 0.3 s a word.
+
+Scene changes: a hard cut, or a fade in which the outgoing text has left before the incoming text arrives. The new scene's background must never arrive before its first element; start that element on the cut frame, already partly visible. Check every scene change on the encoded file (`render-cut-verification`): it reports black or flash frames and shows overlapping text in its strips.
+
+## Phase 7 — Timeline and edit
+
+Order for a piece rendered as one finished motion-graphics file (titles, images and animation in one render): make the sound from the animation's own timing right after the render (`opus-sound-layer`, Phase 8), then bins and timeline here. The cue sheet comes from the animation, and the timeline needs the finished sound file. For footage-based films keep the usual order: edit first, sound to the locked cut.
+
+- `edit-media-bins` — copy the generated material into ordered edit bins first.
+- `nle-timeline-assembly` — the rough cut from a shot list or cut list, NLE-agnostic.
+- `davinci-series-assembly` — a series of finished parts onto one DaVinci Resolve timeline, never overwriting an existing one.
+- `music-beat-grid` — cuts on a measured beat grid for music-driven pieces.
+- `dialogue-cut` — the dialogue or voice-over cut from several takes.
+- `retention-packaging-plan` — cue sheet for talking-head and creator-style videos (hook, punch-ins, captions, calls to action).
+- `video-cut-timecodes` — frame-accurate cut points of any source video.
+- `otf-project-trailer` / `otf-presentations` — trailer, teaser, announcement or explainer cuts of the project.
+- `auto-editor` and its companions (if installed) — silence and dead-space cutting, and editor exports.
+
+## Phase 8 — Effects, sound, finish and delivery
+
+- `animation-effects-catalog` — proven effect tricks for video prompts (used back in Phase 5 when a shot needs one).
+- `video-color-grade` — deterministic grade and look match across the cut. Only when there is footage or generated video to match; a fully rendered motion-graphics piece has nothing to grade.
+- `dialogue-audio-finish` — clean dialogue and voice edges, loudness.
+- `opus-sound-layer` (if installed) — sound effects placed from the picture's timing, with an audio check on the encoded file. Set its loudness target (`"lufs"` in the cue sheet) to the delivery target chosen at the script, for example -14 LUFS for Reels, TikTok and Shorts.
+- `render-cut-verification` — checks the ENCODED final: cuts, black frames, audio, safe areas.
+- `delivery-package` — the package per client or platform.
+- `final-outputs-organizer` — every finished video in one predictable tree.
+- `versions-and-archive` — versions, archive and disk space.
 
 ## Motion graphics — a separate, parallel track
 

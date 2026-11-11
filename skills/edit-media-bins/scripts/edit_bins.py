@@ -131,6 +131,8 @@ def plan(sources, edit_root, order_file, include_skipped):
                 if r["hash"] in seen:
                     r.update(status="dup", note=f"same file as {seen[r['hash']]}"); rows.append(r); continue
                 seen[r["hash"]] = p
+                if kind in ("video", "still") and forced and GFX_RE.fullmatch(forced.split("/")[0]):
+                    r["bin"], r["kind"], kind = "04_GFX", "gfx", "gfx"   # DIR=GFX (or LOGO, TITLE...) files are graphics
                 if kind in ("video", "still"):
                     r["group"] = group_of(src, forced, p)
                 if kind in ("video", "gfx") and os.path.splitext(fn)[1].lower() in VIDEO:
@@ -201,8 +203,8 @@ def main():
 
     root = os.path.join(os.path.abspath(a.edit_root), clean(a.project))
     rows = plan(a.src, root, a.order, a.include_skipped)
-    os.makedirs(root, exist_ok=True) if a.apply else None
-    plan_path = os.path.join(root if a.apply else os.path.abspath(a.edit_root), f"_bins_plan_{clean(a.project)}.csv")
+    os.makedirs(root, exist_ok=True)   # the plan always lives in the project's bin root, dry run or not
+    plan_path = os.path.join(root, f"_bins_plan_{clean(a.project)}.csv")
     os.makedirs(os.path.dirname(plan_path), exist_ok=True)
     with open(plan_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore"); w.writeheader(); w.writerows(rows)

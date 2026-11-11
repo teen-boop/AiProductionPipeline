@@ -142,7 +142,8 @@ def main():
             d = os.path.join(P, base, a.from_final)
             if os.path.isdir(d):
                 files += sorted(os.path.join(dp, f) for dp, dns, fs in os.walk(d) for f in fs
-                                if os.path.splitext(f)[1].lower() in VIDEO and "_previous" not in dp)
+                                if os.path.splitext(f)[1].lower() in VIDEO and "_previous" not in dp
+                                and not f.startswith("."))   # skip hidden and macOS "._" metadata files
                 break
         else:
             sys.exit(f"not found: {a.from_final}")
@@ -196,7 +197,7 @@ def main():
         return 1 if blocked else 0
     if blocked:
         sys.exit("FAIL lines present: nothing written")
-    if os.path.exists(out) and os.listdir(out):
+    if os.path.exists(out) and [x for x in os.listdir(out) if not x.startswith(".")]:
         sys.exit(f"{out} already exists: delivery folders are never overwritten (use --version or a later date)")
     os.makedirs(out, exist_ok=True)
     made = []
@@ -228,7 +229,7 @@ def main():
     if a.zip:
         z = out + ".zip"
         with zipfile.ZipFile(z, "w", zipfile.ZIP_STORED) as zf:
-            for fn in sorted(os.listdir(out)):
+            for fn in sorted(x for x in os.listdir(out) if not x.startswith(".")):
                 zf.write(os.path.join(out, fn), os.path.join(os.path.basename(out), fn))
         print("zip:", z)
     print(f"written {len(made)} files + DELIVERY_NOTE.md + CHECKSUMS.sha256 in {out}")

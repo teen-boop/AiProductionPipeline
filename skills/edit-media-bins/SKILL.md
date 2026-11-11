@@ -49,13 +49,14 @@ source and prompt.
 
 - **Group** (the `NN_` folder): from a shot code in the filename or its folders (`S03`, `SC12`, `SH010`, `K07`, `EP2`,
   `A4`), or a leading number + name (`01_BRANDNAME_…` → group `BRANDNAME`, position 1), or the parent folder, or the source folder.
-  Force it with `--src DIR=S07`.
+  Force it with `--src DIR=S07`. `--src DIR=GFX` (or LOGO, TITLE, OVERLAY) sends every file from that folder to `04_GFX` instead of a shot group.
 - **Group order**: `--order shotlist.txt` (one code per line, in cut order), then leading numbers, then natural sort
   (S2 before S10). The same group number is used in 01_VIDEO and 02_STILLS, so a shot's clips and frames line up.
 - **Take names**: `<Group>_take<NN>[_<original name>]_<MMDD-HHMM>.<ext>`. Takes are numbered by an explicit take/version token,
   then by file time. Hash-like original names are dropped; readable ones are kept after the take number.
 - **Audio type**: from path words: VO (vo, voice, narration, tts), DIALOGUE (dialogue, lipsync), MUSIC (music, song, track,
   suno, bgm, score), SFX (sfx, foley, whoosh, impact, ambience, room tone).
+- Versions of one render (a silent master and the same master with sound) are not takes of a shot: give them separate sources, or keep only the one the timeline uses.
 - Skipped: `_previous`, `rejected`, `tmp`, `cache`, `proxy`, `backup`, `trash`, hidden files. Exact duplicates are copied once.
 
 ## Workflow

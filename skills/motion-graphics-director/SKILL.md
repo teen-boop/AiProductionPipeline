@@ -46,7 +46,32 @@ Mixed piece? That is normal and correct — the hybrid wins. Route **per shot**,
 2. **Lock the STYLE CORE** → `motion-style-core`. Nothing is generated before this exists.
 3. **Design & references intake** → `motion-design-references`. Inspect the folder before asking anything, split every reference into STYLE vs ASSET, lock approved images, write the INDEX.
 4. **Build per route** → `motion-remotion-build` (CODE) or `motion-video-route` (VIDEO).
-5. **Assemble** → master sequence, VO sync, music, render.
+5. **Assemble** — master sequence, VO sync, music, render. This step is not done here; hand it to the skills below.
+
+## After the build — titles placed, edit, sound, delivery
+
+| Need | Skill |
+|---|---|
+| Title cards, lower thirds, overlays inside a film's look | `cinematic-motion-graphics` |
+| Ad hook line and end card (logo, line, button) | build on the CODE route with the brand's own style pack; `cinematic-motion-graphics` film-look bans do not apply to it |
+| Title behind a person | `text-behind-subject` |
+| Looping background under a title | `seamless-motion-loops` |
+| Graphics that follow a voice-over | `references/BOARD-RECIPES.md` here, then `retention-packaging-plan` |
+| Cut on the music | `music-beat-grid` |
+| Put parts or shots on a timeline | `nle-timeline-assembly`, or `davinci-series-assembly` for DaVinci Resolve |
+| Grade the overlays to the footage | `video-color-grade` |
+| Sound effects from the timeline | `opus-sound-layer` (if installed) |
+| Project folder tree, before any of the steps below | `project-scaffold` |
+| Check the encoded file | `render-cut-verification` |
+| Package and file the finals | `delivery-package`, `final-outputs-organizer` |
+
+Title rules that held in tests on new projects:
+- Place titles on the real frame after it exists; a position chosen in the script can land on a face or hands.
+- Keep each phrase on one line; break between phrases, never leave one word alone. Automatic text balancing split sentences in two tests.
+- Fonts: the project's own files, or the brand's own site for a brand. Never search the disk for a font that belongs to another project.
+- Social ads usually run at 30 fps; set it in the spec and say why.
+- Scene changes: a hard cut, or a fade where the old text leaves before the new text arrives. Start the new scene's first element on the cut frame, partly visible, so no frame is empty and no two scenes' text overlaps. Check it on the encoded file with `render-cut-verification`.
+- Order after a CODE-route render: sound from the animation's timing first (`opus-sound-layer`, loudness set to the delivery target), then `edit-media-bins` and the timeline.
 
 ## The roster
 

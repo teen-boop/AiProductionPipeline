@@ -37,6 +37,8 @@ the final encoded file, which is where flashes, drift and clipped words appear. 
 
 ## 2. Run
 
+The script needs Pillow and numpy. If `import PIL` fails, run it through uv instead of installing into the system Python: `uv run --with pillow --with numpy python3 scripts/cut_strips.py ...`.
+
 ```
 python3 scripts/cut_strips.py final.mp4 --out qc/final --cuts-file edit/raw.mistakes-edl.json --expect-duration 41.25
 ```
