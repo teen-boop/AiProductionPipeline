@@ -227,6 +227,10 @@ Scene changes: a hard cut, or a fade in which the outgoing text has left before 
 
 Order for a piece rendered as one finished motion-graphics file (titles, images and animation in one render): make the sound from the animation's own timing right after the render (`opus-sound-layer`, Phase 8), then bins and timeline here. The cue sheet comes from the animation, and the timeline needs the finished sound file. For footage-based films keep the usual order: edit first, sound to the locked cut.
 
+**Reference-first ads (edit before generation).** When the user gives reference ads and wants the generations to copy their motion, rhythm and transitions, the edit comes BEFORE the video stage: `ad-reference-edit-library` (shots, transitions, rhythm, tags, library page) → `reference-rough-cut` (the reel cut from reference shots, previews, then one generation slot per shot) → video prompts with `cinema-director-v3` and its `references/ad-transitions-and-pace.md` → the generated shots replace the reference shots on the same timeline.
+
+- `ad-reference-edit-library` — edit library from reference films: shots, soft cuts, transitions by kind, rhythm, edit grammar, tags.
+- `reference-rough-cut` — rough cut built from reference shots, Resolve timeline, preview, generation slots.
 - `edit-media-bins` — copy the generated material into ordered edit bins first.
 - `nle-timeline-assembly` — the rough cut from a shot list or cut list, NLE-agnostic.
 - `davinci-series-assembly` — a series of finished parts onto one DaVinci Resolve timeline, never overwriting an existing one.

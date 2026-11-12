@@ -136,6 +136,8 @@ No mode label. No prose between blocks. No aspect ratio.
 
 Single take: `1 continuous shot. Total 10 seconds, no cuts, no transitions. Real-time throughout.`
 
+"No transitions" stays the default. When a generation slot carries a designed transition (whip pan, body wipe, push-in, portal ...), it is written as camera and subject action in CAMERA and ACTION TIMING, never as an effect word, following `references/ad-transitions-and-pace.md`.
+
 Timings sum exactly. **Maximum 15 seconds on 2.0, 30 seconds on 2.5.**
 
 Runtime guide: 1.5–2.5s per shot for high-energy cutting · 2.5–4s for narrative and dialogue beats · 4–7s for a held lipsync line · 8–15s for a continuous take.
@@ -701,6 +703,8 @@ Always pair with: a **secondary light** holding a dim constant glow between hits
 ## IMPRESSIVE MOTION — WHAT MAKES A SHOT HIT
 
 > Companion: `animation-effects-catalog` — a growing library of concrete tricks by hero type (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, material/puppet characters, levitation, falls, face recast) and by effect. Pick 3–6 entries per shot from it; this section is the summary.
+
+> Companion: `references/ad-transitions-and-pace.md` — for ads and fast reels: generate long and cut short (harvest windows), what makes a shot read as dynamic, the EXIT/ENTRY handoff for each transition kind (whip pan, smear cut, body and object wipes, lens block, push-in, portal, spin, match cut, product push, flash), copying motion from a reference clip, and the ad pre-delivery check. Slots come from `reference-rough-cut`; the transition vocabulary from `ad-reference-edit-library`.
 
 > Companion: `seedance-edit-prompting` — when the task is an EDIT of existing footage (Seedance 2.5 Edit, Higgsfield video-to-video, Genjutsu, Ad Multiplier: recast a character, swap wardrobe or background, keep the source motion and cuts), use that skill's asset-mapping formula instead of the 16-slot spine, and verify the result numerically.
 

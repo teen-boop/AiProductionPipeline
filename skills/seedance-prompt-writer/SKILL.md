@@ -44,6 +44,12 @@ Runs at Phase 5 (Video Prompts) of `loveart-project-director`, after the
 shot list has been sized (`storyboard-shot-selection`) and
 continuity-checked (`storyboard-continuity-tracker` / `video-clip-continuity-chain`).
 
+For ads and fast reels the shots arrive as generation SLOTS from `reference-rough-cut` (length in frames, a reference clip whose
+motion and timing to copy, transition in and out). Apply `cinema-director-v3/references/ad-transitions-and-pace.md`: generate
+each shot long and cut it short in the edit (name the harvest window), write every designed transition as an EXIT on clip A and an
+ENTRY on clip B with the same direction and speed, keep ramps, flashes and echo trails for the edit, and copy the reference's
+motion in measured words, never its people, logos or text.
+
 ## STEP ZERO — target version
 
 Before writing anything, establish Seedance 2.0 (≤9 image refs, ≤15s) or
