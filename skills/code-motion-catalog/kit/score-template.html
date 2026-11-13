@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>score</title></head>
+<body>
+<script src="lib/sound.js"></script>
+<script>
+// Music bed and hits for the 40.5 s presentation. The 3D chapters bring their own sound (mixed in by ffmpeg):
+// 0-4.2 bottle, 8.8-16.8 layer stack, 28.6-36.3 split-flap. The bed steps back under them.
+const DUR = 40.5;
+const CH = [['A2', 'E3', 'A3', 'C4'], ['F2', 'C3', 'F3', 'A3'], ['C3', 'G3', 'C4', 'E4'], ['G2', 'D3', 'G3', 'B3']];
+function score(k) {
+  k.music('pulse', 4.2, 8.8, { bpm: 104, gain: 0.95, chords: CH });
+  k.music('pad', 8.8, 16.8, { bpm: 104, gain: 0.35, chords: CH });
+  k.music('pulse', 16.8, 28.6, { bpm: 104, gain: 0.95, chords: CH.slice(2).concat(CH.slice(0, 2)) });
+  k.music('pad', 28.6, 36.3, { bpm: 104, gain: 0.3, chords: CH });
+  k.music('pad', 36.3, DUR, { bpm: 60, gain: 0.8, chords: [['A2', 'E3', 'A3', 'C#4', 'E4']] });
+  // cuts: an air whoosh into every flash, a hit on it
+  for (const t of [4.2, 5.4, 6.6, 8.8, 16.8, 20.8, 25.6, 28.6]) { k.play('whoosh', t - 0.3, { dur: 0.32, gain: 0.5, top: 3000 }); k.play('thud', t, { gain: 0.35, f: 120 }); }
+  // hook and title: one hit per word
+  [4.3, 4.42, 4.54].forEach((t) => k.play('stamp', t, { gain: 0.45 }));
+  [5.45, 5.57].forEach((t) => k.play('stamp', t, { gain: 0.45 }));
+  for (let i = 0; i < 11; i++) k.play('tock', 6.65 + i * 0.08, { gain: 0.5, f: 700 + i * 25 });
+  // lock once: three cards land
+  [16.9, 17.15, 17.4].forEach((t, i) => k.play('slap', t + 0.2, { gain: 0.6, pan: [-0.4, 0.4, 0][i] }));
+  // generate + check: a camera shutter per frame, a stamp on "same faces"
+  for (let i = 0; i < 8; i++) k.play('shutter', 18.4 + i * 0.3, { gain: 0.45, pan: (i % 2 ? 0.2 : -0.2) });
+  k.play('stamp', 19.3, { gain: 0.6 });
+  // edit: clips snap onto the track, the playhead runs with a soft tick per cut
+  for (let i = 0; i < 9; i++) k.play('click', 20.85 + i * 0.06, { gain: 0.6, pan: -0.6 + i * 0.15 });
+  const cuts = [1.5, 1.5, 1.4, 1.2, 1.6, 2.2, 1.4, 1.6]; let x = 0;
+  cuts.forEach((d) => { x += d; k.play('tick', 21.7 + x * 3.9 / 15, { gain: 0.6, f: 4800 }); });
+  // every format: four pops
+  for (let i = 0; i < 4; i++) k.play('pop', 25.65 + i * 0.12, { gain: 0.6, f: 520 + i * 90 });
+  // end card
+  k.play('impact', 36.3, { gain: 0.7 });
+  k.play('success', 37.3, { gain: 0.6, f: 'E6' });
+  k.bed('room', 0, DUR, { gain: 0.5 });
+}
+window.renderScore = async () => {
+  const r = await SOUND.renderOffline(score, DUR, 48000, { voiceover: false });
+  const b = new Uint8Array(r.inter.buffer); let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+  return btoa(s);
+};
+window.READY = true;
+</script>
+</body></html>

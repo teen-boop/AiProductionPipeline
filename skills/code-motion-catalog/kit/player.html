@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product 3D Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600&family=Space+Grotesk:wght@500;700&family=Oswald:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; color: #ddd; font: 13px system-ui, sans-serif; }
+  #wrap { position: fixed; inset: 0 0 44px 0; display: flex; align-items: center; justify-content: center; }
+  canvas { width: min(100vw, calc((100vh - 44px) * 16 / 9)); height: auto; aspect-ratio: 16 / 9; display: block; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 44px; display: flex; gap: 10px; align-items: center; padding: 0 12px; background: #0b0b0c; }
+  #bar button { background: #222; color: #eee; border: 0; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+  #bar input[type=range] { flex: 1; }
+</style>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div id="wrap"><canvas id="c" width="1920" height="1080"></canvas></div>
+<div id="bar"><button id="play">Play</button><input id="scrub" type="range" min="0" max="1000" value="0"><span id="time">0.00</span><button id="snd">Sound on</button></div>
+<script type="module">
+  import * as THREE from 'three';
+  window.THREE = THREE;
+  const q = new URLSearchParams(location.search); window.NO_TEXT = q.has('notext'); const styleFile = q.get('style') || 'studio-product', render = q.has('render');
+  const load = (src) => new Promise((ok, bad) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = bad; document.head.appendChild(s); });
+  await load('lib/stage.js'); await load('lib/sound.js'); await load('styles/' + styleFile + '.js');
+  await document.fonts.ready;
+  const style = window.STYLES[window.STYLES.length - 1];
+  const S = await K.run(document.getElementById('c'), style, { samples: render ? style.render.samples : 3 });
+  window.STYLE = style; window.S = S; window.DURATION = style.duration;
+  window.seek = (t, n) => S.seek(t, n);
+  window.renderSound = async () => {   // interleaved float stereo -> base64, for the MP4 mux
+    const r = await SOUND.renderOffline((k) => style.sound(k), style.duration, 48000, { voiceover: false });
+    const b = new Uint8Array(r.inter.buffer); let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+    return btoa(s);
+  };
+  window.READY = true;
+  if (render) { S.seek(0); } else {
+    let playing = false, t = 0, last = 0, stopSound = null, soundOn = true;
+    const scrub = document.getElementById('scrub'), time = document.getElementById('time'), pb = document.getElementById('play'), sb = document.getElementById('snd');
+    const stopS = () => { if (stopSound) { stopSound(); stopSound = null; } };
+    const startS = () => { stopS(); if (soundOn && playing) stopSound = SOUND.live((k) => style.sound(k), t, { voiceover: false }); };
+    const draw = () => { S.seek(t); scrub.value = Math.round(t / style.duration * 1000); time.textContent = t.toFixed(2); };
+    const tick = (now) => { if (playing) { t += (now - last) / 1000; if (t >= style.duration) { t = 0; startS(); } } last = now; draw(); requestAnimationFrame(tick); };
+    pb.onclick = () => { playing = !playing; pb.textContent = playing ? 'Pause' : 'Play'; playing ? startS() : stopS(); };
+    scrub.oninput = () => { t = scrub.value / 1000 * style.duration; stopS(); if (playing) startS(); };
+    sb.onclick = () => { soundOn = !soundOn; sb.textContent = soundOn ? 'Sound on' : 'Sound off'; soundOn ? startS() : stopS(); };
+    requestAnimationFrame((n) => { last = n; tick(n); });
+  }
+</script>
+</body>
+</html>

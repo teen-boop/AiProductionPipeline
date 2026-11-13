@@ -35,6 +35,9 @@ The user chooses; Claude proposes. Never write the whole prompt alone in this mo
 
 Rules: use AskUserQuestion with short options (camera = single choice, enhancements = multi-select) when available; otherwise a numbered list. One shot per round. Respect choices even if Claude would pick differently — but say in one line if a choice breaks continuity or the model's limits.
 
+## Product and explainer animations in code
+For a 3D product hero, a numbers board or a layered explainer built in three.js use the `code-motion-catalog` skill; to plan which animation goes where in an edit use `animation-project-manager`.
+
 ## How to use
 1. Identify the **hero type(s)** in the shot → read that section of `references/CATALOG.md` (section A).
 2. Identify what the shot must *feel* like (speed, weight, wonder, comedy, fear, tenderness) → pick from sections B–F.
