@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="Finals">
+<style>
+.f{transform-box:fill-box;transform-origin:center}
+@keyframes d0{0%,6%{transform:translateY(-60px);opacity:0}22%,88%{transform:none;opacity:1}100%{opacity:0}}
+@keyframes d1{0%,16%{transform:translateY(-60px);opacity:0}32%,88%{transform:none;opacity:1}100%{opacity:0}}
+@keyframes d2{0%,26%{transform:translateY(-60px);opacity:0}42%,88%{transform:none;opacity:1}100%{opacity:0}}
+</style>
+<rect width="320" height="180" rx="14" fill="#07050F"/>
+<rect x="0.5" y="0.5" width="319" height="179" rx="14" fill="none" stroke="#1B1A26"/>
+<path d="M26 72h22l5 6h53v50h-80z" fill="#0F0D1A" stroke="#1B1A26"/><text x="66" y="144" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" fill="#8B93A3">16x9/</text><g style="animation:d0 4s ease-out infinite both"><rect x="38.0" y="88.0" width="56" height="32" rx="3" fill="#0E7490" stroke="#22D3EE"/><path d="M63 99.0l8 5-8 5z" fill="#EEF3F6"/></g><path d="M120 72h22l5 6h53v50h-80z" fill="#0F0D1A" stroke="#1B1A26"/><text x="160" y="144" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" fill="#8B93A3">9x16/</text><g style="animation:d1 4s ease-out infinite both"><rect x="150.0" y="86.0" width="20" height="36" rx="3" fill="#0E7490" stroke="#22D3EE"/><path d="M157 99.0l8 5-8 5z" fill="#EEF3F6"/></g><path d="M214 72h22l5 6h53v50h-80z" fill="#0F0D1A" stroke="#1B1A26"/><text x="254" y="144" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" fill="#8B93A3">1x1/</text><g style="animation:d2 4s ease-out infinite both"><rect x="239.0" y="89.0" width="30" height="30" rx="3" fill="#0E7490" stroke="#22D3EE"/><path d="M251 99.0l8 5-8 5z" fill="#EEF3F6"/></g><text x="18" y="30" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#EEF3F6">05_FINAL_OUTPUTS/Promos/</text><text x="18" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#22D3EE">03-Rise/</text><text x="80" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#8B93A3">aspect/ LANG/</text>
+<text x="16" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#8B93A3">10</text>
+<text x="38" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#EEF3F6">FINALS</text>
+</svg>

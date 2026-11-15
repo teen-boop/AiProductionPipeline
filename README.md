@@ -1,9 +1,9 @@
 # AI Production Pipeline
 ### by One Two Film
 
-A set of **Claude Code skills** for making AI-generated films, from a script or
-story idea to consistent, identity-locked storyboard frames and ready-to-paste
-video prompts.
+A set of **Claude Code skills** for making AI-generated films, ads and promos:
+from the brief and the research, through identity-locked references, frames and
+video clips, to the edit, the finished files and the delivery package.
 
 The skills are tool-agnostic. You can connect an image or video generator
 through a **CLI**, an **API** or an **MCP connector**, or connect nothing and
@@ -17,27 +17,16 @@ to attach.
 
 ## What it does
 
-```
-script / story idea
-   │  script-extractor · visual-story-2-script
-   ▼
-generation backend?  ── generation-backend-setup ──►  CLI / API / MCP   (connected, tested)
-   │                                              └─►  MANUAL MODE      (prompts + folders)
-   ▼
-references  ── reference-style-builder · character-identity-lock-setup · detail-reference-intake · organize_refs.py
-   ▼
-shot list   ── storyboard-narrative-breakdown · storyboard-shot-selection · continuity ledgers
-   ▼
-still frames ── period-fact-check · cinematic-prompt-writer · keyframe-chain-builder · storyboard-reference-assembly · manual-image-pack
-   ▼
-generate + QC ── generation-queue-runner · frame-qc-contact-sheet · generation-failure-fixes · identity-fix-pass
-   ▼
-placement   ── storyboard-insert-ops · animation-handoff-folder · animation-prompts-page
-   ▼
-video clips ── cinema-director-v3 · seedance-prompt-writer · seedance-edit-prompting (video-cut-timecodes · segment-reference-lock) · video-clip-continuity-chain
-   ▼
-storyboard + shot-list tracker
-```
+Twelve stages, from the brief to the delivered file. Each stage has its own small skills; each skill does one job. Click a stage to jump to its skills.
+
+<table>
+<tr><td width="33%" valign="top"><a href="#01-setup"><img src="docs/anim/01_setup.svg" width="100%" alt="Project setup"></a><br><b>01 · Project setup</b><br><sub>One project folder, a brief with the deliverables, a backend that can generate (or manual mode).</sub></td><td width="33%" valign="top"><a href="#02-research"><img src="docs/anim/02_research.svg" width="100%" alt="Research"></a><br><b>02 · Research</b><br><sub>The audience's own words, real facts and the theme, before anything is written.</sub></td><td width="33%" valign="top"><a href="#03-story"><img src="docs/anim/03_story.svg" width="100%" alt="Story and script"></a><br><b>03 · Story and script</b><br><sub>A finished script, with every scene's places, people and props pulled out of it.</sub></td></tr>
+<tr><td width="33%" valign="top"><a href="#04-references"><img src="docs/anim/04_references.svg" width="100%" alt="References and identity"></a><br><b>04 · References and identity</b><br><sub>Every reference sorted and given a job: look, face, room, prop. Characters locked before any shot.</sub></td><td width="33%" valign="top"><a href="#05-shots"><img src="docs/anim/05_shots.svg" width="100%" alt="Shot list and storyboard"></a><br><b>05 · Shot list and storyboard</b><br><sub>Every shot numbered, sized for a reason, with its references and its continuity state.</sub></td><td width="33%" valign="top"><a href="#06-stills"><img src="docs/anim/06_stills.svg" width="100%" alt="Still frames"></a><br><b>06 · Still frames</b><br><sub>Prompts in the locked style, frames generated in batches, every file logged with its prompt.</sub></td></tr>
+<tr><td width="33%" valign="top"><a href="#07-qc"><img src="docs/anim/07_qc.svg" width="100%" alt="Frame QC"></a><br><b>07 · Frame QC</b><br><sub>Fresh eyes on every batch, faces checked, failures fixed or rejected.</sub></td><td width="33%" valign="top"><a href="#08-video"><img src="docs/anim/08_video.svg" width="100%" alt="Video prompts and clips"></a><br><b>08 · Video prompts and clips</b><br><sub>Approved frames animated: one standalone prompt per shot, clips that join without jumps.</sub></td><td width="33%" valign="top"><a href="#09-edit"><img src="docs/anim/09_edit.svg" width="100%" alt="Edit, sound and color"></a><br><b>09 · Edit, sound and color</b><br><sub>Material in editor bins, a cut on the timeline, dialogue, music and grade finished.</sub></td></tr>
+<tr><td width="33%" valign="top"><a href="#10-finals"><img src="docs/anim/10_finals.svg" width="100%" alt="Finals and verification"></a><br><b>10 · Finals and verification</b><br><sub>The encoded file checked, finals sorted by category, title, aspect and language.</sub></td><td width="33%" valign="top"><a href="#11-delivery"><img src="docs/anim/11_delivery.svg" width="100%" alt="Delivery and archive"></a><br><b>11 · Delivery and archive</b><br><sub>Packages checked for the client or platform, then the project archived and the drive cleaned.</sub></td><td width="33%" valign="top"><a href="#12-promo"><img src="docs/anim/12_promo.svg" width="100%" alt="Promos, trailers and motion"></a><br><b>12 · Promos, trailers and motion</b><br><sub>A side track: films, trailers, posters, presentations and motion graphics made from the project.</sub></td></tr>
+</table>
+
+Stages 2 and 12 are optional. The `visual-story-1` … `visual-story-8` skills are an alternative fixed, linear track through the same stages.
 
 **Highlights**
 - **Identity lock:** the same face at every age or stage of a character, from reference sheets.
@@ -72,7 +61,7 @@ cd AiProductionPipeline
 # if blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer copies every folder in `skills/` and should report **77 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
+The installer copies every folder in `skills/` and should report **84 skill(s) installed**. Restart Claude Code (or start a new session) afterwards.
 
 To check that every skill is complete (front matter, referenced files, scripts compile): `python3 tools/validate_skills.py`.
 
@@ -104,95 +93,163 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 ## Skills
 
-**Start here**
-- `ai-visual-production-director` — entry point. Works out which phase a request belongs to and runs the right skills in order.
-- `generation-backend-setup` — connects a CLI, API or MCP backend safely, or switches to manual mode (reference sorting plus prompt list plus manual pack).
+84 skills in 12 stages. Skills with a `scripts/` file do the mechanical work in code; the rest are instructions Claude follows.
 
-**Script and story**
-- `script-extractor` — breaks a screenplay or prose into locations (day/night), characters, props, actions and wardrobe, each linked to its scene.
-- `visual-story-1-setup` … `visual-story-8-storyboard` — an alternative fixed, linear 8-step pipeline: setup → script → cast & world → references → exposition → production → platform QC → storyboard.
-- `visual-story-pipeline` — the same 8-step pipeline as one umbrella skill with its full reference library (reference taxonomy, script structures, prompt engineering, character lock, platforms, QC and fixes, location and prop references).
-- `story-bible-builder` — interview-driven: turns a story into one dense canon document (the story's bible) that every later prompt reads from.
-- `ai-book-writer` — scene engine for writing a book with an AI co-writer: Harmon's 8-beat circle per scene, THEREFORE / BUT joints (shared causality module), English cards, prose in the book's language; build, audit, chapter/book, stuck, resume from BOOK_LEDGER.md, and screen mode that turns a scene into a shot list. `scripts/prose_lint.py` flags weak connectors, telling, beat weight, tense and POV drift.
-- `story-continuity-ledger` — continuity memory for long illustrated stories: a versioned ledger of every recurring element (look, injuries, vehicles, props, who is where) that grows with the story and opens a new version when the story changes something; pre-generation checklist and post-generation QC.
+<a id="01-setup"></a>
+### 01 · Project setup
 
-**References and identity**
-- `location-state-dials` — the same location in different states: dials (wear, wetness, light, tidiness, crowd, weather, time, damage, haze, season) with a "means here" sentence, named presets and a cost tag (prompt change vs new plate).
-- `reference-style-builder` — learns the look from the project's reference library (style frames, saved prompts, approved frames), writes a measured style card (60/30/10 palette in hex, light, lens, grain, composition) and builds the reference set in order: style frame → character sheet → empty location plate → prop sheet → keyframes → change-to close-ups, each with its role line.
-- `character-identity-lock-setup` — locks a character's face across every age or stage.
-- `detail-reference-intake` — catalogues new detail screenshots into the reference index.
-- `storyboard-reference-assembly` — resolves every noun in a shot to its locked reference asset.
+One project folder, a brief with the deliverables, a backend that can generate (or manual mode).
 
-**Shot list and continuity**
-- `storyboard-narrative-breakdown` — turns "camera does X, then Y" prose into a numbered shot list.
-- `storyboard-shot-selection` — justifies each shot size by the narrative job it does.
-- `storyboard-camera-continuity-ledger`, `storyboard-continuity-tracker` — camera, cut and state continuity between shots.
-- `animation-effects-catalog` — interactive shot-by-shot prompt builder (camera options → enhancements → assembled block, one shot per round) and a growing catalog of tricks that make AI video impressive, by hero type (tiny creatures, giants vs tiny humans, real animals, surreal anatomy, painted/puppet characters, levitation, falls, face recast) and by effect (camera, physics, performance, voice, light, workflow modes, negative blocks). Paste a strong prompt and say "learn from this" to grow it.
-- `location-room-map` — turns one location photo into a full room: floor plan, all four walls (windows on at most two adjacent walls, at least one door, one of each object, same decor density as the source), each wall generated as its own reference so reverse shots show the right wall.
-- `scene-continuity-lock` — per-scene state sheet (who sits where, prop states, light, camera axis, mirrored order on reverse shots); every storyboard panel and final-frame prompt is checked against the previous and next one, gets a CONTINUITY block, and is QC'd against the sheet.
+- **`ai-visual-production-director`**: Entry point. Works out which phase a request belongs to and runs the right skills in order, or runs a whole project from brief to results with approval gates.
+- **`generation-backend-setup`**: Connects a CLI, API or MCP backend safely (keys stay in environment variables, the connection is tested) or switches to manual mode.
+- **`project-scaffold`**: Creates the standard project tree (00_BRIEF … 99_ARCHIVE) with PROJECT.json and a brief template; only adds what is missing, `--check` audits a messy project. `scripts/scaffold.py`
+- **`visual-story-pipeline`**: The whole fixed 8-step track as one umbrella skill with its reference library (taxonomy, script structures, prompt engineering, character lock, platforms, QC).
+- **`visual-story-1-setup`**: Step 1 of the 8-step track: inspects the references, assigns roles, fixes aspect ratio and resolution.
 
-**Still images**
-- `cinematic-prompt-writer` — wide, medium and close-up prompts in one locked cinematic style.
-- `manual-image-pack` — hand-generation packs and intake of the results.
-- `loveart-video-animation`, `loveart-project-director` — the same phases written for the Lovart platform, if you use it.
-- `period-fact-check` — checks the dates, liveries, construction stage and who was where against a source before prompting, and turns each fact into an ACCURACY line.
-- `theme-research-module` — a swappable theme for a fixed series format (for example surreal home-video tapes): pins the era window, builds a reality bank (places, rituals, types, props), a twist bank (one impossible thing nobody reacts to), an annotated reference board with the camera of the era and a draft STYLE LOCK, runs an anachronism check and waits for approval before any download or story work.
-- `keyframe-chain-builder` — K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset → night) for first + last frame video; enforces physical realism, forward-moving time and the full style on every keyframe.
+<a id="02-research"></a>
+### 02 · Research
 
-**Generation, QC and placement (one job each)**
-- `independent-frame-critic` — fresh-eyes review of a batch: a reviewer who never saw the prompts scores 8 film categories, names up to 5 ranked fixes and gives each frame keep / fix / reject; pass rule, logged and capped rounds. `scripts/critic_log.py`.
-- `media-path-verify` — before any export or hand-off: every referenced file really exists, catches drives that remounted under a new name and phantom /Volumes folders; suggests relinks, applies none without a yes. `scripts/verify_media.py`.
-- `frame-crop-guard` — checks every crop before a render: real boxes from headless Chrome (vertical layouts included), faces and people in each source with Apple Vision, flags lost or cut faces and bodies, suggests the object-position or a better box, and draws a sheet of every crop window. `scripts/crop_boxes.mjs`, `crop_check.py`, `subjects.swift`.
-- `render-cut-verification` — the last gate on the ENCODED file: strips across every cut, black/flash frames, opening seconds, audio/video lengths, loudness and true peak, optional re-transcription. `scripts/cut_strips.py`.
-- `style-lock-guard` — always-on look guard: locks the look to the director's own reference frames (and the source prompt embedded in their PNG metadata), lints every prompt before it is sent (required style phrases, no contradicting grade phrases, style frames attached last — wired into the runner as a gate), and measures every result against the references to catch the flat/grey "mediocre" look.
-- `generation-queue-runner` — worker pool rules: limits, claim files, hard back-off on rate limits, no auto-confirmed costs, waves for chained frames.
-- `frame-qc-contact-sheet` — batch QC on labelled contact sheets, start|end pair sheets and face crops, plus a letterbox-bar trimmer (`scripts/`).
-- `reference-roles-leak-check`: one job per reference image (who, where, pose, style, light, palette...), a "do not take" line for each, the most-ignored job first, and a leak check before a frame is kept (no stranger's face, props or colors from the wrong card).
-- `video-color-grade`: deterministic grading in local code (ffmpeg + numpy): cinematic looks baked to .cube LUTs, match to the approved key frame, day-for-night, B&W with one kept color, log to Rec.709, look grids and a grading showreel. `scripts/render_looks.py`, `match.py`, `showreel.py`.
-- `seamless-motion-loops`: brand-color motion backgrounds as code, rendered to MP4 with a verified seam (frame at LOOP equals frame 0), optional character still on top, plus the same loop as a HyperFrames composition. `scripts/render-loop.mjs`, `loop-template.html`.
-- `generation-failure-fixes` — catalogue of recurring model failures (second subject from a reference, leaked names, bars, orbs, wrong city, anachronisms, frozen poses, unsafe physics) with the exact fix line.
-- `identity-fix-pass` — fixes a wrong face without re-shooting the frame, verifies it against the identity bust and keeps the storyboard slot.
-- `storyboard-insert-ops` — declarative placement ops (replace, after/before, *_late after a beat rebuild, fixes of fixes last) and post-build checks.
-- `animation-handoff-folder` — one flat folder of final frames in story order plus one prompt list with first/last-frame pairing, synced after every delivery.
-- `animation-prompts-page` — the hand-off folder as one browsable page: picture + prompt + copy button, Kling end frame, filters, search, "done" ticks; rebuilt on every sync and always opened for the user.
+The audience's own words, real facts and the theme, before anything is written.
 
-**Video**
-- `nle-timeline-assembly` — one validated cut plan (in/out, tracks, transitions, markers, music ducking) built in DaVinci Resolve (MCP), Premiere Pro (MCP) or exported as CMX3600 EDL + CSVs; read back after every change. `scripts/cutplan_to_edl.py`.
-- `dialogue-cut` — voice-over and dialogue from several takes: DaVinci Resolve's own transcript (subtitles from audio) or any word timings, matched to every script line (any language), each reading scored (completeness, extra words, fillers, redo cues, confidence), the best one frame-snapped into a CANDIDATE cut with runner-ups, flags for loose or missing lines, and subtitles on the record timeline; a person listens before it is approved. Also finds where an ordered line sits inside a generated clip with speech. `scripts/take_select.py`.
-- `dialogue-audio-finish` — measures every speech edge at 1 ms (clipped onsets, cut-off words, s/sh/t tails, dead air, cuts inside continuous speech, level jumps between takes) and suggests exact edges; sample-exact audio inside frame-snapped picture with room tone, 12 ms fades, level match, music ducking, and the delivery loudness pass on the final stereo file. `scripts/edge_qa.py`.
-- `music-beat-grid` — optional, asks first: measured beat grid (kick-band phase, energy per bar), splices to length on beats, frame-exact cut sheet, checks cuts against the grid. `scripts/beat_grid.py`.
-- `retention-packaging-plan` — asks the video type first; for social / creator / explainer cuts: hook, visual events, punch-ins, captions and cards as a cue sheet anchored to words.
-- `text-behind-subject` — optional accent: title or number placed between background and subject (matting routes, composite, QC) for covers, title cards and hooks.
-- `cinema-director-v3` — Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
-- `seedance-prompt-writer` — Seedance-format prompts that follow a project's own mandatory rules.
-- `seedance-edit-prompting` — Seedance 2.5 Edit / Higgsfield video-to-video: recast characters, wardrobe or backgrounds in existing footage while keeping motion, cuts and timing (asset mapping, identity link, shot order, no effects in recast), persona look and change-request read-back rules, a measured light match between characters and location plates, plus numeric motion-match verification with ffmpeg.
-- `video-cut-timecodes` — splits a source video into one timecode block per cut, frame-accurate: hard cuts plus soft cuts (lone score peaks), black frames by luma, duration from the video stream, beat sheets for long takes, and a continuity check. When a block is wrong you choose: re-detect automatically or type the cuts manually (seconds or SS.FF).
-- `segment-reference-lock` — assigns references to every block (automatically from the frames, or manually) and writes a LOOK LOCK into every block from the reference descriptions or the base details, plus the block's exact-motion and voice lines (original voice by default; new words only from the user).
-- `video-clip-continuity-chain` — clips played back to back stay consistent.
-- `seedance-shotlist-tracker` — an interactive production checklist for a batch of clips.
+- **`ad-research-glossary`**: Researches a brand, product or topic into one Ad Glossary: the audience's own words, plain-language terms, audience categories, pain → problem → answer map, keywords, proof bank, do-not-say list.
+- **`theme-research-module`**: A swappable theme for a series format: era window, reality bank, twist bank, annotated reference board with the era's camera, anachronism check, approval gate.
+- **`period-fact-check`**: Checks dates, liveries, construction stages and who was where against a real source and turns each fact into an ACCURACY line for the prompt.
 
-**Presentations**
-- `otf-presentations` — OTF Presentations: cinematic announcement / explainer / teaser videos (HyperFrames). Reads the context from the chat and the project's references first (embedded source prompts, style lock, best frames ranked by the look, videos, docs), picks fonts that really render the language (glyph-tested) and an animation vocabulary matched to the look, then plans, composes, checks frame by frame and renders. `scripts/otf_context.py`. Its editing rhythm comes from a measured study of 24 premium short videos (`references/EDIT_PATTERNS.md`: accelerate-and-release, overexposure flash, dip-to-black breath, endings).
-- `otf-project-trailer` — a cinematic trailer or teaser cut from a project's own approved frames and clips: ranked material pick, trailer structures with beat timing, style-locked requests for missing shots, beat-grid edit, per-language renders, verified encode, share copy. `scripts/pick_material.py`, `frame_check_sheet.py`.
-- `cinematic-promo-film` — a promo, launch or brand film for a client made like a short film from AI shots: brief with one feeling and one claim, 2–3 story concepts, product fidelity lock, stills-first generation with paid steps gated, music-first edit with a cinematic cut catalog, masters and cutdowns per aspect and language.
-- `cinematic-poster-designer` — unusual cinematic film posters: one visual metaphor from a device catalogue (object replaces the head, silhouette window, shard reveal, lone figure in fog, single colour field…), learned only from the poster references the user marks as liked (`LIKED.md`); key art is generated without text and the title, tagline and credits are set in code (`scripts/compose_poster.py`), 2:3 plus 4:5 and 9:16.
+<a id="03-story"></a>
+### 03 · Story and script
 
-- `davinci-series-assembly` — puts a series of finished clips (presentation parts, block reels) on a new DaVinci Resolve timeline in order via the Resolve MCP: validates fps/size, imports into a dated folder, creates a versioned timeline, adds a marker per part, verifies no gaps/overlaps, never deletes anything. `scripts/series_manifest.py` (+ ffmpeg preview master).
+A finished script, with every scene's places, people and props pulled out of it.
 
-- `press-clipping-engine` — turns any screenshot into a press / newspaper-style image prompt: phase 1 distils style references into reusable archetypes (editorial broadsheet, pulp tabloid, redacted dossier, torn stack, Vox-style clip), phase 2 applies one in a minute.
+- **`visual-story-2-script`**: Turns an idea or a draft into a structured script (Save the Cat, Hero's Journey, three acts, sequences).
+- **`ai-book-writer`**: Book co-writer: Harmon's 8-beat circle per scene, therefore / but causality, scene cards before prose, prose audit with a linter, and a bridge from chapters to shots.
+- **`ad-copy-director`**: Ad texts from researched words only: hooks, on-screen lines, headlines, captions, buttons, title cards, short scripts.
+- **`ad-script-writer`**: 6 to 30 second ad scripts as a beat sheet (picture, words, on-screen text, sound), every line traced to the glossary, plus the production hand-off.
+- **`script-extractor`**: Breaks a screenplay or prose into locations (day/night), characters, props, actions and wardrobe, each linked to its scene.
+- **`story-bible-builder`**: Interview-driven canon document that every later prompt reads from.
+- **`story-continuity-ledger`**: Versioned memory of every recurring look, wound, vehicle and prop across chapters; a new version opens when the story changes something.
+- **`visual-story-3-cast-world`**: Step 3 of the 8-step track: cast and world development.
 
-**Project files and delivery**
-- `project-scaffold` — one standard tree for every project (00_BRIEF, 01_REFERENCES, 02_PROMPTS, 03_GENERATED, 04_EDIT, 05_FINAL_OUTPUTS, 06_DELIVERY, 07_POSTING, 99_ARCHIVE) with PROJECT.json and a brief template; only adds missing folders, `--check` audits a messy project. `scripts/scaffold.py`.
-- `reference-library-organizer` — understands references and sorts them into EXTERNAL (found: look only, never shipped), INTERNAL (ours, LOCKED vs CANDIDATES), PROMPTS and PERSONAL (real people: indexed in place, never copied); classifies by name, source URL, camera metadata and the generation log, then by eye from contact sheets; stable ids with role lines and shot usage; leak check before anything leaves. `scripts/refs.py`.
-- `generation-log` — append-only log of every generated file: prompt, model, references, params, cost, shot, parent take, approval; matched by content so renamed copies still find their prompt; regenerate recipes and spend reports. `scripts/genlog.py`.
-- `edit-media-bins` — copies generated clips, stills, audio, graphics, LUTs and cut plans into editor bins grouped and ordered by shot, renames hash-named takes, flags clips with a different size or fps; originals untouched. `scripts/edit_bins.py`.
-- `final-outputs-organizer` — gathers finished videos into Category/NN-Title/aspect/[LANG]: aspect measured, stable numbers, language level only when needed, editable plan, copies only, INDEX.md. `scripts/organize_finals.py`.
-- `delivery-package` — client or platform packages (YouTube, Shorts, TikTok, Reels, feed, LinkedIn, X): spec checks, private-reference block, naming rules, captions, covers, notes and SHA-256 checksums; never uploads. `scripts/deliver.py`.
-- `versions-and-archive` — stable final paths with old versions in `_previous/`, a space report (caches, duplicates, rejected takes), verified archiving to another drive; removal only to the Finder Trash after a yes. `scripts/versions.py`.
+<a id="04-references"></a>
+### 04 · References and identity
 
-**Motion graphics (a parallel track)**
-- `motion-graphics-director`, `motion-style-core`, `motion-design-references`, `motion-remotion-build`, `motion-video-route`.
-- `cinematic-motion-graphics` — graphics inside a film's look: period maps with animated routes, date / time stamps, archival press headlines, documentary lower thirds, fact cards, timelines, blueprints, title cards, composite overlays; JSON spec lint, route projection, alpha renders. `scripts/spec_lint.py`, `route_overlay.py`.
+Every reference sorted and given a job: look, face, room, prop. Characters locked before any shot.
+
+- **`reference-library-organizer`**: Sorts references into EXTERNAL (look only, never shipped), INTERNAL (LOCKED or CANDIDATES), PROMPTS and PERSONAL (indexed in place, never copied); classifies by eye from contact sheets; leak check before anything leaves. `scripts/refs.py`
+- **`reference-style-builder`**: Learns the look from the project's own references and writes a measured style card (palette in hex, light, lens, grain), then builds the reference set in order, each with a role line.
+- **`character-identity-lock-setup`**: Locks a character's face across every age, stage and shot.
+- **`detail-reference-intake`**: Catalogues new detail screenshots (hands, props, wardrobe) into the reference index.
+- **`location-room-map`**: Turns one location photo into a whole room: floor plan and all four walls, so reverse shots show the right wall.
+- **`location-state-dials`**: The same location in different states (wet, dark, crowded, damaged, season) as named presets with a cost tag.
+- **`style-lock-guard`**: Locks the look to the director's frames, lints every prompt before it is sent and measures every result against the references.
+- **`reference-roles-leak-check`**: One job per attached reference with a "do not take" line, and a check that no stranger's face, prop or colour leaked into the frame.
+- **`visual-story-4-references`**: Step 4 of the 8-step track: reference sheets for characters, locations and props.
+
+<a id="05-shots"></a>
+### 05 · Shot list and storyboard
+
+Every shot numbered, sized for a reason, with its references and its continuity state.
+
+- **`storyboard-narrative-breakdown`**: Turns "the camera does X, then Y" prose into a numbered shot list with bridging details.
+- **`storyboard-shot-selection`**: Justifies each shot size by the job it does in the story.
+- **`storyboard-reference-assembly`**: Resolves every noun in a shot to its locked reference asset.
+- **`storyboard-camera-continuity-ledger`**: Camera axis, screen direction and cut continuity between shots.
+- **`storyboard-continuity-tracker`**: Props, wardrobe, weather and positions carried from shot to shot.
+- **`scene-continuity-lock`**: A per-scene state sheet (who sits where, prop states, light, axis) checked against the previous and next prompt and injected as a CONTINUITY block.
+- **`keyframe-chain-builder`**: K1 → K2 → K3 keyframe chains (micro-stories, reveals, sunset to night) for first + last frame video, with forward-moving time.
+- **`storyboard-insert-ops`**: Inserts, replaces and reorders shots without breaking the numbering.
+- **`visual-story-5-exposition`**: Step 5 of the 8-step track: exposition and establishing shots.
+- **`visual-story-8-storyboard`**: Step 8 of the 8-step track: the storyboard.
+
+<a id="06-stills"></a>
+### 06 · Still frames
+
+Prompts in the locked style, frames generated in batches, every file logged with its prompt.
+
+- **`cinematic-prompt-writer`**: Wide, medium and close-up prompts in one locked cinematic style.
+- **`generation-queue-runner`**: Batch discipline: worker limits, claim files, back-off on rate limits, no auto-confirmed costs, waves for chained frames.
+- **`generation-log`**: Append-only log of every generated file (prompt, model, references, params, cost, shot, parent take); renamed copies still find their prompt. `scripts/genlog.py`
+- **`manual-image-pack`**: One folder per frame with PROMPT.txt and numbered references for generating by hand, then intake of the results.
+- **`press-clipping-engine`**: Turns a screenshot into a newspaper-style image prompt from reusable press archetypes.
+- **`loveart-video-animation`**: The frame phases written for the Lovart platform.
+- **`loveart-project-director`**: Lovart project router: setup, reference lock, storyboard, panels, video prompts.
+- **`visual-story-6-production`**: Step 6 of the 8-step track: scene production.
+
+<a id="07-qc"></a>
+### 07 · Frame QC
+
+Fresh eyes on every batch, faces checked, failures fixed or rejected.
+
+- **`independent-frame-critic`**: A reviewer who never saw the prompts scores the batch, names up to 5 ranked fixes and gives each frame keep / fix / reject. `scripts/critic_log.py`
+- **`frame-qc-contact-sheet`**: Labelled contact sheets, start|end pair sheets, face crops and a letterbox-bar trimmer.
+- **`identity-fix-pass`**: Fixes a wrong face without re-shooting the frame and keeps its storyboard slot.
+- **`generation-failure-fixes`**: Catalogue of recurring model failures (duplicated subjects, leaked names, bars, wrong city, anachronisms) with the exact fix line.
+- **`frame-crop-guard`**: Finds crops that lose the subject or cut a face before a render, with the fix. `scripts/crop_check.py`
+- **`visual-story-7-platform-qc`**: Step 7 of the 8-step track: platform operation and QC.
+
+<a id="08-video"></a>
+### 08 · Video prompts and clips
+
+Approved frames animated: one standalone prompt per shot, clips that join without jumps.
+
+- **`cinema-director-v3`**: Seedance 2.0/2.5 and Higgsfield prompts on a locked 16-slot structure: optics, physics, acting, audio, lipsync.
+- **`seedance-prompt-writer`**: Seedance prompts that follow the project's own mandatory rules.
+- **`seedance-edit-prompting`**: Video-to-video edits that recast people, wardrobe or backgrounds while keeping motion, cuts and timing.
+- **`video-cut-timecodes`**: One frame-accurate timecode block per cut of a source video, hard and soft cuts.
+- **`segment-reference-lock`**: References and a LOOK LOCK for every block, plus exact-motion and voice lines.
+- **`video-clip-continuity-chain`**: Restates the inherited state of every prop and person at each clip boundary.
+- **`seedance-shotlist-tracker`**: Interactive production checklist for a batch of clips.
+- **`animation-handoff-folder`**: Final frames in story order plus every animation prompt with first/last-frame pairs, synced after each delivery.
+- **`animation-prompts-page`**: The hand-off folder as one page: picture, prompt, copy button, end frame, done ticks.
+- **`animation-effects-catalog`**: Shot-by-shot prompt builder and a growing catalogue of tricks that make AI video impressive.
+
+<a id="09-edit"></a>
+### 09 · Edit, sound and color
+
+Material in editor bins, a cut on the timeline, dialogue, music and grade finished.
+
+- **`edit-media-bins`**: Copies generated clips, stills, audio, graphics and cut plans into editor bins ordered by shot; flags clips with a different size or fps. `scripts/edit_bins.py`
+- **`nle-timeline-assembly`**: One validated cut plan built in DaVinci Resolve or Premiere Pro (MCP) or exported as EDL + CSV. `scripts/cutplan_to_edl.py`
+- **`davinci-series-assembly`**: Finished parts back to back on a new Resolve timeline with a marker per part.
+- **`dialogue-cut`**: The best reading of every script line from several takes, scored, frame-snapped into a candidate cut. `scripts/take_select.py`
+- **`dialogue-audio-finish`**: Speech edges measured at 1 ms, room tone, fades, level match, ducking and the loudness pass. `scripts/edge_qa.py`
+- **`music-beat-grid`**: Measured beat grid, splices to length on beats, cut sheet checked against the grid. `scripts/beat_grid.py`
+- **`retention-packaging-plan`**: Hook, visual events, punch-ins, captions and cards for social and explainer cuts.
+- **`video-color-grade`**: Deterministic grading in code: looks baked to .cube LUTs, match to the key frame, day-for-night, look grids. `scripts/render_looks.py`
+- **`text-behind-subject`**: A title placed between the background and the subject for covers and hooks.
+- **`seamless-motion-loops`**: Brand-colour looping backgrounds and fillers as code, with a verified seam. `scripts/render-loop.mjs`
+
+<a id="10-finals"></a>
+### 10 · Finals and verification
+
+The encoded file checked, finals sorted by category, title, aspect and language.
+
+- **`render-cut-verification`**: The last gate on the encoded file: strips across every cut, black and flash frames, lengths, loudness. `scripts/cut_strips.py`
+- **`media-path-verify`**: Every referenced file really on the drive; catches renamed and phantom volumes. `scripts/verify_media.py`
+- **`final-outputs-organizer`**: Finished videos into Category/NN-Title/aspect/[LANG] with measured aspect and stable numbers; copies only. `scripts/organize_finals.py`
+
+<a id="11-delivery"></a>
+### 11 · Delivery and archive
+
+Packages checked for the client or platform, then the project archived and the drive cleaned.
+
+- **`delivery-package`**: Client or platform packages (YouTube, Shorts, TikTok, Reels, LinkedIn, X): spec checks, naming, captions, covers, checksums; never uploads. `scripts/deliver.py`
+- **`versions-and-archive`**: Stable final paths with old versions in `_previous/`, a space report, verified archiving; removal only to the Trash after a yes. `scripts/versions.py`
+
+<a id="12-promo"></a>
+### 12 · Promos, trailers and motion
+
+A side track: films, trailers, posters, presentations and motion graphics made from the project.
+
+- **`cinematic-promo-film`**: A promo or brand film made like a short film: one feeling, one claim, product fidelity lock, gated paid steps, music-first edit.
+- **`otf-project-trailer`**: A trailer or teaser cut from the project's own approved frames and clips.
+- **`otf-presentations`**: Cinematic announcement, explainer and teaser videos in HyperFrames, with fonts tested for the language. `scripts/otf_context.py`
+- **`cinematic-poster-designer`**: Film posters built on one visual metaphor; text set in code. `scripts/compose_poster.py`
+- **`cinematic-motion-graphics`**: Graphics inside the film's look: period maps with routes, date stamps, press headlines, lower thirds, fact cards, timelines.
+- **`motion-graphics-director`**: Router for motion graphics: code route (Remotion) or video route, plus 46 composable animation blocks.
+- **`motion-style-core`**: The motion style sheet every motion piece follows.
+- **`motion-design-references`**: Motion reference library and how to read it.
+- **`motion-remotion-build`**: Builds motion graphics in Remotion code.
+- **`motion-video-route`**: Motion graphics through video models (collage, camera moves, big blocks).
 
 ---
 
@@ -200,9 +257,10 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 ```
 skills/          one folder per skill (SKILL.md + references/ scripts/ assets/)
-docs/            pipeline overview and the prompt style template
+docs/            pipeline overview, the prompt style template, anim/ stage animations
 examples/        example jobs and sections files for manual-image-pack
-tools/           check_clean.sh — scans the repo for keys, personal paths and non-English text
+tools/           make_readme_anims.py — regenerates docs/anim/*.svg
+                 check_clean.sh — scans the repo for keys, personal paths and non-English text
                  validate_skills.py — checks every skill (front matter, referenced files, scripts compile)
 install.sh       installer for macOS / Linux / Git Bash / WSL
 install.ps1      installer for Windows PowerShell

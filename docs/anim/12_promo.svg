@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="Promos and motion">
+<style>
+.f{transform-box:fill-box;transform-origin:center}
+@keyframes ttl{0%,8%{opacity:0;letter-spacing:12px}30%,88%{opacity:1;letter-spacing:4px}100%{opacity:0}}
+@keyframes sweep{0%,35%{transform:translateX(-80px)}65%,100%{transform:translateX(340px)}}
+</style>
+<rect width="320" height="180" rx="14" fill="#07050F"/>
+<rect x="0.5" y="0.5" width="319" height="179" rx="14" fill="none" stroke="#1B1A26"/>
+<defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#EEF3F6" stop-opacity="0"/><stop offset=".5" stop-color="#EEF3F6" stop-opacity=".9"/><stop offset="1" stop-color="#EEF3F6" stop-opacity="0"/></linearGradient><clipPath id="tx"><text x="160" y="84" text-anchor="middle" font-family="Impact,Haettenschweiler,Arial Narrow,sans-serif" font-size="40" letter-spacing="4">THE KEEPER</text></clipPath></defs><clipPath id="cardc"><rect x="1" y="1" width="318" height="178" rx="13"/></clipPath><g clip-path="url(#cardc)"><rect x="0" y="0" width="320" height="22" fill="#000"/><rect x="0" y="140" width="320" height="16" fill="#000"/></g><text x="160" y="84" text-anchor="middle" font-family="Impact,Haettenschweiler,Arial Narrow,sans-serif" font-size="40" letter-spacing="4" fill="#22D3EE" style="animation:ttl 4s infinite">THE KEEPER</text><g clip-path="url(#tx)"><rect x="0" y="40" width="70" height="60" fill="url(#sw)" style="animation:sweep 4s infinite"/></g><text x="160" y="110" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" letter-spacing="3" fill="#8B93A3" style="animation:ttl 4s .4s infinite both">A FILM MADE WITH THE PIPELINE</text>
+<text x="16" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#8B93A3">12</text>
+<text x="38" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#EEF3F6">PROMOS AND MOTION</text>
+</svg>

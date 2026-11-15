@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="Delivery">
+<style>
+.f{transform-box:fill-box;transform-origin:center}
+@keyframes lid{0%,15%{transform:rotate(-28deg) translateY(-14px)}40%,90%{transform:none}100%{transform:rotate(-28deg) translateY(-14px)}}
+@keyframes drop{0%{transform:translateY(-40px);opacity:0}10%{opacity:1}30%{transform:translateY(20px);opacity:1}38%,100%{transform:translateY(20px);opacity:0}}
+@keyframes r0{0%,40%{opacity:0}45%,92%{opacity:1}100%{opacity:0}}
+@keyframes r1{0%,49%{opacity:0}54%,92%{opacity:1}100%{opacity:0}}
+@keyframes r2{0%,58%{opacity:0}63%,92%{opacity:1}100%{opacity:0}}
+@keyframes r3{0%,67%{opacity:0}72%,92%{opacity:1}100%{opacity:0}}
+</style>
+<rect width="320" height="180" rx="14" fill="#07050F"/>
+<rect x="0.5" y="0.5" width="319" height="179" rx="14" fill="none" stroke="#1B1A26"/>
+<g style="animation:lid 4s ease-in-out infinite;transform-origin:110px 70px"><path d="M60 70h100l-10-18H70z" fill="#0E7490"/></g><rect x="60" y="70" width="100" height="62" rx="4" fill="#0F0D1A" stroke="#0E7490" stroke-width="2"/><path d="M110 70v62" stroke="#0E7490" stroke-width="2"/><rect x="88" y="44" width="10" height="16" rx="2" fill="#22D3EE" style="animation:drop 4s 0.00s infinite both"/><rect x="102" y="44" width="10" height="16" rx="2" fill="#F5B841" style="animation:drop 4s 0.25s infinite both"/><rect x="116" y="44" width="10" height="16" rx="2" fill="#EEF3F6" style="animation:drop 4s 0.50s infinite both"/><g style="animation:r0 4s infinite both"><circle cx="190" cy="58" r="6" fill="#34D399"/><path d="M187 58l2 2 4-4.5" stroke="#07050F" stroke-width="1.8" fill="none"/><text x="202" y="62" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#EEF3F6">specs  OK</text></g><g style="animation:r1 4s infinite both"><circle cx="190" cy="78" r="6" fill="#34D399"/><path d="M187 78l2 2 4-4.5" stroke="#07050F" stroke-width="1.8" fill="none"/><text x="202" y="82" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#EEF3F6">captions  OK</text></g><g style="animation:r2 4s infinite both"><circle cx="190" cy="98" r="6" fill="#34D399"/><path d="M187 98l2 2 4-4.5" stroke="#07050F" stroke-width="1.8" fill="none"/><text x="202" y="102" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#EEF3F6">leak check  OK</text></g><g style="animation:r3 4s infinite both"><circle cx="190" cy="118" r="6" fill="#34D399"/><path d="M187 118l2 2 4-4.5" stroke="#07050F" stroke-width="1.8" fill="none"/><text x="202" y="122" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#EEF3F6">sha256  OK</text></g>
+<text x="16" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#8B93A3">11</text>
+<text x="38" y="166" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.5" fill="#EEF3F6">DELIVERY</text>
+</svg>
