@@ -223,6 +223,27 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 ---
 - **Non-generator words to drop**: `4K, Ultra HD, HDR, professional film production quality, 9:16 reframing` — describe light and grain instead.
 
+## I. MOTION GRAPHICS IN CODE (HyperFrames / three.js briefs)
+Full briefs, the blank template and 20 style briefs: `motion-graphics-director/references/HYPERFRAMES-BRIEFS.md`. The moves below are the ones that lift a code animation from template to studio grade.
+- **Sectioned brief, not a one-liner** · any code animation · write PRODUCT/BRAND, STORY, FORMAT, LOOK, MOTION, SOUND, QUALITY CHECK, RULES; a one-line ask gives centred text in default colours
+- **One visual thread** · launch films, explainers · `One idea runs through the whole video: a single <accent> line that never leaves the screen. It ends as part of the logo.`
+- **Transform, never cut** · multi-scene films · `Every scene must transform into the next one. Nothing fades or cuts. For example the logo opens into the app, or a headline melts into the logo.`
+- **Ban the default layout** · product films · `No scene may be a headline on the left with a card on the right.`
+- **The animation becomes the logo** · logo stings · `The animation must physically become the logo. Do not fade or scale the logo into view.` (a dot draws a line that closes into the letters; parts fold into the mark)
+- **Design the mark first** · logos without a file · `Design the logo first, then animate it. It must still read clearly when it is tiny.`
+- **Fast start, soft landing** · line or mark motion · `The line starts fast and lands soft, with a tiny overshoot when the loop closes. Real motion blur on the fast part.`
+- **Last second still** · logo endings · `The last second is completely still on the finished logo.`
+- **Camera never frozen** · films and showcases · `The camera is always moving slowly. Nothing sits frozen on screen.` plus depth: 3D tilt of UI windows, soft shadows, far-blur
+- **Real motion blur** · fast moves · `render extra in-between frames and blend them` (sub-frame accumulation), not a CSS blur
+- **Real UI in code** · app films · `Build the app screens in code so they look like a real, finished product. Keep them big enough that every word is easy to read.`
+- **Restraint list in LOOK** · premium briefs · `one accent color only; avoid gradients, stock icons, light streaks, particle bursts, glowing outlines, lens flares, 3D spins, anything that looks like a template`
+- **Sound per action, made in code** · every piece · `Make the music and every sound effect in code. A sound for every action (typing, lines drawing, notes landing, the logo), on the exact frame of the thing it belongs to. Scene changes land on the beat (about 100 BPM).`
+- **Critique loop** · every piece · `Render it, look at a frame from every half second (quarter second for logos), critique it like a senior motion designer (story, layout, spacing, type, timing, depth, readability, sound vs picture), fix everything, render again. At least four rounds; log what was weak and what changed each round.`
+- **Alpha twin** · logos · `Also export a second version with a transparent background.`
+- **Variations in the same chat** · logo pitching · `create another 2 variations, completely different logo look, idea, and timing; one 3 seconds, one 4 seconds`
+- **Let the model invent** · no clear idea yet · replace LOGO/IDEA/TIMING with `come up with one strong concept that fits the brand and makes the animation physically become the logo; keep the last second still`; rerun for new concepts
+- **Style name as a lever** · fast exploration · one style word changes everything: particles, liquid morph, holographic, neon glow, wireframe 3D, glassmorphism, kinetic typography, isometric, clay 3D, ASCII art, gradient mesh, comic book, split-flap, retro VHS, halftone, Bauhaus, pixel art, blueprint, art deco, neo-brutalism (briefs STY-01 to STY-20)
+
 ## SOURCE LOG
 - 2026-10-08 — CyberJungle ultra-realism guide: camera ownership, event→response→recovery, task→trigger→reaction, contact chain, texture by framing, mic perspective, targeted exclusions (B, C, D, E).
 - 2026-10-08 — web-swing parkour one-take (NYC): camera arc, hold on empty frame, measured cant, body spec, pose dictionary, contact everywhere, face-visibility plan, SFX score, light-with-a-NOT (A7, B, E, F).
@@ -244,3 +265,4 @@ Format: **Name** — when to use · `copy-ready phrase` (adapt nouns, keep the m
 - 2026-11-01 — meteor impact aerial chase (one take): camera hunts the event, impact as a chain of scales, sound after the light (B, C, E).
 - 2026-11-01 — finger-snap time freeze on a city sidewalk (15 s, steadicam backwards): visible trigger wave, private act put back exactly, silence score (A6, E).
 - 2026-11-01 — ruin-punk "stolen key" (30 s, 4 refs): logline before the timeline, reference lock without backgrounds/poses, provoke the reveal, act through the impact, closed ending with micro-coda (D, G).
+- 2026-11-13 · Claude Code + HyperFrames launch-film tutorial (Loop sample): sectioned brief, one visual thread, transform not cut, animation becomes the logo, last second still, camera never frozen, real motion blur, sound per action in code, multi-round critique, alpha twin, 20 style briefs (I).

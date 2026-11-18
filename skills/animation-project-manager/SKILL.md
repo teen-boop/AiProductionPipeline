@@ -20,6 +20,7 @@ description: Project manager for the animation layer of a video (presentation, a
 | A list, ranking, numbers, a claim that should land | `code-motion-catalog` | Split-Flap Board (hero row in amber) |
 | A process, a stack, how something works | `code-motion-catalog` | Layer Stack (sheets lift, a pulse goes down and back) |
 | Charts, kinetic type, explainer boards, collage | `motion-graphics-director` (block library), `hyperframes` | kinetic slams, count-ups, boards |
+| Logo sting, launch film, styled explainer in code | `motion-graphics-director/references/HYPERFRAMES-BRIEFS.md` (sectioned briefs, STY-01 to STY-20) | the animation becomes the logo, one visual thread, transform not cut, critique loop |
 | Period, documentary, maps, title and end cards in a film look | `cinematic-motion-graphics` | route maps, stamps, lower thirds |
 | Background under titles, filler between shots | `seamless-motion-loops` | brand-colour loop |
 | AI video shots that must feel cinematic | `animation-effects-catalog` | camera moves, contact, performance tricks |

@@ -64,6 +64,30 @@ one block per shot, so every block carries its own motion, voice and look lines.
    - Check the voice by ear at the block boundaries.
    - Report each claim as verified or unverified.
 
+## Camera lock: measure the camera, write it in numbers (user's standing rule)
+
+The user's complaint across several clips: the result does not repeat the source camera. "Exactly as in @video1" and "very slight push-in" were not enough; the model returned a static frame. Every edit prompt built on a source video gets a CAMERA LOCK block measured from the source.
+
+1. Measure before writing:
+   `python3 ~/.claude/skills/seedance-edit-prompting/scripts/camera_path.py SOURCE.mp4 --cuts A,B,...`
+   It compares every frame with the FIRST frame of its shot and prints zoom %, pan % and tilt % per 0.5 s plus a ready CAMERA LOCK block.
+   Never measure frame to frame: a slow push-in moves under a pixel per frame. On the gates source the frame-to-frame method said "static"; against the first frame shot 3 was an 11% push-in.
+2. Paste the CAMERA LOCK block right after ASSET MAPPING, one line per shot, with the measured start time, end time and amount ("everything in frame is about 11% bigger by the end"). Also put the same move in short form into the shot's own block line.
+3. Plates must match the source framing at the start of each shot. A plate framed tighter or wider than the source makes the model keep the plate's framing and drop the move. Build plates by editing the source frame of that shot, keeping its camera, and make the replaced object occupy the same area of the frame as the source object.
+4. Do not tell the subject where to stand or what to touch when the source already shows it. "the subject stands at the button box" moved the subject away from the person's position and broke the motion. Put the target object (button, socket) at the place in the plate where the person's hand goes in the source, and write only "exactly where the person's hand touches the grey box in @video1".
+5. After generation run `camera_path.py SOURCE --cuts ... --compare RESULT` and report both paths. A missing move is a failed take for the camera, even if the action is right.
+6. If two takes in a row miss the move, offer to apply the measured move in the edit instead: generate, then crop/scale the result along the measured path (ffmpeg `zoompan` or a keyframed scale in the NLE). This is exact, but it loses a little resolution (11% push-in = 11% crop).
+
+## Sharpness lock (user's standing rule)
+
+The user (one take): "it came out too blurry". The take was 15-23% less sharp than the source in the in-focus area (Laplacian variance of the lower 60% of the frame, both scaled to 1280x720). The prompt had said "shallow depth of field, natural motion blur", and the model softened the whole frame.
+
+- Never write only "shallow depth of field" or "motion blur" in LOOK. Add a SHARPNESS LOCK after the CAMERA LOCK: name the focus plane (the subject that is sharp in the source), list what must be crisp in that plane (laces, screws, edges, stones), say that only the far background is soft and exactly as soft as in the source, and limit motion blur to the fastest moment.
+- Add "no blurry or soft foreground" to GLOBAL CONSTRAINTS.
+- After a take, measure sharpness in the in-focus band against the source at the same scale and report the numbers.
+- Seedance copies the source's image quality. Check a 1:1 crop of the source first; if it is soft or compressed (the step-down source was an upscaled 9 Mbit/s copy), (a) clean it before upload: `ffmpeg -vf "hqdn3d=1.5:1.5:4:4,cas=0.7,unsharp=5:5:0.6:5:5:0" -crf 12` roughly doubled the in-focus Laplacian variance without halos, and (b) in the @video1 mapping write that it is a soft compressed copy, motion and camera only, and that detail and sharpness come from the image references.
+- A 1080p source edited at 720p is softer just by resolution. When the take is otherwise approved, offer a Topaz upscale (`topaz_video`, 1080p/2160p) of that take; otherwise offer the next take at 1080p.
+
 ## Prompt formula (worked on multi-shot footage)
 
 1. ASSET MAPPING: one line per input. Each answers: whose is it, what exactly is taken from it, what must NOT be inherited.
@@ -95,7 +119,25 @@ Rules:
 - Quantities: give numbers and size per shot type. "Many books on the shelf" was ignored; "at least twelve thick hardback books standing upright", written separately for low-angle shots, close-ups and wide shots, came out as a full shelf.
 - When a result is close and the user lists what was missed, strengthen exactly those points in the same prompt and keep the rest; do not switch to another workflow (second pass, splitting, recoloring the source) unless the user asks.
 
-## Per-shot character lock
+## Persona face and costume: never rely on the tag alone (user's standing rule)
+
+Past case: Typical failure: a mapping line says only "face, hair and build AND outfit exactly as in this reference (@ref-A)". Seedance keeps the source actor's own hair, facial hair, shirt and shoes, so the character looks nothing like the reference and does not match the costume. When the source actor resembles the character, the model treats the existing face as "close enough".
+
+- Write the persona look out in full in the mapping line: hair, facial hair, scars or marks, every garment, shoes, gloves. Name the source actor's differing features as negatives ("never a moustache, cropped hair, green polo shirt, brown boots").
+- Attach one full-body costume image as its own `@img-N` next to the tag. Find one in the project (`references/<persona>`, stills, posters) and crop it if needed.
+- Generate an approved keyframe of the persona inside the scene plate, in the source pose, and map it first ("how he looks, how big he is, how the light falls on him; never its pose").
+- Start the mapping with "The man in @vid-1 is replaced completely by <name>".
+
+## Change requests: parse per character, read back before generating (user's standing rule)
+
+Requests often arrive without punctuation. A request like "make the hat a bigger umbrella a striped one" meant "make the hat bigger (Character A keeps it), change the umbrella to a striped one (Character B)". If it is read as "replace A's hat with a big striped umbrella", every image generated on that reading is wasted. The skill had no check for this.
+
+1. Split the sentence into change units at every noun + "to": `X → Y`. If a unit can attach to the previous or the next word ("a bigger umbrella a striped one"), list every possible reading.
+2. Map each unit to the cast table: who holds or wears the object now (from the confirmed cast and props). A change that moves an object to a different character, removes a character's signature prop or gives two people the same prop is suspicious. Prefer the reading where every character keeps one distinct object.
+3. Before any generation or prompt rewrite, write one read-back line per character: "A: hat → bigger hat · B: plain umbrella → striped · C: no change". If two readings remain, ask one question with both options. Do not generate on a guess.
+4. After the user confirms, put the final mapping into the mapping lines and into GLOBAL CONSTRAINTS as negatives ("B's umbrella is striped only, no plain umbrella").
+
+## Per-shot character lock (user's standing rule)
 
 Same actors often play several characters in the source, and the model mixes up who is who, what they wear and where they look. In every prompt:
 
@@ -106,14 +148,14 @@ Same actors often play several characters in the source, and the model mixes up 
 - Every shot line states the eye line: into the lens only in a point-of-view shot from another character's eyes; otherwise say where he looks (below the lens, off to the side at X, up, away from the camera) and add "never into the lens". Check the source frames for the real eye direction and follow the user's corrections.
 - When the user wants a different framing than the source (for example "wider, medium shot"), write it in that shot line ("medium shot, waist up, wider than in @vid-N") instead of "exactly as in".
 - Props that carry over between parts (a stool, a suitcase) are described with the same words in every part, with their state ("the white wooden stool Character B sat on, now knocked over on its side").
-- One actor shot every role separately (each shot has one person) but they share one place (a group in one room): add a "GROUP IN FRAME" line to every block — the named person stays the sharp main subject exactly as in @vid-1; the others appear at the sides of the frame, a step behind, partly cut and slightly out of focus, reacting quietly, never covering the main subject; in close shots only a shoulder or a hand at the very edge. Keep the fixed left/center/right order from an approved layout keyframe, and replace "one person per shot" in the constraints with "the named person is the main subject; the others only at the sides; each appears once".
 - Dialogue from an SRT: subtract the timeline offset (01:00:00), check onsets against audio pauses (`silencedetect`), assign each line to the speaker by the shot it falls in.
+- One actor shot every role separately (each shot has one person) but they share one place (a group in one room): add a "GROUP IN FRAME" line to every block — the named person stays the sharp main subject exactly as in @vid-1; the others appear at the sides of the frame, a step behind, partly cut and slightly out of focus, reacting quietly, never covering the main subject; in close shots only a shoulder or a hand at the very edge. Keep the fixed left/center/right order from an approved layout keyframe, and replace "one person per shot" in the constraints with "the named person is the main subject; the others only at the sides; each appears once".
 
-## Light match: characters lit exactly like the location
+## Light match: characters lit exactly like the location (user's standing rule)
 
 Character references are usually studio sheets (flat even light, grey background). Seedance carries that light into the shot, so the people look pasted onto the location. Generic words like "warm light" do not fix it. Every prompt that puts characters into a location plate gets a measured LIGHT MATCH.
 
-1. **Location plates first.** All zone plates of one scene must show the same room in the same state (same backdrop, same lights); a plate that still shows an old version of the room (e.g. an old backdrop behind the table) gives the model two conflicting setups. Fix plates before writing prompts. Prefer realistic, lived-in plates over glossy cinematic ones; glossy over-lit plates read as unreal.
+1. **Location plates first.** All zone plates of one scene must show the same room in the same state (same backdrop, same lights); a plate that still shows an old version of the room (e.g. a black curtain behind the table) gives the model two conflicting setups. Fix plates before writing prompts. Prefer realistic, lived-in plates over glossy cinematic ones; glossy over-lit plates read as unreal.
    Pick ONE canonical version of each recurring set piece (for example a counter) and rebuild every other plate from it: generate the master with "the counter must be EXACTLY the counter in image N, identical in every detail, just seen from this angle", then edit each zone plate keeping its camera angle and swapping only that set piece. Check with a side-by-side sheet of all plates (and the keyframe) before writing prompts; without this check the plates of one room can show three different versions of the set piece (position, shape, light count).
 2. **Inventory the plate's light** by looking at it and measuring it (crop average per region):
    ```bash
@@ -123,27 +165,9 @@ Character references are usually studio sheets (flat even light, grey background
 3. **Mapping:** each character reference line says "face, hair and clothes exactly as in this reference — never its light, background or colour"; the location plate line says "take its light and photographic style".
 4. **LIGHT MATCH — CRITICAL block** (after the look lock): "Relight every person with the exact light of @img-N; take nothing of the light from the character references." Then the sources as a numbered list, "only these, nothing else", the exposure relations from the measurements in plain words, the colour cast (whites read warm cream, blacks stay warm-dark), contact shadows on the floor and on the wall behind, and "grain, noise and sharpness on the people identical to the background".
 5. **Per shot:** one short light line naming where the key hits that person in that shot ("the overhead par light on his hair and shoulders, eye sockets in soft shadow").
-6. **Keyframe:** generate and approve a still of the characters inside the plate first (characters full-body references, not head portraits — a head-portrait reference makes the model paste the person oversized in front of the set); attach it as "@img-N = how the light falls on the people and how big they are; never its framing".
+6. **Keyframe:** generate and approve a still of the characters inside the plate first (characters full-body references, not head portraits — a head-portrait reference makes the model paste the person oversized in front of the set twice); attach it as "@img-N = how the light falls on the people and how big they are; never its framing".
 7. **Negatives:** no flat or studio lighting, no grey studio background, no rim or back light the plate does not have, no cool fill, no light from the camera side, no glow.
 8. **Verify:** crop a face and the nearby background in the result and compare their RGB relation with the plate/keyframe numbers; report it.
-
-## Persona face and costume: never rely on the tag alone
-
-Typical failure: a mapping line says only "face, hair and build AND outfit exactly as in this reference (@ref-A)". Seedance keeps the source actor's own hair, facial hair, shirt and shoes, so the character looks nothing like the reference and does not match the costume. When the source actor resembles the character, the model treats the existing face as "close enough".
-
-- Write the persona look out in full in the mapping line: hair, facial hair, scars or marks, every garment, shoes, gloves. Name the source actor's differing features as negatives ("never a moustache, cropped hair, green polo shirt, brown boots").
-- Attach one full-body costume image as its own `@img-N` next to the tag. Find one in the project (`references/<persona>`, stills, posters) and crop it if needed.
-- Generate an approved keyframe of the persona inside the scene plate, in the source pose, and map it first ("how he looks, how big he is, how the light falls on him; never its pose").
-- Start the mapping with "The man in @vid-1 is replaced completely by <name>".
-
-## Change requests: parse per character, read back before generating
-
-Users write fast, often without commas. A request like "make the hat a bigger umbrella a striped one" meant "make the hat bigger (Character A keeps it), change the umbrella to a striped one (Character B)". If it is read as "replace A's hat with a big striped umbrella", every image generated on that reading is wasted.
-
-1. Split the sentence into change units at every noun + "to": `X → Y`. If a unit can attach to the previous or the next word, list every possible reading.
-2. Map each unit to the cast table: who holds or wears the object now (from the confirmed cast and props). A change that moves an object to a different character, removes a character's signature prop or gives two people the same prop is suspicious. Prefer the reading where every character keeps one distinct object.
-3. Before any generation or prompt rewrite, write one read-back line per character: "A: hat → bigger hat · B: plain umbrella → striped · C: no change". If two readings remain, ask one question with both options. Do not generate on a guess.
-4. After the user confirms, put the final mapping into the mapping lines and into GLOBAL CONSTRAINTS as negatives ("B's umbrella is striped only, no plain umbrella").
 
 ## Higgsfield tool choice
 

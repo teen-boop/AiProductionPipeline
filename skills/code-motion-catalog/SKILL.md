@@ -1,6 +1,6 @@
 ---
 name: code-motion-catalog
-description: Catalog and kit for impressive 3D motion graphics built in code with three.js (no generator credits, the exact product every frame, film look from accumulation rendering, synthesized sound). Holds style cards with what makes each style work and its pitfalls, ready sample styles (Studio Product hero film, Split-Flap Board, Layer Stack explainer), the STAGE and SOUND kits, a player, a headless-Chrome renderer (storyboard stills and MP4 with sound) and a score template for longer edits. Use when the user wants a product hero shot or lock-up, a numbers or ranking board, a layered "how it works" explainer, a 3D chapter inside a presentation or an ad, when the user pastes a three.js style reference to learn from, or when animation-project-manager asks for a code animation. Triggers - 3D product animation, three.js motion graphic, studio product shot, split-flap board, layer stack, explainer in 3D, add this animation style to the catalog.
+description: Catalog and kit for impressive 3D motion graphics built in code with three.js (no generator credits, the exact product every frame, film look from accumulation rendering, synthesized sound). Holds style cards with what makes each style work and its pitfalls, ready sample styles (Studio Product hero film, Split-Flap Board, Layer Stack explainer, Pass Explode, Lens Portal transition, Glass UI Explainer), the STAGE and SOUND kits, a player, a headless-Chrome renderer (storyboard stills and MP4 with sound) and a score template for longer edits. Use when the user wants a product hero shot or lock-up, a numbers or ranking board, a layered "how it works" explainer, a shot opened into its render passes, a transition from footage into the product's lens, a software walkthrough in 3D, a 3D chapter inside a presentation or an ad, when the user pastes a three.js style reference to learn from, or when animation-project-manager asks for a code animation. Triggers - 3D product animation, three.js motion graphic, studio product shot, split-flap board, layer stack, render passes, lens portal, glass UI, explainer in 3D, add this animation style to the catalog.
 ---
 
 # Code motion catalog
@@ -27,7 +27,8 @@ description: Catalog and kit for impressive 3D motion graphics built in code wit
 
 ## Workflow
 1. **Pick the style** from the catalog by what the beat must do: one product and one claim -> Studio Product; a list,
-   ranking or numbers -> Split-Flap; a process or a stack -> Layer Stack.
+   ranking or numbers -> Split-Flap; a process or a stack -> Layer Stack; "what is inside this shot" -> Pass Explode;
+   footage or UI into the product -> Lens Portal; how the software works -> Glass UI Explainer.
 2. **Content block first:** finishes and profile from the product reference, rows or layers, copy, the schedule.
    Facts and numbers need a source; otherwise say what happens, not how much.
 3. **Storyboard:** `node render.mjs stills ...` 3-6 stills, notes per beat (time, exact text, what moves, camera, sound),

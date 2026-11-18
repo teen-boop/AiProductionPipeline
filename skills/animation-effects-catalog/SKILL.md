@@ -43,6 +43,7 @@ For a 3D product hero, a numbers board or a layered explainer built in three.js 
 2. Identify what the shot must *feel* like (speed, weight, wonder, comedy, fear, tenderness) → pick from sections B–F.
 3. Identify the **workflow mode** (text-to-video, start-frame image-to-video, video-to-video recast, placeholder/blocking video, multi-scene edit) → section G.
 4. Close with the matching **negative block** template → section H.
+   For an animation built in code (HyperFrames, three.js: logo stings, launch films, explainers) use section I and the full briefs in `motion-graphics-director/references/HYPERFRAMES-BRIEFS.md`.
 5. Write the chosen tricks into the prompt as concrete sentences in the right spine slot (ASSETS, CAMERA, ACTION, PHYSICS, ACTING, AUDIO, LOCKS) — never as a disconnected tag list.
 
 ## How to grow the catalog ("learn from this prompt")

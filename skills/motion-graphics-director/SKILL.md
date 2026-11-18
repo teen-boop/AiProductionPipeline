@@ -87,6 +87,8 @@ Title rules that held in tests on new projects:
 
 `references/PROMPT-LIBRARY.md` — 46 composable blocks in 9 groups (ING, CAM, ENT, VAL, ANN, FIN, TRN, AUD, QA), plus 5 assembled combos and a compatibility matrix.
 
+`references/HYPERFRAMES-BRIEFS.md` — complete sectioned briefs for HyperFrames films: the eight sections (PRODUCT, STORY, FORMAT, LOOK, MOTION, SOUND, QUALITY CHECK, RULES), a 20 s launch film, a 6 s logo animation (the animation becomes the logo), logo variants, a let-the-model-invent idea block, a brief-writer prompt, a blank template, 20 style briefs (STY-01 particles to STY-20 neo-brutalism) and binding notes for our projects. Start any logo sting, launch film or styled explainer from it; pick a style by ID. Card page with search and copy buttons: `assets/hyperframes-briefs.html`, rebuilt by `python3 scripts/briefs_page.py` after every change to the briefs file (open it for the user with `open`).
+
 `references/BOARD-RECIPES.md` covers narration-aligned explainer boards on the CODE route:
 - the seek contract;
 - graphics locked to the voice (in-time = start of the naming word, minimum time on screen, motion tokens);

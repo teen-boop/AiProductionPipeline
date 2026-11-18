@@ -15,7 +15,7 @@ description: >-
   or resuming a visual-production project, or when it's unclear which skill
   in this bundle applies to the current request. Triggers on which skill do
   I need, project pipeline, what's next for this project, start a new
-  visual project, production pipeline.
+  visual project, production pipeline. Also runs the WHOLE pipeline for one project (full run, from brand link to results), with approval gates, a progress report and post-launch ad results. Triggers on run the full pipeline, full run, from link to final.
 ---
 
 # AI Visual Production Director
@@ -193,6 +193,53 @@ exists)
   package them into one interactive, checkbox-per-clip production tracker —
   a delivery/tracking layer only; it never writes or simplifies prompt
   content, it packages what the video-prompt skill already produced.
+
+## Full run — one project from link to results
+
+Use this when the user asks to run the whole pipeline. Every stage below uses the skills already named in this file; this section only fixes the order, the gates and the reports. One project at a time, inside its own folder.
+
+### Start (ask once, in one message)
+
+1. The brand link or the project, the goal (trial, sale, awareness), the platforms and aspects, the deliverables (how many ads, how long, which languages), the deadline.
+2. The **delivery target**: platform and loudness (for example Reels at -14 LUFS). It is used by the sound mix and the package.
+3. Then run `project-scaffold`, write the answers to `00_BRIEF/BRIEF.md`, and run `generation-backend-setup` (below).
+
+### Gates — stop and wait for the user's yes
+
+| Gate | After | What the user sees |
+|---|---|---|
+| `brief` | the brief | one paragraph: goal, audience, deliverables, delivery target, budget |
+| `research` | `ad-research-glossary` | audience categories, top pains, the do-not-say list |
+| `script` | `ad-copy-director` + `ad-script-writer` | one script per chosen category |
+| `refs` | cast, location and look references | the locked references; nothing is animated before this yes |
+| `frames` | a test batch of 7 to 8 keyframes | the test batch, checked; then the rest |
+| `video` | video prompts, before any paid generation | the clip list with the cost of each |
+| `cut` | the timeline | the cut with titles and sound |
+| `delivery` | the encoded-file check | the files, their checks, the package |
+
+Record each yes with `scripts/pipeline_status.py --project <dir> --approve <gate>`. Never start the next stage on silence.
+
+### Analytics, three kinds
+
+1. **Before the work:** `ad-research-glossary` (the research gate above).
+2. **During the work:** `scripts/pipeline_status.py --project <dir>` writes `PIPELINE_STATUS.md`: every stage, what it produced, which gate waits, and the generations and cost read from `GENERATION_LOG.jsonl`. Run it after every stage and show the user the "Next" line. Every generation is logged with `generation-log`, or the cost line stays empty.
+3. **After launch:** the ad results. With the ads running, use the listening app's ad tracker (`listen` skill, "Ad tracker"): KILL / WATCH / SCALE per ad, the drop-off second and the fix. Write the verdicts to `07_POSTING/RESULTS_<date>.md`, and feed what won back into the glossary (proof bank, best hook per category) for the next round.
+
+### Images and video — decided per project
+
+`generation-backend-setup` asks how this project will generate; never assume the last project's answer. Recommend, and let the user choose:
+
+| Situation | Recommendation |
+|---|---|
+| A free or unlimited image tool is connected | Generate references and keyframes there; it is slow, so run in the background and report what is pending |
+| Video costs credits | Write the video prompts and a manual pack; generate only after the `video` gate, with the cost per clip stated |
+| The user prefers to generate by hand | `manual-image-pack` for stills, the shotlist tracker for clips; collect the results back into `03_GENERATED` and log them |
+| The piece is pure motion graphics (text, product screens, the brand's own photos) | No generation: build on the CODE route (`motion-graphics-director`) with the brand's own images |
+| Real people or a real product must look exact | The brand's or the user's own photos as locked references; generated faces never stand next to a real name |
+
+### Order
+
+Brief → backend → research → texts → script → references → keyframes → video → titles → sound → edit → encoded-file check → finals → delivery → results. For a piece rendered as one motion-graphics file, sound comes right after the titles render (see Phase 7).
 
 ## Ads and commercials — the entry before Phase -1
 

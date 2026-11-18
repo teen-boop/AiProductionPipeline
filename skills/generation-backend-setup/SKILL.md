@@ -50,6 +50,8 @@ Also ask:
 
 If MCP tools for image or video generation are already visible in this session, mention them as option 3.
 
+Then **recommend for this project**, in one or two lines, before the user answers: what this project needs (stills only, video, exact real faces or products, pure motion graphics), what is free versus paid, and which option fits. The answer is recorded per project in `pipeline.config.json`; a previous project's choice is never carried over. Video that costs credits is generated only after the user approves the clip list and its cost.
+
 ## Step 2a — CLI / API / Connector
 
 1. **Credentials — non-negotiable rules:**
