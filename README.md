@@ -93,7 +93,7 @@ The director skill (`ai-visual-production-director`) takes it from there:
 
 ## Skills
 
-84 skills in 12 stages. Skills with a `scripts/` file do the mechanical work in code; the rest are instructions Claude follows.
+90 skills in 12 stages. Skills with a `scripts/` file do the mechanical work in code; the rest are instructions Claude follows.
 
 <a id="01-setup"></a>
 ### 01 · Project setup
@@ -103,6 +103,7 @@ One project folder, a brief with the deliverables, a backend that can generate (
 - **`ai-visual-production-director`**: Entry point. Works out which phase a request belongs to and runs the right skills in order, or runs a whole project from brief to results with approval gates.
 - **`generation-backend-setup`**: Connects a CLI, API or MCP backend safely (keys stay in environment variables, the connection is tested) or switches to manual mode.
 - **`project-scaffold`**: Creates the standard project tree (00_BRIEF … 99_ARCHIVE) with PROJECT.json and a brief template; only adds what is missing, `--check` audits a messy project. `scripts/scaffold.py`
+- **`preproduction-setup-check`**: Before anything is generated, extracts every scene's location, time, light, characters, wardrobe, props and references from the script into one SETUP manifest and reports what is still missing.
 - **`visual-story-pipeline`**: The whole fixed 8-step track as one umbrella skill with its reference library (taxonomy, script structures, prompt engineering, character lock, platforms, QC).
 - **`visual-story-1-setup`**: Step 1 of the 8-step track: inspects the references, assigns roles, fixes aspect ratio and resolution.
 
@@ -135,6 +136,7 @@ A finished script, with every scene's places, people and props pulled out of it.
 Every reference sorted and given a job: look, face, room, prop. Characters locked before any shot.
 
 - **`reference-library-organizer`**: Sorts references into EXTERNAL (look only, never shipped), INTERNAL (LOCKED or CANDIDATES), PROMPTS and PERSONAL (indexed in place, never copied); classifies by eye from contact sheets; leak check before anything leaves. `scripts/refs.py`
+- **`reference-map-builder`**: One REFERENCE MAP for a task: which reference controls the look, the camera and edit, the titles, the hero, location and props; project material first, then current trends.
 - **`reference-style-builder`**: Learns the look from the project's own references and writes a measured style card (palette in hex, light, lens, grain), then builds the reference set in order, each with a role line.
 - **`character-identity-lock-setup`**: Locks a character's face across every age, stage and shot.
 - **`detail-reference-intake`**: Catalogues new detail screenshots (hands, props, wardrobe) into the reference index.
@@ -210,6 +212,8 @@ Material in editor bins, a cut on the timeline, dialogue, music and grade finish
 - **`edit-media-bins`**: Copies generated clips, stills, audio, graphics and cut plans into editor bins ordered by shot; flags clips with a different size or fps. `scripts/edit_bins.py`
 - **`nle-timeline-assembly`**: One validated cut plan built in DaVinci Resolve or Premiere Pro (MCP) or exported as EDL + CSV. `scripts/cutplan_to_edl.py`
 - **`davinci-series-assembly`**: Finished parts back to back on a new Resolve timeline with a marker per part.
+- **`ad-reference-edit-library`**: An edit library from reference ads: shots, confirmed transitions with AI recipes, edit rhythm per film, shot tags, an HTML library and Resolve library timelines. `scripts/edit_library.py`
+- **`reference-rough-cut`**: The reel cut first from reference shots, then one generation slot per shot with frames, reference motion and transitions. `scripts/rough_cut.py`
 - **`dialogue-cut`**: The best reading of every script line from several takes, scored, frame-snapped into a candidate cut. `scripts/take_select.py`
 - **`dialogue-audio-finish`**: Speech edges measured at 1 ms, room tone, fades, level match, ducking and the loudness pass. `scripts/edge_qa.py`
 - **`music-beat-grid`**: Measured beat grid, splices to length on beats, cut sheet checked against the grid. `scripts/beat_grid.py`
@@ -250,6 +254,8 @@ A side track: films, trailers, posters, presentations and motion graphics made f
 - **`motion-design-references`**: Motion reference library and how to read it.
 - **`motion-remotion-build`**: Builds motion graphics in Remotion code.
 - **`motion-video-route`**: Motion graphics through video models (collage, camera moves, big blocks).
+- **`code-motion-catalog`**: 3D motion graphics in code with three.js, no generation credits: Studio Product, Split-Flap Board, Layer Stack, Pass Explode, Lens Portal and Glass UI styles, with a stage and sound kit, a player and a headless renderer to MP4 with sound. `kit/render.mjs`
+- **`animation-project-manager`**: Plans the animation layer of a video: picks the best animation per beat from the catalogs, sets the rhythm and sound, writes one plan, routes the builds and checks the result.
 
 ---
 
